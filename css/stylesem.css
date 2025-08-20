@@ -111,4 +111,71 @@ body {
     color: #FF6600;
     text-decoration: none;
 }
+
+
+#logoHeader {
+    display: flex;
+    align-items: center;
+}
+
+.headerClass {
+    display: flex;
+    flex-direction: column;
+    background-color: #F89E59;
+}
+
+.barraBusqueda {
+    background-color: #FF6D1F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% ;
+    column-gap: 10px;
+    border-bottom: 1px solid #9E6622;
+}
+/* .barraBusqueda img {
+    width: 100px;
     
+} */
+
+#buscador {
+    display: flex;
+    width: 800px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+}
+
+#carrito {
+    margin: 10px;
+    width: 60px;
+}
+
+#emercado {
+    width: 115px;
+}
+.barraNavegacion {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.barraNavegacion ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    justify-content: left;
+    padding-left: 10px;
+    /* height: 2px; */
+    column-gap: 14px;
+    margin: 8px;
+}
+
+/* .barraNavegacion li {
+    padding-inline: 10px;
+} */
+
+.barraNavegacion li a {
+    list-style-type: none;
+    color: #ffff;
+    text-decoration: none;
+}
