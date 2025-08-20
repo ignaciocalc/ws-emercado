@@ -56,7 +56,7 @@ body {
     width: 92%;
     padding: 10px;
     margin: 8px 0;
-    border: 2px solid #E17C7A;
+    border: 2px solid #de514e;
     border-radius: 5px;
 }
 
@@ -64,26 +64,30 @@ body {
    display: flex; 
    flex: content;
    justify-content: flex-start; 
-   align-items: center;
    margin-top: 10px;
+   font-size: 11pt;
 }
 
-
+.checkPer label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
+    color: #000000;
+}
 /* TODO arreglar la alineación vertical*/
 .checkPer input{
    display: inline; 
    margin-right: 5px;
-}
-
-.claseInput {
-   display: none;
+   vertical-align: middle;
 }
 
 .claseError {
+   display: none;
    margin: 0px;
    font-size: 10pt;
    text-align: start;
-   color: #E17C7A;
+   color: #de514e;
 }
 
 .formulario button {
