@@ -3,6 +3,8 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/*---------------Login---------------*/
+
 .container {
     display: flex;
     height: 100vh;
@@ -10,7 +12,7 @@ body {
 
 /*control de estilos parte izquierda*/
 #izq {
-    flex: 1;                    /* divide el flex a la mitad de la pantalla*/
+    flex: 1;
     background-color: #ff6d1f;
     display: flex;
     justify-content: center;
@@ -75,7 +77,7 @@ body {
     line-height: 1;
     color: #000000;
 }
-/* TODO arreglar la alineación vertical*/
+
 .checkPer input{
    display: inline; 
    margin-right: 5px;
@@ -90,36 +92,24 @@ body {
    color: #de514e;
 }
 
-.formulario button {
-    width: 100%;
-    padding: 10px;
-    background: #FF6600;
-    border: none;
-    color: white;
-    font-size: 16px;
+#ingresarLogin {
     margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}   
-
-.formulario button:hover {
-    background: #e65c00;
+    width: 100%;
 }
 
 #extra {
    margin-top: 15px;
    font-size: 15px;
-}   
-    
-#extra a {
-    color: #FF6600;
-    text-decoration: none;
 }
+/*---------------Fin Login---------------*/
 
+/*---------------Hedear---------------*/
+/*----------Seccion Superior----------*/
 
 #logoHeader {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .headerClass {
@@ -132,20 +122,35 @@ body {
     background-color: #FF6D1F;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100% ;
-    column-gap: 10px;
+    justify-content: space-between;
+    padding: 0 10px;
     border-bottom: 1px solid #9E6622;
 }
-/* .barraBusqueda img {
-    width: 100px;
-    
-} */
+
+.barraBusqueda a{
+    text-decoration: none;
+}
+
+#botonesHead {
+    display: flex;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+#ingresarHead {
+    display: flex;
+    align-items: flex-end; 
+    border: 2px solid #F89E59; 
+    width: 120px;
+    justify-content: space-between;
+}
 
 #buscador {
-    display: flex;
-    width: 800px;
-    height: 20px;
+    flex: auto; 
+    min-width: 1000px;
+    width: 60vw;
+    margin: 0 20px;
+    height: 30px;
     border-radius: 5px;
     border: 2px solid #ddd;
 }
@@ -158,6 +163,9 @@ body {
 #emercado {
     width: 115px;
 }
+/*----------FIN Seccion Superior----------*/
+
+/*----------Seccion Inferior----------*/
 .barraNavegacion {
     display: flex;
     flex-wrap: wrap;
@@ -169,17 +177,33 @@ body {
     justify-content: space-around;
     justify-content: left;
     padding-left: 10px;
-    /* height: 2px; */
     column-gap: 14px;
     margin: 8px;
 }
-
-/* .barraNavegacion li {
-    padding-inline: 10px;
-} */
 
 .barraNavegacion li a {
     list-style-type: none;
     color: #ffff;
     text-decoration: none;
 }
+/*----------FIN Header----------*/
+
+/*----------Comienzo Products.html----------*/
+
+.mainProducts {
+    display: flex;
+    height: 86vh;
+}
+
+#filtros {
+    padding: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 200px;
+}
+
+#contenedorItem {
+    flex-grow: 1;
+}
+
+/*----------Fin Products.html----------*/
