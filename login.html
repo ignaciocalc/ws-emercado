@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - eMercado</title>
     <link rel="stylesheet" href="css/stylesem.css">
+    <link rel="stylesheet" href="css/stylestock.css">
+    <script src="js/login.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -19,19 +21,19 @@
                 <img src="img/Logo_eMercado.png" alt="Logo">
                 <h2>¡Bienvenido!</h2>
                 <div id="loginForm">
-                    <input class="camposInput" type="text" id="usuario" placeholder="Ingresar usuario">
-                    <p class="claseInput">El campo no puede estar vacío </p>
+                    <input class="camposInput" type="text" id="user" placeholder="Ingresar usuario">
+                    <p class="claseError">El campo no puede estar vacío </p>
                     <input class="camposInput" type="password" id="password" placeholder="Ingresar contraseña">
-                    <p class="claseInput">El campo no puede estar vacío </p>
+                    <p class="claseError">El campo no puede estar vacío </p>
                     <div class="checkPer"> 
-                        <label>
-                            <input type="checkbox" id="recordar"/> Recuerdame
+                        <label id="labelCheck">
+                            <input type="checkbox" id="checkRecordar"/> Recuerdame
                         </label>
                     </div>
-                    <button type="submit">Ingresar</button>
+                    <button class="button" id="ingresarLogin" type="submit">Ingresar</button>
                 </div>
                 <div id="extra">
-                    ¿No tiene cuenta? <a href="registro.html">Registrarse</a>
+                    ¿No tiene cuenta? <a class="link">Registrarse</a>
                 </div>
             </div>
         </div>
