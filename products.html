@@ -26,7 +26,7 @@
       <input id="buscador" type="text" placeholder="  Buscar">
 
       <div id="botonesHead">
-        <button id="ingresarHead" class="button">Ingresar <img src="img/pruebaUser.svg"></button>
+        <a href="login.html"><button id="ingresarHead" class="button">Ingresar <img src="img/pruebaUser.svg"></button></a>
       </div>
     </div>
     <!-- aca va inicio/categorias/vender -->
@@ -45,30 +45,15 @@
     </div>
   </header>
 
-  <main class="pb-5 container">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+  <main class="mainProducts">
+    <article id="filtros" style="background-color: #E0DEDE;">
+      Filtros
+    </article>
+    <article id = "contenedorItem">
+      Aca va lista de productos
+    </article>
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>

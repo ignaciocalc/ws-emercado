@@ -3,6 +3,8 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/*---------------Login---------------*/
+
 .container {
     display: flex;
     height: 100vh;
@@ -10,7 +12,7 @@ body {
 
 /*control de estilos parte izquierda*/
 #izq {
-    flex: 1;                    /* divide el flex a la mitad de la pantalla*/
+    flex: 1;
     background-color: #ff6d1f;
     display: flex;
     justify-content: center;
@@ -75,7 +77,7 @@ body {
     line-height: 1;
     color: #000000;
 }
-/* TODO arreglar la alineación vertical*/
+
 .checkPer input{
    display: inline; 
    margin-right: 5px;
@@ -99,6 +101,7 @@ body {
    margin-top: 15px;
    font-size: 15px;
 }
+/*---------------Fin Login---------------*/
 
 /*---------------Hedear---------------*/
 /*----------Seccion Superior----------*/
@@ -122,6 +125,10 @@ body {
     justify-content: space-between;
     padding: 0 10px;
     border-bottom: 1px solid #9E6622;
+}
+
+.barraBusqueda a{
+    text-decoration: none;
 }
 
 #botonesHead {
@@ -180,3 +187,23 @@ body {
     text-decoration: none;
 }
 /*----------FIN Header----------*/
+
+/*----------Comienzo Products.html----------*/
+
+.mainProducts {
+    display: flex;
+    height: 86vh;
+}
+
+#filtros {
+    padding: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 200px;
+}
+
+#contenedorItem {
+    flex-grow: 1;
+}
+
+/*----------Fin Products.html----------*/
