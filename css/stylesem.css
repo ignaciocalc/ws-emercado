@@ -193,9 +193,9 @@ body {
     width: 115px;
 }
 
-/*----------FIN Seccion Superior----------*/
 
-/*----------Seccion Inferior----------*/
+/*----------FIN Seccion Superior----------*/
+  /*----------Seccion Inferior----------*/
 .barraNavegacion {
     display: flex;
     flex-wrap: wrap;
@@ -222,7 +222,6 @@ body {
 
 .mainProducts {
     display: flex;
-    height: 86vh;
 }
 
 #filtros {
@@ -230,10 +229,91 @@ body {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 200px;
+    z-index: 10;
+    height: 80vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#filtros lu {
+    list-style-type: none;
 }
 
 #contenedorItem {
     flex-grow: 1;
+}
+
+.card {
+    display: flex;
+    border-top: none;
+    border-bottom: solid 1px rgb(186, 185, 185);
+    max-width: 3000px;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.card-img {
+    padding: 10px;
+    width: 350px;   
+    border-radius: 15px;
+    
+}
+
+.card:hover{
+    transform: scale(1.0092);
+    padding-left: 5px;
+}
+
+.card:hover h1{
+    color:#ff6d1f;
+}  
+
+.card-cuerpo {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 4
+    
+}
+
+.card-cuerpo h1{
+    margin-top: 12px;
+    font-size: 45px;
+    margin-bottom: 0;
+}
+
+
+
+.card-cuerpo #cantVendidos{
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+
+
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding-right: 5px; 
+}
+
+.card-precio {
+    align-self: center;
+    font-size: 28px;
+    margin: 6px;
+}
+
+.card-boton {
+    align-self: center;
+}
+
+.card-boton:hover{
+    transform: scale(1.02);
 }
 
 /*----------Fin Products.html----------*/
