@@ -83,13 +83,6 @@ body {
 
 /*---------------Hedear---------------*/
 /*----------Seccion Superior----------*/
-
-#logoHeader {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
 .headerClass {
     display: flex;
     flex-direction: column;
@@ -105,9 +98,31 @@ body {
     border-bottom: 1px solid #9E6622;
 }
 
+#logoHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#emercado {
+    width: 115px;
+}
+
 .barraBusqueda a{
     text-decoration: none;
 }
+
+
+#buscador {
+    flex: auto; 
+    min-width: 1000px;
+    width: 60vw;
+    margin: 0 20px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+}
+
 
 /* botones del head */
 
@@ -152,23 +167,9 @@ body {
 }
 /* Fin botones del head */
 
-#buscador {
-    flex: auto; 
-    min-width: 1000px;
-    width: 60vw;
-    margin: 0 20px;
-    height: 30px;
-    border-radius: 5px;
-    border: 2px solid #ddd;
-}
-
 #carritoeMercado {
     margin: 10px;
     width: 60px;
-}
-
-#emercado {
-    width: 115px;
 }
 
 
@@ -228,8 +229,6 @@ body {
     max-width: 3000px;
     font-family: Arial, sans-serif;
 }
-
-
 
 .card-img {
     padding: 10px;
