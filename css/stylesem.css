@@ -62,28 +62,6 @@ body {
     border-radius: 5px;
 }
 
-.checkPer {
-   display: flex; 
-   flex: content;
-   justify-content: flex-start; 
-   margin-top: 10px;
-   font-size: 11pt;
-}
-
-.checkPer label {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    line-height: 1;
-    color: #000000;
-}
-
-.checkPer input{
-   display: inline; 
-   margin-right: 5px;
-   vertical-align: middle;
-}
-
 .claseError {
    display: none;
    margin: 0px;
