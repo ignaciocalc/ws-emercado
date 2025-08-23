@@ -13,7 +13,7 @@ boton.addEventListener('click', function(){
 
    if (usuario.value != "" && contraseña.value != "") {
       localStorage.setItem("user", usuario.value);
-      window.location.href = "../index.html";
+      window.location.href = "index.html";
    } else {
       if (usuario.value == "") {
          usuario.classList.replace("camposInput", "camposError");
