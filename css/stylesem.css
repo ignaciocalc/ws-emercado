@@ -131,10 +131,14 @@ body {
     text-decoration: none;
 }
 
+/* botones del head */
+
 #botonesHead {
     display: flex;
     justify-content: center;
-    padding: 0 30px;
+    align-items: center;
+    padding-right: 10px; /*30px para 3 botones*/
+    /* gap: 12px  agregado para 3 botones*/
 }
 
 #ingresarHead {
@@ -144,6 +148,31 @@ body {
     width: 120px;
     justify-content: space-between;
 }
+
+#datosUser {
+    display: none;
+    align-items: flex-end; 
+    border: 2px solid #F89E59; 
+    width: 120px;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#carritoCompras {
+    display: none;
+    align-items: flex-end; 
+    border: 2px solid #F89E59; 
+    justify-content: space-between;
+}
+
+#logout {
+    display: none;
+    align-items: flex-end; 
+    border: 2px solid #F89E59; 
+    justify-content: space-between;
+}
+/* Fin botones del head */
 
 #buscador {
     flex: auto; 
@@ -155,7 +184,7 @@ body {
     border: 2px solid #ddd;
 }
 
-#carrito {
+#carritoeMercado {
     margin: 10px;
     width: 60px;
 }
@@ -163,6 +192,7 @@ body {
 #emercado {
     width: 115px;
 }
+
 
 /*----------FIN Seccion Superior----------*/
   /*----------Seccion Inferior----------*/
