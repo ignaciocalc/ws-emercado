@@ -191,7 +191,6 @@ body {
 }
 
 .barraNavegacion li a {
-    list-style-type: none;
     color: #ffff;
     text-decoration: none;
 }
