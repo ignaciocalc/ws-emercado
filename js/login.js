@@ -15,7 +15,8 @@ boton.addEventListener('click', function(){
       p.style.display='none';
 
    if (usuario.value != "" && contraseña.value != "" && check.checked) {
-      window.location.href = "../index.html"
+      localStorage.setItem("user", usuario.value);
+      window.location.href = "../index.html";
    } else {
       if (usuario.value == "") {
          usuario.classList.replace("camposInput", "camposError");
