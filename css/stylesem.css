@@ -79,6 +79,82 @@ body {
    margin-top: 15px;
    font-size: 15px;
 }
+
+/*--------------Login Smartphone---------*/
+@media (max-width: 320px) {
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    /*control de estilos parte izquierda*/
+    #izq {
+        display: none;
+    }
+
+    /*control de estilos parte derecha*/
+
+    #der {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formulario {
+        width: 85vw;
+        text-align: center;
+        min-width: 82px;
+    }
+
+    .formulario img {
+        width: 73%;
+        min-width: 81px;
+    }
+
+    .formulario h2 {
+        margin: 0;
+        color: #000000;
+        font-size: clamp(10px, 7.7vw, 24px);
+    }
+
+    .formulario .camposInput {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .formulario .camposError {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 2px solid #de514e;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .claseError {
+        display: none;
+        margin: 0px;
+        font-size: clamp(7pt, 7.7vw, 10pt) ;
+        text-align: start;
+        color: #de514e;
+    }
+
+    #ingresarLogin {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #extra {
+        margin-top: 15px;
+        font-size: clamp(10px, 7.7vw, 15px)
+    }
+}
+
 /*---------------Fin Login---------------*/
 
 /*---------------Hedear---------------*/
