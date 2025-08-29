@@ -1,12 +1,16 @@
 const PRODUCTS_CAT101 = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 let currentProductsArray = [];
 
+let USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
 
 // recorre el listado actual de productos y crea la publicacion
 // con la funcion createItemCard()
 function writeData(){
     for(let i = 0; i < currentProductsArray.length; i++){
-        createItemCard(currentProductsArray[i].name, currentProductsArray[i].description, currentProductsArray[i].cost, currentProductsArray[i].currency, currentProductsArray[i].image, currentProductsArray[i].soldCount);
+        createItemCard(currentProductsArray[i].name, currentProductsArray[i].description, currentProductsArray[i].cost  /*USDollar.format(currentProductsArray[i].cost)*/, currentProductsArray[i].currency, currentProductsArray[i].image, currentProductsArray[i].soldCount);
     }    
 }
 
