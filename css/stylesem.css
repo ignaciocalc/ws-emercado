@@ -10,9 +10,16 @@ body {
     height: 100vh;
 }
 
+#menuBarras {
+    display: none
+}
+
+#botonesCel {
+    display: none;
+}
+
 /*control de estilos parte izquierda*/
-#izq {
-    flex: 1;
+#izq {   flex: 1;
     background-color: #ff6d1f;
     display: flex;
     justify-content: center;
@@ -21,7 +28,9 @@ body {
 }
 
 #izq img {
-   width: 550px;
+   width: 90%;
+   max-width: 35rem;
+   height: auto;
 }
 /*control de estilos parte derecha*/
 
@@ -33,39 +42,49 @@ body {
 }
 
 .formulario {
-    width: 300px;
+    width: 55%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
     text-align: center;
 }
 
 .formulario img {
-    width: 200px;
+    width: 70%;
+    max-width: 12rem;
+    height: auto;
 }
 
 .formulario h2 {
+    font-size: clamp(5px, 2.2vw, 20px);
     margin: 0;
     color: #000000;
 }
 
 .formulario .camposInput {
-    width: 92%;
-    padding: 10px;
-    margin: 8px 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
     border: 2px solid #ddd;
     border-radius: 5px;
 }
 
 .formulario .camposError {
-    width: 92%;
-    padding: 10px;
-    margin: 8px 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
     border: 2px solid #de514e;
     border-radius: 5px;
 }
 
 .claseError {
    display: none;
-   margin: 0px;
-   font-size: 10pt;
+   margin: 0.5rem 0;
+   font-size: 1rem;
    text-align: start;
    color: #de514e;
 }
@@ -73,11 +92,13 @@ body {
 #ingresarLogin {
     margin-top: 10px;
     width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
 }
 
 #extra {
    margin-top: 15px;
-   font-size: 15px;
+   font-size: clamp(5px, 2vw, 16px);
 }
 /*---------------Fin Login---------------*/
 
@@ -236,8 +257,8 @@ body {
     /* display: flex;
     flex: 0 1; */
 }
-/* 
-.card:hover{
+
+/* .card:hover{
     transform: scale(1.0092);
     padding-left: 5px;
 } */
@@ -268,8 +289,6 @@ body {
 }
 
 
-
-
 .card-footer {
     display: flex;
     justify-content: center;
@@ -288,7 +307,7 @@ body {
     align-self: center;
 }
 
-.card-boton:hover{
+/* .card-boton:hover{
     transform: scale(1.02);
 }
 
@@ -352,3 +371,6 @@ body {
 
 
 /*----------Fin Products.html----------*/
+
+
+/*Parte de products*/
