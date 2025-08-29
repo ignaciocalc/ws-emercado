@@ -233,13 +233,14 @@ body {
     padding: 10px;
     width: 350px;   
     border-radius: 15px;
-    
+    /* display: flex;
+    flex: 0 1; */
 }
-
+/* 
 .card:hover{
     transform: scale(1.0092);
     padding-left: 5px;
-}
+} */
 
 .card:hover h1{
     color:#ff6d1f;
@@ -251,7 +252,6 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     flex: 4
-    
 }
 
 .card-cuerpo h1{
@@ -291,5 +291,64 @@ body {
 .card-boton:hover{
     transform: scale(1.02);
 }
+
+#ingresarHeadOculto, #nombre-categorias-tablet {
+    display: none;
+}
+
+#filtros-boton-tablet{
+    display: none;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+@media(max-width: 768px){
+    .barraNavegacion, article#filtros, #botonesHead, img#carritoeMercado {
+        display: none;
+    }
+
+    #buscador{
+        min-width: 0px; /*probablemente haya que arreglarlo en la clase principal*/
+    }
+    
+    #ingresarHeadOculto{
+        display: flex;
+    }
+
+    #nombre-categorias-tablet, #filtros-boton-tablet {
+        display: block;
+    }
+
+    .card-img {
+        height: auto;
+        width: auto;
+        max-width: 33%;
+        /* flex-shrink: inherit; */ 
+        flex: 0;
+        align-self: center;
+    }
+    .card-cuerpo h1{
+        flex-shrink: 1;
+        font-size: 2rem;
+    }
+
+    .card-cuerpo{
+        flex-shrink: 2;
+    }
+
+    .card-footer{
+        flex-grow: 2;
+    }
+
+    .card-footer p {
+        font-size: 3vw;
+    }
+    .card-footer p button {
+        font-size: 2vw;
+    }
+}   
+
+
 
 /*----------Fin Products.html----------*/
