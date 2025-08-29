@@ -50,7 +50,7 @@ function createItemCard(name, description, cost, currency, img, soldCount){
             <div class="card-footer">
                 <p class="card-precio">${currency} ${cost}</p>
                 <p class="card-boton"><button class="button">Agregar al carrito </button></p>
-            </div>                
+            </div>
             
     `;
         
