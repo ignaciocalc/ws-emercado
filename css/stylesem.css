@@ -79,82 +79,6 @@ body {
    margin-top: 15px;
    font-size: 15px;
 }
-
-/*--------------Login Smartphone---------*/
-@media (max-width: 320px) {
-    .container {
-        display: flex;
-        height: 100vh;
-    }
-
-    /*control de estilos parte izquierda*/
-    #izq {
-        display: none;
-    }
-
-    /*control de estilos parte derecha*/
-
-    #der {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .formulario {
-        width: 85vw;
-        text-align: center;
-        min-width: 82px;
-    }
-
-    .formulario img {
-        width: 73%;
-        min-width: 81px;
-    }
-
-    .formulario h2 {
-        margin: 0;
-        color: #000000;
-        font-size: clamp(10px, 7.7vw, 24px);
-    }
-
-    .formulario .camposInput {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-
-    .formulario .camposError {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        border: 2px solid #de514e;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-
-    .claseError {
-        display: none;
-        margin: 0px;
-        font-size: clamp(7pt, 7.7vw, 10pt) ;
-        text-align: start;
-        color: #de514e;
-    }
-
-    #ingresarLogin {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    #extra {
-        margin-top: 15px;
-        font-size: clamp(10px, 7.7vw, 15px)
-    }
-}
-
 /*---------------Fin Login---------------*/
 
 /*---------------Hedear---------------*/
@@ -344,8 +268,6 @@ body {
 }
 
 
-
-
 .card-footer {
     display: flex;
     justify-content: center;
@@ -369,3 +291,174 @@ body {
 }
 
 /*----------Fin Products.html----------*/
+
+
+/*Parte de products*/
+
+@media (max-width: 320px) {
+    /*---------------Hedear---------------*/
+/*----------Seccion Superior----------*/
+
+    .barraBusqueda {
+        display: flex;
+        justify-content: space-between;
+        background-color: #FF6D1F;
+        border-bottom: 1px solid #9E6622;
+        width: 100vw;
+        height: 8vh;
+    }
+
+    #logoHeader {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    #botonesHead {
+        display: none;
+    }
+
+    #carritoeMercado {
+        display: none;
+    }
+
+    #botonesCel {
+        display: flex;
+        align-items: center;
+    }
+
+    #menuBarras {
+        width: 24%;
+    }
+
+    #ingresarIcono {
+        width: 27px;
+    }
+
+    #emercado {
+        width: 115px;
+    }
+
+    .barraBusqueda a {
+        text-decoration: none;
+    }
+
+
+    #buscador {
+        display: none;
+        flex: auto;
+        min-width: 1000px;
+        width: 60vw;
+        margin: 0 20px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #ddd;
+    }
+
+
+    /*----------FIN Seccion Superior----------*/
+    /*----------Seccion Inferior----------*/
+    .barraNavegacion {
+        display: none;
+    }
+    /*----------FIN Header----------*/
+
+    /*----------Comienzo Products.html----------*/
+
+    .mainProducts {
+        display: flex;
+    }
+
+    #filtros {
+        display: none;
+    }
+
+    #filtros lu {
+        list-style-type: none;
+    }
+
+    #contenedorItem {
+        display: flex;
+        width: 100vw; 
+        flex-direction: column;
+    }
+
+    .card {
+        display: flex;
+        border-top: none;
+        border-bottom: solid 1px rgb(186, 185, 185);
+        width: 50%;
+        font-family: Arial, sans-serif;
+        font-size: 1pt;
+        height: 80px;
+    }
+
+    .card-img {
+        display: flex;
+        padding: 10px;
+        width: 115px;
+        border-radius: 15px;
+        align-self: center;
+    }
+
+    .card:hover {
+        transform: scale(1.0092);
+        padding-left: 5px;
+    }
+
+    .card:hover h1 {
+        color: #ff6d1f;
+    }
+
+    .card-cuerpo {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+        flex: 4
+    }
+
+    .card-cuerpo h1 {
+        margin-top: 12px;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+
+
+    .card-cuerpo #cantVendidos {
+        margin-top: 0px;
+        margin-bottom: 0;
+    }
+
+
+    .card-footer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .card-precio {
+        align-self: center;
+        font-size: 10px; /*revisar*/
+        margin: 6px;
+    }
+
+    .card-boton {
+        align-self: center;
+    }
+
+    .button {
+        font-size: 7px;
+        padding: 6px;
+        width: 70px; 
+    }
+
+    .card-boton:hover {
+        transform: scale(1.02);
+    }
+
+/*----------Fin Products.html----------*/
+}
