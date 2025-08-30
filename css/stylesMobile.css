@@ -88,7 +88,7 @@
         background-color: #FF6D1F;
         border-bottom: 1px solid #9E6622;
         width: 100%;
-        height: 8vh;
+        height: 65px;
     }
 
     #logoHeader {
@@ -96,6 +96,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 8px;
+        padding-left: 5px;
     }
 
     #botonesHead {
@@ -109,6 +110,7 @@
     #botonesCel {
         display: flex;
         align-items: center;
+        padding-right: 5px;
     }
 
     #menuBarras {
@@ -150,6 +152,10 @@
 
 /*----------Comienzo Products.html----------*/
 
+    body {
+        margin: 0;
+    }
+
     .mainProducts {
         display: flex; 
         box-sizing: border-box;
@@ -175,12 +181,13 @@
         border-bottom: solid 1px rgb(186, 185, 185);
         width: 100%;
         font-family: Arial, sans-serif;
-        height: 80px;
+        height: 25vw;
+        min-width: 220px;
     }
 
     .card-img {
         padding: 10px;
-        width: clamp(50px, 33vw, 115px) ;
+        width: 36vw;
         border-radius: 15px;
         align-self: center;
     }
@@ -206,18 +213,17 @@
         margin-top: 12px;
         font-size: clamp(9px, 4vw, 14px);
         margin-bottom: 0;
-        white-space: nowrap;
     }   
 
     .card-cuerpo #descripcion{
       font-size: clamp(4px, 2.6vw, 12px);      
-      margin-top: 3px;
+      margin-top: 1.5px;
       overflow: auto;
     }
 
     .card-cuerpo #cantVendidos {
         margin-top: 0px;
-        font-size: clamp(4px, 3vw, 12px);
+        font-size: clamp(4px, 3vw, 7px);
         margin-bottom: 0;
     }
 
@@ -226,13 +232,15 @@
         justify-content: center;
         flex-direction: column;
         flex: 1;
+        padding-right: 5px;
     }
 
 
     .card-footer .card-precio {
         align-self: center;
-        font-size: clamp(5px, 25vw, 8px); /*revisar*/
+        font-size: clamp(7.5px, 2.3vw, 17px);
         margin: 0;
+        text-align: center;
     }
 
     .card-boton {
@@ -247,6 +255,26 @@
         width: clamp(10px, 33vw, 50px);
     }
 
+    #catalogoArticulos {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #botonFiltros {
+        display: flex;
+        background-color: #ddd;
+        width: 63px;
+        align-items: center;
+        border-radius: 4px;
+        margin: 6px 10px;
+        border: solid 1px black;
+        font-size: 11px;
+    }
+
+    #botonFiltros img {
+        height: 20px;
+        width: auto;
+    }
     /* .card-boton:hover {
         transform: scale(1.02);
     } */
