@@ -1,3 +1,4 @@
+@media (min-width: 769px) {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -19,7 +20,8 @@ body {
 }
 
 /*control de estilos parte izquierda*/
-#izq {   flex: 1;
+#izq {   
+    flex: 1;
     background-color: #ff6d1f;
     display: flex;
     justify-content: center;
@@ -136,7 +138,6 @@ body {
 
 #buscador {
     flex: auto; 
-    min-width: 1000px;
     width: 60vw;
     margin: 0 20px;
     height: 30px;
@@ -242,19 +243,34 @@ body {
     flex-grow: 1;
 }
 
+#catalogoArticulos {
+    display: flex;
+    width: 100%;
+}
+
 .card {
     display: flex;
     border-top: none;
     border-bottom: solid 1px rgb(186, 185, 185);
     max-width: 3000px;
     font-family: Arial, sans-serif;
+    height: 160px;
 }
 
+@media (max-width: 1035px) {
+    .card {
+        height: 15.5vw;
+    }
+}
+
+
 .card-img {
-    padding: 10px;
-    width: 350px;   
+    width: 36vw;
     border-radius: 15px;
-    
+    align-self: center;
+    height: 94%;
+    width: auto;
+    margin: 10px;
 }
 
 /* .card:hover{
@@ -269,15 +285,14 @@ body {
 .card-cuerpo {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
-    flex: 4
-    
+    flex: 4;
 }
 
 .card-cuerpo h1{
     margin-top: 12px;
-    font-size: 45px;
+    font-size: 3vw;
     margin-bottom: 0;
 }
 
@@ -295,16 +310,41 @@ body {
     flex-direction: column;
     flex: 1;
     padding-right: 5px; 
+    min-width: 150px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding-right: 5px; 
+    min-width: 150px;
+}
+
+p.card-boton .button {
+    font-size: clamp(2px, 1.4vw, 16px);
 }
 
 .card-precio {
     align-self: center;
     font-size: 28px;
     margin: 6px;
+    text-align: center;
+    font-size: clamp(14px, 2.3vw, 28px);
 }
 
 .card-boton {
     align-self: center;
+    margin: 0;
+}
+
+#descripcion {
+    font-size: 1vw;
+}
+
+#botonFiltros {
+    display: none;
 }
 
 /* .card-boton:hover{
@@ -315,3 +355,4 @@ body {
 
 
 /*Parte de products*/
+}
