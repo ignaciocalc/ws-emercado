@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/stylesem.css">
     <link rel="stylesheet" href="css/stylestock.css">
     <link rel="stylesheet" href="css/stylesMobile.css">
-    <link rel="stylesheet" href="css/stylesTables.css">
+    <link rel="stylesheet" href="css/stylesTablet.css">
     <script src="js/login.js" defer></script>
 </head>
 <body>
@@ -23,8 +23,8 @@
                 <img src="img/Logo_eMercado.png" alt="Logo">
                 <h2>¡Bienvenido!</h2>
                 <div id="loginForm">
-                    <input class="camposInput" type="email" id="user" placeholder="Ingresar usuario">
-                    <p class="claseError">El campo no puede estar vacío </p>
+                    <input class="camposInput" type="email" id="user" placeholder="Ingresar su mail" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$">
+                    <p class="claseError"></p>
                     <input class="camposInput" type="password" id="password" placeholder="Ingresar contraseña">
                     <p class="claseError">El campo no puede estar vacío </p>
                     <button class="button" id="ingresarLogin" type="submit">Ingresar</button>

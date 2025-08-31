@@ -407,3 +407,6 @@ p.card-boton .button {
 /*Parte de products*/
 }
 
+#footerIndex {
+    display: none;
+}

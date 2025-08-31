@@ -71,6 +71,7 @@
     #ingresarLogin {
         margin-top: 10px;
         width: 100%;
+        font-size: 17px;
     }
 
     #extra {
@@ -559,6 +560,33 @@
     border-bottom: solid 1px #757575;
     justify-content: center;
 }
+
+li a {
+    text-decoration: none;
+    color: #757575;
+}
+
+.cerrarSesionMenu { 
+    align-self: center;
+    width: 120px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 4px;
+    min-width: 60px;
+    margin-top: 14px;
+    background: #ffae70;
+    border: none;
+    color: white;
+}
+
+.cerrarSesionMenuOculto { 
+    display: none;
+}
+
 /*-----------Termina menu desplegable--------- */
 
+}
+
+#footerIndex {
+    display: none;
 }
