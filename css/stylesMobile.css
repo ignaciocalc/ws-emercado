@@ -89,6 +89,7 @@
         border-bottom: 1px solid #9E6622;
         width: 100%;
         height: 55px;
+        align-items: center;
     }
 
     #logoHeader {
@@ -103,14 +104,14 @@
         display: none;
     }
 
-    #carritoeMercado {
-        display: none;
-    }
-
-    #botonesCel {
+    .botonesCelStyle {
         display: flex;
         align-items: center;
         padding-right: 5px;
+    }
+
+    #carritoeMercado {
+        display: none;
     }
 
     #menuBarras {
@@ -122,24 +123,36 @@
         width: 37px;
     }
 
-    #emercado {
+    .emercadoBuscando {
+        display: none;
+    }
+
+    .emercadoNoBuscando {
         width: 115px;
     }
+
 
     .barraBusqueda a {
         text-decoration: none;
     }
 
 
-    #buscador {
-        display: none;
+   .buscando {
+        display: flex;
         flex: auto;
-        min-width: 1000px;
         width: 60vw;
-        margin: 0 20px;
-        height: 30px;
+        margin-right: 11px;
+        margin-left: 8px;
+        height: 22px;;
         border-radius: 5px;
-        border: 2px solid #ddd;
+        border: 2px solid #F89E59;
+        font-size: 10px;
+        padding-left: 7px;
+        min-width: 110px;
+    }
+
+    .noBuscando {
+        display: none;
     }
 
         /* botones del head */
@@ -223,6 +236,19 @@
 }
 
 .logoutNolog {
+    display: none;
+}
+
+.buscadorIconoMostando {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF6D1F;
+    border: 0px;
+    padding: 6px 0;
+}
+
+.buscadorIconoBuscando {
     display: none;
 }
 

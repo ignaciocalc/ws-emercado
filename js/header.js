@@ -10,12 +10,14 @@ const
    // botones de tablet y celular
 const
    contBotonesCel = document.getElementById("botonesCel"),
-   buscadorIcon = document.getElementById("ingresarIcono"),
+   buscadorIcon = document.getElementById("buscadorIcono"),
    datosUserCel = document.getElementById("datosUserCel"),
    carritoComprasCel = document.getElementById("carritoComprasCel"),
-   contBotUserCel = document.getElementById("contenidoUserCel");
-   
-   
+   contBotUserCel = document.getElementById("contenidoUserCel"),
+   eMercadoLetras = document.getElementById("emercado");
+
+const
+   barraBuscador = document.getElementById("buscador");
 
 let estaRegistrado = localStorage.getItem('user');
 
@@ -51,3 +53,31 @@ if (estaRegistrado != null) {
    datosUserCel.className = "datosUserDesLog";
    carritoComprasCel.className = "carritoComprasDeslog"
 } 
+
+buscadorIcon.addEventListener('click', function() {
+   contBotonesCel.className = "buscadorIconoBuscando";
+   barraBuscador.className = "buscando";
+   eMercadoLetras.className = "emercadoBuscando";
+
+   event.stopPropagation();
+
+   // se detecta si se hace click en el documento (sin contar el buscador)
+   // para ocultar la barra de busqueda
+   document.addEventListener("click", function (deteccionClick){
+      if (!barraBuscador.contains(deteccionClick.target)) {
+         barraBuscador.className = "noBuscando";
+         contBotonesCel.className = "buscadorIconoMostando";
+         eMercadoLetras.className = "emercadoNoBuscando";
+      }
+   });
+   
+   //detecta si se preciona la tecla enter
+   document.addEventListener("keydown", function(tecla) {
+      if (tecla.key === "Enter") {
+         barraBuscador.className = "noBuscando";
+         contBotonesCel.className = "buscadorIconoMostando";
+         eMercadoLetras.className = "emercadoNoBuscando";
+      }
+   });
+      
+})
