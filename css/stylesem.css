@@ -142,7 +142,8 @@ body {
     margin: 0 20px;
     height: 30px;
     border-radius: 5px;
-    border: 2px solid #ddd;
+    border: 2px solid #F89E59;
+    padding-left: 7px;
 }
 
 
@@ -160,7 +161,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 30px; 
+    padding-right: 10px; 
     gap: 12px 
 }
 
@@ -396,12 +397,13 @@ p.card-boton .button {
     display: none;
 }
 
-/* .card-boton:hover{
-    transform: scale(1.02);
-} */
+#menu {
+    display: none;
+} 
 
 /*----------Fin Products.html----------*/
 
 
 /*Parte de products*/
 }
+

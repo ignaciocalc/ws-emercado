@@ -23,10 +23,10 @@
       <div id="logoHeader">
         <img id="carritoeMercado" src="img/icono.png">
         <img id="menuBarras" src="img/menu.svg">
-        <img id="emercado" src="img/eMercadoIcon.png">
+        <img id="emercado" class="emercadoNoBuscando" src="img/eMercadoIcon.png">
       </div>
 
-      <input id="buscador" type="text" placeholder="  Buscar">
+      <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
 
       <div id="botonesHead" class="botonesHeadDeslog">
         <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
@@ -35,8 +35,8 @@
         <button id="logout" class="button"><img src="img/logout.svg"></button>
       </div>
 
-      <div id="botonesCel">
-        <button id="buscadorIcono"> <img src="img/Buscar.svg"></button>
+      <div id="botonesCel" class="botonesCelStyle">
+        <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
         <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
         <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
         <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
@@ -59,6 +59,30 @@
   </header>
 
   <main class="mainProducts">
+    <div id="menu" class="noDesplegado">
+      <div id="usuario-menu"> <span id="email">Hola, ignaciocal1344@gmail</span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      <div class="noDesplegadoCategorias" id="categorias-menu"> 
+        <div id="categoriasBoton" class="categoriasBotonContraido">
+          <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+          <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+        </div>
+        <ul id="lista-menu" class="lista-menu-oculto">
+          <li>Autos</li>
+          <li>Jueguetes</li>
+          <li>Muebles</li>
+          <li>Herramientas</li>
+          <li>Computadoras</li>
+          <li>Vestimenta</li>
+          <li>Electrodomésticos</li>
+          <li>Deporte</li>
+          <li>Celulares</li>
+        </ul>
+      </div>
+      <div class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+    </div>   
+
+
     <article id="filtros" style="background-color: #E0DEDE;">
       <lu>
         -----FILTROS-----
@@ -106,6 +130,7 @@
       <div></div>
     </div>
   </div>
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
