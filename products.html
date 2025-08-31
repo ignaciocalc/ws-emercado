@@ -23,6 +23,7 @@
       <div id="logoHeader">
         <img id="carritoeMercado" src="img/icono.png">
         <img id="menuBarras" src="img/menu.svg">
+        <img src="img/cerrar.svg" id="boton-salida">
         <img id="emercado" src="img/eMercadoIcon.png">
       </div>
 
@@ -59,6 +60,20 @@
   </header>
 
   <main class="mainProducts">
+    <div id="menu">
+      <div class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      <div class="boton-menu" id="categorias-menu"> 
+        <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> <img src="img/flecha-derecha.svg" class="flecha-menu"> <img src="img/flecha-abajo.svg" id="flecha-abajo" class="flecha-menu">
+        <lu id="lista-menu">
+          <li>Autos</li>
+          <li>Jueguetes</li>
+          <li>Muebles</li>
+        </lu>
+      </div>
+      <div class="boton-menu"> <a class="link-menu">SOBRE NOSOTROS</a> <img src="img/flecha-derecha.svg" class="flecha-menu"></div>
+    </div>   
+
+
     <article id="filtros" style="background-color: #E0DEDE;">
       <lu>
         -----FILTROS-----
@@ -106,6 +121,7 @@
       <div></div>
     </div>
   </div>
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
