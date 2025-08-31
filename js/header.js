@@ -19,7 +19,10 @@ const
 const
    barraBuscador = document.getElementById("buscador"),
    menuBarras = document.getElementById("menuBarras"),
-   menuDesplegable = document.getElementById("menu");
+   menuDesplegable = document.getElementById("menu"),
+   email = document.getElementById("email");
+
+   cerrarSesionMenu = document.getElementById("cerrarSesionMenu");
 
 let estaRegistrado = localStorage.getItem('user');
 
@@ -30,6 +33,7 @@ if (estaRegistrado != null) {
    botonUser.className = "datosUserLogeado";
    carritoCompras.className = "carritoCompraslog";
    logOut.className = "logout";
+   cerrarSesionMenu.className = "cerrarSesionMenu";
    ingresarIcon.style.display = "none";
 
    /* botones cel y tablet */
@@ -40,11 +44,22 @@ if (estaRegistrado != null) {
       window.location.reload();
    });
 
-   if (estaRegistrado.length > 7)
-      estaRegistrado = estaRegistrado.substring(0, 7) + '...';
+   cerrarSesionMenu.addEventListener('click', function(){
+      localStorage.removeItem("user");
+      window.location.reload();
+   });
+   
+   if (estaRegistrado.length > 31) {
+      estaRegistrado = estaRegistrado.substring(0, 31) + "..."
+   }
 
+   email.textContent = "Hola, " + estaRegistrado;
+   
+   estaRegistrado = estaRegistrado.substring(0, 1).toUpperCase();
+   
    contBotUser.textContent = estaRegistrado;
    contBotUserCel.textContent = estaRegistrado;
+   
 } else {
    contBotones.className = "botonesHeadDeslog";
    ingresarHead.className = "ingresarHeadDesLog";
@@ -53,9 +68,17 @@ if (estaRegistrado != null) {
    logOut.className = "logoutNolog";
 
    datosUserCel.className = "datosUserDesLog";
-   carritoComprasCel.className = "carritoComprasDeslog"
+   carritoComprasCel.className = "carritoComprasDeslog";
+   cerrarSesionMenu.className = "cerrarSesionMenuOculto";
+
+   email.textContent = "Iniciar sesion"
+
+   email.addEventListener('click', function(){
+      window.location.href = "login.html";
+   });
 } 
 
+// controla la visualizacion de la barra de busqueda en pantalla de celular y tablet
 
 buscadorIcon.addEventListener('click', function() {
    contBotonesCel.className = "buscadorIconoBuscando";
@@ -85,7 +108,10 @@ buscadorIcon.addEventListener('click', function() {
       
 })
 
-// Control de desplegable categorias
+
+
+
+// Control de desplegable con las categorias
 const
    cerrar = document.getElementById("botonClose"),
    desplegarBoton = document.getElementById("flechaCategorias"),
@@ -96,25 +122,25 @@ const
 
 let menuAbierto = false;
 
-menuBarras.addEventListener('click', function(event) {
+menuBarras.addEventListener('click', function(pararProp) {
    menu.className = 'Desplegado';
    menuAbierto = true;
-   event.stopPropagation();
+   pararProp.stopPropagation();
 });
 
 
-cerrar.addEventListener('click', function(event) {
+cerrar.addEventListener('click', function(pararProp) {
    menu.className = 'noDesplegado';
    desplegarBoton.className = "flechaCategorias";
    botonCategoriaPading.className = "categoriasBotonContraido";
    botonCategoria.className = "noDesplegadoCategorias";
    lista.className = "lista-menu-oculto";
    menuAbierto = false;
-   event.stopPropagation();
+   pararProp.stopPropagation();
 });
 
 
-botonCategoria.addEventListener('click', function(event) {
+botonCategoria.addEventListener('click', function(pararProp) {
    if (desplegarBoton.className === "flechaCategorias") {
       desplegarBoton.className = "flechaCategoriaDesplegada";
       botonCategoria.className = "DesplegadoCategorias";
@@ -126,7 +152,7 @@ botonCategoria.addEventListener('click', function(event) {
       botonCategoria.className = "noDesplegadoCategorias";
       lista.className = "lista-menu-oculto";
    }
-   event.stopPropagation();
+   pararProp.stopPropagation();
 });
 
 //Se cierra el menu si se le da click afuera de él
@@ -140,3 +166,18 @@ document.addEventListener('click', function(clicklugar) {
       menuAbierto = false;
    }
 });
+
+const
+   botonInicio = document.getElementById("IrInicioMenu"),
+   botonVender = document.getElementById("irVenderMenu");
+
+botonInicio.addEventListener('click', function(pararEvento) {
+   window.location.href = "index.html";
+   pararEvento.stopPropagation();
+})
+
+botonVender.addEventListener('click', function(pararEvento) {
+   window.location.href = "sell.html";
+   pararEvento.stopPropagation();
+})
+

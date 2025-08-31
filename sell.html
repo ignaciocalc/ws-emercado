@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/stylesem.css">
   <link rel="stylesheet" href="css/stylestock.css">
   <link rel="stylesheet" href="css/stylesMobile.css">
-  <link rel="stylesheet" href="css/stylesTables.css">
+  <link rel="stylesheet" href="css/stylesTablet.css">
   <script src="js/header.js" defer></script>
 </head>
 
@@ -20,16 +20,24 @@
     <div class="barraBusqueda">
       <div id="logoHeader">
         <img id="carritoeMercado" src="img/icono.png">
-        <img id="emercado" src="img/eMercadoIcon.png">
+        <img id="menuBarras" src="img/menu.svg">
+        <img id="emercado" class="emercadoNoBuscando" src="img/eMercadoIcon.png">
       </div>
 
-      <input id="buscador" type="text" placeholder="  Buscar">
+      <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
 
-      <div id="botonesHead">
-        <a href="login.html"><button id="ingresarHead" class="button">Ingresar<img src="img/pruebaUser.svg"></button></a>
-        <button id="datosUser" class="button"><span id="contenidoUser"></span><img src="img/flechaAbajo.svg"></button>
+      <div id="botonesHead" class="botonesHeadDeslog">
+        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
+        <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
         <a href="cart.html"><button id="carritoCompras" class="button"><img src="img/carrito.svg"></button></a>
         <button id="logout" class="button"><img src="img/logout.svg"></button>
+      </div>
+
+      <div id="botonesCel" class="botonesCelStyle">
+        <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
+        <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
+        <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
+        <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
       </div>
     </div>
     <!-- aca va inicio/categorias/vender -->
@@ -47,6 +55,32 @@
       </ul>
     </div>
   </header>
+
+  <main class="mainProducts">
+    <div id="menu" class="noDesplegado">
+      <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      <div class="noDesplegadoCategorias" id="categorias-menu"> 
+        <div id="categoriasBoton" class="categoriasBotonContraido">
+          <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+          <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+        </div>
+        <ul id="lista-menu" class="lista-menu-oculto">
+          <li><a href="products.html">Autos</a></li>
+          <li>Jueguetes</li>
+          <li>Muebles</li>
+          <li>Herramientas</li>
+          <li>Computadoras</li>
+          <li>Vestimenta</li>
+          <li>Electrodomésticos</li>
+          <li>Deporte</li>
+          <li>Celulares</li>
+        </ul>
+      </div>
+      <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
+    </div>
+    </main>
 
   <div class="container">
     <div class="text-center p-4">

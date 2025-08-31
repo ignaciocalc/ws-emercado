@@ -5,19 +5,34 @@ const
    parrafos = document.querySelectorAll(".claseError");
 
 boton.addEventListener('click', function(){
+
    if (usuario.value != "" && contraseña.value != "") {
-      localStorage.setItem("user", usuario.value);
-      window.location.href = "index.html";
-   } else {
-      if (usuario.value == "") {
-         usuario.classList.replace("camposInput", "camposError");
-         parrafos[0].style.display="block";
+
+      if (usuario.validity.valid) {
+         localStorage.setItem("user", usuario.value);
+         window.location.href = "index.html";
       } else {
          usuario.classList.replace("camposError", "camposInput");
-         parrafos[0].style.display="none";
+         parrafos[0].textContent = "Ingrese un mail valido"
+         parrafos[0].style.display="block";
       }
+
+   } else {
+      if (usuario.value == "") {
+         parrafos[0].textContent = "El campo no puede estar vacío";
+         usuario.classList.replace("camposInput", "camposError");
+         parrafos[0].style.display="block";
+      } else if (usuario.validity.valid) {
+            usuario.classList.replace("camposError", "camposInput");
+            parrafos[0].style.display="none";
+            } else { 
+               parrafos[0].textContent = "Ingrese un mail valido"
+               usuario.classList.replace("camposError", "camposInput");
+               parrafos[0].style.display="block";
+            }
       
       if (contraseña.value == "") {
+         parrafos[1].textContent = "El campo no puede estar vacío"
          contraseña.classList.replace("camposInput", "camposError");
          parrafos[1].style.display="block"
       } else {
