@@ -148,7 +148,7 @@ body {
 
 /* botones del head */
 
-#botonesHead {
+.botonesHeadDeslog {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,36 +156,85 @@ body {
     /* gap: 12px  agregado para 3 botones*/
 }
 
-#ingresarHead {
+.botonesHeadLog {  /*logueado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px; 
+    gap: 12px 
+}
+
+.ingresarHeadDesLog {
     display: flex;
     align-items: flex-end; 
     border: 2px solid #F89E59; 
     width: 120px;
     justify-content: space-between;
+
+    padding: 10px;
+    background: #FF6600;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-#datosUser {
+.ingresarHeadLog {
     display: none;
-    align-items: flex-end; 
-    border: 2px solid #F89E59; 
-    width: 120px;
-    justify-content: space-between;
+}
+
+.datosUserDesLog {
+    display: none;
+}
+
+.datosUserLogeado {
+    display: flex;
+    border: 2px solid #F89E59;
     overflow: hidden;
-    text-overflow: ellipsis;
+    border-radius: 50%;
+    text-align: center;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #F89E59;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-#carritoCompras {
+.carritoComprasDeslog {
     display: none;
+}
+
+.carritoCompraslog {
+    display: flex;
     align-items: flex-end; 
     border: 2px solid #F89E59; 
     justify-content: space-between;
+
+    padding: 10px;
+    background: #FF6600;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-#logout {
+.logoutNolog {
     display: none;
+}
+
+
+.logout {
+    display: flex;
     align-items: flex-end; 
     border: 2px solid #F89E59; 
     justify-content: space-between;
+
+    padding: 10px;
+    background: #FF6600;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
 }
 /* Fin botones del head */
 

@@ -92,7 +92,7 @@
         background-color: #FF6D1F;
         border-bottom: 1px solid #9E6622;
         width: 100%;
-        height: 65px;
+        height: 55px;
         min-width: 416px;
     }
 
@@ -100,7 +100,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 8px;
+        gap: 5px;
         padding-left: 5px;
     }
 
@@ -119,12 +119,12 @@
     }
 
     #menuBarras {
-         display: flex;
-         width: 24%;
+        display: flex;
+        width: 32px;
     }
 
     #ingresarIcono {
-        width: 27px;
+        width: 37px;
     }
 
     #emercado {
@@ -147,6 +147,104 @@
         border: 2px solid #ddd;
     }
 
+    /* botones del head */
+
+#botonesHead {
+    display: none;
+}
+
+
+.ingresarHeadDesLog {
+    display: flex;
+    align-items: flex-end;  
+    width: 120px;
+    justify-content: space-between;
+
+    background: #FF6D1F;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.ingresarHeadLog {
+    display: none;
+}
+
+.datosUserDesLog {
+    display: none;
+}
+
+.datosUserLogeado {
+    display: flex;
+    border: 2px solid #F89E59;
+    overflow: hidden;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #F89E59;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 4px;
+}
+
+#carritoComprasCel img {
+    width: 30px;
+}
+
+#buscadorIcono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF6D1F;
+    border: 0px;
+    height: 100%;
+    width: 32px;
+    padding: 6px 0;
+}
+
+#buscadorIcono img {
+    width: 31px;
+}
+
+.carritoComprasDeslog {
+    display: none;
+}
+
+.carritoCompraslog {
+    display: flex;
+    align-items: center; 
+    border: 0px; 
+    padding: 0;
+    justify-content: center;
+    background: #FF6D1F;
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+
+.logoutNolog {
+    display: none;
+}
+
+
+.logout {
+    display: flex;
+    align-items: flex-end; 
+    border: 2px solid #F89E59; 
+    justify-content: space-between;
+
+    padding: 10px;
+    background: #FF6600;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+/* Fin botones del head */
 
 /*----------FIN Seccion Superior----------*/
 /*----------Seccion Inferior----------*/
