@@ -37,6 +37,7 @@
     }
 
     .formulario h2 {
+        font-family: Arial, sans-serif;
         margin: 0;
         color: #000000;
         font-size: clamp(10px, 3.5vw, 24px);
