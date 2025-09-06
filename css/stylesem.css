@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @media (min-width: 769px) {
 body {
     margin: 0;
@@ -409,4 +411,146 @@ p.card-boton .button {
 
 #footerIndex {
     display: none;
+}
+
+
+
+
+/*----------Product-info.html----------*/
+
+#productInfo {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 94%;
+    margin: 25px 3vw;
+}
+
+#mostrarProducto {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    padding: 10px;
+    margin-right: 2vw;
+    border: solid 2px #ddd;
+    border-radius: 5px;
+}
+
+#imgContPrincipal {
+    width: 90%;
+}
+
+#imgContPrincipal img {
+    width: 100%;
+}
+    
+.imgEnGal {     
+    aspect-ratio: 1 / 1;    
+    object-fit: cover; 
+    border-radius: 8px;
+    width: 100%;
+    border: solid 3px #e0e0e0;
+    /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
+}
+
+#galImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: 10%;
+    padding-left: 10px;
+}
+
+/* Parte derecha */
+#infoProducto {
+    display: flex;
+    flex-direction: column;
+}
+
+#acercaDeProducto {
+    width: 30vw;
+    min-height: 515px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0px 0px 3px 3px #dddddd;
+    border-radius: 5px;
+}
+#nombreProd {
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+#infoVenCat {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px
+}
+
+#infoVenCat p {
+    margin: 0;
+}
+
+#precioProd {
+    color: #FF6600;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 7px;
+}
+
+#descripcionProd {
+    font-size: 1.5rem;
+}
+
+#descripcionProd {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.prodRelacionado {
+    box-shadow: 0px 0px 2px 1px #dddddd;
+    border-radius: 5px;
+    width: 30%;
+}
+    
+
+.prodRelacionado img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 2px;
+}   
+
+#listProdRelacionados {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 65%;
+    gap: 2%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#listProdRelacionados p {
+    padding: 5px;
+    margin: 0;
+}
+
+#imgPrincipal {
+    border-radius: 5px;
+}
+
+#agregarCarritoInfo {
+    align-self: center;
+    width: 95%;
+    margin: 15px 0;
+}
+
+#relProductos h2 {
+    font-size: 1.3rem;
 }
