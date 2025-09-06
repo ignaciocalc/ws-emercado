@@ -7,64 +7,111 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/stylesem.css">
   <link rel="stylesheet" href="css/stylestock.css">
   <link rel="stylesheet" href="css/stylesMobile.css">
   <link rel="stylesheet" href="css/stylesTablet.css">
+  <script src="js/header.js" defer></script>
+  <script src="js/product-info.js" defer></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
+    <header class="headerClass">
+    <!-- seccion de navegacion-->
+    <div class="barraBusqueda">
+      <div id="logoHeader">
+        <img id="carritoeMercado" src="img/icono.png">
+        <img id="menuBarras" src="img/menu.svg">
+        <img id="emercado" class="emercadoNoBuscando" src="img/eMercadoIcon.png">
+      </div>
+
+      <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
+
+      <div id="botonesHead" class="botonesHeadDeslog">
+        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
+        <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
+        <a href="cart.html"><button id="carritoCompras" class="button"><img src="img/carrito.svg"></button></a>
+        <button id="logout" class="button"><img src="img/logout.svg"></button>
+      </div>
+
+      <div id="botonesCel" class="botonesCelStyle">
+        <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
+        <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
+        <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
+        <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
+      </div>
+    </div>
+    <!-- aca va inicio/categorias/vender -->
+    <div class="barraNavegacion">
+      <ul>
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="categories.html">Categorías</a>
+        </li>
+        <li>
+          <a href="sell.html">Vender</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <article class="mainProducts">
+    <div id="menu" class="noDesplegado">
+      <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      <div class="noDesplegadoCategorias" id="categorias-menu"> 
+        <div id="categoriasBoton" class="categoriasBotonContraido">
+          <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+          <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+        </div>
+        <ul id="lista-menu" class="lista-menu-oculto">
+          <li><a href="products.html">Autos</a></li>
+          <li>Jueguetes</li>
+          <li>Muebles</li>
+          <li>Herramientas</li>
+          <li>Computadoras</li>
+          <li>Vestimenta</li>
+          <li>Electrodomésticos</li>
+          <li>Deporte</li>
+          <li>Celulares</li>
         </ul>
       </div>
+      <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+        <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
     </div>
-  </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
-</body>
+  </article>
 
+  <main id="productInfo">
+    <section id="mostrarProducto">
+      <div id="imgContPrincipal">
+        <img id="imgPrincipal" src="img/"> 
+      </div>
+      <div id="galImg">
+      </div>
+    </section>
+    <section id="acercaDeProducto">
+      <article id="infoProducto">
+        <h1 id="nombreProd"></h1>
+        <div id="infoVenCat">
+          <p id="categoriaProd"></p>
+          <p>|</p>
+          <p id="cantVendidosProd"></p>
+        </div>
+        <p id="precioProd" ></p>
+        <h2 id="descripcionProd"></h2>
+        <button id="agregarCarritoInfo" class="button">Agregar al carrito</button>
+      </article>
+      <article id="relProductos">
+        <h2>Productos Relacionados</h2>
+        <section id="listProdRelacionados">
+        </section>
+        
+      </article>
+    </section>
+  </main>
+
+
+</body>
 </html>
