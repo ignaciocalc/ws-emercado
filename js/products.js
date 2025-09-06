@@ -63,7 +63,7 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
         localStorage.setItem("idProducto", ID);
 
         // aca va la direccion a la pagina
-        window.location.href = "/product-info.html";
+        window.location.href = "product-info.html";
     })
 }
 
