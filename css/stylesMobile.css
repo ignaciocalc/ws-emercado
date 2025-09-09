@@ -529,15 +529,16 @@
     padding-right: 20px;
     width: 32px;
 }
-.flechaCategorias{
+
+.flechaCategorias {
     width: 29px;
-    transition: transform 0.1s linear;
+    transition: rotate 0.1s linear;
 }
 
 .flechaCategoriaDesplegada {
     width: 29px;;
-    transform: rotate(90deg);
-    transition: transform 0.1s linear;
+    rotate: 90deg;
+    transition: rotate 0.1s linear;
 }
 
 #flecha-abajo {

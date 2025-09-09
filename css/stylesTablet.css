@@ -275,11 +275,10 @@
     .mainProducts {
         display: flex; 
         box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
     }
 
-    #filtros {
-        display: none;
-    }
+   
 
     #filtros lu {
         list-style-type: none;
@@ -385,19 +384,22 @@
 
     #botonFiltros {
         display: flex;
-        background-color: #ddd;
-        width: 63px;
+        color: #3483fa;
+        font-weight: 450;
+        box-shadow: 1px 0px 4px 0px #ddd;
         align-items: center;
-        border-radius: 4px;
-        margin: 6px 10px;
-        border: solid 1px black;
+        padding: 5px 6px;
+        border-right: solid 1px #ddd;
         font-size: 13px;
+        border-radius: 7px;
+        height: 100%;
     }
 
-    #botonFiltros img {
-        height: 20px;
-        width: auto;
+    #botonFiltros img{
+        width: 17px;
+        margin-right: 4px;
     }
+
     /* .card-boton:hover {
         transform: scale(1.02);
     } */
@@ -525,15 +527,16 @@
     padding-right: 20px;
     width: 32px;
 }
+
 .flechaCategorias{
     width: 29px;
-    transition: transform 0.1s linear;
+    transition: rotate 0.1s linear;
 }
 
 .flechaCategoriaDesplegada {
     width: 29px;;
-    transform: rotate(90deg);
-    transition: transform 0.1s linear;
+    rotate: 90deg;
+    transition: rotate 0.1s linear;
 }
 
 #flecha-abajo {
@@ -737,5 +740,62 @@ li a {
     margin-top: 15px;
     font-size: 1.3rem;
 }
+
+/*menu filtros*/
+#filtrosContenedor {
+    display: none;
+}
+
+#filtrosContenedorMobileTablet {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 12px 7px #dddd;
+}
+
+#filtrosMobile {
+    display: flex;
+    flex-direction: row;
+}
+
+#ordenarPorMobile {
+    flex: 1;
+    
+}
+
+#filtrarPrecioMobile {
+    flex: 4;
+}
+
+#contFiltrosBotones {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+    overflow: hidden;
+}
+
+#tipoFiltro{
+    margin-left: 10px;
+    font-weight: 350;
+    font-size: 12px;
+    color: #656565dd;
+}
+
+#imgTipoFiltro {
+    margin-left: 3px;
+    width: 16px;
+}
+
+
+
+
+
+
 
 }

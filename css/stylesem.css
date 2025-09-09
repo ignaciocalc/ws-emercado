@@ -272,23 +272,198 @@ body {
 
 /*----------Comienzo Products.html----------*/
 
-.mainProducts {
-    display: flex;
+#filtros {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0f8;
+    padding: 10px;
+    z-index: 10;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 225px;
 }
 
-#filtros {
-    padding: 10px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 200px;
-    z-index: 10;
-    height: 80vh;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+.mainProducts {
+    display: flex;
+    margin: 30px 70px;
+    margin-left: 120px;
+    transition: margin-left 0.2s ease;
+}
+
+.mainProducts-FiltroMostrar {
+    display: flex;
+    margin: 30px 70px;
+    margin-left: 280px;
+    transition: margin-left 0.2s ease;
+}
+
+/* Seccion de filtros */
+.filtrosContenedor-oculto {
+    position: absolute;
+    left: -245px;
+    top: 114px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: left 0.2s ease;
+    height: 100%;
+}
+
+.filtrosContenedor-mostrar {
+    position: absolute;
+    left: 0;
+    top: 114px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: left 0.2s ease;
+    height: 100%;
+}
+
+
+.flechaDesplegable-mostrar {
+    rotate: 180deg;
+    width: 25px;
+}
+
+.flechaDesplegable-oculto {
+    width: 25px;
+}
+
+
+#flechaDesplegable {
+    display: flex;
+    border: 2px solid #ddd;
+    border-left: 0;
+    padding: 5px 0px;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 #filtros lu {
     list-style-type: none;
+}
+
+
+#lista-OrdenarPor{
+    list-style: none;
+    padding: 0px 10px;
+    margin: 0;
+    font-weight: 300;
+}
+
+#contOrdenarPor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.flechaOrdenarPor-oculto {
+    transition: rotate 0.1s linear;
+}
+
+.flechaOrdenarPor-mostrar {
+    rotate: 90deg;
+    transition: rotate 0.1s linear;
+}
+
+.lista-OrdenarPor-oculto {
+    display: none;
+}
+
+.lista-OrdenarPor-mostrar {
+    display: list-item;
+}
+
+
+.flechaPrecio-oculto {
+    transition: rotate 0.1s linear;
+}
+
+.flechaPrecio-mostrar {
+    rotate: 90deg;
+    transition: rotate 0.1s linear;
+}
+
+.rangos-ocultos {
+    display: none;
+}
+
+.rangos-mostrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#filtrarPrecio {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-oculto {
+    display: none;
+}
+
+.btn-mostrar {
+    padding: 5px;
+    background: #F89E59;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 70px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.lista-OrdenarPor-mostrar {
+    display: list-item;
+}
+
+#contBotonPrecio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;;
+}
+
+.rangosBoton {
+    width: 90px;
+    border-radius: 4px;
+    border: solid 2px #ddd;
+    text-align: center;
+    height: 20px;
+}
+
+#partContOrdenarPor {
+    display: flex;
+    align-items: center;
+}
+
+.ocultarInicial {
+    display: none;
+}
+
+.mostrarfiltro {
+    display: flex;
+}
+
+#tipoFiltro {
+    color: #3483fa;
+    margin-left: 4px;
+    font-weight: 300;
+}
+
+#imgTipoFiltro {
+    margin-left: 4px;
+}
+
+#contRangos p{
+    margin: 0px;
 }
 
 #contenedorItem {
@@ -403,6 +578,10 @@ p.card-boton .button {
     display: none;
 } 
 
+#filtrosContenedorMobileTablet {
+    display: none;
+}
+
 /*----------Fin Products.html----------*/
 
 
@@ -476,10 +655,11 @@ p.card-boton .button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
     box-shadow: 0px 0px 3px 3px #dddddd;
     border-radius: 5px;
 }
+
 #nombreProd {
     font-size: clamp(2.5rem, -0.829rem + 6.926vw, 3.5rem);
     margin: 0;
