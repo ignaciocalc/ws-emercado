@@ -58,7 +58,7 @@
     </div>
   </header>
 
-  <main class="mainProducts">
+  <main id="contPrincipal" class="mainProducts">
     <div id="menu" class="noDesplegado">
       <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
       <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
@@ -82,8 +82,96 @@
       <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
       <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
     </div>
+
+    <article id="filtrosContenedor" class="filtrosContenedor-oculto">
+      <section id="filtros">
+        <div id="ordenarPor">
+          <div id="contOrdenarPor">
+            <div id="partContOrdenarPor">
+              <p id="botonOrdenarPor">Ordenar por</p> 
+              <p id="tipoFiltro" class="ocultarInicial">precio</p>
+              <img id="imgTipoFiltro" class="ocultarInicial" src="img/precioAscendente.svg">
+            </div>
+            <img id="flechaOrdenarPor" src="img/flecha-derecha.svg">
+          </div>
+          <ul id="lista-OrdenarPor" class="lista-OrdenarPor-oculto">
+            <li id="AZ">A-Z </li>
+            <li id="ZA">Z-A </li>
+            <li id="Relevancia">Relevancia</li>
+            <li id="PrecioA">Precio ascendente</li>
+            <li id="PrecioD">Precio descendente</li>
+          </ul>
+        </div>
+        <div id="filtrarPrecio">
+          <div id="contBotonPrecio">
+            <p id="botonPrecio">Precio</p> 
+            <img id="flechaFiltrarPrecio" class="flechaPrecio-oculto" src="img/flecha-derecha.svg">
+          </div>
+          <div id="selectMoneda" class="selectMoneda-oculto">
+              <p>Moneda: </p>
+              <label id="labelPes" class="label-selec"><input id="lPesos" class="lPesos-select" type="radio" name="Moneda" value="Pesos" checked>$</label>
+              <label id="labelUSD" class="label-noSelec"><input id="ldolares" class="lPesos-noSelect" type="radio" name="Moneda" value="Pesos">U$D</label>
+            </div>
+          <div id="contRangos" class="rangos-ocultos">
+            <input type="number" placeholder="Mínimo" id="precioMin" class="rangosBoton">
+            <p>-</p>
+            <input type="number" placeholder="Máximo" id="precioMax" class="rangosBoton">
+          </div>
+          <button id="BtnFiltrar" class="btn-oculto button">Filtrar</button>
+        </div>
+      </section>
+      <section id="flechaDesplegable">
+        <img id="flechaDesplegableImg" class="flechaDesplegable-oculto" src="img/flecha-derecha.svg">
+      </section>
+    </article>
+
+    <article id="filtrosContenedorMobileTablet" class="filtrosContenedor-ocultar">
+      <section id="filtrosMobile">
+          <div id="contOrdenarPorMobile">
+            <div id="partContOrdenarPorMobile" class="contenedorPFiltro-mostrar">
+              <p id="botonOrdenarPorMobile" class="PFiltro">Ordenar por</p> 
+            </div>
+            <div id="contBotonPrecioMobile" class="contenedorPFiltro-ocultar">
+              <p id="botonPrecioMobile" class="PFiltro">Precio</p> 
+            </div>
+          </div>
+  
+          <div id="lineaVertical"></div>
+
+        <div id="filtrarPrecioMobile">
+          <div id="contenedorOrdenarPor" class="ordenarPorContenedor-mostrar">
+            <p id="ordenarPorP">Ordenar por</p>
+            <ul id="lista-OrdenarPorMobile" class="lista-OrdenarPor-oculto">
+              <li id="AZMobile">A-Z <img src="img/AZ-gris.svg" class="imgAZ"></li>
+              <li id="ZAMobile">Z-A <img src="img/ZA-Gris.svg" class="imgAZ"></li>
+              <li id="RelevanciaMobile">Relevancia <img src="img/relevancia-gris.svg" class="imgAZ"></li>
+              <li id="PrecioAMobile">Precio ascendente <img src="img/precioAscendente-gris.svg" class="imgOrdenarPor"></li>
+              <li id="PrecioDMobile">Precio descendente <img src="img/precioDescendente-gris.svg" class="imgOrdenarPor"></li>
+            </ul>
+          </div>
+          <div id="contenedorPrecio" class="contenedorPrecio-ocultar">
+            <p id="precioP">Precio</p>
+            <div id="selectMonedaMobile">
+              <p>Moneda: </p>
+              <label id="labelPesTablet" class="label-selec"><input id="lPesosTablet" class="lPesosTablet-select" type="radio" name="MonedaTablet" value="Pesos" checked>$</label>
+              <label id="labelUSDTablet" class="label-noSelec"><input id="ldolaresTablet" class="lPesosTablet-noSelect" type="radio" name="MonedaTablet" value="Pesos">U$D</label>
+            </div>
+            <div id="contRangosMobile" class="rangos-ocultos">
+              <input type="number" placeholder="Mínimo" id="precioMinMobile" class="rangosBoton">
+              <p>-</p>
+              <input type="number" placeholder="Máximo" id="precioMaxMobile" class="rangosBoton">
+            </div>
+            <button id="BtnFiltrarMobile" class="btn-oculto button">Filtrar</button>
+          </div>
+        </div>
+      </section>
+    </article>
+
     <article id="catalogoArticulos">
-      <buttom id="botonFiltros"><img src="img/filtroIcon.svg"> Filtros</buttom>
+      <div id="contFiltrosBotones">
+        <buttom id="botonFiltros"><img src="img/filtroIcon.svg"> Filtros</buttom>
+        <p id="tipoFiltroTablet" class="ocultarInicial"></p>
+      </div>
       <article id = "contenedorItem">
       </article>
     </article>
