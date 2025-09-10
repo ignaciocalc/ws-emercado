@@ -68,6 +68,7 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
 //Menu filtros
 const
+// Elementos de menu de filtros estandar
     mainProducts = document.getElementById("contPrincipal"),
     contFiltros = document.getElementById("filtrosContenedor"),
     flechaDesplegable = document.getElementById("flechaDesplegableImg"),
@@ -80,6 +81,7 @@ const
     flechaFiltrarPrecio = document.getElementById("flechaFiltrarPrecio"),
     contMinMax = document.getElementById("contRangos"),
     btnFiltrar = document.getElementById("BtnFiltrar"),
+    selectMoneda = document.getElementById("selectMoneda"),
 
     tipoFiltro = document.getElementById("tipoFiltro"),
     imgTipoFiltro = document.getElementById("imgTipoFiltro"),
@@ -88,26 +90,69 @@ const
     ZA = document.getElementById("ZA"),
     relevancia = document.getElementById("Relevancia"),
     precioA = document.getElementById("PrecioA"),
-    precioD = document.getElementById("PrecioD");
+    precioD = document.getElementById("PrecioD"),
+
+// Elementos de menu de filtros Tablet y Celular
+    btnFiltroTablet = document.getElementById("botonFiltros"),
+    contFiltrosTablet = document.getElementById("filtrosContenedorMobileTablet"),
+    btnOrdenarPor = document.getElementById("partContOrdenarPorMobile"),
+    btnPrecio = document.getElementById("contBotonPrecioMobile"),
+    ordPorContTablet = document.getElementById("contenedorOrdenarPor"),
+    precioContTablet = document.getElementById("contenedorPrecio"),
+
+    AZTablet = document.getElementById("AZMobile"),
+    ZATablet = document.getElementById("ZAMobile"),
+    relevanciaTablet = document.getElementById("RelevanciaMobile"),
+    precioATablet = document.getElementById("PrecioAMobile"),
+    precioDTablet = document.getElementById("PrecioDMobile"),
+
+    tipoFiltroTablet = document.getElementById("tipoFiltroTablet"),
+
+// Elementoos de seleccionador de moneda
+
+    labelPesTablet = document.getElementById("labelPesTablet"),
+    inPesosTablet = document.getElementById("lPesosTablet"),
+    
+    labelUSDTablet = document.getElementById("labelUSDTablet"),
+    inDolaresTablet = document.getElementById("ldolaresTablet"),
+
+    labelPes = document.getElementById("labelPes"),
+    inPes = document.getElementById("lPesos"),
+
+    labelUSD = document.getElementById("labelUSD"),
+    inUSD = document.getElementById("ldolares");
+
 
 function setli() {
     tipoFiltro.className = "mostrarfiltro";
     imgTipoFiltro.className = "mostrarfiltro";
 
     AZ.style.color = "black";
+    AZTablet.style.color = "black";
+    
     ZA.style.color = "black";
+    ZATablet.style.color = "black";
+
     relevancia.style.color = "black";
+    relevanciaTablet.style.color = "black";
+
+
     precioA.style.color = "black";
+    precioATablet.style.color = "black";
+
     precioD.style.color = "black";
+    precioDTablet.style.color = "black";
 }
 
 flechaDesplegable.addEventListener('click', function(evento){
     if (flechaDesplegable.className == "flechaDesplegable-oculto") {
         flechaDesplegable.className = "flechaDesplegable-mostrar";
+        contFiltrosTablet.className = "filtrosContenedor-mostrar";
         contFiltros.className = "filtrosContenedor-mostrar";
         mainProducts.className = "mainProducts-FiltroMostrar";
     } else {
         flechaDesplegable.className = "flechaDesplegable-oculto";
+        contFiltrosTablet.className = "filtrosContenedor-ocultar";
         contFiltros.className = "filtrosContenedor-oculto";
         mainProducts.className = "mainProducts";
     }
@@ -125,49 +170,136 @@ contOrdenarPor.addEventListener('click', function(evento){
     evento.stopPropagation();
 })
 
-contFiltrarPrecio.addEventListener('click', function(evento){
+contFiltrarPrecio.addEventListener('click', function(evento) {
     if (flechaFiltrarPrecio.className == "flechaPrecio-mostrar") {
         flechaFiltrarPrecio.className = "flechaPrecio-oculto";
         contMinMax.className = "rangos-ocultos";
         btnFiltrar.className = "btn-oculto";
+        selectMoneda.className = "selectMoneda-oculto"
     } else {
         flechaFiltrarPrecio.className = "flechaPrecio-mostrar";
         contMinMax.className = "rangos-mostrar";
         btnFiltrar.className = "btn-mostrar";
+        selectMoneda.className = "selectMoneda-mostrar"
     }
 })
 
-AZ.addEventListener('click', function(){
+// Elementos filtro tablet y celular
+
+btnFiltroTablet.addEventListener('click', function(evento) {
+    if (contFiltrosTablet.className == "filtrosContenedor-ocultar") {
+        flechaDesplegable.className = "flechaDesplegable-mostrar";
+        contFiltrosTablet.className = "filtrosContenedor-mostrar";
+        contFiltros.className = "filtrosContenedor-mostrar";
+        mainProducts.className = "mainProducts-FiltroMostrar";
+    } else {
+        flechaDesplegable.className = "flechaDesplegable-oculto";
+        contFiltrosTablet.className = "filtrosContenedor-ocultar";
+        contFiltros.className = "filtrosContenedor-oculto";
+        mainProducts.className = "mainProducts";
+    }
+})
+
+
+btnOrdenarPor.addEventListener('click', function(evento){
+    btnOrdenarPor.className = "contenedorPFiltro-mostrar";
+    btnPrecio.className = "contenedorPFiltro-ocultar";
+    ordPorContTablet.className = "ordenarPorContenedor-mostrar";
+    precioContTablet.className = "contenedorPrecio-ocultar"
+})
+
+btnPrecio.addEventListener('click', function(evento){
+    btnPrecio.className = "contenedorPFiltro-mostrar";
+    btnOrdenarPor.className = "contenedorPFiltro-ocultar";
+    ordPorContTablet.className = "ordenarPorContenedor-ocultar";
+    precioContTablet.className = "contenedorPrecio-mostrar";
+})
+
+
+
+
+function AZClick(){
     tipoFiltro.textContent = "alfabeto";
+    tipoFiltroTablet.textContent = "Alfabéticamente AZ"
     setli();
     AZ.style.color = "#3483fa";
+    AZTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/AZ.svg";
-})
+}
 
-ZA.addEventListener('click', function(){
+function ZAClick(){
     tipoFiltro.textContent = "alfabeto";
+    tipoFiltroTablet.textContent = "Alfabéticamente ZA"
     setli();
     ZA.style.color = "#3483fa";
+    ZATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/ZA.svg";
-})
+}
 
-relevancia.addEventListener('click', function(){
+function relevanciaClick(){
     tipoFiltro.textContent = "relevancia";
+    tipoFiltroTablet.textContent = "Relevancia"
     setli();
     relevancia.style.color = "#3483fa";
+    relevanciaTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/relevancia.svg";
-})
+}
 
-precioA.addEventListener('click', function(){
+function precioAClick(){
     tipoFiltro.textContent = "precio";
+    tipoFiltroTablet.textContent = "Precio ascendente"
     setli();
     precioA.style.color = "#3483fa";
+    precioATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioAscendente.svg";
-})
+}
 
-precioD.addEventListener('click', function(){
+function precioDClick(){
     tipoFiltro.textContent = "precio";
+    tipoFiltroTablet.textContent = "Precio descendente"
     setli();
     precioD.style.color = "#3483fa";
+    precioDTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioDescendente.svg";
-})
+}
+
+function clickPesos() {
+    labelPesTablet.className = "label-selec";
+    labelUSDTablet.className = "label-noSelec";
+    inPes.checked = true;
+    inPesosTablet.checked = true;
+    labelPes.className = "label-selec";
+    labelUSD.className = "label-noSelec";
+}
+
+function clickDolares() {
+    labelUSDTablet.className = "label-selec";
+    labelPesTablet.className = "label-noSelec";
+    inUSD.checked = true;
+    inDolaresTablet.checked = true;
+    labelUSD.className = "label-selec";
+    labelPes.className = "label-noSelec";
+}
+
+//Elementos controladores de los filtros
+AZ.addEventListener('click', AZClick);
+AZTablet.addEventListener('click', AZClick);
+
+ZA.addEventListener('click', ZAClick);
+ZATablet.addEventListener('click', ZAClick);
+
+relevancia.addEventListener('click', relevanciaClick)
+relevanciaTablet.addEventListener('click', relevanciaClick)
+
+precioA.addEventListener('click', precioAClick)
+precioATablet.addEventListener('click', precioAClick)
+
+precioD.addEventListener('click', precioDClick);
+precioDTablet.addEventListener('click', precioDClick);
+
+
+labelPesTablet.addEventListener('click', clickPesos);
+labelPes.addEventListener('click', clickPesos);
+
+labelUSDTablet.addEventListener('click', clickDolares);
+labelUSD.addEventListener('click', clickDolares);

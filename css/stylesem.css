@@ -351,6 +351,7 @@ body {
     padding: 0px 10px;
     margin: 0;
     font-weight: 300;
+    cursor: pointer;
 }
 
 #contOrdenarPor {
@@ -389,6 +390,31 @@ body {
 
 .rangos-ocultos {
     display: none;
+}
+
+.selectMoneda-oculto {
+    display: none;
+}
+
+.selectMoneda-mostrar {
+    display: flex;
+    align-items: baseline;
+}
+
+#selectMoneda input {
+    display: none;
+}
+
+#selectMoneda {
+    gap: 8px;
+}
+
+.label-selec {
+    font-weight: bold;
+}
+
+.label-noSelec {
+    font-weight: 400;
 }
 
 .rangos-mostrar {
