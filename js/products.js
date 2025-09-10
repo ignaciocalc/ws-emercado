@@ -1,6 +1,7 @@
 const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
+let originalProductsArray = [];
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
     getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
+            originalProductsArray = [...currentProductsArray];
             writeData();
         }
     });
@@ -81,16 +83,18 @@ function ordenarPorRelevancia() {
 /*filtra el precio */
 
 function filtrarPorPrecio(min, max) {
-    let filtrados = currentProductsArray.filter(p => p.cost >= min && p.cost <= max);
-    document.getElementById("contenedorItem").innerHTML = "";
-    filtrados.forEach(p => {
-        createItemCard(p.name, p.description, p.cost, p.currency, p.image, p.soldCount, p.id);
-    });
+    currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+    writeData();
 }
 
 function aplicarFiltroPrecio(){
-    let min = parseFloat(document.getElementById("minPrecio").value) || 0;
-    let max = parseFloat(document.getElementById("maxPrecio").value) || Infinity;
+    let min = parseFloat(document.getElementById("precioMin").value) || 0;
+    let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
+    filtrarPorPrecio(min, max);
+}
+function aplicarFiltroPrecioMobile(){
+    let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
+    let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
     filtrarPorPrecio(min, max);
 }
 
@@ -253,6 +257,9 @@ function AZClick(){
     AZ.style.color = "#3483fa";
     AZTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/AZ.svg";
+
+      currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    writeData();
 }
 
 function ZAClick(){
@@ -262,6 +269,9 @@ function ZAClick(){
     ZA.style.color = "#3483fa";
     ZATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/ZA.svg";
+
+     currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+    writeData();
 }
 
 function relevanciaClick(){
@@ -271,6 +281,9 @@ function relevanciaClick(){
     relevancia.style.color = "#3483fa";
     relevanciaTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/relevancia.svg";
+
+    currentProductsArray.sort((a, b) => b.soldCount - a.soldCount);
+    writeData();
 }
 
 function precioAClick(){
@@ -280,7 +293,11 @@ function precioAClick(){
     precioA.style.color = "#3483fa";
     precioATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioAscendente.svg";
+
+    currentProductsArray.sort((a, b) => a.cost - b.cost);
+    writeData();
 }
+
 
 function precioDClick(){
     tipoFiltro.textContent = "precio";
@@ -289,6 +306,9 @@ function precioDClick(){
     precioD.style.color = "#3483fa";
     precioDTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioDescendente.svg";
+     
+    currentProductsArray.sort((a, b) => b.cost - a.cost);
+    writeData();
 }
 
 function clickPesos() {
@@ -331,6 +351,10 @@ labelPes.addEventListener('click', clickPesos);
 
 labelUSDTablet.addEventListener('click', clickDolares);
 labelUSD.addEventListener('click', clickDolares);
+
+btnFiltrar.addEventListener('click', aplicarFiltroPrecio);
+document.getElementById("BtnFiltrarMobile").addEventListener('click', aplicarFiltroPrecioMobile);
+
 
 
 
