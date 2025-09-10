@@ -24,7 +24,67 @@ const
 
    cerrarSesionMenu = document.getElementById("cerrarSesionMenu");
 
-let estaRegistrado = localStorage.getItem('user');
+let 
+   estaRegistrado = localStorage.getItem('user'),
+   productsBusqueda = []
+
+// ------------------------funciones para barra de busqueda-----------------------------------
+// posible refactorizacion
+
+const 
+   barraBusqueda = document.getElementById("buscador");
+
+function busqueda(){
+   let texto = barraBusqueda.value.toLowerCase().trim(),
+       resultadoBusqueda = [];
+
+      for (let producto of productsBusqueda) {
+         if (producto.name.includes(texto)) {
+            resultadoBusqueda.push(producto)
+         } else if (producto.description.includes(texto)) {
+            resultadoBusqueda.push(producto)
+         }
+      }
+       
+   localStorage.setItem('resultBusqueda', JSON.stringify(resultadoBusqueda));
+
+
+   // true ---> viene desde una categoria
+   // false ---> viene desde la busqueda
+   
+   localStorage.setItem('redirect', false);
+   window.location.href = "products.html";
+}
+
+async function inicializarBusqueda() {
+
+   let categorias = await (await fetch("https://japceibal.github.io/emercado-api/cats/cat.json")).json();
+
+   categorias.forEach(async cat => {
+       let prodTotales = await (await fetch("https://japceibal.github.io/emercado-api/cats_products/" + cat.id + ".json")).json();
+         
+      prodTotales.products.forEach(producto => {
+         
+         productsBusqueda.push({id: producto.id, name: producto.name.toLowerCase().trim(), description: producto.description.toLowerCase().trim(), img: producto.image})
+      })
+      localStorage.setItem("productsBusqueda", JSON.stringify(productsBusqueda));
+
+   })      
+
+} 
+   
+document.addEventListener('DOMContentLoaded', function() {
+   if (localStorage.getItem("productsBusqueda") === null) {
+      inicializarBusqueda();
+   } else {
+      productsBusqueda = JSON.parse(localStorage.getItem("productsBusqueda"));
+   }
+})
+
+
+
+// -------- ------------------------------------------------------------------------------------
+
 
 if (estaRegistrado != null) {
    /* Se muestra el tipo de botones correspondiente */
@@ -99,10 +159,11 @@ buscadorIcon.addEventListener('click', function() {
    
    //detecta si se preciona la tecla enter
    document.addEventListener("keydown", function(tecla) {
-      if (tecla.key === "Enter") {
+      if (tecla.key == "Enter" || tecla.key == "Intro") {
          barraBuscador.className = "noBuscando";
          contBotonesCel.className = "buscadorIconoMostando";
          eMercadoLetras.className = "emercadoNoBuscando";
+         busqueda()
       }
    });
       

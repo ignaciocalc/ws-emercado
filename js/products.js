@@ -19,13 +19,19 @@ function writeData(){
 
 // hace el fetch del link y llena el array
 document.addEventListener("DOMContentLoaded", function(e){
+    let redirect = JSON.parse(localStorage.getItem("redirect"));
+    if (redirect) {
     getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
             writeData();
-
         }
     });
+    } else {
+        currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
+        writeData();
+        localStorage.setItem('redirect', true);
+    }
 
 })
 
