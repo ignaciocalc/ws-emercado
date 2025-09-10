@@ -288,6 +288,13 @@
     .mainProducts {
         display: flex; 
         box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .mainProducts-FiltroMostrar {
+        display: flex; 
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
     }
 
     #filtros {
@@ -391,13 +398,15 @@
 
     #botonFiltros {
         display: flex;
-        background-color: #ddd;
-        width: 63px;
+        color: #3483fa;
+        font-weight: 450;
+        box-shadow: 1px 0px 4px 0px #ddd;
         align-items: center;
-        border-radius: 4px;
-        margin: 6px 10px;
-        border: solid 1px black;
-        font-size: 11px;
+        padding: 5px 6px;
+        border-right: solid 1px #ddd;
+        font-size: 13px;
+        border-radius: 7px;
+        height: 100%;
     }
 
     #botonFiltros img {
@@ -755,12 +764,12 @@ li a {
     left: 0;
     height: 60vh;
     width: 100vw;
-    padding: 20px;
+    padding: 20px 0px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
     box-shadow: 0px 0px 12px 7px #dddd;
-    min-width: 437px;
+    min-width: 273px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
 }
@@ -772,12 +781,12 @@ li a {
     left: 0;
     height: 60vh;
     width: 100vw;
-    padding: 20px;
+    padding: 20px 0px;;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
     box-shadow: 0px 0px 12px 7px #dddd;
-    min-width: 437px;
+    min-width: 273px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
 }
@@ -810,6 +819,7 @@ li a {
     align-items: center;
     overflow: hidden;
     min-height: 40px;
+    min-width: 273px;
 }
 
 #tipoFiltroTablet {
@@ -830,12 +840,14 @@ li a {
     align-items: center;
     background-color: #f0f0f0;
     color: #3483fa;
+    font-size: 0.8rem;
 }
 
 .contenedorPFiltro-ocultar {
     display: flex;
     align-items: center;
     background-color: #ffffff;
+    font-size: 0.8rem;
 }
 
 
@@ -848,7 +860,7 @@ li a {
 }
 
 #contOrdenarPorMobile {
-    min-width: 130px;
+    min-width: 110px;
 }
 
 #lineaVertical{
@@ -868,12 +880,12 @@ li a {
 #lista-OrdenarPorMobile {
     list-style: none;
     padding: 0;
-    margin: 0px 40px;
-    margin-right: 20px;
+    margin: 0px 10%;
+    margin-right: 0px;
 }
 
 #lista-OrdenarPorMobile li {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -891,15 +903,15 @@ li a {
 
 
 #ordenarPorP {
-    margin: 10px 15px;
-    font-size: 1.2rem;
+    margin: 10px 8px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 .ordenarPorContenedor-mostrar {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
 }
 
 .ordenarPorContenedor-ocultar {
@@ -927,29 +939,25 @@ li a {
 }
 
 #precioP {
-    margin: 10px 15px;
-    font-size: 1.2rem;
-    font-weight: 475;
+    margin: 10px 8px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 #contRangosMobile input {
     width: 45%;
     border: 2px solid #dddd;
     border-radius: 3px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     text-align: center;
-}
-
-#precioP {
-    font-size: 1.2rem;
-    font-weight: 500;
 }
 
 #BtnFiltrarMobile {
     font-size: 0.8rem;
     padding: 5px;
     border-radius: 4px;
-    margin: 13px 18%;
+    margin: 13px 30%;
+    width: 40%;
 }
 
 
@@ -961,7 +969,8 @@ li a {
 }
 
 #selectMonedaMobile p {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
+    margin: 0;
 }
 
 #selectMonedaMobile input {
@@ -970,10 +979,12 @@ li a {
 
 .label-selec {
     font-weight: bold;
+    font-size: 0.8rem;
 }
 
 .label-noSelec {
     font-weight: 400;
+    font-size: 0.8rem;
 }
 
 

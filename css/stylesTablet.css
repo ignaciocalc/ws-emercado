@@ -964,6 +964,7 @@ li a {
 
 #selectMonedaMobile p {
     font-size: 1.1rem;
+    margin: 0;
 }
 
 #selectMonedaMobile input {
