@@ -1,69 +1,101 @@
 const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
+let originalProductsArray = [];
 
-
-let USDollar = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
-
-// recorre el listado actual de productos y crea la publicacion
-// con la funcion createItemCard()
-function writeData(arrayProd){
-    for(let i = 0; i < arrayProd.length; i++){
-        createItemCard(arrayProd[i].name, arrayProd[i].description, arrayProd[i].cost  /*USDollar.format(currentProductsArray[i].cost)*/, 
-            arrayProd[i].currency, arrayProd[i].image, arrayProd[i].soldCount, arrayProd[i].id) ;
+// Renderiza los productos en el contenedor
+function writeData(){
+    document.getElementById("contenedorItem").innerHTML = ""; // limpia antes de renderizar
+    for(let i = 0; i < currentProductsArray.length; i++){
+        createItemCard(
+            currentProductsArray[i].name, 
+            currentProductsArray[i].description, 
+            currentProductsArray[i].cost, 
+            currentProductsArray[i].currency, 
+            currentProductsArray[i].image, 
+            currentProductsArray[i].soldCount, 
+            currentProductsArray[i].id
+        );
     }    
 }
 
-// hace el fetch del link y llena el array
-document.addEventListener("DOMContentLoaded", function(e){
+// Carga los productos desde la API
+document.addEventListener("DOMContentLoaded", function(){
     getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
-            writeData(resultObj.data.products);
+            originalProductsArray = [...currentProductsArray];
+            writeData();
         }
     });
-
-})
+});
 
 function insertarHtml(contenedor, html){
     document.getElementById(contenedor).appendChild(html);
-
 };
 
-// crea la publicacion dentro de las categorias
+// Crea la tarjeta de producto
 function createItemCard(name, description, cost, currency, img, soldCount, ID){
-        
     let htmlToInsert = document.createElement("section");
+
     htmlToInsert.classList.add('card');
     htmlToInsert.setAttribute('data-id', ID)
 
     htmlToInsert.innerHTML = `    
-            <img src="${img}" class="card-img"/>
-            <div class="card-cuerpo">
-                <h1>${name}</h1>
-                <p id="cantVendidos">${soldCount} vendidos</p>
-                <p id="descripcion">${description}</p>
-            </div>
+        <img src="${img}" class="card-img"/>
+        <div class="card-cuerpo">
+            <h1>${name}</h1>
+            <p id="cantVendidos">${soldCount} vendidos</p>
+            <p id="descripcion">${description}</p>
+        </div>
 
-            <div class="card-footer">
-                <p class="card-precio">${currency} ${cost}</p>
-                <p class="card-boton"><button class="button">  Agregar al carrito </button></p>
-            </div>
+        <div class="card-footer">
+            <p class="card-precio">${currency} ${cost}</p>
+            <p class="card-boton"><button class="button">Agregar al carrito</button></p>
+        </div>
     `;
 
     insertarHtml("contenedorItem", htmlToInsert);
-
     let card_link = document.querySelector(`[data-id="${ID}"]`);
 
     card_link.addEventListener("click", function() {
         localStorage.setItem("idProducto", ID);
-
-        // aca va la direccion a la pagina
         window.location.href = "product-info.html";
     })
+}    
+
+/*ordena*/
+function ordenarAZ() {
+    currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    writeData();
+}
+
+function ordenarZA() {
+    currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+    writeData();
+}
+
+function ordenarPorRelevancia() {
+    currentProductsArray.sort((a, b) => b.soldCount - a.soldCount);
+    writeData();
+}
+
+/*filtra el precio */
+
+function filtrarPorPrecio(min, max) {
+    currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+    writeData();
+}
+
+function aplicarFiltroPrecio(){
+    let min = parseFloat(document.getElementById("precioMin").value) || 0;
+    let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
+    filtrarPorPrecio(min, max);
+}
+function aplicarFiltroPrecioMobile(){
+    let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
+    let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
+    filtrarPorPrecio(min, max);
 }
 
 //Menu filtros
@@ -225,6 +257,9 @@ function AZClick(){
     AZ.style.color = "#3483fa";
     AZTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/AZ.svg";
+
+      currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    writeData();
 }
 
 function ZAClick(){
@@ -234,6 +269,9 @@ function ZAClick(){
     ZA.style.color = "#3483fa";
     ZATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/ZA.svg";
+
+     currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+    writeData();
 }
 
 function relevanciaClick(){
@@ -243,6 +281,9 @@ function relevanciaClick(){
     relevancia.style.color = "#3483fa";
     relevanciaTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/relevancia.svg";
+
+    currentProductsArray.sort((a, b) => b.soldCount - a.soldCount);
+    writeData();
 }
 
 function precioAClick(){
@@ -252,7 +293,11 @@ function precioAClick(){
     precioA.style.color = "#3483fa";
     precioATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioAscendente.svg";
+
+    currentProductsArray.sort((a, b) => a.cost - b.cost);
+    writeData();
 }
+
 
 function precioDClick(){
     tipoFiltro.textContent = "precio";
@@ -261,6 +306,9 @@ function precioDClick(){
     precioD.style.color = "#3483fa";
     precioDTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioDescendente.svg";
+     
+    currentProductsArray.sort((a, b) => b.cost - a.cost);
+    writeData();
 }
 
 function clickPesos() {
@@ -303,3 +351,10 @@ labelPes.addEventListener('click', clickPesos);
 
 labelUSDTablet.addEventListener('click', clickDolares);
 labelUSD.addEventListener('click', clickDolares);
+
+btnFiltrar.addEventListener('click', aplicarFiltroPrecio);
+document.getElementById("BtnFiltrarMobile").addEventListener('click', aplicarFiltroPrecioMobile);
+
+
+
+
