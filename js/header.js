@@ -29,8 +29,6 @@ let
    productsBusqueda = []
 
 // ------------------------funciones para barra de busqueda-----------------------------------
-// posible refactorizacion
-
 const 
    barraBusqueda = document.getElementById("buscador");
 
@@ -38,13 +36,17 @@ function busqueda(){
    let texto = barraBusqueda.value.toLowerCase().trim(),
        resultadoBusqueda = [];
 
+      alert(texto);
+
       for (let producto of productsBusqueda) {
-         if (producto.name.includes(texto)) {
+         if (producto.name.toLowerCase().trim().includes(texto)) {
             resultadoBusqueda.push(producto)
-         } else if (producto.description.includes(texto)) {
+         } else if (producto.description.toLowerCase().trim().includes(texto)) {
             resultadoBusqueda.push(producto)
          }
       }
+
+      console.log(resultadoBusqueda)
        
    localStorage.setItem('resultBusqueda', JSON.stringify(resultadoBusqueda));
 
@@ -65,7 +67,7 @@ async function inicializarBusqueda() {
          
       prodTotales.products.forEach(producto => {
          
-         productsBusqueda.push({id: producto.id, name: producto.name.toLowerCase().trim(), description: producto.description.toLowerCase().trim(), img: producto.image})
+         productsBusqueda.push(producto)
       })
       localStorage.setItem("productsBusqueda", JSON.stringify(productsBusqueda));
 
@@ -81,9 +83,20 @@ document.addEventListener('DOMContentLoaded', function() {
    }
 })
 
+barraBusqueda.addEventListener('click', function() {
+   
+   //detecta si se preciona la tecla enter luego de usar el buscador
+   document.addEventListener("keydown", function(tecla) {
+      if (tecla.key == "Enter") {
+         busqueda()
+      }
+   });
+      
+})
 
 
-// -------- ------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------
 
 
 if (estaRegistrado != null) {
@@ -159,18 +172,14 @@ buscadorIcon.addEventListener('click', function() {
    
    //detecta si se preciona la tecla enter
    document.addEventListener("keydown", function(tecla) {
-      if (tecla.key == "Enter" || tecla.key == "Intro") {
+      if (tecla.key == "Enter") {
          barraBuscador.className = "noBuscando";
          contBotonesCel.className = "buscadorIconoMostando";
          eMercadoLetras.className = "emercadoNoBuscando";
-         busqueda()
       }
    });
       
 })
-
-
-
 
 // Control de desplegable con las categorias
 const

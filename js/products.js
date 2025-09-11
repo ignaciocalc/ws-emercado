@@ -22,18 +22,18 @@ function writeData(){
 // hace el fetch del link y llena el array
 document.addEventListener("DOMContentLoaded", function(e){
     let redirect = JSON.parse(localStorage.getItem("redirect"));
-    if (redirect) {
-    getJSONData(PRODUCTS_CAT).then(function(resultObj){
+
+    if (redirect == false) {
+        currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
+        writeData();
+    } else {
+        getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
             originalProductsArray = [...currentProductsArray];
             writeData();
         }
     });
-    } else {
-        currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
-        writeData();
-        localStorage.setItem('redirect', true);
     }
 
 })
@@ -91,8 +91,16 @@ function ordenarPorRelevancia() {
 /*filtra el precio */
 
 function filtrarPorPrecio(min, max) {
-    currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
-    writeData();
+    let redirect = JSON.parse(localStorage.getItem('redirect'));
+
+    if (redirect) {
+        currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+        writeData();
+    } else {
+        ArrayBusquedaTemp = JSON.parse(localStorage.getItem('resultBusqueda'));
+        currentProductsArray = ArrayBusquedaTemp.filter(p => p.cost >= min && p.cost <= max);
+        writeData();
+    }
 }
 
 function aplicarFiltroPrecio(){
@@ -100,9 +108,11 @@ function aplicarFiltroPrecio(){
     let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
     filtrarPorPrecio(min, max);
 }
+
 function aplicarFiltroPrecioMobile(){
     let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
     let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
+    console.log(currentProductsArray)
     filtrarPorPrecio(min, max);
 }
 
@@ -361,6 +371,7 @@ labelUSDTablet.addEventListener('click', clickDolares);
 labelUSD.addEventListener('click', clickDolares);
 
 btnFiltrar.addEventListener('click', aplicarFiltroPrecio);
+
 document.getElementById("BtnFiltrarMobile").addEventListener('click', aplicarFiltroPrecioMobile);
 
 
