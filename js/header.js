@@ -36,8 +36,6 @@ function busqueda(){
    let texto = barraBusqueda.value.toLowerCase().trim(),
        resultadoBusqueda = [];
 
-      alert(texto);
-
       for (let producto of productsBusqueda) {
          if (producto.name.toLowerCase().trim().includes(texto)) {
             resultadoBusqueda.push(producto)
@@ -55,6 +53,7 @@ function busqueda(){
    // false ---> viene desde la busqueda
    
    localStorage.setItem('redirect', false);
+   localStorage.setItem('buscaValue', barraBusqueda.value);
    window.location.href = "products.html";
 }
 
@@ -69,6 +68,7 @@ async function inicializarBusqueda() {
          
          productsBusqueda.push(producto)
       })
+
       localStorage.setItem("productsBusqueda", JSON.stringify(productsBusqueda));
 
    })      

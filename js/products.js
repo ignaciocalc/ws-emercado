@@ -2,6 +2,7 @@ const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
 let originalProductsArray = [];
+const buscar = document.getElementById("buscador");
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -19,13 +20,40 @@ function writeData(){
     }    
 }
 
-// hace el fetch del link y llena el array
+// define si se esta haciendo una busqueda o ingresando a una categoria
 document.addEventListener("DOMContentLoaded", function(e){
     let redirect = JSON.parse(localStorage.getItem("redirect"));
+    
+    function noEcontrado() {
+        const
+            error = document.createElement('div');
+            imgErr = document.createElement('img');
+            mensaje = document.createElement('p');
+        
+        error.id = "contMsjErr";
+        error.appendChild(imgErr);
+        error.appendChild(mensaje);
+
+        imgErr.src = "img/search-gris.svg";
+
+        mensaje.textContent = 'No se encontro un producto relacionado con "' +
+                                 localStorage.getItem('buscaValue') + '".';
+        
+        document.body.appendChild(error);
+        document.getElementById('flechaDesplegable').style.display = 'none';
+        document.getElementById('contPrincipal').style.display = 'none';    
+    }
 
     if (redirect == false) {
         currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
-        writeData();
+
+        console.log(currentProductsArray)
+
+        if (currentProductsArray.length == 0)
+            noEcontrado();
+        else
+            writeData();
+    
     } else {
         getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){

@@ -979,4 +979,27 @@ li a {
     font-weight: 400;
 }
 
+/* Cartel Sin resultado */
+#contMsjErr {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #b4b2b2;
+    font-weight: 400;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 60vh;
+    margin: 3vw 25vw;
+    z-index: -5;
+    min-width: 221px;
+}
+
+#contMsjErr img {
+    width: 70%;
+}
+
 } 
