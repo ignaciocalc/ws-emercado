@@ -2,7 +2,11 @@ const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
 let originalProductsArray = [];
+
+const cotDolar = 43;
+
 const buscar = document.getElementById("buscador");
+
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -46,8 +50,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     if (redirect == false) {
         currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
-
-        console.log(currentProductsArray)
 
         if (currentProductsArray.length == 0)
             noEcontrado();
@@ -316,7 +318,8 @@ function ZAClick(){
     ZATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/ZA.svg";
 
-     currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+    currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+
     writeData();
 }
 
@@ -340,7 +343,19 @@ function precioAClick(){
     precioATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioAscendente.svg";
 
-    currentProductsArray.sort((a, b) => a.cost - b.cost);
+    currentProductsArray.sort((a, b) => {
+        let
+            auxb = b.cost,
+            auxa = a.cost;
+
+        if (b.currency == "USD")
+            auxb = auxb * cotDolar;
+
+        if (a.currency == "USD")
+            auxa = auxa * cotDolar;        
+        
+        return auxa - auxb});
+        
     writeData();
 }
 
@@ -352,8 +367,21 @@ function precioDClick(){
     precioD.style.color = "#3483fa";
     precioDTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioDescendente.svg";
-     
-    currentProductsArray.sort((a, b) => b.cost - a.cost);
+    
+    
+    currentProductsArray.sort((a, b) => {
+        let
+            auxb = b.cost,
+            auxa = a.cost;
+
+        if (b.currency == "USD")
+            auxb = auxb * cotDolar;
+
+        if (a.currency == "USD")
+            auxa = auxa * cotDolar;        
+        
+        return auxb - auxa});
+    
     writeData();
 }
 
