@@ -3,9 +3,9 @@ const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" +
 let currentProductsArray = [];
 let originalProductsArray = [];
 
-const cotDolar = 43;
-
-const buscar = document.getElementById("buscador");
+const 
+    cotDolar = 43,
+    buscar = document.getElementById("buscador");
 
 
 // Renderiza los productos en el contenedor
@@ -120,15 +120,52 @@ function ordenarPorRelevancia() {
 
 /*filtra el precio */
 
-function filtrarPorPrecio(min, max) {
+const
+    iPesos = document.getElementById("lPesos"), 
+    iDolares = document.getElementById("ldolares"),
+    iPesosMobile = document.getElementById("lPesosTablet"),
+    iDolaresMobile = document.getElementById("ldolaresTablet");
+
+function filtrarPorPrecio(min, max, monedaUYU) {
     let redirect = JSON.parse(localStorage.getItem('redirect'));
 
+    function aPesos(p) {
+        let auxp = p.cost;
+
+        if (p.currency == "USD")
+            auxp = auxp * cotDolar;
+
+        return (auxp >= min) && (auxp <= max) 
+    }
+
+    function aDolar(p) {
+        let auxp = p.cost;
+
+        if (p.currency == "UYU")
+            auxp = auxp / cotDolar;
+
+        return (auxp >= min) && (auxp <= max)
+    }
+    
+
     if (redirect) {
-        currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+
+        if (monedaUYU) {
+            currentProductsArray = originalProductsArray.filter(aPesos)
+        } else { 
+            currentProductsArray = originalProductsArray.filter(aDolar);
+        }
+        
         writeData();
     } else {
         ArrayBusquedaTemp = JSON.parse(localStorage.getItem('resultBusqueda'));
-        currentProductsArray = ArrayBusquedaTemp.filter(p => p.cost >= min && p.cost <= max);
+
+        if (monedaUYU) {
+            currentProductsArray = ArrayBusquedaTemp.filter(aPesos)
+        } else { 
+            currentProductsArray = ArrayBusquedaTemp.filter(aDolar);
+        }
+        
         writeData();
     }
 }
@@ -136,14 +173,14 @@ function filtrarPorPrecio(min, max) {
 function aplicarFiltroPrecio(){
     let min = parseFloat(document.getElementById("precioMin").value) || 0;
     let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
-    filtrarPorPrecio(min, max);
+    filtrarPorPrecio(min, max, (iPesos.checked || iPesosMobile.checked));
 }
 
 function aplicarFiltroPrecioMobile(){
     let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
     let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
     console.log(currentProductsArray)
-    filtrarPorPrecio(min, max);
+    filtrarPorPrecio(min, max, (iPesos.checked || iPesosMobile.checked));
 }
 
 //Menu filtros
