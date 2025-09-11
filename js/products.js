@@ -19,8 +19,10 @@ function writeData(){
     }    
 }
 
-// Carga los productos desde la API
-document.addEventListener("DOMContentLoaded", function(){
+// hace el fetch del link y llena el array
+document.addEventListener("DOMContentLoaded", function(e){
+    let redirect = JSON.parse(localStorage.getItem("redirect"));
+    if (redirect) {
     getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
@@ -28,7 +30,13 @@ document.addEventListener("DOMContentLoaded", function(){
             writeData();
         }
     });
-});
+    } else {
+        currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
+        writeData();
+        localStorage.setItem('redirect', true);
+    }
+
+})
 
 function insertarHtml(contenedor, html){
     document.getElementById(contenedor).appendChild(html);
