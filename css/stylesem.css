@@ -758,4 +758,29 @@ p.card-boton .button {
 #relProductos h2 {
     font-size: clamp(1rem, 0.001rem + 2.078vw, 1.3rem);
 }
+
+
+/* Cartel Sin resultado */
+#contMsjErr {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #b4b2b2;
+    font-weight: 400;
+    align-items: center;
+    font-size: 2rem;
+    height: 60vh;
+    margin: 3vw 25vw;
+    z-index: -5;
+}
+
+#contMsjErr img {
+    width: 350px;
+}
+
 }

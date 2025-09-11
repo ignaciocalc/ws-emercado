@@ -2,6 +2,7 @@ const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
 let originalProductsArray = [];
+const buscar = document.getElementById("buscador");
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -19,16 +20,51 @@ function writeData(){
     }    
 }
 
-// Carga los productos desde la API
-document.addEventListener("DOMContentLoaded", function(){
-    getJSONData(PRODUCTS_CAT).then(function(resultObj){
+// define si se esta haciendo una busqueda o ingresando a una categoria
+document.addEventListener("DOMContentLoaded", function(e){
+    let redirect = JSON.parse(localStorage.getItem("redirect"));
+    
+    function noEcontrado() {
+        const
+            error = document.createElement('div');
+            imgErr = document.createElement('img');
+            mensaje = document.createElement('p');
+        
+        error.id = "contMsjErr";
+        error.appendChild(imgErr);
+        error.appendChild(mensaje);
+
+        imgErr.src = "img/search-gris.svg";
+
+        mensaje.textContent = 'No se encontro un producto relacionado con "' +
+                                 localStorage.getItem('buscaValue') + '".';
+        
+        document.body.appendChild(error);
+        document.getElementById('flechaDesplegable').style.display = 'none';
+        document.getElementById('contPrincipal').style.display = 'none';    
+    }
+
+    if (redirect == false) {
+        currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
+
+        console.log(currentProductsArray)
+
+        if (currentProductsArray.length == 0)
+            noEcontrado();
+        else
+            writeData();
+    
+    } else {
+        getJSONData(PRODUCTS_CAT).then(function(resultObj){
         if(resultObj.status === "ok"){
             currentProductsArray = resultObj.data.products;
             originalProductsArray = [...currentProductsArray];
             writeData();
         }
     });
-});
+    }
+
+})
 
 function insertarHtml(contenedor, html){
     document.getElementById(contenedor).appendChild(html);
@@ -83,8 +119,16 @@ function ordenarPorRelevancia() {
 /*filtra el precio */
 
 function filtrarPorPrecio(min, max) {
-    currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
-    writeData();
+    let redirect = JSON.parse(localStorage.getItem('redirect'));
+
+    if (redirect) {
+        currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+        writeData();
+    } else {
+        ArrayBusquedaTemp = JSON.parse(localStorage.getItem('resultBusqueda'));
+        currentProductsArray = ArrayBusquedaTemp.filter(p => p.cost >= min && p.cost <= max);
+        writeData();
+    }
 }
 
 function aplicarFiltroPrecio(){
@@ -92,9 +136,11 @@ function aplicarFiltroPrecio(){
     let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
     filtrarPorPrecio(min, max);
 }
+
 function aplicarFiltroPrecioMobile(){
     let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
     let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
+    console.log(currentProductsArray)
     filtrarPorPrecio(min, max);
 }
 
@@ -353,6 +399,7 @@ labelUSDTablet.addEventListener('click', clickDolares);
 labelUSD.addEventListener('click', clickDolares);
 
 btnFiltrar.addEventListener('click', aplicarFiltroPrecio);
+
 document.getElementById("BtnFiltrarMobile").addEventListener('click', aplicarFiltroPrecioMobile);
 
 
