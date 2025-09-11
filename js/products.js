@@ -102,22 +102,6 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
     })
 }    
 
-/*ordena*/
-function ordenarAZ() {
-    currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
-    writeData();
-}
-
-function ordenarZA() {
-    currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
-    writeData();
-}
-
-function ordenarPorRelevancia() {
-    currentProductsArray.sort((a, b) => b.soldCount - a.soldCount);
-    writeData();
-}
-
 /*filtra el precio */
 
 const
@@ -343,7 +327,8 @@ function AZClick(){
     AZTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/AZ.svg";
 
-      currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    
     writeData();
 }
 
