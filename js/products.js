@@ -2,7 +2,11 @@ const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
 let originalProductsArray = [];
-const buscar = document.getElementById("buscador");
+
+const 
+    cotDolar = 43,
+    buscar = document.getElementById("buscador");
+
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -46,8 +50,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     if (redirect == false) {
         currentProductsArray = JSON.parse(localStorage.getItem("resultBusqueda"));
-
-        console.log(currentProductsArray)
 
         if (currentProductsArray.length == 0)
             noEcontrado();
@@ -100,33 +102,54 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
     })
 }    
 
-/*ordena*/
-function ordenarAZ() {
-    currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
-    writeData();
-}
-
-function ordenarZA() {
-    currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
-    writeData();
-}
-
-function ordenarPorRelevancia() {
-    currentProductsArray.sort((a, b) => b.soldCount - a.soldCount);
-    writeData();
-}
-
 /*filtra el precio */
 
-function filtrarPorPrecio(min, max) {
+const
+    iPesos = document.getElementById("lPesos"), 
+    iDolares = document.getElementById("ldolares"),
+    iPesosMobile = document.getElementById("lPesosTablet"),
+    iDolaresMobile = document.getElementById("ldolaresTablet");
+
+function filtrarPorPrecio(min, max, monedaUYU) {
     let redirect = JSON.parse(localStorage.getItem('redirect'));
 
+    function aPesos(p) {
+        let auxp = p.cost;
+
+        if (p.currency == "USD")
+            auxp = auxp * cotDolar;
+
+        return (auxp >= min) && (auxp <= max) 
+    }
+
+    function aDolar(p) {
+        let auxp = p.cost;
+
+        if (p.currency == "UYU")
+            auxp = auxp / cotDolar;
+
+        return (auxp >= min) && (auxp <= max)
+    }
+    
+
     if (redirect) {
-        currentProductsArray = originalProductsArray.filter(p => p.cost >= min && p.cost <= max);
+
+        if (monedaUYU) {
+            currentProductsArray = originalProductsArray.filter(aPesos)
+        } else { 
+            currentProductsArray = originalProductsArray.filter(aDolar);
+        }
+        
         writeData();
     } else {
         ArrayBusquedaTemp = JSON.parse(localStorage.getItem('resultBusqueda'));
-        currentProductsArray = ArrayBusquedaTemp.filter(p => p.cost >= min && p.cost <= max);
+
+        if (monedaUYU) {
+            currentProductsArray = ArrayBusquedaTemp.filter(aPesos)
+        } else { 
+            currentProductsArray = ArrayBusquedaTemp.filter(aDolar);
+        }
+        
         writeData();
     }
 }
@@ -134,14 +157,14 @@ function filtrarPorPrecio(min, max) {
 function aplicarFiltroPrecio(){
     let min = parseFloat(document.getElementById("precioMin").value) || 0;
     let max = parseFloat(document.getElementById("precioMax").value) || Infinity;
-    filtrarPorPrecio(min, max);
+    filtrarPorPrecio(min, max, (iPesos.checked || iPesosMobile.checked));
 }
 
 function aplicarFiltroPrecioMobile(){
     let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
     let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
     console.log(currentProductsArray)
-    filtrarPorPrecio(min, max);
+    filtrarPorPrecio(min, max, (iPesos.checked || iPesosMobile.checked));
 }
 
 //Menu filtros
@@ -304,7 +327,8 @@ function AZClick(){
     AZTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/AZ.svg";
 
-      currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    currentProductsArray.sort((a, b) => a.name.localeCompare(b.name));
+    
     writeData();
 }
 
@@ -316,7 +340,8 @@ function ZAClick(){
     ZATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/ZA.svg";
 
-     currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+    currentProductsArray.sort((a, b) => b.name.localeCompare(a.name));
+
     writeData();
 }
 
@@ -340,7 +365,19 @@ function precioAClick(){
     precioATablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioAscendente.svg";
 
-    currentProductsArray.sort((a, b) => a.cost - b.cost);
+    currentProductsArray.sort((a, b) => {
+        let
+            auxb = b.cost,
+            auxa = a.cost;
+
+        if (b.currency == "USD")
+            auxb = auxb * cotDolar;
+
+        if (a.currency == "USD")
+            auxa = auxa * cotDolar;        
+        
+        return auxa - auxb});
+        
     writeData();
 }
 
@@ -352,8 +389,21 @@ function precioDClick(){
     precioD.style.color = "#3483fa";
     precioDTablet.style.color = "#3483fa";
     imgTipoFiltro.src = "img/precioDescendente.svg";
-     
-    currentProductsArray.sort((a, b) => b.cost - a.cost);
+    
+    
+    currentProductsArray.sort((a, b) => {
+        let
+            auxb = b.cost,
+            auxa = a.cost;
+
+        if (b.currency == "USD")
+            auxb = auxb * cotDolar;
+
+        if (a.currency == "USD")
+            auxa = auxa * cotDolar;        
+        
+        return auxb - auxa});
+    
     writeData();
 }
 
