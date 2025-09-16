@@ -163,7 +163,6 @@ function aplicarFiltroPrecio(){
 function aplicarFiltroPrecioMobile(){
     let min = parseFloat(document.getElementById("precioMinMobile").value) || 0;
     let max = parseFloat(document.getElementById("precioMaxMobile").value) || Infinity;
-    console.log(currentProductsArray)
     filtrarPorPrecio(min, max, (iPesos.checked || iPesosMobile.checked));
 }
 
