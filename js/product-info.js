@@ -18,8 +18,8 @@ async function productInfo(link) {
       prodRelacionados;
    
    function imgSelecionada(img) {
-      for (let img of imgSelecionables) {
-         img.style.border = "solid 3px #e0e0e0";
+      for (let imgs of imgSelecionables) {
+         imgs.style.border = "solid 3px #e0e0e0";
       };
       imgSelecionables[img].style.border = "solid 3px #3483fa";
       imgPrincipal.src = producto.images[img];
@@ -39,7 +39,7 @@ async function productInfo(link) {
       nuevaImagen.className = "imgEnGal";
       nuevaImagen.src = imagen;
       galImg.appendChild(nuevaImagen);
-   }
+   }  
 
    // estilo de seleccionado a imagen 1 e inicializacion de imgSelecionables
    imgSelecionables = document.querySelectorAll(".imgEnGal");
