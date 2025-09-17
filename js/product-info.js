@@ -102,6 +102,63 @@ async function productInfo(link) {
       recargarLocalStorage(prodRelacionados[1].id);
    })
 }
-
-
 productInfo(linkProducto);
+
+// Seccion de comentarios 
+const
+   linkComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + localStorage.getItem('idProducto') + ".json";
+
+// cada comentario es un section del article (id="list-comment") en el html
+function crearComentario(comen){
+   let nombre = document.createElement("h2"),
+      descripcion = document.createElement("p"),
+      fecha = document.createElement("p"),
+      comentario = document.createElement("section"),
+      contenedorComen = document.getElementById("list-comment"),
+      contenedorEstrellas = document.createElement("span");
+
+
+
+   nombre.textContent = comen.user;
+   descripcion.textContent = comen.description;
+   fecha.textContent = comen.dataTime;
+
+   console.log(comen);
+   
+   comentario.appendChild(nombre);
+   comentario.appendChild(descripcion);
+   comentario.appendChild(fecha);
+
+   contenedorComen.appendChild(comentario);
+
+
+   for(let i = 0; i < comen.score; i++){
+      const
+         estrella = document.createElement("span")
+      
+      estrella.className = "fa fa-star checked";
+      contenedorEstrellas.appendChild(estrella)
+   }
+
+   for(let i = 5; i > comen.score; i--){      
+      const estrella = document.createElement("span");
+      estrella.className = "fa fa-star";
+      contenedorEstrellas.appendChild(estrella);
+   }
+   
+   nombre.appendChild(contenedorEstrellas);
+
+
+   // https://www.w3schools.com/howto/howto_css_star_rating.asp
+   // nombre.className = "clas1 class2 class3"
+}
+
+async function obtenerComentarios() {
+   let comentarios = await (await fetch(linkComentarios)).json();
+   
+   comentarios.forEach(a => crearComentario(a));
+   
+   crearComentario(comentarios[0]);
+}
+
+obtenerComentarios();

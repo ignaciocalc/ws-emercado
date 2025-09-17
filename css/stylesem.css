@@ -642,6 +642,8 @@ p.card-boton .button {
     border-radius: 5px;
 }
 
+
+
 #imgContPrincipal {
     width: 90%;
 }
@@ -783,4 +785,11 @@ p.card-boton .button {
     width: 350px;
 }
 
+}
+
+/* Seccion comentarios */
+
+.checked {
+    color: rgba(192, 88, 23, 0.659);
+    /* border: 1px solid black; */
 }
