@@ -109,7 +109,7 @@ const
    linkComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + localStorage.getItem('idProducto') + ".json";
 
 // cada comentario es un section del article (id="list-comment") en el html
-function crearComentario(comen){
+function mostrarComent(comen){
    let nombre = document.createElement("h2"),
       descripcion = document.createElement("p"),
       fecha = document.createElement("p"),
@@ -156,9 +156,9 @@ function crearComentario(comen){
 async function obtenerComentarios() {
    let comentarios = await (await fetch(linkComentarios)).json();
    
-   comentarios.forEach(a => crearComentario(a));
+   comentarios.forEach(a => mostrarComent(a));
    
-   crearComentario(comentarios[0]);
+   mostrarComent(comentarios[0]);
 }
 
 obtenerComentarios();
