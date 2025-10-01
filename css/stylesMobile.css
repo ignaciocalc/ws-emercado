@@ -80,10 +80,10 @@
 /*---------------Hedear---------------*/
 /*----------Seccion Superior----------*/
 
-    body {
-      min-width: 272px;
-    }
 
+    .headerClass {
+        width: 100vw;
+    }
    
     .barraBusqueda {
         display: flex;
@@ -116,6 +116,12 @@
 
     #carritoeMercado {
         display: none;
+    }
+    
+    @media (max-width: 274px) {
+        #emercado {
+            display: none;
+        }
     }
 
     #menuBarras {
@@ -659,18 +665,17 @@ li a {
     aspect-ratio: 1 / 1;    
     object-fit: cover; 
     border-radius: 8px;
-    width: 18%;
     border: solid 3px #e0e0e0;
+    width: 18%;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
 
 #galImg {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 15px;
+    justify-content: space-between;
     flex: 1;
-    padding-left: 10px;
+    padding: 10px 0 0;
 }
 
 /* Parte derecha */
@@ -681,7 +686,6 @@ li a {
 
 #acercaDeProducto {
     width: 100%;
-    min-height: 515px;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -1154,6 +1158,110 @@ li a {
     width: 100%;
     font-size: 1.3rem;
     padding: 7px;
+}
+
+/*------------ Seccion comentarios ---------------*/
+
+
+#opiniones-titulo{
+    margin-bottom: 0px;
+}
+
+#contenedorComentarios {
+    display: flex;  
+    justify-content: space-around;
+    align-self: center;
+    width: 94%;
+    max-width: 1200px;
+    align-items: stretch;
+}
+
+
+.checked {
+    color: rgba(192, 88, 23, 0.659);
+}
+
+#valoraciones {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px;
+}
+
+#valoraciones>p {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.barraCalificacion {
+    width: 200px;
+    border-style: solid;
+    border-color: rgb(122, 121, 121);
+    border-radius: 5px;
+}
+
+.contenedorCalificacion{ 
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+#list-comment{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comentario-nombre {
+    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    display: flex;
+    flex-direction: column;
+}
+.comentario-nombre>span {
+    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+
+}
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
+    border: 1px solid #E0E0E0;    
+    background-color: #fcfbfb;
+    margin-bottom: 10px;
+}
+
+.comentario-contenido {
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+}
+
+.comentario-fecha {
+    font-size: clamp(.6rem, 1.3921vw + .1600rem, 1.3rem);
+    padding-left: 10px;
+    margin: 0px;
+}
+
+
+#btnComentar {
+    display: flex;
+    color: #FF6600;
+    cursor: pointer;
+    max-width: 74px;
+}
+
+#btnComentar:hover {
+    color: #ae4702;
 }
 
 }

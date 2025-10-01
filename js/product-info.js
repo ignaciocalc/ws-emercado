@@ -105,20 +105,9 @@ async function productInfo(link) {
 productInfo(linkProducto);
 
 
-
-// Eliminar al mergear
-function mostrarComent(comentario){
-   let PRUEBA = document.getElementById("PRUEBA");
-
-   PRUEBA.innerHTML += `<p>${comentario.score}</p> <p>${comentario.description}</p> 
-   <p>${comentario.user}</p>  <p>${comentario.dateTime}</p>`
-}
-
-// Eliminar al mergear
-
 //Seccion de calificacion
 let 
-   comentar = document.getElementById("probarFuncionalidad"),
+   comentar = document.getElementById("btnComentar"),
    estrellas = document.querySelectorAll(".estrellasForm"),
    nombreUser = localStorage.getItem("user"),
    enviar = document.getElementById("enviarOpinion"),
@@ -274,8 +263,6 @@ async function obtenerComentarios() {
    let comentarios = await (await fetch(linkComentarios)).json();
    
    comentarios.forEach(a => mostrarComent(a));
-   
-   mostrarComent(comentarios[0]);
 }
 
 obtenerComentarios();
