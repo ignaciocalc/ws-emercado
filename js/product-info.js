@@ -105,3 +105,118 @@ async function productInfo(link) {
 
 
 productInfo(linkProducto);
+
+
+
+// Eliminar al mergear
+function mostrarComent(comentario){
+   let PRUEBA = document.getElementById("PRUEBA");
+
+   PRUEBA.innerHTML += `<p>${comentario.score}</p> <p>${comentario.description}</p> 
+   <p>${comentario.user}</p>  <p>${comentario.dateTime}</p>`
+}
+
+// Eliminar al mergear
+
+//Seccion de calificacion
+let 
+   comentar = document.getElementById("probarFuncionalidad"),
+   estrellas = document.querySelectorAll(".estrellasForm"),
+   nombreUser = localStorage.getItem("user"),
+   enviar = document.getElementById("enviarOpinion"),
+   ingresar = document.getElementById("ingresarComent"),
+   contComentario = document.getElementById('comentUser'),
+   aviso = document.getElementById('aviso'),
+   popUpCalificar = document.getElementById("popUpCalificar")
+   bttnsRadio = document.getElementById('cantEstrellas').elements.calif;
+
+function pintarEstrella(evento){
+   const 
+      estrella = evento.currentTarget.getAttribute("estrella");
+
+   for (let i = 0; i < estrella; i++){
+      estrellas[i].className = "estrellasForm estrella estrellaSelect";
+   }  
+
+   for (let i = estrella; i < 5; i++){
+      estrellas[i].className = "estrellasForm estrella";
+   }
+}
+
+function reComentar(){
+   estrellas.forEach((estrella) => estrella.className = "estrellasForm estrella");
+   bttnsRadio.forEach((elemento) => elemento.checked = false);
+   contComentario.value = "";
+   aviso.className = "aviso-ocultar";
+}
+
+
+estrellas.forEach(estrella => {
+   estrella.addEventListener('click', pintarEstrella);
+});
+
+comentar.addEventListener("click", function(evento){
+   let
+      calificar = document.getElementById("calificar"),
+      noCalificar = document.getElementById("noCalificar");
+
+   if (nombreUser == null){
+      popUpCalificar.className = "popUpCalificar-mostrar";
+      calificar.className = "calificar-ocultar";
+      noCalificar.className = "noCalificar-mostrar";
+   } else {
+      popUpCalificar.className = "popUpCalificar-mostrar";
+      calificar.className = "calificar-mostrar";
+      noCalificar.className = "noCalificar-ocultar";
+   }
+
+   evento.stopPropagation();
+})
+
+ingresar.addEventListener('click', function(){
+         window.location.href = "login.html";
+})
+
+enviar.addEventListener('click', function(evento){
+   const 
+      score = bttnsRadio.value,
+      comentarioText = contComentario.value;
+         
+   if (score == "" || comentarioText == ""){
+
+      if (score == "" && comentarioText == "") {
+         aviso.textContent = "Debe seleccionar una calificación y escribir un comentario";
+      } else if (score == "") {
+         aviso.textContent = "Debe seleccionar una calificación";
+      } else {
+         aviso.textContent = "Debe escribir un comentario";
+      }  
+
+      aviso.classList = "aviso-mostrar";
+
+   } else {
+      const 
+         fecha = new Date(),
+         fechaFormato = `${fecha.toJSON().substring(0, 10)} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`, 
+         comentario = {
+                        product : localStorage.getItem("idProducto"), 
+                        score : score,
+                        description : comentarioText,
+                        user : nombreUser.substring(0, nombreUser.indexOf('@')),
+                        dateTime : fechaFormato
+                     };
+            
+      mostrarComent(comentario);
+      reComentar();
+      popUpCalificar.className = "popUpCalificar-ocultar";
+   }
+
+   evento.stopPropagation();
+})
+
+popUpCalificar.addEventListener('click', function(evento){
+   if (evento.target == popUpCalificar){
+      reComentar();
+      popUpCalificar.className = "popUpCalificar-ocultar";
+   }
+}) 
