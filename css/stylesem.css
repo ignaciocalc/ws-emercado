@@ -625,7 +625,7 @@ p.card-boton .button {
 #productInfo {
     font-family: 'Inter', sans-serif;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
     width: 94%;
@@ -787,9 +787,114 @@ p.card-boton .button {
 
 }
 
+#contenedorTop {
+    display: flex;
+    align-content: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 94%;
+    margin: 25px 3vw;
+    
+}
+
+
+
+
 /* Seccion comentarios */
+
+#contenedorComentarios {
+    display: flex;  
+    /* border-style: solid;     */
+    /* border-color: black; */
+    justify-content: space-around;
+    align-self: center;
+    /* gap: 40px; */
+    /* padding-inline: 500px; */
+    width: 100%;
+    /* margin: 25px auto; */
+    max-width: 1200px;
+    align-items: stretch;
+}
+
 
 .checked {
     color: rgba(192, 88, 23, 0.659);
     /* border: 1px solid black; */
+}
+
+/* saco esto para centrarme en la parte de los comentarios */
+#valoraciones {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px;
+}
+
+#valoraciones>p {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.barraCalificacion {
+    width: 200px;
+    border-style: solid;
+    border-color: rgb(122, 121, 121);
+    border-radius: 5px;
+}
+
+.contenedorCalificacion{ 
+    display: flex;
+    align-content: row;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+#list-comment{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid grey; */
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.comentario-nombre {
+    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    display: flex;
+    flex-direction: column;
+}
+.comentario-nombre>span {
+    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+
+}
+
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
+    border: 1px solid #E0E0E0;    
+    background-color: #fcfbfb;
+}
+
+.comentario-contenido {
+    word-wrap: break-word;
+    line-height: 1.4;
+    /* margin: 10px 3vw; */
+    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+}
+
+.comentario-fecha {
+    font-size: clamp(.6rem, 1.3921vw + .1600rem, 1.3rem);
+    padding-left: 10px;
+    margin: 0px;
 }

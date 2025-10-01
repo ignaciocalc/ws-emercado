@@ -117,17 +117,14 @@ function mostrarComent(comen){
       contenedorComen = document.getElementById("list-comment"),
       contenedorEstrellas = document.createElement("span");
 
-
-
    nombre.textContent = comen.user;
    descripcion.textContent = comen.description;
-   fecha.textContent = comen.dataTime;
+   fecha.textContent = comen.dateTime;
 
    console.log(comen);
    
    comentario.appendChild(nombre);
    comentario.appendChild(descripcion);
-   comentario.appendChild(fecha);
 
    contenedorComen.appendChild(comentario);
 
@@ -137,7 +134,7 @@ function mostrarComent(comen){
          estrella = document.createElement("span")
       
       estrella.className = "fa fa-star checked";
-      contenedorEstrellas.appendChild(estrella)
+      contenedorEstrellas.appendChild(estrella);
    }
 
    for(let i = 5; i > comen.score; i--){      
@@ -147,7 +144,12 @@ function mostrarComent(comen){
    }
    
    nombre.appendChild(contenedorEstrellas);
-
+   contenedorEstrellas.appendChild(fecha);
+   
+   comentario.className = "comentario";
+   nombre.className = "comentario-nombre";
+   descripcion.className = "comentario-contenido";
+   fecha.className = "comentario-fecha";
 
    // https://www.w3schools.com/howto/howto_css_star_rating.asp
    // nombre.className = "clas1 class2 class3"
