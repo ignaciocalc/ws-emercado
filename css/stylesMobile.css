@@ -622,6 +622,17 @@ li a {
     margin: 25px 3vw;
 }
 
+#contenedorTop {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 94%;
+    margin: 25px 3vw;
+}
+
+
 #mostrarProducto {
     display: flex;
     flex-direction: column;
