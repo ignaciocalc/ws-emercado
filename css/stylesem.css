@@ -625,7 +625,7 @@ p.card-boton .button {
 #productInfo {
     font-family: 'Inter', sans-serif;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
     width: 94%;
@@ -641,6 +641,8 @@ p.card-boton .button {
     border: solid 2px #ddd;
     border-radius: 5px;
 }
+
+
 
 #imgContPrincipal {
     width: 90%;
@@ -912,4 +914,357 @@ p.card-boton .button {
     padding: 7px;
 }
 
+/*------------ Hacer un comentario ---------------*/
+.popUpCalificar-ocultar{
+    display: none;
+}
+
+.popUpCalificar-mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+}
+
+.calificar-mostrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: white;
+    width: 35%;
+    min-width: 450px;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.calificar-ocultar {
+    display: none;
+}
+
+.calificar-mostrar p{
+    justify-self: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.calificar-mostrar form{
+    display: flex;
+    width: 100%;
+    height: 55px;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.calificar-mostrar label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-weight: 550;
+}
+
+.calificar-mostrar form label{
+    width: 55px;
+}
+
+.calificar-mostrar form label input{
+    appearance: none;
+}
+
+
+.calificar-mostrar button{
+    justify-self: center;
+    margin: 20px 0 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem
+}
+
+#comentUser {
+    width: 100%;
+    padding: 5px;
+    border: solid 1.8px #f89e59;
+    border-radius: 3px;
+    height: 128px;
+    max-height: 295px;
+    min-height: 33px;
+    font-weight: 350;
+}
+
+#aviso.aviso-mostrar {
+    color: #de514e;
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+#aviso.aviso-ocultar {
+    display: none;
+}
+
+.noCalificar-mostrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: white;
+    width: 35%;
+    min-width: 450px;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 6px;
+}
+
+.noCalificar-ocultar {
+    display: none;
+}
+
+.noCalificar-mostrar p {
+    justify-self: center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.noCalificar-mostrar .button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 7px;
+}
+
+}
+
+#contenedorTop {
+    display: flex;
+    align-content: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 94%;
+    margin: 25px 3vw;
+    
+}
+
+
+
+
+/* Seccion comentarios */
+
+#contenedorComentarios {
+    display: flex;  
+    /* border-style: solid;     */
+    /* border-color: black; */
+    justify-content: space-around;
+    align-self: center;
+    /* gap: 40px; */
+    /* padding-inline: 500px; */
+    width: 100%;
+    /* margin: 25px auto; */
+    max-width: 1200px;
+    align-items: stretch;
+}
+
+
+.checked {
+    color: rgba(192, 88, 23, 0.659);
+    /* border: 1px solid black; */
+}
+
+/* saco esto para centrarme en la parte de los comentarios */
+#valoraciones {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px;
+}
+
+#valoraciones>p {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.barraCalificacion {
+    width: 200px;
+    border-style: solid;
+    border-color: rgb(122, 121, 121);
+    border-radius: 5px;
+}
+
+.contenedorCalificacion{ 
+    display: flex;
+    align-content: row;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+#list-comment{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid grey; */
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.comentario-nombre {
+    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    display: flex;
+    flex-direction: column;
+}
+.comentario-nombre>span {
+    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+
+}
+
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
+    border: 1px solid #E0E0E0;    
+    background-color: #fcfbfb;
+}
+
+.comentario-contenido {
+    word-wrap: break-word;
+    line-height: 1.4;
+    /* margin: 10px 3vw; */
+    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+}
+
+.comentario-fecha {
+    font-size: clamp(.6rem, 1.3921vw + .1600rem, 1.3rem);
+    padding-left: 10px;
+    margin: 0px;
+}
+
+#contenedorTop {
+    display: flex;
+    align-content: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 94%;
+    margin: 25px 3vw;
+    
+}
+
+
+
+
+/* Seccion comentarios */
+
+#contenedorComentarios {
+    display: flex;  
+    /* border-style: solid;     */
+    /* border-color: black; */
+    justify-content: space-around;
+    align-self: center;
+    /* gap: 40px; */
+    /* padding-inline: 500px; */
+    width: 100%;
+    /* margin: 25px auto; */
+    max-width: 1200px;
+    align-items: stretch;
+}
+
+
+.checked {
+    color: rgba(192, 88, 23, 0.659);
+    /* border: 1px solid black; */
+}
+
+/* saco esto para centrarme en la parte de los comentarios */
+#valoraciones {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px;
+}
+
+#valoraciones>p {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.barraCalificacion {
+    width: 200px;
+    border-style: solid;
+    border-color: rgb(122, 121, 121);
+    border-radius: 5px;
+}
+
+.contenedorCalificacion{ 
+    display: flex;
+    align-content: row;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+#list-comment{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid grey; */
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.comentario-nombre {
+    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    display: flex;
+    flex-direction: column;
+}
+.comentario-nombre>span {
+    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+
+}
+
+
+.comentario {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
+    border: 1px solid #E0E0E0;    
+    background-color: #fcfbfb;
+}
+
+.comentario-contenido {
+    word-wrap: break-word;
+    line-height: 1.4;
+    /* margin: 10px 3vw; */
+    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+}
+
+.comentario-fecha {
+    font-size: clamp(.6rem, 1.3921vw + .1600rem, 1.3rem);
+    padding-left: 10px;
+    margin: 0px;
 }

@@ -102,8 +102,6 @@ async function productInfo(link) {
       recargarLocalStorage(prodRelacionados[1].id);
    })
 }
-
-
 productInfo(linkProducto);
 
 
@@ -220,3 +218,64 @@ popUpCalificar.addEventListener('click', function(evento){
       popUpCalificar.className = "popUpCalificar-ocultar";
    }
 }) 
+
+// Seccion de comentarios 
+const
+   linkComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + localStorage.getItem('idProducto') + ".json";
+
+// cada comentario es un section del article (id="list-comment") en el html
+function mostrarComent(comen){
+   let nombre = document.createElement("h2"),
+      descripcion = document.createElement("p"),
+      fecha = document.createElement("p"),
+      comentario = document.createElement("section"),
+      contenedorComen = document.getElementById("list-comment"),
+      contenedorEstrellas = document.createElement("span");
+
+   nombre.textContent = comen.user;
+   descripcion.textContent = comen.description;
+   fecha.textContent = comen.dateTime;
+
+   console.log(comen);
+   
+   comentario.appendChild(nombre);
+   comentario.appendChild(descripcion);
+
+   contenedorComen.appendChild(comentario);
+
+
+   for(let i = 0; i < comen.score; i++){
+      const
+         estrella = document.createElement("span")
+      
+      estrella.className = "fa fa-star checked";
+      contenedorEstrellas.appendChild(estrella);
+   }
+
+   for(let i = 5; i > comen.score; i--){      
+      const estrella = document.createElement("span");
+      estrella.className = "fa fa-star";
+      contenedorEstrellas.appendChild(estrella);
+   }
+   
+   nombre.appendChild(contenedorEstrellas);
+   contenedorEstrellas.appendChild(fecha);
+   
+   comentario.className = "comentario";
+   nombre.className = "comentario-nombre";
+   descripcion.className = "comentario-contenido";
+   fecha.className = "comentario-fecha";
+
+   // https://www.w3schools.com/howto/howto_css_star_rating.asp
+   // nombre.className = "clas1 class2 class3"
+}
+
+async function obtenerComentarios() {
+   let comentarios = await (await fetch(linkComentarios)).json();
+   
+   comentarios.forEach(a => mostrarComent(a));
+   
+   mostrarComent(comentarios[0]);
+}
+
+obtenerComentarios();
