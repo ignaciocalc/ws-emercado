@@ -1,6 +1,6 @@
 const
-   linkProducto = "https://japceibal.github.io/emercado-api/products/" +
-                  localStorage.getItem('idProducto') + ".json",
+   idProductoLS = localStorage.getItem('idProducto'),
+   linkProducto = "https://japceibal.github.io/emercado-api/products/" + idProductoLS + ".json",
    imgPrincipal = document.getElementById("imgPrincipal"),
    galImg = document.getElementById("galImg"),
    nombreProd = document.getElementById("nombreProd"),
@@ -192,10 +192,31 @@ enviar.addEventListener('click', function(evento){
                         user : nombreUser.substring(0, nombreUser.indexOf('@')),
                         dateTime : fechaFormato
                      };
-            
+
+      let 
+         listComent = localStorage.getItem("lsComentarios");
+
       mostrarComent(comentario);
       reComentar();
       popUpCalificar.className = "popUpCalificar-ocultar";
+
+      if (listComent !== null) {
+         console.log("entro")
+         listComent = JSON.parse(listComent);
+         if (listComent[idProductoLS] == undefined){
+            listComent[idProductoLS] = [];
+         }
+         listComent[idProductoLS].push(comentario);
+         localStorage.setItem("lsComentarios", JSON.stringify(listComent))
+      } else { 
+         localStorage.setItem("lsComentarios", JSON.stringify({[idProductoLS] : [comentario]}));
+      }
+// local storage lsComentarios esttructura
+// idProductoLS { {array comentarios}
+//  ^                                  }
+//  |
+// El numero de ID del producto
+
    }
 
    evento.stopPropagation();
@@ -210,7 +231,7 @@ popUpCalificar.addEventListener('click', function(evento){
 
 // Seccion de comentarios 
 const
-   linkComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + localStorage.getItem('idProducto') + ".json";
+   linkComentarios = "https://japceibal.github.io/emercado-api/products_comments/" + idProductoLS + ".json";
 
 // cada comentario es un section del article (id="list-comment") en el html
 function mostrarComent(comen){
@@ -260,9 +281,19 @@ function mostrarComent(comen){
 }
 
 async function obtenerComentarios() {
-   let comentarios = await (await fetch(linkComentarios)).json();
-   
+   let 
+      comentarios = await (await fetch(linkComentarios)).json(),
+      comentStorage = localStorage.getItem("lsComentarios");
+
    comentarios.forEach(a => mostrarComent(a));
+   
+   if(comentStorage !== null){ // chequeo que exista al menos un comentario guardado de al menos un producto
+      comentStorage = JSON.parse(comentStorage)[idProductoLS];
+      if (comentStorage !== undefined) { // no hay comentarios guardados de ese producto pero sí de otros 
+         comentStorage.forEach(a => mostrarComent(a));
+      }
+   }
+
 }
 
 obtenerComentarios();
