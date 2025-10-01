@@ -211,7 +211,7 @@ enviar.addEventListener('click', function(evento){
       } else { 
          localStorage.setItem("lsComentarios", JSON.stringify({[idProductoLS] : [comentario]}));
       }
-// local storage lsComentarios esttructura
+// local storage lsComentarios estructura
 // idProductoLS { {array comentarios}
 //  ^                                  }
 //  |
