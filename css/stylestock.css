@@ -34,3 +34,23 @@
 .button:hover {
     background: #e65c00;
 }
+
+/* Estrellas */
+.estrella {
+   display: flex;
+   background-image: url(../img/estrella.svg);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: center;
+   min-width: 3px;
+   height: 100%;
+}
+
+.estrella.estrellaSelect {
+   background-image: url(../img/estrellaSelect.svg);
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: center;
+   min-width: 3px;
+   height: 100%;
+}

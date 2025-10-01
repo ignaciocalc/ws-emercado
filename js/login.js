@@ -10,7 +10,7 @@ boton.addEventListener('click', function(){
 
       if (usuario.validity.valid) {
          localStorage.setItem("user", usuario.value);
-         window.location.href = "index.html";
+         window.history.back();
       } else {
          usuario.classList.replace("camposError", "camposInput");
          parrafos[0].textContent = "Ingrese un mail valido"
