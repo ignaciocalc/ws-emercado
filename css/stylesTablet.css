@@ -748,7 +748,7 @@ li a {
     align-self: center;
     width: 50%;
     margin: 17px 0;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 0.413rem + 2.388vw, 1.1rem)
 }
 
 #relProductos h2 {
