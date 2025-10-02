@@ -632,6 +632,10 @@ p.card-boton .button {
     margin: 25px 3vw;
 }
 
+#contenedorMain {
+    display: none;
+}
+
 #mostrarProducto {
     display: flex;
     flex-direction: row;
@@ -646,6 +650,9 @@ p.card-boton .button {
 
 #imgContPrincipal {
     width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
 }
 
 #imgContPrincipal img {
@@ -664,7 +671,7 @@ p.card-boton .button {
 #galImg {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 30px;
     width: 10%;
     min-width: 75px;
@@ -1044,67 +1051,86 @@ p.card-boton .button {
 
 /*------------ Seccion comentarios ---------------*/
 
-#contenedorTop {
-    display: flex;
-    align-content: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    width: 94%;
-    margin: 25px 3vw;
-    
+#opiniones-titulo{
+    display: none;
 }
 
-#opiniones-titulo{
-    margin-bottom: 0px;
+#opiniones-titulo-sem{
+    padding: 0px 15px;
+    margin: 35px 0px 20px;
 }
 
 #contenedorComentarios {
     display: flex;  
     justify-content: space-around;
     align-self: center;
+    align-items: flex-start;
+}
+
+#contenedorBottom {
     width: 94%;
-    max-width: 1200px;
-    align-items: stretch;
+    align-self: center;
 }
 
 
 .checked {
-    color: rgba(192, 88, 23, 0.659);
+    color: rgb(255 148 76);
 }
 
 #valoraciones {
-    display: none;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    margin-right: 10px;
+    padding: 0px 15px;
+    flex: 1;
+    max-width: 298px;
 }
 
 #valoraciones>p {
-    font-weight: 700;
-    font-size: 25px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .barraCalificacion {
-    width: 200px;
-    border-style: solid;
-    border-color: rgb(122, 121, 121);
+    width: 125px;
+    border: 1px solid #ddd;
+    height: 70%;
+    min-width: 125px;
+    display: flex;
+    justify-content: flex-start;
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.porcentajeP {
+    min-width: 42px
 }
 
 .contenedorCalificacion{ 
     display: flex;
-    align-content: row;
     gap: 10px;
     justify-content: space-between;
+    white-space: nowrap;
+    min-height: 40px;
+    height: 40px;
+    align-items: center;
+}
 
+.contenedorCalificacion p{ 
+    margin: 0;
+}
+
+
+.cantEstrellas {
+    margin: 0;
+    min-width: 80px;
 }
 
 #list-comment{
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    min-width: 0;
-    width: 100%;
+    flex: 4;
     box-sizing: border-box;
 }
 
@@ -1130,7 +1156,7 @@ p.card-boton .button {
     width: 100%;
     padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
     border: 1px solid #E0E0E0;    
-    background-color: #fcfbfb;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
@@ -1148,23 +1174,28 @@ p.card-boton .button {
 
 #contenedorTop {
     display: flex;
-    align-content: row;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-self: center;
+    align-items: stretch;
     width: 94%;
-    margin: 25px 3vw;
-    
 }
 
 #btnComentar {
-    display: flex;
-    color: #FF6600;
-    cursor: pointer;
-    max-width: 74px;
+    display: none;
+}
+
+#btnComentarSem {
+    margin-top: 13px;
+    padding: 3px;
 }
 
 #btnComentar:hover {
     color: #ae4702;
+}
+
+.barrEstrella {
+    background-color: #ff8838;
+    object-fit: cover;
 }
 
 }

@@ -58,7 +58,7 @@
       </ul>
     </div>
   </header>
-  <article class="mainProducts">
+  <article id="contenedorMain"class="mainProducts">
     <div id="menu" class="noDesplegado">
       <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
       <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
@@ -137,48 +137,57 @@
       </section>
     </article>
     </div>
-   
-    <div id="contenedorComentarios">
 
-      <div id="valoraciones">
-        <!-- valoraciones -->
-        <p>Valoraciones</p>
-          <!-- poner estrellitas aca -->
-          <div class="contenedorCalificacion">
-            <p> 5 estrellas </p>
-            <div class="barraCalificacion"> </div>
-          </div>
+    <div id="contenedorBottom">
+      <h3 id="opiniones-titulo-sem">Opiniones del producto</h3>
+      <div id="contenedorComentarios">
 
-          <div class="contenedorCalificacion">
-            <p> 4 estrellas </p>
-            <div class="barraCalificacion"> </div>
-          </div>
-          
-          <div class="contenedorCalificacion">
-            <p> 3 estrellas </p>
-            <div class="barraCalificacion"> </div>
-          </div>
-          
-          <div class="contenedorCalificacion">
-            <p> 2 estrellas </p>
-            <div class="barraCalificacion"> </div>
-          </div>
-          
-          <div class="contenedorCalificacion">
-            <p> 1 estrella </p>
-            <div class="barraCalificacion"> </div>
-          </div>
+        <div id="valoraciones">
+          <!-- valoraciones -->
+          <p>Valoraciones</p>
+            <!-- poner estrellitas aca -->
+            <div class="contenedorCalificacion">
+              <p class="cantEstrellas">5 estrellas</p>
+              <div class="barraCalificacion"><div id="barrEstrella5" class="barrEstrella"></div></div>
+              <p class="porcentajeP">0%</p>
+            </div>
+
+            <div class="contenedorCalificacion">
+              <p class="cantEstrellas">4 estrellas</p>
+              <div class="barraCalificacion"><div id="barrEstrella4" class="barrEstrella"></div></div>
+              <p class="porcentajeP">0%</p>
+            </div>
+            
+            <div class="contenedorCalificacion">
+              <p class="cantEstrellas">3 estrellas</p>
+              <div class="barraCalificacion"><div id="barrEstrella3" class="barrEstrella"></div></div>
+              <p class="porcentajeP">0%</p>
+            </div>
+            
+            <div class="contenedorCalificacion">
+              <p class="cantEstrellas">2 estrellas</p>
+              <div class="barraCalificacion"><div id="barrEstrella2" class="barrEstrella"></div></div>
+              <p class="porcentajeP">0%</p>
+            </div>
+            
+            <div class="contenedorCalificacion">
+              <p class="cantEstrellas">1 estrellas</p>
+              <div class="barraCalificacion"><div id="barrEstrella1" class="barrEstrella"></div></div>
+              <p class="porcentajeP">0%</p>
+            </div>
+
+            <button class="button" id="btnComentarSem">Comentar</button>
+        </div>
+        
+          <article id="list-comment">
+          <h3 id="opiniones-titulo">Opiniones del producto</h3>
+          <p id="btnComentar">Comentar</p>
+
+          <!-- AGREGADO PARA TEST -->
+          </article>
 
         </div>
-      
-        <article id="list-comment">
-        <h3 id="opiniones-titulo">Opiniones del producto</h3>
-        <p id="btnComentar">Comentar</p>
-
-        <!-- AGREGADO PARA TEST -->
-        </article>
-
-      </div>
+    </div>
   </main>
 </body>
 </html>
