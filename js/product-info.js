@@ -10,7 +10,9 @@ const
    descripcionProd = document.getElementById("descripcionProd"),
    // Seccion de productos relacionados
    listProdRel = document.getElementById("listProdRelacionados"),
+   califGen = document.querySelectorAll(".califGen"),
    barrasEstrellas = document.querySelectorAll(".barrEstrella"),
+   califCant = document.getElementById("califCant"),
    porcentajeP = document.querySelectorAll(".porcentajeP");
 
 let 
@@ -114,16 +116,29 @@ async function productInfo(link) {
 
 function actualizarEstilos(){
    let 
-      totalValoraciones = 0;
+      totalValoraciones = 0,
+      estrellasGen = 0;
 
    cantTipoEstrella.forEach(cantVal => totalValoraciones += cantVal);
 
    for (let i = 0; i < 5; i++) {
       let porcentaje = cantTipoEstrella[i] * 100 / totalValoraciones;
       barrasEstrellas[i].style.width = `${porcentaje}%`;
-      console.log(porcentajeP)
       porcentajeP[i].textContent = `${Math.trunc(porcentaje)}%`;
+      estrellasGen += (5 - i) * porcentaje / 100;
    }
+
+   estrellasGen = Math.trunc(estrellasGen);
+
+   for (let i = 0; i < estrellasGen; i++) {
+      califGen[i].className = "fa fa-star califGen checked"
+   }
+
+   for (let i = estrellasGen; i < 5; i++) {
+      califGen[i].className = "fa fa-star califGen"
+   }
+
+   califCant.textContent = "de " + totalValoraciones;
 }
 
 function actualizarVal(tipoEstrella) {
@@ -252,7 +267,6 @@ enviar.addEventListener('click', function(evento){
       popUpCalificar.className = "popUpCalificar-ocultar";
 
       if (listComent !== null) {
-         console.log("entro")
          listComent = JSON.parse(listComent);
          if (listComent[idProductoLS] == undefined){
             listComent[idProductoLS] = [];

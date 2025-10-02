@@ -708,6 +708,7 @@ p.card-boton .button {
 
 #infoVenCat p {
     margin: 0;
+    font-size: clamp(0.5rem, -0.094rem + 1.216vw, 1rem)
 }
 
 #precioProd {
