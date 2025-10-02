@@ -695,7 +695,7 @@ p.card-boton .button {
 }
 
 #nombreProd {
-    font-size: clamp(2.5rem, -0.829rem + 6.926vw, 3.5rem);
+    font-size: clamp(2.5rem, 1.466rem + 2.149vw, 3.4rem);
     margin: 0;
 }
 
@@ -714,19 +714,19 @@ p.card-boton .button {
 #precioProd {
     color: #FF6600;
     font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 7px;
+    font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
+    margin: 7px 0px;
 }
 
 #descripcionProd {
-    font-size: clamp(1.1rem, 0.101rem + 2.078vw, 1.4rem);
+    font-size: clamp(1rem, 0.655rem + 0.716vw, 1.3rem);
     margin: 0;
 }
 
 .prodRelacionado {
     box-shadow: 0px 0px 2px 1px #dddddd;
     border-radius: 5px;
-    width: 30%;
+    flex: 1;
     overflow: hidden;
 }
     
@@ -762,10 +762,12 @@ p.card-boton .button {
     align-self: center;
     width: 95%;
     margin: 15px 0;
+    padding: 7px;
+    font-size: clamp(0.88rem, 0.512rem + 0.764vw, 1.2rem);
 }
 
 #relProductos h2 {
-    font-size: clamp(1rem, 0.001rem + 2.078vw, 1.3rem);
+    font-size: clamp(0.8rem, 0.11rem + 1.433vw, 1.4rem);
 }
 
 
@@ -1137,12 +1139,12 @@ p.card-boton .button {
 
 
 .comentario-nombre {
-    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    font-size: clamp(1.3rem, 0.783rem + 1.075vw, 1.75rem);
     display: flex;
     flex-direction: column;
 }
 .comentario-nombre>span {
-    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    font-size: clamp(0.9rem, 0.44rem + 0.955vw, 1.3rem);
     display: flex;
     align-items: center;
     padding-top: .2rem;
@@ -1153,7 +1155,6 @@ p.card-boton .button {
 .comentario {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
     width: 100%;
     padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
     border: 1px solid #E0E0E0;    
@@ -1164,7 +1165,7 @@ p.card-boton .button {
 .comentario-contenido {
     word-wrap: break-word;
     line-height: 1.4;
-    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+    font-size: clamp(1.1rem, 0.525rem + 1.194vw, 1.6rem);
 }
 
 .comentario-fecha {

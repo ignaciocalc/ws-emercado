@@ -124,7 +124,9 @@ function actualizarEstilos(){
    for (let i = 0; i < 5; i++) {
       let porcentaje = cantTipoEstrella[i] * 100 / totalValoraciones;
       barrasEstrellas[i].style.width = `${porcentaje}%`;
-      porcentajeP[i].textContent = `${Math.trunc(porcentaje)}%`;
+      if (!isNaN(porcentaje))
+         porcentajeP[i].textContent = `${Math.trunc(porcentaje)}%`;
+
       estrellasGen += (5 - i) * porcentaje / 100;
    }
 
