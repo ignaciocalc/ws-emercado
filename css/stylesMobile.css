@@ -705,7 +705,8 @@ li a {
 
 #infoVenCat p {
     margin: 0;
-    font-size: clamp(0.48rem, -0.202rem + 5.508vw, 0.9rem);
+    font-size: clamp(0.43rem, -0.082rem + 4.308vw, 0.78rem);
+    white-space: nowrap;
 }
 
 #precioProd {
@@ -723,10 +724,10 @@ li a {
 .prodRelacionado {
     box-shadow: 0px 0px 2px 1px #dddddd;
     border-radius: 5px;
-    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 130px;
+    max-width: 100px;
+    min-width: 100px;
 }
     
 
@@ -745,10 +746,11 @@ li a {
     height: 65%;
     gap: 2%;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-color: #fafafaa8;
     border: 1px solid #dddd;
     padding: 5px;
+    overflow: auto;
 }
 #listProdRelacionados p {
     padding: 5px;
