@@ -692,6 +692,7 @@ p.card-boton .button {
     padding: 15px;
     box-shadow: 0px 0px 3px 3px #dddddd;
     border-radius: 5px;
+    min-width: 272px;
 }
 
 #nombreProd {
@@ -703,19 +704,20 @@ p.card-boton .button {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 5px
+    gap: 5px;
+    margin: 2px 0 0;
 }
 
 #infoVenCat p {
     margin: 0;
-    font-size: clamp(0.5rem, -0.094rem + 1.216vw, 1rem)
+    font-size: clamp(0.7rem, -0.122rem + 1.302vw, 1.05rem);
 }
 
 #precioProd {
     color: #FF6600;
     font-weight: bold;
     font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
-    margin: 7px 0px;
+    margin: 0;
 }
 
 #descripcionProd {
@@ -728,6 +730,7 @@ p.card-boton .button {
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-color: white;
     max-width: 120px;
     min-width: 120px;
 }
@@ -748,7 +751,7 @@ p.card-boton .button {
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    background-color: #fafafaa8;
+    background-color: #f8f8f8;
     border: 1px solid #dddd;
     padding: 5px;
     overflow: auto;
@@ -758,7 +761,8 @@ p.card-boton .button {
     padding: 5px;
     margin: 0;
     white-space: nowrap;
-    font-size: clamp(0.6rem, -0.129rem + 1.517vw, 1rem);
+    font-size: 0.85rem;
+    border-top: 1px solid #ddd;
 }
 
 #imgPrincipal {
