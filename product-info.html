@@ -83,6 +83,30 @@
         <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
     </div>
   </article>
+  
+      <article id="popUpCalificar" class="popUpCalificar-ocultar">
+      <section id="calificar" class="calificar-mostrar">
+        <p>Nos gustaría conocer tu opinión</p>
+        <form id="cantEstrellas">
+          <label class="estrellasForm estrella" estrella="1"> <Input type="radio" name="calif" value="1"></label>
+          <label class="estrellasForm estrella" estrella="2"> <Input type="radio" name="calif" value="2"></label> 
+          <label class="estrellasForm estrella" estrella="3"> <Input type="radio" name="calif" value="3"></label> 
+          <label class="estrellasForm estrella" estrella="4"> <Input type="radio" name="calif" value="4"></label>
+          <label class="estrellasForm estrella" estrella="5"> <Input type="radio" name="calif" value="5"></label>
+        </form>
+        <label>
+          Escribe tu reseña
+          <textarea id="comentUser" placeholder="..."></textarea>
+        </label>
+        <p id="aviso" class="aviso-ocultar">Debe completar todos los campos</p>
+        <button id="enviarOpinion" class="button">Enviar opinión</button>
+      </section>
+      <section id="noCalificar" class="noCalificar-ocultar">
+        <img src="img/logearse.svg">
+        <p>Debe estar logeado para poder comentar</p>
+        <button id="ingresarComent" class="button">Ingresar</button>
+      </section>
+    </article>
 
   <main id="productInfo">
     <div id="contenedorTop">
@@ -122,29 +146,6 @@
       </section>
     <!-- Borrar al mergear -->
     <!-- Borrar al mergear -->
-    <article id="popUpCalificar" class="popUpCalificar-ocultar">
-      <section id="calificar" class="calificar-mostrar">
-        <p>Nos gustaría conocer tu opinión</p>
-        <form id="cantEstrellas">
-          <label class="estrellasForm estrella" estrella="1"> <Input type="radio" name="calif" value="1"></label>
-          <label class="estrellasForm estrella" estrella="2"> <Input type="radio" name="calif" value="2"></label> 
-          <label class="estrellasForm estrella" estrella="3"> <Input type="radio" name="calif" value="3"></label> 
-          <label class="estrellasForm estrella" estrella="4"> <Input type="radio" name="calif" value="4"></label>
-          <label class="estrellasForm estrella" estrella="5"> <Input type="radio" name="calif" value="5"></label>
-        </form>
-        <label>
-          Escribe tu reseña
-          <textarea id="comentUser" placeholder="..."></textarea>
-        </label>
-        <p id="aviso" class="aviso-ocultar">Debe completar todos los campos</p>
-        <button id="enviarOpinion" class="button">Enviar opinión</button>
-      </section>
-      <section id="noCalificar" class="noCalificar-ocultar">
-        <img src="img/logearse.svg">
-        <p>Debe estar logeado para poder comentar</p>
-        <button id="ingresarComent" class="button">Ingresar</button>
-      </section>
-    </article>
     </div>
 
     <div id="contenedorBottom">
