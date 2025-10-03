@@ -623,8 +623,8 @@ li a {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
-    width: 94%;
-    margin: 25px 3vw;
+    width: 100%;
+    align-self: center;
 }
 
 
@@ -694,6 +694,7 @@ li a {
 
 #infoVenCat p {
     margin: 0;
+    font-size: clamp(0.9rem, 0.453rem + 2.222vw, 1rem);
 }
 
 #precioProd {
@@ -711,9 +712,10 @@ li a {
 .prodRelacionado {
     box-shadow: 0px 0px 2px 1px #dddddd;
     border-radius: 5px;
-    width: 30%;
-    max-width: 150px;
+    flex: 1;
     overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
 }
     
 
@@ -727,17 +729,23 @@ li a {
 #listProdRelacionados {
     display: flex;
     flex-direction: row;
+    border-radius: 5px;
     width: 100%;
     height: 65%;
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: wrap;
+    background-color: #fafafaa8;
+    border: 1px solid #dddd;
+    padding: 5px;
 }
 
 #listProdRelacionados p {
     padding: 5px;
     margin: 0;
     font-size: 1.1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #imgPrincipal {
@@ -745,15 +753,15 @@ li a {
 }
 
 #agregarCarritoInfo {
-    align-self: center;
-    width: 50%;
+    align-self: flex-start;
+    width: 100%;
     margin: 17px 0;
     font-size: clamp(0.9rem, 0.413rem + 2.388vw, 1.1rem)
 }
 
 #relProductos h2 {
     margin-top: 15px;
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 0.769rem + 1.644vw, 1.55rem);
 }
 
 /*------------menu filtros------------*/
@@ -1148,25 +1156,29 @@ li a {
     padding: 7px;
 }
 
+#opiniones-titulo-sem {
+    display: none;
+}
+
 /*------------ Seccion comentarios ---------------*/
 
 
 #opiniones-titulo{
     margin-bottom: 0px;
+    font-size: clamp(1.1rem, 0.769rem + 1.644vw, 1.55rem);
 }
 
 #contenedorComentarios {
-    display: flex;  
+    display: flex;
     justify-content: space-around;
     align-self: center;
-    width: 94%;
-    max-width: 1200px;
-    align-items: stretch;
+    width: 100%;
+    padding: 10px;
 }
 
 
 .checked {
-    color: rgba(192, 88, 23, 0.659);
+    color: rgb(255 148 76);
 }
 
 #valoraciones {
@@ -1222,18 +1234,18 @@ li a {
 .comentario {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
     width: 100%;
-    padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
-    border: 1px solid #E0E0E0;    
-    background-color: #fcfbfb;
+    padding: 8px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .comentario-contenido {
     word-wrap: break-word;
     line-height: 1.4;
-    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+    font-size: clamp(0.85rem, 0.593rem + 1.279vw, 1.2rem);
+    margin-bottom: 0px;
 }
 
 .comentario-fecha {
@@ -1242,12 +1254,19 @@ li a {
     margin: 0px;
 }
 
+#contenedorBottom{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
 #btnComentar {
     display: flex;
     color: #FF6600;
     cursor: pointer;
     max-width: 74px;
+    font-size: clamp(0.75rem, 0.566rem + 0.913vw, 1rem);
 }
 
 #btnComentar:hover {
