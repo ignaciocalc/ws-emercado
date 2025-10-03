@@ -9,7 +9,16 @@ const
    precioProd = document.getElementById("precioProd"),
    descripcionProd = document.getElementById("descripcionProd"),
    // Seccion de productos relacionados
-   listProdRel = document.getElementById("listProdRelacionados");
+   listProdRel = document.getElementById("listProdRelacionados"),
+   califGen = document.querySelectorAll(".califGen"),
+   barrasEstrellas = document.querySelectorAll(".barrEstrella"),
+   califCant = document.getElementById("califCant"),
+   porcentajeP = document.querySelectorAll(".porcentajeP");
+
+let 
+   cantTipoEstrella = [0, 0, 0, 0, 0]; // cada item del arreglo representa la cantidad de votos
+                                       // que se hicieron con ese tipo de estrella, por ejemplo. cantTipoEstrella[0]
+                                       // representa la cantidad de votos que hay con 5 estrellas
 
 async function productInfo(link) {
    let 
@@ -102,12 +111,66 @@ async function productInfo(link) {
       recargarLocalStorage(prodRelacionados[1].id);
    })
 }
-productInfo(linkProducto);
+
+//Actualiza las valoraciones generales
+
+function actualizarEstilos(){
+   let 
+      totalValoraciones = 0,
+      estrellasGen = 0;
+
+   cantTipoEstrella.forEach(cantVal => totalValoraciones += cantVal);
+
+   for (let i = 0; i < 5; i++) {
+      let porcentaje = cantTipoEstrella[i] * 100 / totalValoraciones;
+      barrasEstrellas[i].style.width = `${porcentaje}%`;
+      if (!isNaN(porcentaje))
+         porcentajeP[i].textContent = `${Math.trunc(porcentaje)}%`;
+
+      estrellasGen += (5 - i) * porcentaje / 100;
+   }
+
+   estrellasGen = Math.trunc(estrellasGen);
+
+   for (let i = 0; i < estrellasGen; i++) {
+      califGen[i].className = "fa fa-star califGen checked"
+   }
+
+   for (let i = estrellasGen; i < 5; i++) {
+      califGen[i].className = "fa fa-star califGen"
+   }
+
+   califCant.textContent = "de " + totalValoraciones;
+}
+
+function actualizarVal(tipoEstrella) {
+
+   tipoEstrella = parseInt(tipoEstrella);
+
+   switch (tipoEstrella) {
+      case 1:
+         cantTipoEstrella[4]++;
+         break;
+      case 2:
+         cantTipoEstrella[3]++;
+         break;
+      case 3:
+         cantTipoEstrella[2]++;
+         break;
+      case 4:
+         cantTipoEstrella[1]++;
+         break;
+      case 5:
+         cantTipoEstrella[0]++;
+         break;
+   }
+}
 
 
 //Seccion de calificacion
 let 
    comentar = document.getElementById("btnComentar"),
+   comentarSem = document.getElementById("btnComentarSem"),
    estrellas = document.querySelectorAll(".estrellasForm"),
    nombreUser = localStorage.getItem("user"),
    enviar = document.getElementById("enviarOpinion"),
@@ -142,7 +205,7 @@ estrellas.forEach(estrella => {
    estrella.addEventListener('click', pintarEstrella);
 });
 
-comentar.addEventListener("click", function(evento){
+function comentarAccion(evento){
    let
       calificar = document.getElementById("calificar"),
       noCalificar = document.getElementById("noCalificar");
@@ -157,8 +220,11 @@ comentar.addEventListener("click", function(evento){
       noCalificar.className = "noCalificar-ocultar";
    }
 
-   evento.stopPropagation();
-})
+   evento.stopPropagation()
+}
+
+comentar.addEventListener("click", comentarAccion);
+comentarSem.addEventListener("click", comentarAccion)
 
 ingresar.addEventListener('click', function(){
          window.location.href = "login.html";
@@ -197,11 +263,12 @@ enviar.addEventListener('click', function(evento){
          listComent = localStorage.getItem("lsComentarios");
 
       mostrarComent(comentario);
+      actualizarVal(comentario.score);
+      actualizarEstilos();
       reComentar();
       popUpCalificar.className = "popUpCalificar-ocultar";
 
       if (listComent !== null) {
-         console.log("entro")
          listComent = JSON.parse(listComent);
          if (listComent[idProductoLS] == undefined){
             listComent[idProductoLS] = [];
@@ -211,11 +278,12 @@ enviar.addEventListener('click', function(evento){
       } else { 
          localStorage.setItem("lsComentarios", JSON.stringify({[idProductoLS] : [comentario]}));
       }
+
 // local storage lsComentarios estructura
-// idProductoLS { {array comentarios}
-//  ^                                  }
-//  |
-// El numero de ID del producto
+// {idProductoLS : [array comentarios]}
+//    ^                                  }
+//    |
+//  El numero de ID del producto
 
    }
 
@@ -245,8 +313,6 @@ function mostrarComent(comen){
    nombre.textContent = comen.user;
    descripcion.textContent = comen.description;
    fecha.textContent = comen.dateTime;
-
-   console.log(comen);
    
    comentario.appendChild(nombre);
    comentario.appendChild(descripcion);
@@ -285,15 +351,17 @@ async function obtenerComentarios() {
       comentarios = await (await fetch(linkComentarios)).json(),
       comentStorage = localStorage.getItem("lsComentarios");
 
-   comentarios.forEach(a => mostrarComent(a));
+   comentarios.forEach(a => {mostrarComent(a); actualizarVal(a.score)});
    
    if(comentStorage !== null){ // chequeo que exista al menos un comentario guardado de al menos un producto
       comentStorage = JSON.parse(comentStorage)[idProductoLS];
-      if (comentStorage !== undefined) { // no hay comentarios guardados de ese producto pero sí de otros 
-         comentStorage.forEach(a => mostrarComent(a));
+      if (comentStorage !== undefined) { // verifica si hay comentarios de ese producto 
+         comentStorage.forEach(a => {mostrarComent(a); actualizarVal(a.score)});
       }
    }
 
+   actualizarEstilos()
 }
 
+productInfo(linkProducto);
 obtenerComentarios();

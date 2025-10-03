@@ -632,6 +632,10 @@ p.card-boton .button {
     margin: 25px 3vw;
 }
 
+#contenedorMain {
+    display: none;
+}
+
 #mostrarProducto {
     display: flex;
     flex-direction: row;
@@ -646,6 +650,9 @@ p.card-boton .button {
 
 #imgContPrincipal {
     width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
 }
 
 #imgContPrincipal img {
@@ -664,7 +671,7 @@ p.card-boton .button {
 #galImg {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 30px;
     width: 10%;
     min-width: 75px;
@@ -688,7 +695,7 @@ p.card-boton .button {
 }
 
 #nombreProd {
-    font-size: clamp(2.5rem, -0.829rem + 6.926vw, 3.5rem);
+    font-size: clamp(2.5rem, 1.466rem + 2.149vw, 3.4rem);
     margin: 0;
 }
 
@@ -701,24 +708,25 @@ p.card-boton .button {
 
 #infoVenCat p {
     margin: 0;
+    font-size: clamp(0.5rem, -0.094rem + 1.216vw, 1rem)
 }
 
 #precioProd {
     color: #FF6600;
     font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 7px;
+    font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
+    margin: 7px 0px;
 }
 
 #descripcionProd {
-    font-size: clamp(1.1rem, 0.101rem + 2.078vw, 1.4rem);
+    font-size: clamp(1rem, 0.655rem + 0.716vw, 1.3rem);
     margin: 0;
 }
 
 .prodRelacionado {
     box-shadow: 0px 0px 2px 1px #dddddd;
     border-radius: 5px;
-    width: 30%;
+    flex: 1;
     overflow: hidden;
 }
     
@@ -754,10 +762,12 @@ p.card-boton .button {
     align-self: center;
     width: 95%;
     margin: 15px 0;
+    padding: 7px;
+    font-size: clamp(0.88rem, 0.512rem + 0.764vw, 1.2rem);
 }
 
 #relProductos h2 {
-    font-size: clamp(1rem, 0.001rem + 2.078vw, 1.3rem);
+    font-size: clamp(0.8rem, 0.11rem + 1.433vw, 1.4rem);
 }
 
 
@@ -1044,78 +1054,97 @@ p.card-boton .button {
 
 /*------------ Seccion comentarios ---------------*/
 
-#contenedorTop {
-    display: flex;
-    align-content: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    width: 94%;
-    margin: 25px 3vw;
-    
+#opiniones-titulo{
+    display: none;
 }
 
-#opiniones-titulo{
-    margin-bottom: 0px;
+#opiniones-titulo-sem{
+    padding: 0px 15px;
+    margin: 35px 0px 20px;
 }
 
 #contenedorComentarios {
     display: flex;  
     justify-content: space-around;
     align-self: center;
+    align-items: flex-start;
+}
+
+#contenedorBottom {
     width: 94%;
-    max-width: 1200px;
-    align-items: stretch;
+    align-self: center;
 }
 
 
 .checked {
-    color: rgba(192, 88, 23, 0.659);
+    color: rgb(255 148 76);
 }
 
 #valoraciones {
-    display: none;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    margin-right: 10px;
+    padding: 0px 15px;
+    flex: 1;
+    max-width: 298px;
 }
 
 #valoraciones>p {
-    font-weight: 700;
-    font-size: 25px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .barraCalificacion {
-    width: 200px;
-    border-style: solid;
-    border-color: rgb(122, 121, 121);
+    width: 125px;
+    border: 1px solid #ddd;
+    height: 70%;
+    min-width: 125px;
+    display: flex;
+    justify-content: flex-start;
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.porcentajeP {
+    min-width: 42px
 }
 
 .contenedorCalificacion{ 
     display: flex;
-    align-content: row;
     gap: 10px;
     justify-content: space-between;
+    white-space: nowrap;
+    min-height: 40px;
+    height: 40px;
+    align-items: center;
+}
 
+.contenedorCalificacion p{ 
+    margin: 0;
+}
+
+
+.cantEstrellas {
+    margin: 0;
+    min-width: 80px;
 }
 
 #list-comment{
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    min-width: 0;
-    width: 100%;
+    flex: 4;
     box-sizing: border-box;
 }
 
 
 .comentario-nombre {
-    font-size: clamp(1em, 2.9234vw + -.049rem, 1.9rem);
+    font-size: clamp(1.3rem, 0.783rem + 1.075vw, 1.75rem);
     display: flex;
     flex-direction: column;
 }
 .comentario-nombre>span {
-    font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
+    font-size: clamp(0.9rem, 0.44rem + 0.955vw, 1.3rem);
     display: flex;
     align-items: center;
     padding-top: .2rem;
@@ -1126,18 +1155,17 @@ p.card-boton .button {
 .comentario {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
     width: 100%;
     padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
     border: 1px solid #E0E0E0;    
-    background-color: #fcfbfb;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .comentario-contenido {
     word-wrap: break-word;
     line-height: 1.4;
-    font-size: clamp(.8rem, 2.1591vw + .4364rem, 1.8rem);
+    font-size: clamp(1.1rem, 0.525rem + 1.194vw, 1.6rem);
 }
 
 .comentario-fecha {
@@ -1148,23 +1176,28 @@ p.card-boton .button {
 
 #contenedorTop {
     display: flex;
-    align-content: row;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-self: center;
+    align-items: stretch;
     width: 94%;
-    margin: 25px 3vw;
-    
 }
 
 #btnComentar {
-    display: flex;
-    color: #FF6600;
-    cursor: pointer;
-    max-width: 74px;
+    display: none;
+}
+
+#btnComentarSem {
+    margin-top: 13px;
+    padding: 3px;
 }
 
 #btnComentar:hover {
     color: #ae4702;
+}
+
+.barrEstrella {
+    background-color: #ff8838;
+    object-fit: cover;
 }
 
 }
