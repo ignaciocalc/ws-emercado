@@ -34,11 +34,6 @@ async function productInfo(link) {
       imgPrincipal.src = producto.images[img];
    }
 
-   function recargarLocalStorage(id) {
-      localStorage.setItem('idProducto', id);
-      window.location.reload();
-   }
-
    //cargar imagen principal
    imgPrincipal.src = producto.images[0];
 
@@ -79,6 +74,12 @@ async function productInfo(link) {
       divCont.appendChild(img);
       divCont.appendChild(nombre);
 
+      //funcion al clickear 
+      divCont.addEventListener('click', function(){
+         localStorage.setItem('idProducto', divCont.id);
+         window.location.reload();
+      })
+
       listProdRel.appendChild(divCont);
    }
 
@@ -99,17 +100,6 @@ async function productInfo(link) {
       imgSelecionada(3);
    })
    // Fin funcionalidad de visor de imagenes
-
-   //Productos relacionados
-   prodRelacionados = document.querySelectorAll(".prodRelacionado")
-
-   prodRelacionados[0].addEventListener('click', function(){
-      recargarLocalStorage(prodRelacionados[0].id);
-   })
-
-   prodRelacionados[1].addEventListener('click', function(){
-      recargarLocalStorage(prodRelacionados[1].id);
-   })
 }
 
 //Actualiza las valoraciones generales
