@@ -398,7 +398,8 @@
         padding: 5px 6px;
         border-right: solid 1px #ddd;
         font-size: 13px;
-        border-radius: 7px;
+        border-top-right-radius: 13px;
+        border-bottom-right-radius: 13px;
         height: 100%;
     }
 
@@ -774,20 +775,21 @@ li a {
 }
 
 .filtrosContenedor-mostrar {
+    font-family: 'Inter', sans-serif;
     position: fixed;
     background-color: white;
     bottom: 0;
     left: 0;
     height: 60vh;
     width: 100vw;
-    padding: 20px;
+    padding: 20px 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
     box-shadow: 0px 0px 12px 7px #dddd;
-    min-width: 437px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
+    z-index: 10;
 }
 
 .filtrosContenedor-ocultar {
@@ -834,7 +836,9 @@ li a {
     border-bottom: 1px solid #ddd;
     align-items: center;
     overflow: hidden;
-    min-height: 40px;
+    min-height: 35px;
+    height: 35px;
+    font-family: 'Inter', sans-serif;
 }
 
 #tipoFiltroTablet {
@@ -855,18 +859,31 @@ li a {
     align-items: center;
     background-color: #f0f0f0;
     color: #3483fa;
+    cursor: pointer;
 }
 
 .contenedorPFiltro-ocultar {
     display: flex;
     align-items: center;
     background-color: #ffffff;
+    cursor: pointer;
+}
+
+.contenedorPFiltro-ocultar:hover {
+    background-color: #f0f0f0;
 }
 
 
 #contBotonPrecioMobile {
     display: flex;
+    cursor: pointer;
 }
+
+#contBotonPrecioMobile:hover {
+    background-color: #f0f0f0;
+}
+
+
 
 #contOrdenarPorMobile img{
     width: 18px;
@@ -893,31 +910,76 @@ li a {
 #lista-OrdenarPorMobile {
     list-style: none;
     padding: 0;
-    margin: 0px 40px;
-    margin-right: 20px;
+    margin: 0px 0px;
 }
 
 #lista-OrdenarPorMobile li {
-    font-size: 1.1rem;
+    font-size: clamp(0.85rem, 0.185rem + 3.306vw, 1.1rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+#AZMobile {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+#AZMobile:hover{
+    background-color: #edebeb;
+}
+
+#ZAMobile {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+#ZAMobile:hover{
+    background-color: #edebeb;
+}
+
+#RelevanciaMobile {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+#RelevanciaMobile:hover{
+    background-color: #edebeb;
+}
+
+#PrecioAMobile {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+#PrecioAMobile:hover{
+    background-color: #edebeb;
+}
+
+#PrecioDMobile {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+#PrecioDMobile:hover{
+    background-color: #edebeb;
 }
 
 .imgOrdenarPor {
-    margin: 5px 10px;
+    margin: 5px 6.5px;
     width: 25px;
 }
 
 .imgAZ {
     margin: 5px 6.5px;
-    width: 30px;
+    width: clamp(1.563rem, 0.731rem + 4.132vw, 1.875rem);
 }
 
 
 #ordenarPorP {
-    margin: 10px 15px;
-    font-size: 1.2rem;
+    margin: 10px 15px 5px;
+    font-size: clamp(0.9rem, 0.102rem + 3.967vw, 1.2rem);
     font-weight: 500;
 }
 
@@ -943,9 +1005,8 @@ li a {
 }
 
 #contRangosMobile {
-    display: flex;
-    width: 80%;
-    margin: 0px 10%;
+    display: flex;  
+    margin: 0px 25px;
     height: 25px;
     align-items: center;
     gap: 5px;
@@ -953,7 +1014,7 @@ li a {
 
 #precioP {
     margin: 10px 15px;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 0.102rem + 3.967vw, 1.2rem);
     font-weight: 475;
 }
 
@@ -961,13 +1022,9 @@ li a {
     width: 45%;
     border: 2px solid #dddd;
     border-radius: 3px;
-    font-size: 1.1rem;
+    font-size: clamp(0.7rem, 0.157rem + 2.697vw, 1rem);
     text-align: center;
-}
-
-#precioP {
-    font-size: 1.2rem;
-    font-weight: 500;
+    max-width: 121px;
 }
 
 #BtnFiltrarMobile {
@@ -1273,6 +1330,105 @@ li a {
 
 #btnComentar:hover {
     color: #ae4702;
+}
+
+/*------------ Categories ---------------*/
+#contCatList{
+    margin: 3vw 5vw;
+}
+
+#mainProductsCat{
+    display: none;
+}
+
+.contenedorCat{
+    width:100%;
+}
+
+.catFila {
+    display: flex;
+    flex-direction: row;
+}
+
+.conCatInfo {
+    flex: 2;
+    padding: 10px 10px 10px 5px;;
+}
+
+.carDescripcion {
+    margin: 10px 0;
+}
+
+.imgCategories {
+    border-radius: 3px;
+    min-width: 120px;
+    display: flex;
+    flex: 1;
+    width: 14vw;
+    padding: 5px;
+    align-self: center;
+}
+
+.catCardPrincipal {
+    box-shadow: 0px 0px 2px 2px #dddddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #2a2a2a;
+    transition: transform 0.1s ease;
+}
+
+.catCardPrincipal:hover {
+    box-shadow: 0px 0px 2px 2px #ff972e;
+    transform: scale(1.01);
+    transition: transform 0.1s ease;
+}
+
+.catCantVendidos {
+    font-size: clamp(0.5rem, 0.141rem + 1.79vw, 1rem);
+    font-weight: 400;
+    color: #939393;
+    padding-left: 1px;
+}
+
+.catTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.catNombre {
+    font-size: clamp(1rem, 0.282rem + 3.579vw, 2rem);
+    margin: 0;
+}
+
+.catDescripcion {
+    font-size: clamp(0.7rem, 0.485rem + 1.074vw, 1rem);
+    margin: clamp(0.313rem, -0.136rem + 2.237vw, 0.938rem) 0 0;
+}
+
+.conCatPrincipal {
+    width: 100vw;
+}
+
+#contBtnCategories {
+    margin: 0 25px;
+    display: flex;
+    gap: 5px;
+}
+
+#btnLimpiarMobile {
+    font-size: 0.6rem;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+#BtnFiltrarMobileCat {
+    font-size: 0.6rem;
+    padding: 3px;
+    border-radius: 3px;
 }
 
 } 
