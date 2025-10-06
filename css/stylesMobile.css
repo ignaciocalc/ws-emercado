@@ -695,7 +695,11 @@ li a {
     flex-direction: column;
     padding: 10px;
     border-radius: 5px;
+    width: 100%;
+    align-self: center;
+    box-sizing: border-box
 }
+
 #nombreProd {
     font-size: clamp(1.4rem, -0.223rem + 13.115vw, 2.4rem);
     margin: 0;
