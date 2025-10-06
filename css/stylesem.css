@@ -820,7 +820,6 @@ p.card-boton .button {
     display: flex;
     flex-direction: row;
     border-radius: 5px;
-    width: 100%;
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: nowrap;
@@ -1403,4 +1402,9 @@ p.card-boton .button {
     padding: 4px;
     width: 50px;
 } 
+
+#contPrincipalCat {
+    display: none;
+}
+
 }
