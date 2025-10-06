@@ -23,8 +23,7 @@ let
 async function productInfo(link) {
    let 
       producto = await (await fetch(link)).json(),
-      imgSelecionables,
-      prodRelacionados;
+      imgSelecionables;
    
    function imgSelecionada(img) {
       for (let imgs of imgSelecionables) {
@@ -37,11 +36,14 @@ async function productInfo(link) {
    //cargar imagen principal
    imgPrincipal.src = producto.images[0];
 
-   // cargar imagenes en el contemedor de galImg
-   for (let imagen of producto.images) {
+   // cargar imagenes en el contemedor de galImg y su funcionalidad
+   for (let i = 0; i < producto.images.length; i++){
       const nuevaImagen = document.createElement('img');
       nuevaImagen.className = "imgEnGal";
-      nuevaImagen.src = imagen;
+      nuevaImagen.src = producto.images[i];
+      nuevaImagen.addEventListener('mouseover', function(){
+         imgSelecionada(i)
+      })
       galImg.appendChild(nuevaImagen);
    }  
 
@@ -82,24 +84,6 @@ async function productInfo(link) {
 
       listProdRel.appendChild(divCont);
    }
-
-   // Funcionalidad de visor de imagenes
-   imgSelecionables[0].addEventListener("mouseover", function (){
-      imgSelecionada(0);
-   })
-
-   imgSelecionables[1].addEventListener("mouseover", function (){
-      imgSelecionada(1);
-   })
-
-   imgSelecionables[2].addEventListener("mouseover", function (){
-      imgSelecionada(2)
-   })
-
-   imgSelecionables[3].addEventListener("mouseover", function (){
-      imgSelecionada(3);
-   })
-   // Fin funcionalidad de visor de imagenes
 }
 
 //Actualiza las valoraciones generales

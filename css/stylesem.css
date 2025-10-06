@@ -738,17 +738,22 @@ p.card-boton .button {
     border-radius: 8px;
     width: 100%;
     border: solid 3px #e0e0e0;
+    box-sizing: border-box;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
 
 #galImg {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between ;
     gap: 30px;
     width: 10%;
     min-width: 75px;
     padding-left: 10px;
+    max-height: 470px;
+    overflow-y: auto;
+    align-self: center;
+    height: 100%;
 }
 
 /* Parte derecha */
@@ -1243,6 +1248,7 @@ p.card-boton .button {
     border: 1px solid #E0E0E0;    
     border-radius: 5px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .comentario-contenido {
