@@ -1403,4 +1403,17 @@ p.card-boton .button {
     padding: 4px;
     width: 50px;
 } 
+
+/* ----- Index Provisorios ----- */
+
+.card.index {
+    flex-direction: column;
+}
+
+#contenedorIndex {
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
 }
