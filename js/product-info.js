@@ -204,7 +204,7 @@ ingresar.addEventListener('click', function(){
          window.location.href = "login.html";
 })
 
-enviar.addEventListener('click', function(evento){
+enviar.addEventListener('click', function(evento){ //funcion para enviar comentario
    const 
       score = bttnsRadio.value,
       comentarioText = contComentario.value;
@@ -315,9 +315,6 @@ function mostrarComent(comen){
    nombre.className = "comentario-nombre";
    descripcion.className = "comentario-contenido";
    fecha.className = "comentario-fecha";
-
-   // https://www.w3schools.com/howto/howto_css_star_rating.asp
-   // nombre.className = "clas1 class2 class3"
 }
 
 async function obtenerComentarios() {
