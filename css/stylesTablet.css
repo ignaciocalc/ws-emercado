@@ -295,23 +295,33 @@
     #contenedorItem {
         display: flex; 
         flex-direction: column;
-        margin: 15px 25px;
+        margin: 3vw 4vw;
+;
     }
 
     .card {
         display: flex;
-        border-top: none;
-        border-bottom: solid 1px rgb(186, 185, 185);
-        width: 100%;
-        font-family: Arial, sans-serif;
-        height: 80px;
+        box-shadow: 0px 0px 2px 2px #dddddd;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        font-family: 'Inter', sans-serif;
+        color: #2a2a2a;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0px 0px 2px 2px #ff972e;
+        transform: scale(1.01);
+        transition: transform 0.5s ease;
     }
 
     .card-img {
-        padding: 10px;
-        width: 120px;
-        border-radius: 15px;
+        width: 17vw;
+        border-radius: 5px;
         align-self: center;
+        margin: 5px;
+        min-width: 100px;
     }
 
     /* .card:hover {
@@ -329,26 +339,24 @@
         flex-wrap: nowrap;
         flex-direction: column;
         flex: 4;
-        min-width: 160px;
     }
 
     .card-cuerpo h1 {
-        margin-top: 12px;
-        font-size: clamp(9px, 4vw, 14px);
+        margin-top: 5px;
+        font-size: clamp(0.68rem, 0.089rem + 2.935vw, 1.5rem);
         margin-bottom: 0;
-        white-space: nowrap;
     }   
 
     .card-cuerpo #descripcion{
-      font-size: clamp(4px, 2.6vw, 12px);      
-      margin-top: 3px;
-      padding-right: 10px;
-      overflow: auto;
+        font-size: clamp(0.5rem, 0.284rem + 1.074vw, 0.8rem);
+        margin: 5px 0;
+        padding-right: 5px;
+        overflow: auto;
     }
 
     .card-cuerpo #cantVendidos {
         margin-top: 0px;
-        font-size: clamp(4px, 3vw, 12px);
+        font-size: clamp(0.45rem, 0.306rem + 0.716vw, 0.65rem);
         margin-bottom: 0;
     }
 
@@ -358,16 +366,15 @@
         align-items: center;
         flex-direction: column;
         flex: 1;
-        padding: 5px;
         margin-right: 7px;
-        min-width: 70px;
     }
 
     .card-precio {
         align-self: center;
         margin: 0;
         text-align: center;
-        font-size: 11px;
+        font-size: clamp(0.55rem, 0.226rem + 1.611vw, 1rem);
+        white-space: nowrap;
     }
 
     .card-boton {
@@ -377,11 +384,11 @@
     }
 
     .button {
-        font-size: 7px;
-        padding: 5px;
-        border-radius: 4px;
-        min-width: 60px;
-        margin-top: 7px;
+        font-size: clamp(0.4rem, 0.285rem + 0.573vw, 0.56rem);
+        padding: 4px;
+        border-radius: 3.5px;
+        margin-top: 3.5px;
+        white-space: nowrap;
     }
 
     #catalogoArticulos {

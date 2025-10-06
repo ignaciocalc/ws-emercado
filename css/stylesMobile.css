@@ -312,25 +312,32 @@
     }
 
     #contenedorItem {
-        display: flex;
-        width: 100vw; 
+        display: flex; 
         flex-direction: column;
+        margin: 3vw 4vw;
     }
 
     .card {
         display: flex;
-        border-top: none;
-        border-bottom: solid 1px rgb(186, 185, 185);
-        width: 100%;
-        font-family: Arial, sans-serif;
-        height: 25vw;
-        min-width: 272px;
+        box-shadow: 0px 0px 2px 2px #dddddd;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        font-family: 'Inter', sans-serif;
+        color: #2a2a2a;
+        transition: transform 0.5s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0px 0px 2px 2px #ff972e;
+        transform: scale(1.01);
+        transition: transform 0.5s ease;
     }
 
     .card-img {
-        padding: 10px;
-        width: 36vw;
-        border-radius: 15px;
+        padding: 5px;
+        width: 26vw;
+        border-radius: 5px;
         align-self: center;
     }
 
@@ -346,21 +353,21 @@
     .card-cuerpo {
         display: flex;
         justify-content: flex-start;
-        flex-wrap: nowrap;
         flex-direction: column;
         flex: 4;
     }
 
     .card-cuerpo h1 {
-        margin-top: 12px;
         font-size: clamp(9px, 4vw, 14px);
         margin-bottom: 0;
+        margin-top: 4px;
     }   
 
     .card-cuerpo #descripcion{
-      font-size: clamp(4px, 2.6vw, 12px);      
-      margin-top: 1.5px;
-      overflow: auto;
+        font-size: clamp(0.33rem, 0.111rem + 1.943vw, 0.5rem);
+        margin-top: 2.5px;
+        overflow: auto;
+        margin-bottom: 2px;
     }
 
     .card-cuerpo #cantVendidos {
@@ -374,7 +381,7 @@
         justify-content: center;
         flex-direction: column;
         flex: 1;
-        padding-right: 5px;
+        padding: 0px 5px;
     }
 
 
@@ -393,8 +400,9 @@
 
     .button {
         font-size: clamp(5px, 10vw, 5px);
-        padding: 4px;
-        width: clamp(10px, 33vw, 50px);
+        padding: 2.5px;
+        white-space: nowrap;
+        border-radius: 2px;
     }
 
     #catalogoArticulos {
