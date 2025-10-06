@@ -288,8 +288,7 @@ body {
 
 .mainProducts {
     display: flex;
-    margin: 30px 70px;
-    margin-left: 120px;
+    margin: 3vw 5vw;
     transition: margin-left 0.2s ease;
 }
 
@@ -582,37 +581,28 @@ body {
 
 .card {
     display: flex;
-    border-top: none;
-    border-bottom: solid 1px rgb(186, 185, 185);
-    max-width: 3000px;
-    font-family: Arial, sans-serif;
-    height: 160px;
+    box-shadow: 0px 0px 2px 2px #dddddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #2a2a2a;
+    transition: transform 0.5s ease;
 }
 
-@media (max-width: 1035px) {
-    .card {
-        height: 15.5vw;
-    }
+.card:hover {
+    box-shadow: 0px 0px 2px 2px #ff972e;
+    transform: scale(1.01);
+    transition: transform 0.5s ease;
 }
-
 
 .card-img {
-    width: 36vw;
-    border-radius: 15px;
+    width: 17vw;
+    border-radius: 5px;
     align-self: center;
-    height: 94%;
-    width: auto;
-    margin: 10px;
+    margin: 5px;
+    min-width: 180px;
 }
-
-/* .card:hover{
-    transform: scale(1.0092);
-    padding-left: 5px;
-} */
-
-.card:hover h1{
-    color:#ff6d1f;
-}  
 
 .card-cuerpo {
     display: flex;
@@ -620,17 +610,19 @@ body {
     flex-wrap: nowrap;
     flex-direction: column;
     flex: 4;
+    padding-left: 10px;
 }
 
 .card-cuerpo h1{
     margin-top: 12px;
-    font-size: clamp(10px, 3vw, 40px);
+    font-size: clamp(1.85rem, 0.704rem + 2.385vw, 2.85rem);
     margin-bottom: 0;
 }
 
 
 
 .card-cuerpo #cantVendidos{
+    font-size: clamp(0.7rem, 0.356rem + 0.715vw, 1rem);
     margin-top: 0px;
     margin-bottom: 0;
 }
@@ -655,15 +647,16 @@ body {
 }
 
 p.card-boton .button {
-    font-size: clamp(2px, 1.4vw, 16px);
+    font-size: clamp(0.65rem, 0.249rem + 0.835vw, 1rem);
+    padding: 7px;;
 }
 
 .card-precio {
     align-self: center;
-    font-size: 28px;
     margin: 6px;
     text-align: center;
-    font-size: clamp(14px, 2.3vw, 28px);
+    font-size: clamp(1.1rem, 0.527rem + 1.192vw, 1.6rem);
+    white-space: nowrap;
 }
 
 .card-boton {
@@ -672,7 +665,8 @@ p.card-boton .button {
 }
 
 #descripcion {
-    font-size: 1vw;
+    font-size: clamp(0.9rem, 0.556rem + 0.715vw, 1.2rem);
+    margin: 10px 0;
 }
 
 #botonFiltros {
