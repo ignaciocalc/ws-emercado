@@ -967,6 +967,7 @@ p.card-boton .button {
     max-height: 295px;
     min-height: 33px;
     font-weight: 350;
+    font-family: 'Inter', sans-serif;
 }
 
 #aviso.aviso-mostrar {

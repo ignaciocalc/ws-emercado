@@ -1183,6 +1183,7 @@ li a {
     max-height: 190px;
     min-height: 33px;
     font-weight: 350;
+    font-family: 'Inter', sans-serif;
 }
 
 #aviso.aviso-mostrar {
