@@ -15,7 +15,10 @@
     --campos-gris7:#424242;
     --campos-gris8:#757575;
     --campos-gris9:#939393;
+    --campos-gris10:#656565dd;
     --campo-blanco:#f8f8f8;
+    --campo-blanco2:#fafafaa8;
+    --campo-blanco3:#f0f0f0;
     --campos-error:#de514e;
     --estilos2:#F89E59;
     --estilos3:#9E6622;
@@ -125,7 +128,7 @@
         box-sizing: border-box;
         justify-content: space-between;
         background-color: var(--estilos1);
-        border-bottom: 1px solid #9E6622;
+        border-bottom: 1px solid var(--estilos3);
         width: 100%;
         height: 55px;
         /* min-width: 437px; */
@@ -183,7 +186,7 @@
         margin: 0 20px;
         height: 22px;;
         border-radius: 5px;
-        border: 2px solid #F89E59;
+        border: 2px solid var(--estilos2);
         font-size: 10px;
         padding-left: 7px;
         min-width: 110px;
@@ -222,7 +225,7 @@
 
 .datosUserLogeado {
     display: flex;
-    border: 2px solid #F89E59;
+    border: 2px solid var(--estilos2);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -231,8 +234,8 @@
     height: 30px;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    color: #F89E59;
+    background-color: white;
+    color: var(--estilos2);
     font-weight: bold;
     font-size: 15px;
     margin: 0 4px;
@@ -283,11 +286,11 @@
 .logout {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid #F89E59; 
+    border: 2px solid var(--estilos2); 
     justify-content: space-between;
 
     padding: 10px;
-    background: #FF6600;
+    background: var(--estilos4);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -334,12 +337,12 @@
         border-radius: 5px;
         overflow: hidden;
         font-family: 'Inter', sans-serif;
-        color: #2a2a2a;
+        color: var(--card);
         transition: transform 0.5s ease;
     }
 
     .card:hover {
-        box-shadow: 0px 0px 2px 2px #ff972e;
+        box-shadow: 0px 0px 2px 2px var(--card-hover);
         transform: scale(1.01);
         transition: transform 0.5s ease;
     }
@@ -426,7 +429,7 @@
 
     #botonFiltros {
         display: flex;
-        color: #3483fa;
+        color: var(--filtro);
         font-weight: 450;
         box-shadow: 1px 0px 4px 0px var(--campos-gris);
         align-items: center;
@@ -486,13 +489,13 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FF6600;
-    border-right: solid 3px #F89E59; 
+    background-color: var(--estilos4);
+    border-right: solid 3px var(--estilos2); 
 }
 
 #usuario-menu img{
     margin-right: 20px;
-    border: 2px solid #f89e59;
+    border: 2px solid var(--estilos2);
     border-radius: 6px;
 }
 
@@ -623,7 +626,7 @@ li a {
     border-radius: 4px;
     min-width: 60px;
     margin-top: 14px;
-    background: #ffae70;
+    background: var(--estilos5);
     border: none;
     color: white;
 }
@@ -738,7 +741,7 @@ li a {
 }
 
 #precioProd {
-    color: #FF6600;
+    color: var(--estilos4);
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 7px;
@@ -775,7 +778,7 @@ li a {
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    background-color: #fafafaa8;
+    background-color: var(--campo-blanco2);
     border: 1px solid var(--campos-gris3);
     padding: 5px;
     overflow: auto;
@@ -884,7 +887,7 @@ li a {
     margin-left: 10px;
     font-weight: 350;
     font-size: 12px;
-    color: #656565dd;
+    color: var(--campos-gris10);
 }
 
 #imgTipoFiltro {
@@ -895,20 +898,20 @@ li a {
 .contenedorPFiltro-mostrar {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
-    color: #3483fa;
+    background-color: var(--campos-gris10);
+    color: var(--filtro);
     cursor: pointer;
 }
 
 .contenedorPFiltro-ocultar {
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    background-color: white;
     cursor: pointer;
 }
 
 .contenedorPFiltro-ocultar:hover {
-    background-color: #f0f0f0;
+    background-color: var(--campo-blanco3);
 }
 
 
@@ -918,7 +921,7 @@ li a {
 }
 
 #contBotonPrecioMobile:hover {
-    background-color: #f0f0f0;
+    background-color: var(--campo-blanco3);
 }
 
 
@@ -1132,7 +1135,7 @@ li a {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: var(--rgb);
     width: 100vw;
     height: 100%;
 }
@@ -1198,7 +1201,7 @@ li a {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px #f89e59;
+    border: solid 1.8px var(--estilos2);
     border-radius: 3px;
     height: 128px;
     max-height: 190px;
@@ -1276,7 +1279,7 @@ li a {
 
 
 .checked {
-    color: rgb(255 148 76);
+    color: var(--rgb2);
 }
 
 #valoraciones {
@@ -1294,7 +1297,7 @@ li a {
 .barraCalificacion {
     width: 200px;
     border-style: solid;
-    border-color: rgb(122, 121, 121);
+    border-color: var(--rgb3);
     border-radius: 5px;
 }
 
@@ -1358,14 +1361,14 @@ li a {
 
 #btnComentar {
     display: flex;
-    color: #FF6600;
+    color: var(--estilos4);
     cursor: pointer;
     max-width: 74px;
     font-size: clamp(0.75rem, 0.566rem + 0.913vw, 1rem);
 }
 
 #btnComentar:hover {
-    color: #ae4702;
+    color: var(--comentar-hover);
 }
 
 /*------------ Categories ---------------*/
@@ -1411,12 +1414,12 @@ li a {
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: #2a2a2a;
+    color: var(--card);
     transition: transform 0.1s ease;
 }
 
 .catCardPrincipal:hover {
-    box-shadow: 0px 0px 2px 2px #ff972e;
+    box-shadow: 0px 0px 2px 2px var(--card-hover);
     transform: scale(1.01);
     transition: transform 0.1s ease;
 }
