@@ -86,7 +86,7 @@
         width: 100%;
         padding: 10px;
         margin: 8px 0;
-        border: 2px solid #de514e;
+        border: 2px solid var(--campos-error);
         border-radius: 5px;
         box-sizing: border-box;
     }
@@ -96,7 +96,7 @@
         margin: 0px;
         font-size: clamp(7pt, 7.7vw, 10pt) ;
         text-align: start;
-        color: #de514e;
+        color: var(--campos-error);
     }
 
     #ingresarLogin {
@@ -453,7 +453,7 @@
 
 #menu.noDesplegado {
     position: fixed;
-    background-color: #F8F8F8;
+    background-color: var(--campo-blanco);
     width: 300px;
     height: 100%;
     z-index: 20; 
@@ -466,7 +466,7 @@
 
 #menu.Desplegado {
     position: fixed;
-    background-color: #F8F8F8;
+    background-color: var(--campo-blanco);
     width: 300px;
     height: 100%;
     z-index: 20; 
@@ -498,7 +498,7 @@
 
 .boton-menu{
     border-bottom: solid;
-    border-color: #424242;
+    border-color: var(--campos-gris7);
     border-width: 1px;
     height: 75px;
     display:flex;
@@ -536,7 +536,7 @@
 
 .link-menu {
     padding-left: 15px;
-    color: #757575;
+    color: var(--campos-gris8);
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -548,7 +548,7 @@
 
 .lista-menu-oculto{
     display: none;
-    color: #757575;
+    color: var(--campos-gris8);
     list-style-type: none;
     font-size: 17px;
     padding-left: 31px;
@@ -558,7 +558,7 @@
 
 .lista-menu-desplegado{
     display: list-item;
-    color: #757575;
+    color: var(--campos-gris8);
     list-style-type: none;
     font-size: 17px;
     padding-left: 31px;
@@ -598,7 +598,7 @@
     display: flex;
     flex-direction: column;
     height: 75px;
-    border-bottom: solid 1px #757575;
+    border-bottom: solid 1px var(--campos-gris8);
     justify-content: center;
 }
 
@@ -606,13 +606,13 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    border-bottom: solid 1px #757575;
+    border-bottom: solid 1px var(--campos-gris8);
     justify-content: center;
 }
 
 li a {
     text-decoration: none;
-    color: #757575;
+    color: var(--campos-gris8);
 }
 
 .cerrarSesionMenu { 
@@ -1208,7 +1208,7 @@ li a {
 }
 
 #aviso.aviso-mostrar {
-    color: #de514e;
+    color: var(--campos-error);
     display: block;
     font-size: 1rem;
     margin-top: 10px;
@@ -1424,7 +1424,7 @@ li a {
 .catCantVendidos {
     font-size: clamp(0.5rem, 0.141rem + 1.79vw, 1rem);
     font-weight: 400;
-    color: #939393;
+    color: var(--campos-gris9);
     padding-left: 1px;
 }
 
