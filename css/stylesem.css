@@ -8,6 +8,34 @@ body {
 
 /*---------------Login---------------*/
 
+:root{
+    --estilos1:#ff6d1f;
+    --h2:#000000;
+    --campos-gris:#ddd;
+    --campos-gris2:#edebeb;
+    --campos-gris3:#f9f6f6;
+    --campos-gris4:#dddd;
+    --campos-gris5: #dddddd;
+    --campos-gris6:#ececec;
+    --campos-gris7:#e0e0e0;
+    --campos-gris8:#b4b2b2;
+    --campo-blanco:#f7f7f7f8;
+    --campo-blanco2:#f8f8f8;
+    --campos-error:#de514e;
+    --estilos2:#F89E59;
+    --estilos3:#9E6622;
+    --estilos4:#FF6600;
+    --estilos5:#cf5300;
+    --filtro:#3483fa;
+    --card:#2a2a2a;
+    --card-hover:#ff972e;
+    --comentar-hover:#ae4702;
+    --estrella:#ff8838;
+    
+
+
+}
+
 .container {
     display: flex;
     height: 100vh;
@@ -24,7 +52,7 @@ body {
 /*control de estilos parte izquierda*/
 #izq {   
     flex: 1;
-    background-color: #ff6d1f;
+    background-color: var(--estilos1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +90,7 @@ body {
 .formulario h2 {
     font-size: clamp(5px, 2.2vw, 20px);
     margin: 0;
-    color: #000000;
+    color: var(--h2);
 }
 
 .formulario .camposInput {
@@ -71,7 +99,7 @@ body {
     padding: 0.75rem;
     margin: 0.5rem 0;
     font-size: 1rem;
-    border: 2px solid #ddd;
+    border: 2px solid var(--campo-blanco);
     border-radius: 5px;
 }
 
@@ -81,7 +109,7 @@ body {
     padding: 0.75rem;
     margin: 0.5rem 0;
     font-size: 1rem;
-    border: 2px solid #de514e;
+    border: 2px solid var(--campos-error);
     border-radius: 5px;
 }
 
@@ -90,7 +118,7 @@ body {
    margin: 0.5rem 0;
    font-size: 1rem;
    text-align: start;
-   color: #de514e;
+   color: var(--campos-error);
 }
 
 #ingresarLogin {
@@ -111,16 +139,16 @@ body {
 .headerClass {
     display: flex;
     flex-direction: column;
-    background-color: #F89E59;
+    background-color: var(--estilos2);
 }
 
 .barraBusqueda {
-    background-color: #FF6D1F;
+    background-color: var(--estilos1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    border-bottom: 1px solid #9E6622;
+    border-bottom: 1px solid var(--estilos3);
 }
 
 #logoHeader {
@@ -144,7 +172,7 @@ body {
     margin: 0 20px;
     height: 30px;
     border-radius: 5px;
-    border: 2px solid #F89E59;
+    border: 2px solid var(--estilos2);
     padding-left: 7px;
 }
 
@@ -170,12 +198,12 @@ body {
 .ingresarHeadDesLog {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid #F89E59; 
+    border: 2px solid var(--estilos2); 
     width: 120px;
     justify-content: space-between;
 
     padding: 10px;
-    background: #FF6600;
+    background: var(--estilos4);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -191,7 +219,7 @@ body {
 
 .datosUserLogeado {
     display: flex;
-    border: 2px solid #F89E59;
+    border: 2px solid var(--estilos2);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -199,8 +227,8 @@ body {
     height: 42px;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    color: #F89E59;
+    background-color: white;
+    color: var(--estilos2);
     font-weight: bold;
     font-size: 20px;
 }
@@ -212,11 +240,11 @@ body {
 .carritoCompraslog {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid #F89E59; 
+    border: 2px solid var(--estilos2); 
     justify-content: space-between;
 
     padding: 10px;
-    background: #FF6600;
+    background: var(--estilos4);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -230,11 +258,11 @@ body {
 .logout {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid #F89E59; 
+    border: 2px solid (var(--estilos2)); 
     justify-content: space-between;
 
     padding: 10px;
-    background: #FF6600;
+    background: var(--estilos4);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -265,7 +293,7 @@ body {
 }
 
 .barraNavegacion li a {
-    color: #ffff;
+    color: white;
     text-decoration: none;
 }
 /*----------FIN Header----------*/
@@ -274,7 +302,7 @@ body {
 
 #filtros {
     font-family: 'Inter', sans-serif;
-    background-color: #f7f7f7f8;
+    background-color: var(--campo-blanco);
     padding: 10px 0;
     z-index: 10;
     height: 100%;
@@ -282,8 +310,8 @@ body {
     border-bottom-right-radius: 5px;
     min-width: 245px;
     width: 245px;
-    border-right: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
+    border-right: 2px solid var(--campos-gris);
+    border-bottom: 2px solid var(--campos-gris);
 }
 
 .mainProducts {
@@ -335,7 +363,7 @@ body {
 
 #flechaDesplegable {
     display: flex;
-    border: 2px solid #ddd;
+    border: 2px solid var(--campos-gris);
     border-left: 0;
     padding: 5px 0px;
     height: 100%;
@@ -361,7 +389,7 @@ body {
 }
 
 #AZ:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #ZA{
@@ -369,7 +397,7 @@ body {
 }
 
 #ZA:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #Relevancia{
@@ -377,7 +405,7 @@ body {
 }
 
 #Relevancia:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioA {
@@ -385,7 +413,7 @@ body {
 }
 
 #PrecioA:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioD {
@@ -393,7 +421,7 @@ body {
 }
 
 #PrecioD:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #contOrdenarPor {
@@ -401,20 +429,20 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    border: 1px solid #dddd;
+    border: 1px solid var(--campos-gris);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: #f9f6f6;
+    background-color: var(--campos-gris3);
     cursor: pointer;
 }
 
 #contOrdenarPor:hover {
-    background-color: #ececec;
+    background-color: var(--campos-gris6);
 }
 
 #contBotonPrecio:hover {
-    background-color: #ececec;
+    background-color: var(--campos-gris6);
 }
 
 .flechaOrdenarPor-oculto {
@@ -497,7 +525,7 @@ body {
 
 .btn-mostrar {
     padding: 5px;
-    background: #FF6600;
+    background: var(--estilos4);
     border: none;
     color: white;
     font-size: 14px;
@@ -509,7 +537,7 @@ body {
 }
 
 .btn-mostrar:hover {
-    background: #cf5300;
+    background: var(--estilos5);
 }
 
 
@@ -522,18 +550,18 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    border: 1px solid #dddd;
+    border: 1px solid var(--campos-gris4);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: #f9f6f6;
+    background-color: var(--campos-gris3);
     cursor: pointer;
 }
 
 .rangosBoton {
     width: 75px;
     border-radius: 4px;
-    border: solid 2px #ddd;
+    border: solid 2px var(--campos-gris);
     text-align: center;
     height: 20px;
 }
@@ -556,7 +584,7 @@ body {
 }
 
 #tipoFiltro {
-    color: #3483fa;
+    color: var(--filtro);
     margin: 0;
     margin-left: 4px !important;
     font-weight: 300;
@@ -581,17 +609,17 @@ body {
 
 .card {
     display: flex;
-    box-shadow: 0px 0px 2px 2px #dddddd;
+    box-shadow: 0px 0px 2px 2px var(--campos-gris5);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: #2a2a2a;
+    color: var(--card);
     transition: transform 0.5s ease;
 }
 
 .card:hover {
-    box-shadow: 0px 0px 2px 2px #ff972e;
+    box-shadow: 0px 0px 2px 2px var(--card-hover);
     transform: scale(1.01);
     transition: transform 0.5s ease;
 }
@@ -715,7 +743,7 @@ p.card-boton .button {
     width: 70vw;
     padding: 10px;
     margin-right: 2vw;
-    border: solid 2px #ddd;
+    border: solid 2px var(--campos-gris);
     border-radius: 5px;
 }
 
@@ -725,7 +753,7 @@ p.card-boton .button {
     width: 90%;
     display: flex;
     align-items: center;
-    background-color: #fafafa;
+    background-color: var(--campo-blanco2);
 }
 
 #imgContPrincipal img {
@@ -737,7 +765,7 @@ p.card-boton .button {
     object-fit: cover; 
     border-radius: 8px;
     width: 100%;
-    border: solid 3px #e0e0e0;
+    border: solid 3px var(--campos-gris7);
     box-sizing: border-box;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -768,7 +796,7 @@ p.card-boton .button {
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
-    box-shadow: 0px 0px 3px 3px #dddddd;
+    box-shadow: 0px 0px 3px 3px var(--campos-gris5);
     border-radius: 5px;
     min-width: 272px;
 }
@@ -792,7 +820,7 @@ p.card-boton .button {
 }
 
 #precioProd {
-    color: #FF6600;
+    color: var(--estilos4);
     font-weight: bold;
     font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
     margin: 0;
@@ -804,7 +832,7 @@ p.card-boton .button {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px #dddddd;
+    box-shadow: 0px 0px 2px 1px var(--campos-gris5);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -828,8 +856,8 @@ p.card-boton .button {
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    background-color: #f8f8f8;
-    border: 1px solid #dddd;
+    background-color: var(--campo-blanco2);
+    border: 1px solid var(--campos-gris4);
     padding: 5px;
     overflow: auto;
 }
@@ -839,7 +867,7 @@ p.card-boton .button {
     margin: 0;
     white-space: nowrap;
     font-size: 0.85rem;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--campos-gris);
 }
 
 #imgPrincipal {
@@ -869,7 +897,7 @@ p.card-boton .button {
     justify-content: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    color: #b4b2b2;
+    color: var(--campos-gris8);
     font-weight: 400;
     align-items: center;
     font-size: 2rem;
@@ -961,7 +989,7 @@ p.card-boton .button {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px #f89e59;
+    border: solid 1.8px var(--estilos2);
     border-radius: 3px;
     height: 128px;
     max-height: 295px;
@@ -971,7 +999,7 @@ p.card-boton .button {
 }
 
 #aviso.aviso-mostrar {
-    color: #de514e;
+    color: var(--campos-error);
     display: block;
     font-size: 1rem;
     margin-top: 10px;
@@ -1091,7 +1119,7 @@ p.card-boton .button {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px #f89e59;
+    border: solid 1.8px var(--estilos2);
     border-radius: 3px;
     height: 128px;
     max-height: 295px;
@@ -1100,7 +1128,7 @@ p.card-boton .button {
 }
 
 #aviso.aviso-mostrar {
-    color: #de514e;
+    color: var(--campos-error);
     display: block;
     font-size: 1rem;
     margin-top: 10px;
@@ -1186,7 +1214,7 @@ p.card-boton .button {
 
 .barraCalificacion {
     width: 125px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--campos-gris);
     height: 70%;
     min-width: 125px;
     display: flex;
@@ -1246,7 +1274,7 @@ p.card-boton .button {
     flex-direction: column;
     width: 100%;
     padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
-    border: 1px solid #E0E0E0;    
+    border: 1px solid var(--campos-gris7);    
     border-radius: 5px;
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -1282,11 +1310,11 @@ p.card-boton .button {
 }
 
 #btnComentar:hover {
-    color: #ae4702;
+    color: var(--comentar-hover);
 }
 
 .barrEstrella {
-    background-color: #ff8838;
+    background-color: var(--estrella);
     object-fit: cover;
 }
 
@@ -1337,17 +1365,17 @@ p.card-boton .button {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px #dddddd;
+    box-shadow: 0px 0px 2px 2px var(--campos-gris5);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: #2a2a2a;
+    color: var(--card);
     transition: transform 0.5s ease;
 }
 
 .catCardPrincipal:hover {
-    box-shadow: 0px 0px 2px 2px #ff972e;
+    box-shadow: 0px 0px 2px 2px var(--card-hover);
     transform: scale(1.01);
     transition: transform 0.5s ease;
 }
@@ -1355,7 +1383,7 @@ p.card-boton .button {
 .catCantVendidos {
     font-size: clamp(0.8rem, 0.499rem + 0.625vw, 1.5rem);
     font-weight: 400;
-    color: #939393;
+    color: var(--campos-gris8);
     padding-left: 1px;
 }
 
