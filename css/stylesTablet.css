@@ -3,7 +3,35 @@
 /*--------------Login tablet---------*/
 @media (min-width: 321px) and (max-width: 768px) {
     
+:root{
+    --estilos1:#ff6d1f;
+    --h2:#000000;
+    --campos-gris:#ddd;
+    --campos-gris2:#edebeb;
+    --campos-gris3:#dddd;
+    --campos-gris4: #dddddd;
+    --campos-gris5:#e0e0e0;
+    --campos-gris6:#b4b2b2;
+    --campos-gris7:#424242;
+    --campos-gris8:#757575;
+    --campos-gris9:#939393;
+    --campo-blanco:#f8f8f8;
+    --campos-error:#de514e;
+    --estilos2:#F89E59;
+    --estilos3:#9E6622;
+    --estilos4:#FF6600;
+    --estilos5:#ffae70;
+    --filtro:#3483fa;
+    --card:#2a2a2a;
+    --card-hover:#ff972e;
+    --comentar-hover:#ae4702;
+    --rgb:rgb(0, 0, 0, 0.2);
+    --rgb2:rgb(255 148 76);
+    --rgb3:rgb(122, 121, 121);
+    
 
+
+}
     body {
         margin: 0;
     }
@@ -41,7 +69,7 @@
     .formulario h2 {
         font-family: Arial, sans-serif;
         margin: 0;
-        color: #000000;
+        color: var(--h2);
         font-size: clamp(10px, 3.5vw, 24px);
     }
 
@@ -49,7 +77,7 @@
         width: 100%;
         padding: 10px;
         margin: 8px 0;
-        border: 2px solid #ddd;
+        border: 2px solid var(--campos-gris);
         border-radius: 5px;
         box-sizing: border-box;
     }
@@ -96,7 +124,7 @@
         display: flex;
         box-sizing: border-box;
         justify-content: space-between;
-        background-color: #FF6D1F;
+        background-color: var(--estilos1);
         border-bottom: 1px solid #9E6622;
         width: 100%;
         height: 55px;
@@ -178,7 +206,7 @@
     width: 120px;
     justify-content: space-between;
 
-    background: #FF6D1F;
+    background: var(--estilos1);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -218,7 +246,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FF6D1F;
+    background: var(--estilos1);
     border: 0px;
     padding: 6px 0;
 }
@@ -241,7 +269,7 @@
     border: 0px; 
     padding: 0;
     justify-content: center;
-    background: #FF6D1F;
+    background: var(--estilos1);
     color: white;
     width: 40px;
     height: 40px;
@@ -301,7 +329,7 @@
 
     .card {
         display: flex;
-        box-shadow: 0px 0px 2px 2px #dddddd;
+        box-shadow: 0px 0px 2px 2px var(--campos-gris4);
         margin-bottom: 10px;
         border-radius: 5px;
         overflow: hidden;
@@ -330,7 +358,7 @@
     } */
 
     .card:hover h1 {
-        color: #ff6d1f;
+        color: var(--estilos1);
     }
 
     .card-cuerpo {
@@ -400,10 +428,10 @@
         display: flex;
         color: #3483fa;
         font-weight: 450;
-        box-shadow: 1px 0px 4px 0px #ddd;
+        box-shadow: 1px 0px 4px 0px var(--campos-gris);
         align-items: center;
         padding: 5px 6px;
-        border-right: solid 1px #ddd;
+        border-right: solid 1px var(--campos-gris);
         font-size: 13px;
         border-top-right-radius: 13px;
         border-bottom-right-radius: 13px;
@@ -452,7 +480,7 @@
 #usuario-menu {
     border-bottom: solid;
     border-top-right-radius: 2px;
-    border-color: #424242;
+    border-color: var(--campos-gris7);
     border-width: 1px;
     height: 55px;
     display:flex;
@@ -641,7 +669,7 @@ li a {
     align-self: center;
     padding: 10px;
     margin: 0 1.5vw;
-    border: solid 2px #ddd;
+    border: solid 2px var(--campos-gris);
     border-radius: 5px;
 }
 
@@ -659,7 +687,7 @@ li a {
     aspect-ratio: 1 / 1;    
     object-fit: cover; 
     border-radius: 8px;
-    border: solid 3px #e0e0e0;
+    border: solid 3px var(--campos-gris5);
     width: 18%;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -722,7 +750,7 @@ li a {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px #dddddd;
+    box-shadow: 0px 0px 2px 1px var(--campos-gris4);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -748,7 +776,7 @@ li a {
     justify-content: flex-start;
     flex-wrap: nowrap;
     background-color: #fafafaa8;
-    border: 1px solid #dddd;
+    border: 1px solid var(--campos-gris3);
     padding: 5px;
     overflow: auto;
     max-width: 90vw
@@ -760,7 +788,7 @@ li a {
     font-size: 1.1rem;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--campos-gris);
 }
 
 #imgPrincipal {
@@ -796,7 +824,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px #dddd;
+    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
     padding-left: 0px;
     transition: bottom 0.2s ease;
     z-index: 10;
@@ -813,7 +841,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px #dddd;
+    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
     min-width: 437px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
@@ -843,7 +871,7 @@ li a {
 
 #contFiltrosBotones {
     display: flex;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--campos-gris);
     align-items: center;
     overflow: hidden;
     min-height: 35px;
@@ -904,10 +932,10 @@ li a {
 }
 
 #lineaVertical{
-    background-color: #ddd;
+    background-color: var(--campos-gris);
     width: 2px;
     min-width: 2px;
-    box-shadow: 1px 0px 3px 0px #ddd;
+    box-shadow: 1px 0px 3px 0px var(--campos-gris);
 }
 
 
@@ -937,7 +965,7 @@ li a {
 }
 
 #AZMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #ZAMobile {
@@ -946,7 +974,7 @@ li a {
 }
 
 #ZAMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #RelevanciaMobile {
@@ -955,7 +983,7 @@ li a {
 }
 
 #RelevanciaMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioAMobile {
@@ -964,7 +992,7 @@ li a {
 }
 
 #PrecioAMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioDMobile {
@@ -973,7 +1001,7 @@ li a {
 }
 
 #PrecioDMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 .imgOrdenarPor {
@@ -1030,7 +1058,7 @@ li a {
 
 #contRangosMobile input {
     width: 45%;
-    border: 2px solid #dddd;
+    border: 2px solid var(--campos-gris3);
     border-radius: 3px;
     font-size: clamp(0.7rem, 0.157rem + 2.697vw, 1rem);
     text-align: center;
@@ -1078,7 +1106,7 @@ li a {
     justify-content: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    color: #b4b2b2;
+    color: var(--campos-gris6);
     font-weight: 400;
     align-items: center;
     font-size: 1.5rem;
@@ -1303,7 +1331,7 @@ li a {
     display: flex;
     flex-direction: column;
     padding: 8px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid var(--campos-gris5);
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -1378,7 +1406,7 @@ li a {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px #dddddd;
+    box-shadow: 0px 0px 2px 2px var(--campos-gris4);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;

@@ -31,9 +31,8 @@ body {
     --card-hover:#ff972e;
     --comentar-hover:#ae4702;
     --estrella:#ff8838;
-    
-
-
+    --rgb:rgb(0, 0, 0, 0.2);
+    --rgb2:rgb(255 148 76);
 }
 
 .container {
@@ -922,7 +921,7 @@ p.card-boton .button {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: var(--rgb);
     width: 100vw;
     height: 100vh;
 }
@@ -1052,7 +1051,7 @@ p.card-boton .button {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: var(--rgb);
     width: 100vw;
     height: 100vh;
 }
@@ -1194,7 +1193,7 @@ p.card-boton .button {
 
 
 .checked {
-    color: rgb(255 148 76);
+    color: var(--rgb2);
 }
 
 #valoraciones {
