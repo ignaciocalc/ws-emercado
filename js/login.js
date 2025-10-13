@@ -9,7 +9,7 @@ boton.addEventListener('click', function(){
    if (usuario.value != "" && contraseña.value != "") {
 
       if (usuario.validity.valid) {
-         localStorage.setItem("user", usuario.value);
+         localStorage.setItem("user", JSON.stringify({email : usuario.value}));
          window.history.back();
       } else {
          usuario.classList.replace("camposError", "camposInput");

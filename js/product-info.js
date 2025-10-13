@@ -146,7 +146,7 @@ let
    comentar = document.getElementById("btnComentar"),
    comentarSem = document.getElementById("btnComentarSem"),
    estrellas = document.querySelectorAll(".estrellasForm"),
-   nombreUser = localStorage.getItem("user"),
+   nombreUser = JSON.parse(localStorage.getItem("user")).email,
    enviar = document.getElementById("enviarOpinion"),
    ingresar = document.getElementById("ingresarComent"),
    contComentario = document.getElementById('comentUser'),

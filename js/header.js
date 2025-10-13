@@ -108,6 +108,7 @@ if (estaRegistrado != null) {
    logOut.className = "logout";
    cerrarSesionMenu.className = "cerrarSesionMenu";
    ingresarIcon.style.display = "none";
+   emailUser = JSON.parse(estaRegistrado).email;
 
    /* botones cel y tablet */
    datosUserCel.className = "datosUserLogeado"
@@ -122,16 +123,16 @@ if (estaRegistrado != null) {
       window.location.reload();
    });
    
-   if (estaRegistrado.length > 31) {
-      estaRegistrado = estaRegistrado.substring(0, 31) + "..."
+   if (emailUser.length > 31) {
+      emailUser = emailUser.substring(0, 31) + "..."
    }
 
-   email.textContent = "Hola, " + estaRegistrado;
+   email.textContent = "Hola, " + emailUser;
    
-   estaRegistrado = estaRegistrado.substring(0, 1).toUpperCase();
+   emailUser = emailUser.substring(0, 1).toUpperCase();
    
-   contBotUser.textContent = estaRegistrado;
-   contBotUserCel.textContent = estaRegistrado;
+   contBotUser.textContent = emailUser;
+   contBotUserCel.textContent = emailUser;
    
 } else {
    contBotones.className = "botonesHeadDeslog";
