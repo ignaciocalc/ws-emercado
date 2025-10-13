@@ -3,6 +3,34 @@
 /*--------------Login Smartphone---------*/
 @media (max-width: 321px) {
 
+:root{
+    --estilos1:#ff6d1f;
+    --h2:#000000;
+    --campos-gris:#ddd;
+    --campos-gris2:#edebeb;
+    --campos-gris3:#dddd;
+    --campos-gris4: #dddddd;
+    --campos-gris5:#e0e0e0;
+    --campos-gris6:#b4b2b2;
+    --campos-gris7:#424242;
+    --campos-gris8:#757575;
+    --campos-gris9:#939393;
+    --campo-blanco:#f8f8f8;
+    --campos-error:#de514e;
+    --estilos2:#F89E59;
+    --estilos3:#9E6622;
+    --estilos4:#FF6600;
+    --estilos5:#ffae70;
+    --filtro:#3483fa;
+    --card:#2a2a2a;
+    --card-hover:#ff972e;
+    --comentar-hover:#ae4702;
+    --rgb:rgb(0, 0, 0, 0.2);
+    --rgb2:rgb(255 148 76);
+    --rgb3:rgb(122, 121, 121);
+}
+
+
     .container {
         display: flex;
         height: 100vh;
@@ -36,7 +64,7 @@
     .formulario h2 {
         font-family: Arial, sans-serif;
         margin: 0;
-        color: #000000;
+        color: var(--h2);
         font-size: clamp(10px, 7.7vw, 24px);
     }
 
@@ -44,7 +72,7 @@
         width: 100%;
         padding: 10px;
         margin: 8px 0;
-        border: 2px solid #ddd;
+        border: 2px solid var(--campos-gris);
         border-radius: 5px;
         box-sizing: border-box;
     }
@@ -53,7 +81,7 @@
         width: 100%;
         padding: 10px;
         margin: 8px 0;
-        border: 2px solid #de514e;
+        border: 2px solid var(--campos-error);
         border-radius: 5px;
         box-sizing: border-box;
     }
@@ -63,7 +91,7 @@
         margin: 0px;
         font-size: clamp(7pt, 7.7vw, 10pt) ;
         text-align: start;
-        color: #de514e;
+        color: var(--campos-error);
     }
 
     #ingresarLogin {
@@ -89,8 +117,8 @@
         display: flex;
         box-sizing: border-box;
         justify-content: space-between;
-        background-color: #FF6D1F;
-        border-bottom: 1px solid #9E6622;
+        background-color: var(--estilos1);
+        border-bottom: 1px solid var(--estilos3);
         width: 100%;
         height: 55px;
         align-items: center;
@@ -155,7 +183,7 @@
         margin-left: 8px;
         height: 22px;;
         border-radius: 5px;
-        border: 2px solid #F89E59;
+        border: 2px solid var(--estilos2);
         font-size: 10px;
         padding-left: 7px;
         min-width: 110px;
@@ -178,7 +206,7 @@
     width: 120px;
     justify-content: space-between;
 
-    background: #FF6D1F;
+    background: var(--estilos1);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -194,7 +222,7 @@
 
 .datosUserLogeado {
     display: flex;
-    border: 2px solid #F89E59;
+    border: 2px solid var(--estilos2);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -203,8 +231,8 @@
     height: 30px;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    color: #F89E59;
+    background-color: white;
+    color: var(--estilos2);
     font-weight: bold;
     font-size: 15px;
     margin: 0 4px;
@@ -218,7 +246,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FF6D1F;
+    background: var(--estilos1);
     border: 0px;
     height: 100%;
     width: 32px;
@@ -239,7 +267,7 @@
     border: 0px; 
     padding: 0;
     justify-content: center;
-    background: #FF6D1F;
+    background: var(--estilos1);
     color: white;
     width: 40px;
     height: 40px;
@@ -253,7 +281,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FF6D1F;
+    background: var(--estilos1);
     border: 0px;
     padding: 6px 0;
 }
@@ -266,11 +294,11 @@
 .logout {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid #F89E59; 
+    border: 2px solid var(--estilos2); 
     justify-content: space-between;
 
     padding: 10px;
-    background: #FF6600;
+    background: var(--estilos4);
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -319,17 +347,17 @@
 
     .card {
         display: flex;
-        box-shadow: 0px 0px 2px 2px #dddddd;
+        box-shadow: 0px 0px 2px 2px var(--campos-gris4);
         margin-bottom: 10px;
         border-radius: 5px;
         overflow: hidden;
         font-family: 'Inter', sans-serif;
-        color: #2a2a2a;
+        color: var(--card);
         transition: transform 0.5s ease;
     }
 
     .card:hover {
-        box-shadow: 0px 0px 2px 2px #ff972e;
+        box-shadow: 0px 0px 2px 2px var(--card-hover);
         transform: scale(1.01);
         transition: transform 0.5s ease;
     }
@@ -347,7 +375,7 @@
     } */
 
     .card:hover h1 {
-        color: #ff6d1f;
+        color: var(--estilos1);
     }
 
     .card-cuerpo {
@@ -412,12 +440,12 @@
 
     #botonFiltros {
         display: flex;
-        color: #3483fa;
+        color: var(--filtro);
         font-weight: 450;
-        box-shadow: 1px 0px 4px 0px #ddd;
+        box-shadow: 1px 0px 4px 0px var(--campos-gris);
         align-items: center;
         padding: 5px 6px;
-        border-right: solid 1px #ddd;
+        border-right: solid 1px var(--campos-gris);
         font-size: 13px;
         border-top-right-radius: 13px;
         border-bottom-right-radius: 13px;
@@ -439,7 +467,7 @@
 
 #menu.noDesplegado {
     position: fixed;
-    background-color: #F8F8F8;
+    background-color: var(--campo-blanco);
     width: 300px;
     height: 100%;
     z-index: 20; 
@@ -451,7 +479,7 @@
 
 #menu.Desplegado {
     position: fixed;
-    background-color: #F8F8F8;
+    background-color: var(--campo-blanco);
     width: 100vw;
     height: 100%;
     z-index: 20; 
@@ -465,25 +493,25 @@
 #usuario-menu {
     border-bottom: solid;
     border-top-right-radius: 2px;
-    border-color: #424242;
+    border-color: var(--campos-gris7);
     border-width: 1px;
     height: 55px;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FF6600;
-    border-right: solid 3px #F89E59; 
+    background-color: var(--estilos4);
+    border-right: solid 3px var(--estilos2); 
 }
 
 #usuario-menu img{
     margin-right: 20px;
-    border: 2px solid #f89e59;
+    border: 2px solid var(--estilos2);
     border-radius: 6px;
 }
 
 .boton-menu{
     border-bottom: solid;
-    border-color: #424242;
+    border-color: var(--campos-gris7);
     border-width: 1px;
     height: 75px;
     display:flex;
@@ -519,7 +547,7 @@
 
 .link-menu {
     padding-left: 15px;
-    color: #757575;
+    color: var(--campos-gris8);
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -531,7 +559,7 @@
 
 .lista-menu-oculto{
     display: none;
-    color: #757575;
+    color: var(--campos-gris8);
     list-style-type: none;
     font-size: 17px;
     padding-left: 31px;
@@ -541,7 +569,7 @@
 
 .lista-menu-desplegado{
     display: list-item;
-    color: #757575;
+    color: var(--campos-gris8);
     list-style-type: none;
     font-size: 17px;
     padding-left: 31px;
@@ -581,7 +609,7 @@
     display: flex;
     flex-direction: column;
     height: 75px;
-    border-bottom: solid 1px #757575;
+    border-bottom: solid 1px var(--campos-gris8);
     justify-content: center;
 }
 
@@ -589,13 +617,13 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    border-bottom: solid 1px #757575;
+    border-bottom: solid 1px var(--campos-gris8);
     justify-content: center;
 }
 
 li a {
     text-decoration: none;
-    color: #757575;
+    color: var(--campos-gris8);
 }
 
 .cerrarSesionMenu { 
@@ -606,7 +634,7 @@ li a {
     border-radius: 4px;
     min-width: 60px;
     margin-top: 14px;
-    background: #ffae70;
+    background: var(--estilos5);
     border: none;
     color: white;
 }
@@ -653,7 +681,7 @@ li a {
     align-self: center;
     padding: 10px;
     margin: 0 1.5vw;
-    border: solid 2px #ddd;
+    border: solid 2px var(--campos-gris);
     border-radius: 5px;
 }
 
@@ -671,7 +699,7 @@ li a {
     aspect-ratio: 1 / 1;    
     object-fit: cover; 
     border-radius: 8px;
-    border: solid 3px #e0e0e0;
+    border: solid 3px var(--campos-gris5);
     width: 18%;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -722,7 +750,7 @@ li a {
 }
 
 #precioProd {
-    color: #FF6600;
+    color: var(--estilos4);
     font-weight: bold;
     font-size: clamp(1.4rem, 0.589rem + 6.557vw, 1.9rem);
     margin-bottom: 0px;
@@ -734,7 +762,7 @@ li a {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px #dddddd;
+    box-shadow: 0px 0px 2px 1px var(--campos-gris4);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -760,7 +788,7 @@ li a {
     justify-content: flex-start;
     flex-wrap: nowrap;
     background-color: #fafafaa8;
-    border: 1px solid #dddd;
+    border: 1px solid var(--campos-gris3);
     padding: 5px;
     overflow: auto;
     max-width: 85vw
@@ -769,7 +797,7 @@ li a {
     padding: 5px;
     margin: 0;
     font-size: 0.9rem;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--campos-gris);
 }
 
 #imgPrincipal {
@@ -805,7 +833,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px #dddd;
+    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
     padding-left: 0px;
     transition: bottom 0.2s ease;
     z-index: 10;
@@ -823,7 +851,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px #dddd;
+    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
     min-width: 273px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
@@ -853,7 +881,7 @@ li a {
 
 #contFiltrosBotones {
     display: flex;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--campos-gris);
     align-items: center;
     overflow: hidden;
     min-height: 35px;
@@ -878,7 +906,7 @@ li a {
     display: flex;
     align-items: center;
     background-color: #f0f0f0;
-    color: #3483fa;
+    color: var(--filtro);
     font-size: clamp(0.6rem, 0.349rem + 2.254vw, 0.8rem);
     cursor: pointer;
 }
@@ -909,10 +937,10 @@ li a {
 }
 
 #lineaVertical{
-    background-color: #ddd;
+    background-color: var(--campos-gris);
     width: 2px;
     min-width: 2px;
-    box-shadow: 1px 0px 3px 0px #ddd;
+    box-shadow: 1px 0px 3px 0px var(--campos-gris);
 }
 
 
@@ -942,7 +970,7 @@ li a {
 }
 
 #AZMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #ZAMobile {
@@ -951,7 +979,7 @@ li a {
 }
 
 #ZAMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #RelevanciaMobile {
@@ -960,7 +988,7 @@ li a {
 }
 
 #RelevanciaMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioAMobile {
@@ -969,7 +997,7 @@ li a {
 }
 
 #PrecioAMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 #PrecioDMobile {
@@ -978,7 +1006,7 @@ li a {
 }
 
 #PrecioDMobile:hover{
-    background-color: #edebeb;
+    background-color: var(--campos-gris2);
 }
 
 .imgOrdenarPor {
@@ -1035,7 +1063,7 @@ li a {
 
 #contRangosMobile input {
     width: 45%;
-    border: 2px solid #dddd;
+    border: 2px solid var(--campos-gris3);
     border-radius: 3px;
     font-size: clamp(0.5rem, 0.124rem + 3.38vw, 0.8rem);
     text-align: center;
@@ -1085,7 +1113,7 @@ li a {
     justify-content: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    color: #b4b2b2;
+    color: var(--campos-gris6);
     font-weight: 400;
     align-items: center;
     font-size: 1.5rem;
@@ -1111,7 +1139,7 @@ li a {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: var(--rgb);
     width: 100vw;
     height: 100%;
 }
@@ -1177,7 +1205,7 @@ li a {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px #f89e59;
+    border: solid 1.8px var(--estilos2);
     border-radius: 3px;
     height: 128px;
     max-height: 190px;
@@ -1187,7 +1215,7 @@ li a {
 }
 
 #aviso.aviso-mostrar {
-    color: #de514e;
+    color: var(--campos-error);
     display: block;
     font-size: 1rem;
     margin-top: 10px;
@@ -1253,7 +1281,7 @@ li a {
 
 
 .checked {
-    color: rgb(255 148 76);
+    color: var(--rgb2);
 }
 
 #valoraciones {
@@ -1271,7 +1299,7 @@ li a {
 .barraCalificacion {
     width: 200px;
     border-style: solid;
-    border-color: rgb(122, 121, 121);
+    border-color: var(--rgb3);
     border-radius: 5px;
 }
 
@@ -1310,7 +1338,7 @@ li a {
     display: flex;
     flex-direction: column;
     padding: 8px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid var(--campos-gris5);
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -1336,14 +1364,14 @@ li a {
 
 #btnComentar {
     display: flex;
-    color: #FF6600;
+    color: var(--estilos4);
     cursor: pointer;
     max-width: 74px;
     font-size: clamp(0.65rem, 0.325rem + 2.623vw, 0.85rem);
 }
 
 #btnComentar:hover {
-    color: #ae4702;
+    color: var(--comentar-hover);
 }
 
 /*------------ Categories ---------------*/
@@ -1384,17 +1412,17 @@ li a {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px #dddddd;
+    box-shadow: 0px 0px 2px 2px var(--campos-gris4);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: #2a2a2a;
+    color: var(--card);
     transition: transform 1s ease;
 }
 
 .catCardPrincipal:hover {
-    box-shadow: 0px 0px 2px 2px #ff972e;
+    box-shadow: 0px 0px 2px 2px var(--card-hover);
     transform: scale(1.01);
     transition: transform 0.5s ease;
 }
@@ -1402,7 +1430,7 @@ li a {
 .catCantVendidos {
     font-size: clamp(0.3rem, 0.1rem + 2vw, 0.5rem);
     font-weight: 400;
-    color: #939393;
+    color: var(--campos-gris9);
     padding-left: 0.5px;
 }
 
