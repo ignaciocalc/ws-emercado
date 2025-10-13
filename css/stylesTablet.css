@@ -126,8 +126,8 @@
     .barraBusqueda {
         display: flex;
         box-sizing: border-box;
-        justify-content: space-between;
-        background-color: var(--estilos1);
+        justify-content: space-between; 
+        background: linear-gradient(to bottom, rgba(255, 123, 53, 1) 86.05769276618958%,rgba(227, 98, 29, 1) 100%);
         border-bottom: 1px solid var(--estilos3);
         width: 100%;
         height: 55px;
@@ -249,7 +249,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--estilos1);
+    background-color: transparent;
     border: 0px;
     padding: 6px 0;
 }
@@ -272,7 +272,7 @@
     border: 0px; 
     padding: 0;
     justify-content: center;
-    background: var(--estilos1);
+    background-color: transparent;
     color: white;
     width: 40px;
     height: 40px;

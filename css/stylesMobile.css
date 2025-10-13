@@ -267,7 +267,7 @@
     border: 0px; 
     padding: 0;
     justify-content: center;
-    background: var(--estilos1);
+    background-color: transparent;
     color: white;
     width: 40px;
     height: 40px;
@@ -281,7 +281,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--estilos1);
+    background-color: transparent;
     border: 0px;
     padding: 6px 0;
 }

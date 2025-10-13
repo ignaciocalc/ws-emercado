@@ -146,7 +146,7 @@ let
    comentar = document.getElementById("btnComentar"),
    comentarSem = document.getElementById("btnComentarSem"),
    estrellas = document.querySelectorAll(".estrellasForm"),
-   nombreUser = JSON.parse(localStorage.getItem("user")).email,
+   nombreUser = localStorage.getItem("user"),
    enviar = document.getElementById("enviarOpinion"),
    ingresar = document.getElementById("ingresarComent"),
    contComentario = document.getElementById('comentUser'),
@@ -208,6 +208,7 @@ enviar.addEventListener('click', function(evento){ //funcion para enviar comenta
    const 
       score = bttnsRadio.value,
       comentarioText = contComentario.value;
+      emailUser = JSON.parse(nombreUser).email
          
    if (score == "" || comentarioText == ""){
 
@@ -229,7 +230,7 @@ enviar.addEventListener('click', function(evento){ //funcion para enviar comenta
                         product : localStorage.getItem("idProducto"), 
                         score : score,
                         description : comentarioText,
-                        user : nombreUser.substring(0, nombreUser.indexOf('@')),
+                        user : emailUser.substring(0, emailUser.indexOf('@')),
                         dateTime : fechaFormato
                      };
 

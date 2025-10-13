@@ -98,7 +98,7 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
     card_link.addEventListener("click", function() {
         localStorage.setItem("idProducto", ID);
-        window.location.href = "product-info.html";
+        window.location = "product-info.html";
     })
 }    
 

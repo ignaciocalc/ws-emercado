@@ -30,7 +30,14 @@ let
 
 // ------------------------funciones para barra de busqueda-----------------------------------
 const 
-   barraBusqueda = document.getElementById("buscador");
+   barraBusqueda = document.getElementById("buscador"),
+   btnEmercado = document.getElementById("logoHeader");
+
+
+btnEmercado.addEventListener("click", () => {
+   window.location = "index.html"; 
+}) 
+
 
 function busqueda(){
    let texto = barraBusqueda.value.toLowerCase().trim(),

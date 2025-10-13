@@ -22,7 +22,7 @@ body {
     --campo-blanco:#f7f7f7f8;
     --campo-blanco2:#f8f8f8;
     --campos-error:#de514e;
-    --estilos2:#F89E59;
+    --estilos2:#FF8849;
     --estilos3:#9E6622;
     --estilos4:#FF6600;
     --estilos5:#cf5300;
@@ -142,12 +142,14 @@ body {
 }
 
 .barraBusqueda {
-    background-color: var(--estilos1);
+    /* background-color: var(--estilos1); */
+    background: linear-gradient(to bottom, rgba(255, 123, 53, 1) 86.05769276618958%,rgba(227, 98, 29, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
-    border-bottom: 1px solid var(--estilos3);
+    min-height: 70px;
+    /* border-bottom: 1px solid var(--estilos3); */
 }
 
 #logoHeader {
@@ -190,8 +192,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10px; 
-    gap: 12px 
 }
 
 .ingresarHeadDesLog {
@@ -222,8 +222,8 @@ body {
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
-    width: 42px;
-    height: 42px;
+    width: 37px;
+    height: 37px;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -238,15 +238,20 @@ body {
 
 .carritoCompraslog {
     display: flex;
-    align-items: flex-end; 
-    border: 2px solid var(--estilos2); 
+    align-items: flex-end;
+    border: none;
     justify-content: space-between;
-
-    padding: 10px;
-    background: var(--estilos4);
+    width: 35px;
+    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 5px;
+    padding: 0;
+    margin: 0 7px;
+}
+
+.carritoCompraslog img{
+    width: 100%;
 }
 
 .logoutNolog {
@@ -256,21 +261,25 @@ body {
 
 .logout {
     display: flex;
-    align-items: flex-end; 
-    border: 2px solid (var(--estilos2)); 
+    align-items: flex-end;
+    border: none;
     justify-content: space-between;
-
-    padding: 10px;
-    background: var(--estilos4);
+    width: 37px;
+    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 5px;
+    padding: 0px;
+}
+
+.logout img {
+    width: 100%;
 }
 /* Fin botones del head */
 
 #carritoeMercado {
     margin: 10px;
-    width: 60px;
+    width: 50px;
 }
 
 
