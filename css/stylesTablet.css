@@ -6,16 +6,6 @@
 :root{
     --estilos1:#ff6d1f;
     --h2:#000000;
-    --campos-gris:#ddd;
-    --campos-gris2:#edebeb;
-    --campos-gris3:#dddd;
-    --campos-gris4: #dddddd;
-    --campos-gris5:#e0e0e0;
-    --campos-gris6:#b4b2b2;
-    --campos-gris7:#424242;
-    --campos-gris8:#757575;
-    --campos-gris9:#939393;
-    --campos-gris10:#656565dd;
     --campo-blanco:#f8f8f8;
     --campo-blanco2:#fafafaa8;
     --campo-blanco3:#f0f0f0;
@@ -208,8 +198,7 @@
     align-items: flex-end;  
     width: 120px;
     justify-content: space-between;
-
-    background: var(--estilos1);
+    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -332,7 +321,7 @@
 
     .card {
         display: flex;
-        box-shadow: 0px 0px 2px 2px var(--campos-gris4);
+        box-shadow: 0px 0px 2px 2px var(--campos-gris);
         margin-bottom: 10px;
         border-radius: 5px;
         overflow: hidden;
@@ -690,7 +679,7 @@ li a {
     aspect-ratio: 1 / 1;    
     object-fit: cover; 
     border-radius: 8px;
-    border: solid 3px var(--campos-gris5);
+    border: solid 3px var(--campos-gris);
     width: 18%;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -753,7 +742,7 @@ li a {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px var(--campos-gris4);
+    box-shadow: 0px 0px 2px 1px var(--campos-gris);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -779,7 +768,7 @@ li a {
     justify-content: flex-start;
     flex-wrap: nowrap;
     background-color: var(--campo-blanco2);
-    border: 1px solid var(--campos-gris3);
+    border: 1px solid var(--campos-gris);
     padding: 5px;
     overflow: auto;
     max-width: 90vw
@@ -827,7 +816,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
+    box-shadow: 0px 0px 12px 7px var(--campos-gris);
     padding-left: 0px;
     transition: bottom 0.2s ease;
     z-index: 10;
@@ -844,7 +833,7 @@ li a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 12px 7px var(--campos-gris3);
+    box-shadow: 0px 0px 12px 7px var(--campos-gris);
     min-width: 437px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
@@ -968,7 +957,7 @@ li a {
 }
 
 #AZMobile:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--campos-gris);
 }
 
 #ZAMobile {
@@ -977,7 +966,7 @@ li a {
 }
 
 #ZAMobile:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--campos-gris);
 }
 
 #RelevanciaMobile {
@@ -986,7 +975,7 @@ li a {
 }
 
 #RelevanciaMobile:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--campos-gris);
 }
 
 #PrecioAMobile {
@@ -995,7 +984,7 @@ li a {
 }
 
 #PrecioAMobile:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--campos-gris);
 }
 
 #PrecioDMobile {
@@ -1004,7 +993,7 @@ li a {
 }
 
 #PrecioDMobile:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--campos-gris);
 }
 
 .imgOrdenarPor {
@@ -1061,7 +1050,7 @@ li a {
 
 #contRangosMobile input {
     width: 45%;
-    border: 2px solid var(--campos-gris3);
+    border: 2px solid var(--campos-gris);
     border-radius: 3px;
     font-size: clamp(0.7rem, 0.157rem + 2.697vw, 1rem);
     text-align: center;
@@ -1109,7 +1098,7 @@ li a {
     justify-content: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    color: var(--campos-gris6);
+    color: var(--campos-gris);
     font-weight: 400;
     align-items: center;
     font-size: 1.5rem;
@@ -1334,7 +1323,7 @@ li a {
     display: flex;
     flex-direction: column;
     padding: 8px;
-    border: 1px solid var(--campos-gris5);
+    border: 1px solid var(--campos-gris);
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -1409,7 +1398,7 @@ li a {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px var(--campos-gris4);
+    box-shadow: 0px 0px 2px 2px var(--campos-gris);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;

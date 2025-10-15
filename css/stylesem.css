@@ -7,34 +7,6 @@ body {
 }
 
 /*---------------Login---------------*/
-
-:root{
-    --estilos1:#ff6d1f;
-    --h2:#000000;
-    --campos-gris:#ddd;
-    --campos-gris2:#edebeb;
-    --campos-gris3:#f9f6f6;
-    --campos-gris4:#dddd;
-    --campos-gris5: #dddddd;
-    --campos-gris6:#ececec;
-    --campos-gris7:#e0e0e0;
-    --campos-gris8:#b4b2b2;
-    --campo-blanco:#f7f7f7f8;
-    --campo-blanco2:#f8f8f8;
-    --campos-error:#de514e;
-    --estilos2:#FF8849;
-    --estilos3:#9E6622;
-    --estilos4:#FF6600;
-    --estilos5:#cf5300;
-    --filtro:#3483fa;
-    --card:#2a2a2a;
-    --card-hover:#ff972e;
-    --comentar-hover:#ae4702;
-    --estrella:#ff8838;
-    --rgb:rgb(0, 0, 0, 0.2);
-    --rgb2:rgb(255 148 76);
-}
-
 .container {
     display: flex;
     height: 100vh;
@@ -51,7 +23,7 @@ body {
 /*control de estilos parte izquierda*/
 #izq {   
     flex: 1;
-    background-color: var(--estilos1);
+    background-color: var(--naranja-intenso);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +61,7 @@ body {
 .formulario h2 {
     font-size: clamp(5px, 2.2vw, 20px);
     margin: 0;
-    color: var(--h2);
+    color: var(--texto-colorPrincipal);
 }
 
 .formulario .camposInput {
@@ -98,7 +70,7 @@ body {
     padding: 0.75rem;
     margin: 0.5rem 0;
     font-size: 1rem;
-    border: 2px solid var(--campo-blanco);
+    border: 2px solid var(--camposInput-gris);
     border-radius: 5px;
 }
 
@@ -108,7 +80,7 @@ body {
     padding: 0.75rem;
     margin: 0.5rem 0;
     font-size: 1rem;
-    border: 2px solid var(--campos-error);
+    border: 2px solid var(--camposInput-error);
     border-radius: 5px;
 }
 
@@ -117,7 +89,7 @@ body {
    margin: 0.5rem 0;
    font-size: 1rem;
    text-align: start;
-   color: var(--campos-error);
+   color: var(--camposInput-error);
 }
 
 #ingresarLogin {
@@ -138,18 +110,16 @@ body {
 .headerClass {
     display: flex;
     flex-direction: column;
-    background-color: var(--estilos2);
+    background-color: var(--naranja-suave);
 }
 
 .barraBusqueda {
-    /* background-color: var(--estilos1); */
-    background: linear-gradient(to bottom, rgba(255, 123, 53, 1) 86.05769276618958%,rgba(227, 98, 29, 1) 100%);
+    background: var(--gradiente-primario);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
     min-height: 70px;
-    /* border-bottom: 1px solid var(--estilos3); */
 }
 
 #logoHeader {
@@ -173,7 +143,7 @@ body {
     margin: 0 20px;
     height: 30px;
     border-radius: 5px;
-    border: 2px solid var(--estilos2);
+    border: 2px solid var(--naranja-suave);
     padding-left: 7px;
 }
 
@@ -197,12 +167,11 @@ body {
 .ingresarHeadDesLog {
     display: flex;
     align-items: flex-end; 
-    border: 2px solid var(--estilos2); 
+    border: 2px solid var(--naranja-suave); 
     width: 120px;
     justify-content: space-between;
-
     padding: 10px;
-    background: var(--estilos4);
+    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -218,7 +187,7 @@ body {
 
 .datosUserLogeado {
     display: flex;
-    border: 2px solid var(--estilos2);
+    border: 2px solid var(--naranja-suave);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -227,7 +196,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: white;
-    color: var(--estilos2);
+    color: var(--naranja-suave);
     font-weight: bold;
     font-size: 20px;
 }
@@ -307,10 +276,13 @@ body {
 /*----------FIN Header----------*/
 
 /*----------Comienzo Products.html----------*/
+body {
+    background-color: var(--fondo-contPrincipales);
+}
 
 #filtros {
     font-family: 'Inter', sans-serif;
-    background-color: var(--campo-blanco);
+    background-color: var(--fondo-MenuFiltro);
     padding: 10px 0;
     z-index: 10;
     height: 100%;
@@ -318,8 +290,8 @@ body {
     border-bottom-right-radius: 5px;
     min-width: 245px;
     width: 245px;
-    border-right: 2px solid var(--campos-gris);
-    border-bottom: 2px solid var(--campos-gris);
+    border-right: 2px solid var(--contorno-MenuFiltro);
+    border-bottom: 2px solid var(--contorno-MenuFiltro);
 }
 
 .mainProducts {
@@ -371,12 +343,13 @@ body {
 
 #flechaDesplegable {
     display: flex;
-    border: 2px solid var(--campos-gris);
+    border: 2px solid var(--contorno-MenuFiltro);
     border-left: 0;
     padding: 5px 0px;
     height: 100%;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-color: var(--fondoFlecha-menuFiltro);
 }
 
 #filtros lu {
@@ -397,7 +370,7 @@ body {
 }
 
 #AZ:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #ZA{
@@ -405,7 +378,7 @@ body {
 }
 
 #ZA:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #Relevancia{
@@ -413,7 +386,7 @@ body {
 }
 
 #Relevancia:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #PrecioA {
@@ -421,7 +394,7 @@ body {
 }
 
 #PrecioA:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #PrecioD {
@@ -429,7 +402,7 @@ body {
 }
 
 #PrecioD:hover{
-    background-color: var(--campos-gris2);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #contOrdenarPor {
@@ -437,20 +410,19 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    border: 1px solid var(--campos-gris);
+    border: 1px solid var(--contornoOpciones-menuFiltro);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: var(--campos-gris3);
     cursor: pointer;
 }
 
 #contOrdenarPor:hover {
-    background-color: var(--campos-gris6);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 #contBotonPrecio:hover {
-    background-color: var(--campos-gris6);
+    background-color: var(--hoverOpciones-menuFiltro);
 }
 
 .flechaOrdenarPor-oculto {
@@ -533,7 +505,7 @@ body {
 
 .btn-mostrar {
     padding: 5px;
-    background: var(--estilos4);
+    background: var(--naranja-intenso);
     border: none;
     color: white;
     font-size: 14px;
@@ -545,7 +517,7 @@ body {
 }
 
 .btn-mostrar:hover {
-    background: var(--estilos5);
+    background: var(--naranja-oscuroHoversBtn);
 }
 
 
@@ -558,18 +530,17 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    border: 1px solid var(--campos-gris4);
+    border: 1px solid var(--contornoOpciones-menuFiltro);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: var(--campos-gris3);
     cursor: pointer;
 }
 
 .rangosBoton {
     width: 75px;
     border-radius: 4px;
-    border: solid 2px var(--campos-gris);
+    border: solid 2px var(--camposInput-gris);
     text-align: center;
     height: 20px;
 }
@@ -592,7 +563,7 @@ body {
 }
 
 #tipoFiltro {
-    color: var(--filtro);
+    color: var(--texto-resaltanteAzul);
     margin: 0;
     margin-left: 4px !important;
     font-weight: 300;
@@ -617,17 +588,18 @@ body {
 
 .card {
     display: flex;
-    box-shadow: 0px 0px 2px 2px var(--campos-gris5);
+    box-shadow: 0px 0px 2px 2px var(--sombra-cards);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: var(--card);
+    color: var(--texto-colorPrincipal);
+    background-color: var(--fondo-cards);
     transition: transform 0.5s ease;
 }
 
 .card:hover {
-    box-shadow: 0px 0px 2px 2px var(--card-hover);
+    box-shadow: 0px 0px 2px 2px var(--sombraHover-cards);
     transform: scale(1.01);
     transition: transform 0.5s ease;
 }
@@ -661,6 +633,7 @@ body {
     font-size: clamp(0.7rem, 0.356rem + 0.715vw, 1rem);
     margin-top: 0px;
     margin-bottom: 0;
+    color: var(--texto-colorAtenuado)
 }
 
 
@@ -751,8 +724,9 @@ p.card-boton .button {
     width: 70vw;
     padding: 10px;
     margin-right: 2vw;
-    border: solid 2px var(--campos-gris);
+    border: solid 2px var(--bordeEstandar-color);
     border-radius: 5px;
+    background-color: var(--fondo-cards);
 }
 
 
@@ -761,7 +735,7 @@ p.card-boton .button {
     width: 90%;
     display: flex;
     align-items: center;
-    background-color: var(--campo-blanco2);
+    background-color: var(--limitadorCont-fondo);
 }
 
 #imgContPrincipal img {
@@ -773,7 +747,7 @@ p.card-boton .button {
     object-fit: cover; 
     border-radius: 8px;
     width: 100%;
-    border: solid 3px var(--campos-gris7);
+    border: solid 3px var(--bordeEstandar-color);
     box-sizing: border-box;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -804,9 +778,10 @@ p.card-boton .button {
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
-    box-shadow: 0px 0px 3px 3px var(--campos-gris5);
+    box-shadow: 0px 0px 3px 3px var(--sombra-cards);
     border-radius: 5px;
     min-width: 272px;
+    background-color: var(--fondo-cards);
 }
 
 #nombreProd {
@@ -828,7 +803,7 @@ p.card-boton .button {
 }
 
 #precioProd {
-    color: var(--estilos4);
+    color: var(--naranja-intenso);
     font-weight: bold;
     font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
     margin: 0;
@@ -840,7 +815,7 @@ p.card-boton .button {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px var(--campos-gris5);
+    box-shadow: 0px 0px 2px 1px var(--campos-sombras-gris);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -864,8 +839,8 @@ p.card-boton .button {
     gap: 2%;
     justify-content: flex-start;
     flex-wrap: nowrap;
-    background-color: var(--campo-blanco2);
-    border: 1px solid var(--campos-gris4);
+    background-color: var(--limitadorCont-fondo);
+    border: 1px solid var(--campos-sombras-gris);
     padding: 5px;
     overflow: auto;
 }
@@ -875,7 +850,7 @@ p.card-boton .button {
     margin: 0;
     white-space: nowrap;
     font-size: 0.85rem;
-    border-top: 1px solid var(--campos-gris);
+    border-top: 1px solid var(--campos-sombras-gris);
 }
 
 #imgPrincipal {
@@ -905,7 +880,7 @@ p.card-boton .button {
     justify-content: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    color: var(--campos-gris8);
+    color: var(--texto-colorSuavizado);
     font-weight: 400;
     align-items: center;
     font-size: 2rem;
@@ -997,7 +972,7 @@ p.card-boton .button {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px var(--estilos2);
+    border: solid 1.8px var(--naranja-suave);
     border-radius: 3px;
     height: 128px;
     max-height: 295px;
@@ -1127,7 +1102,7 @@ p.card-boton .button {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px var(--estilos2);
+    border: solid 1.8px var(--naranja-suave);
     border-radius: 3px;
     height: 128px;
     max-height: 295px;
@@ -1212,6 +1187,8 @@ p.card-boton .button {
     padding: 0px 15px;
     flex: 1;
     max-width: 298px;
+    padding-bottom: 15px;
+    background-color: var(--fondo-cards);
 }
 
 #valoraciones>p {
@@ -1222,7 +1199,7 @@ p.card-boton .button {
 
 .barraCalificacion {
     width: 125px;
-    border: 1px solid var(--campos-gris);
+    border: 1px solid var(--campos-sombras-gris);
     height: 70%;
     min-width: 125px;
     display: flex;
@@ -1267,6 +1244,7 @@ p.card-boton .button {
     font-size: clamp(1.3rem, 0.783rem + 1.075vw, 1.75rem);
     display: flex;
     flex-direction: column;
+    color: var(--texto-colorEnfasis);
 }
 .comentario-nombre>span {
     font-size: clamp(0.9rem, 0.44rem + 0.955vw, 1.3rem);
@@ -1282,10 +1260,12 @@ p.card-boton .button {
     flex-direction: column;
     width: 100%;
     padding: clamp(.2rem, 3.5267vw + -1.2274rem, 1rem);
-    border: 1px solid var(--campos-gris7);    
+    border: 1px solid var(--bordeEstandar-color);    
     border-radius: 5px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    background-color: var(--fondo-cards);
+    color: var(--texto-colorPrincipal);
 }
 
 .comentario-contenido {
@@ -1373,17 +1353,17 @@ p.card-boton .button {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px var(--campos-gris5);
+    box-shadow: 0px 0px 2px 2px var(--campos-sombras-gris);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
-    color: var(--card);
+    color: var(--texto-colorPrincipal);
     transition: transform 0.5s ease;
 }
 
 .catCardPrincipal:hover {
-    box-shadow: 0px 0px 2px 2px var(--card-hover);
+    box-shadow: 0px 0px 2px 2px var(--sombraHover-cards);
     transform: scale(1.01);
     transition: transform 0.5s ease;
 }
@@ -1391,7 +1371,7 @@ p.card-boton .button {
 .catCantVendidos {
     font-size: clamp(0.8rem, 0.499rem + 0.625vw, 1.5rem);
     font-weight: 400;
-    color: var(--campos-gris8);
+    color: var(--texto-colorAtenuado);
     padding-left: 1px;
 }
 

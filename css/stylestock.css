@@ -1,3 +1,66 @@
+:root{
+    /* Colores generales */
+    --principal-color: rgba(255, 123, 53, 1);
+    --secundario-color: rgba(227, 98, 29, 1);
+    --gradiente-primario: linear-gradient(to bottom, rgba(255, 123, 53, 1) 86.05769276618958%,rgba(227, 98, 29, 1) 100%);
+    --naranja-intenso:#ff6d1f;
+    --naranja-suave:#FF8849;
+    --naranja-oscuroHoversBtn:#dc5a03;
+    --texto-colorEnfasis: black;
+    --texto-colorPrincipal:#2a2a2a;
+    --texto-colorAtenuado:#b4b3b3;
+    --texto-colorSuavizado: #d6d6d6;
+    --texto-resaltanteAzul:#3483fa;
+    --bordeEstandar-color: #ddd;
+    
+    /* body && contPrincipales */
+    --fondo-contPrincipales: red;
+
+    /*Campos de entrada texto*/
+    --camposInput-gris: #dddd;
+    --camposInput-error:#de514e;
+
+    /*Menu filtros*/
+    --fondo-MenuFiltro: #f7f7f7f8;
+    --contorno-MenuFiltro: #ddd;
+    --hoverOpciones-menuFiltro: #d1d1d1;
+    --contornoOpciones-menuFiltro: #ddd;
+    --fondoFlecha-menuFiltro: white;
+
+    /* Tarjetas */
+    --sombra-cards: #ddd;
+    --sombraHover-cards: #ff972e;
+    --fondo-cards: white;
+    --limitadorCont-fondo: #f8f8f8;
+
+
+    
+
+    --campos-gris7:#424242;
+    --campos-gris8s:#757575;
+    --campos-gris9:#939393;
+    --campo-blanco:#f7f7f7f8;
+
+
+    
+    
+    
+
+    --campos-sombras-gris:#ddd; /*eliminar luego de terminar*/
+    --estilos3:#9E6622;
+
+
+    
+    
+    
+    
+    --comentar-hover:#ae4702;
+    --estrella:#ff8838;
+    --rgb:rgb(0, 0, 0, 0.2);
+    --rgb2:rgb(255 148 76);
+}
+
+
 /*Boton primario*/
 .button {
     padding: 10px;
