@@ -4,6 +4,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: var(--fondo-contPrincipales);
 }
 
 /*---------------Login---------------*/
@@ -56,6 +57,7 @@ body {
     width: 70%;
     max-width: 12rem;
     height: auto;
+    filter: var(--brilloLogo-img);
 }
 
 .formulario h2 {
@@ -72,6 +74,7 @@ body {
     font-size: 1rem;
     border: 2px solid var(--camposInput-gris);
     border-radius: 5px;
+    background-color: var(--camposInput-fondo);
 }
 
 .formulario .camposError {
@@ -82,6 +85,7 @@ body {
     font-size: 1rem;
     border: 2px solid var(--camposInput-error);
     border-radius: 5px;
+    background-color: var(--camposInput-fondo);
 }
 
 .claseError {
@@ -102,6 +106,7 @@ body {
 #extra {
    margin-top: 15px;
    font-size: clamp(5px, 2vw, 16px);
+   color: var(--texto-colorPrincipal);
 }
 /*---------------Fin Login---------------*/
 
@@ -126,6 +131,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    filter: brightness(var(--brillobtn-headear))
 }
 
 #emercado {
@@ -145,8 +151,14 @@ body {
     border-radius: 5px;
     border: 2px solid var(--naranja-suave);
     padding-left: 7px;
+    background-color: var(--color-barraBusqueda);
+    color: var(--texto-barraBusqueda);
 }
 
+#buscador::placeholder {
+  color: var(--texto-barraBusqueda);
+  opacity: 1;
+}
 
 /* botones del head */
 
@@ -187,7 +199,7 @@ body {
 
 .datosUserLogeado {
     display: flex;
-    border: 2px solid var(--naranja-suave);
+    border: 2px solid var(--principal-color);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -195,8 +207,8 @@ body {
     height: 37px;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    color: var(--naranja-suave);
+    background-color: var(--sombraIcons-header);
+    color: var(--principal-color);
     font-weight: bold;
     font-size: 20px;
 }
@@ -217,6 +229,7 @@ body {
     border-radius: 5px;
     padding: 0;
     margin: 0 7px;
+    filter: brightness(var(--brillobtn-headear));     
 }
 
 .carritoCompraslog img{
@@ -239,6 +252,8 @@ body {
     font-size: 16px;
     border-radius: 5px;
     padding: 0px;
+    filter: brightness(var(--brillobtn-headear));     
+
 }
 
 .logout img {
@@ -267,18 +282,17 @@ body {
     padding-left: 10px;
     column-gap: 14px;
     margin: 8px;
+    filter: brightness(var(--brillobtn-headear))
 }
 
 .barraNavegacion li a {
-    color: white;
+    color: var(--texto-negativo);
     text-decoration: none;
 }
 /*----------FIN Header----------*/
 
 /*----------Comienzo Products.html----------*/
-body {
-    background-color: var(--fondo-contPrincipales);
-}
+
 
 #filtros {
     font-family: 'Inter', sans-serif;
@@ -292,6 +306,7 @@ body {
     width: 245px;
     border-right: 2px solid var(--contorno-MenuFiltro);
     border-bottom: 2px solid var(--contorno-MenuFiltro);
+    color: var(--texto-colorPrincipal);
 }
 
 .mainProducts {
@@ -302,8 +317,8 @@ body {
 
 .mainProducts-FiltroMostrar {
     display: flex;
-    margin: 30px 70px;
-    margin-left: 280px;
+    margin: 30px 40px;
+    margin-left: 310px;
     transition: margin-left 0.2s ease;
 }
 
@@ -311,7 +326,7 @@ body {
 .filtrosContenedor-oculto {
     position: absolute;
     left: -245px;
-    top: 114px;
+    top: 116px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -322,7 +337,7 @@ body {
 .filtrosContenedor-mostrar {
     position: absolute;
     left: 0;
-    top: 114px;
+    top: 116px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -415,6 +430,7 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+    color: var(--texto-colorEnfasis);
 }
 
 #contOrdenarPor:hover {
@@ -535,14 +551,16 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+    color: var(--texto-colorEnfasis)
 }
 
 .rangosBoton {
     width: 75px;
-    border-radius: 4px;
-    border: solid 2px var(--camposInput-gris);
+    border-radius: 3px;
+    border: solid 1px var(--camposInput-gris);
     text-align: center;
     height: 20px;
+    background-color: var(--camposInput-fondo);
 }
 
 #partContOrdenarPor {
@@ -602,6 +620,10 @@ body {
     box-shadow: 0px 0px 2px 2px var(--sombraHover-cards);
     transform: scale(1.01);
     transition: transform 0.5s ease;
+}
+
+ .card:hover h1 {
+    color: var(--principal-color);
 }
 
 .card-img {
@@ -747,7 +769,7 @@ p.card-boton .button {
     object-fit: cover; 
     border-radius: 8px;
     width: 100%;
-    border: solid 3px var(--bordeEstandar-color);
+    border: solid 3px #dddd;
     box-sizing: border-box;
     /* border: solid 3px #3483fa;  Estilo de imagen seleccionado*/
 }
@@ -782,11 +804,13 @@ p.card-boton .button {
     border-radius: 5px;
     min-width: 272px;
     background-color: var(--fondo-cards);
+    color: var(--texto-colorPrincipal);
 }
 
 #nombreProd {
     font-size: clamp(2.5rem, 1.466rem + 2.149vw, 3.4rem);
     margin: 0;
+    color: var(--texto-colorEnfasis);
 }
 
 #infoVenCat {
@@ -815,11 +839,11 @@ p.card-boton .button {
 }
 
 .prodRelacionado {
-    box-shadow: 0px 0px 2px 1px var(--campos-sombras-gris);
+    box-shadow: 0px 0px 2px 1px var(--bordeEstandar-color);
     border-radius: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: white;
+    background-color: var(--fondoProdRel-cards);
     max-width: 120px;
     min-width: 120px;
 }
@@ -840,7 +864,7 @@ p.card-boton .button {
     justify-content: flex-start;
     flex-wrap: nowrap;
     background-color: var(--limitadorCont-fondo);
-    border: 1px solid var(--campos-sombras-gris);
+    border: 1px solid var(--bordeEstandar-color);
     padding: 5px;
     overflow: auto;
 }
@@ -850,7 +874,7 @@ p.card-boton .button {
     margin: 0;
     white-space: nowrap;
     font-size: 0.85rem;
-    border-top: 1px solid var(--campos-sombras-gris);
+    border-top: 1px solid var(--bordeEstandar-color);
 }
 
 #imgPrincipal {
@@ -905,7 +929,7 @@ p.card-boton .button {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--rgb);
+    background-color: var(--sombra-popUps);
     width: 100vw;
     height: 100vh;
 }
@@ -915,7 +939,7 @@ p.card-boton .button {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    background-color: white;
+    background-color: var(--fondo-cards);
     width: 35%;
     min-width: 450px;
     max-width: 500px;
@@ -933,6 +957,7 @@ p.card-boton .button {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 0;
+    color: var(--texto-colorEnfasis);
 }
 
 .calificar-mostrar form{
@@ -950,6 +975,7 @@ p.card-boton .button {
     display: flex;
     flex-direction: column;
     font-weight: 550;
+    color: var(--texto-colorPrincipal);
 }
 
 .calificar-mostrar form label{
@@ -972,7 +998,7 @@ p.card-boton .button {
 #comentUser {
     width: 100%;
     padding: 5px;
-    border: solid 1.8px var(--naranja-suave);
+    border: solid 1.8px var(--naranja-intenso);
     border-radius: 3px;
     height: 128px;
     max-height: 295px;
@@ -997,7 +1023,7 @@ p.card-boton .button {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    background-color: white;
+    background-color: var(--fondo-cards);
     width: 35%;
     min-width: 450px;
     max-width: 500px;
@@ -1028,31 +1054,6 @@ p.card-boton .button {
     display: none;
 }
 
-.popUpCalificar-mostrar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--rgb);
-    width: 100vw;
-    height: 100vh;
-}
-
-.calificar-mostrar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    background-color: white;
-    width: 35%;
-    min-width: 450px;
-    max-width: 500px;
-    padding: 20px;
-    border-radius: 6px;
-}
-
 .calificar-ocultar {
     display: none;
 }
@@ -1075,13 +1076,6 @@ p.card-boton .button {
     gap: 10px;
 }
 
-.calificar-mostrar label{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-weight: 550;
-}
-
 .calificar-mostrar form label{
     width: 55px;
 }
@@ -1100,7 +1094,7 @@ p.card-boton .button {
 }
 
 #comentUser {
-    width: 100%;
+    width: 96%;
     padding: 5px;
     border: solid 1.8px var(--naranja-suave);
     border-radius: 3px;
@@ -1108,6 +1102,7 @@ p.card-boton .button {
     max-height: 295px;
     min-height: 33px;
     font-weight: 350;
+    background-color: var(--camposInput-fondo);
 }
 
 #aviso.aviso-mostrar {
@@ -1121,19 +1116,6 @@ p.card-boton .button {
     display: none;
 }
 
-.noCalificar-mostrar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    background-color: white;
-    width: 35%;
-    min-width: 450px;
-    max-width: 500px;
-    padding: 35px;
-    border-radius: 6px;
-}
-
 .noCalificar-ocultar {
     display: none;
 }
@@ -1144,6 +1126,7 @@ p.card-boton .button {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: var(--texto-colorPrincipal);
 }
 
 .noCalificar-mostrar .button {
@@ -1161,6 +1144,8 @@ p.card-boton .button {
 #opiniones-titulo-sem{
     padding: 0px 15px;
     margin: 35px 0px 20px;
+    color: var(--texto-colorEnfasis);
+    font-size: 2.1rem;
 }
 
 #contenedorComentarios {
@@ -1177,7 +1162,7 @@ p.card-boton .button {
 
 
 .checked {
-    color: var(--rgb2);
+    color: var(--naranja-intenso);
 }
 
 #valoraciones {
@@ -1188,18 +1173,19 @@ p.card-boton .button {
     flex: 1;
     max-width: 298px;
     padding-bottom: 15px;
-    background-color: var(--fondo-cards);
+    background-color: var(--fondo-contPrincipales);
 }
 
 #valoraciones>p {
     font-weight: 500;
     font-size: 1.2rem;
     margin-bottom: 0;
+    color: var(--texto-colorEnfasis);
 }
 
 .barraCalificacion {
     width: 125px;
-    border: 1px solid var(--campos-sombras-gris);
+    border: 1px solid var(--bordeEstandar-color);
     height: 70%;
     min-width: 125px;
     display: flex;
@@ -1220,6 +1206,7 @@ p.card-boton .button {
     min-height: 40px;
     height: 40px;
     align-items: center;
+    color: var(--texto-colorPrincipal);
 }
 
 .contenedorCalificacion p{ 
@@ -1251,7 +1238,7 @@ p.card-boton .button {
     display: flex;
     align-items: center;
     padding-top: .2rem;
-
+    color: var(--texto-colorPrincipal)
 }
 
 
@@ -1272,6 +1259,8 @@ p.card-boton .button {
     word-wrap: break-word;
     line-height: 1.4;
     font-size: clamp(1.1rem, 0.525rem + 1.194vw, 1.6rem);
+    margin-bottom: 4px;
+    margin-top: 0px;
 }
 
 .comentario-fecha {
@@ -1295,14 +1284,15 @@ p.card-boton .button {
 #btnComentarSem {
     margin-top: 13px;
     padding: 3px;
+    min-height: 33px;
 }
 
 #btnComentar:hover {
-    color: var(--comentar-hover);
+    color: var(--naranja-oscuroHoversBtn);
 }
 
 .barrEstrella {
-    background-color: var(--estrella);
+    background-color: var(--naranja-intenso);
     object-fit: cover;
 }
 
@@ -1353,13 +1343,14 @@ p.card-boton .button {
 }
 
 .catCardPrincipal {
-    box-shadow: 0px 0px 2px 2px var(--campos-sombras-gris);
+    box-shadow: 0px 0px 2px 2px var(--sombra-cards);
     margin-bottom: 10px;
     border-radius: 5px;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
     color: var(--texto-colorPrincipal);
     transition: transform 0.5s ease;
+    background-color: var(--fondo-cards);
 }
 
 .catCardPrincipal:hover {

@@ -218,14 +218,14 @@ function setli() {
     tipoFiltro.className = "mostrarfiltro";
     imgTipoFiltro.className = "mostrarfiltro";
 
-    AZ.style.color = "black";
-    AZTablet.style.color = "black";
+    AZ.style.color = "color: var(--texto-colorPrincipal)";
+    AZTablet.style.color = "color: var(--texto-colorPrincipal)";
     
-    ZA.style.color = "black";
-    ZATablet.style.color = "black";
+    ZA.style.color = "color: var(--texto-colorPrincipal)";
+    ZATablet.style.color = "color: var(--texto-colorPrincipal)";
 
-    relevancia.style.color = "black";
-    relevanciaTablet.style.color = "black";
+    relevancia.style.color = "color: var(--texto-colorPrincipal)";
+    relevanciaTablet.style.color = "color: var(--texto-colorPrincipal)";
 }
 
 
