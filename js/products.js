@@ -98,7 +98,7 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
     card_link.addEventListener("click", function() {
         localStorage.setItem("idProducto", ID);
-        window.location.href = "product-info.html";
+        window.location = "product-info.html";
     })
 }    
 
@@ -227,21 +227,21 @@ function setli() {
     tipoFiltro.className = "mostrarfiltro";
     imgTipoFiltro.className = "mostrarfiltro";
 
-    AZ.style.color = "black";
-    AZTablet.style.color = "black";
+    AZ.style.color = "var(--texto-colorPrincipal)";
+    AZTablet.style.color = "var(--texto-colorPrincipal)";
     
-    ZA.style.color = "black";
-    ZATablet.style.color = "black";
+    ZA.style.color = "var(--texto-colorPrincipal)";
+    ZATablet.style.color = "var(--texto-colorPrincipal)";
 
-    relevancia.style.color = "black";
-    relevanciaTablet.style.color = "black";
+    relevancia.style.color = "var(--texto-colorPrincipal)";
+    relevanciaTablet.style.color = "var(--texto-colorPrincipal)";
 
 
-    precioA.style.color = "black";
-    precioATablet.style.color = "black";
+    precioA.style.color = "var(--texto-colorPrincipal)";
+    precioATablet.style.color = "var(--texto-colorPrincipal)";
 
-    precioD.style.color = "black";
-    precioDTablet.style.color = "black";
+    precioD.style.color = "var(--texto-colorPrincipal)";
+    precioDTablet.style.color = "var(--texto-colorPrincipal)";
 }
 
 flechaDesplegable.addEventListener('click', function(evento){
