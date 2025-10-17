@@ -1,4 +1,5 @@
-:root{
+:root{  
+    --animacion-darkMode: 0.3s;
     /* Colores generales */
     --principal-color: rgba(255, 123, 53, 1);
     --secundario-color: rgba(227, 98, 29, 1);

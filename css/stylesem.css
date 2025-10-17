@@ -5,6 +5,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--fondo-contPrincipales);
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 /*---------------Login---------------*/
@@ -131,7 +132,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    filter: brightness(var(--brillobtn-headear))
+    filter: brightness(var(--brillobtn-headear));
+    transition: filter var(--animacion-darkMode) ease;
 }
 
 #emercado {
@@ -153,11 +155,16 @@ body {
     padding-left: 7px;
     background-color: var(--color-barraBusqueda);
     color: var(--texto-barraBusqueda);
+    transition: 
+        background-color var(--animacion-darkMode) ease, 
+        color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 #buscador::placeholder {
-  color: var(--texto-barraBusqueda);
-  opacity: 1;
+    color: var(--texto-barraBusqueda);
+    opacity: 1;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 /* botones del head */
@@ -180,13 +187,14 @@ body {
     display: flex;
     align-items: flex-end; 
     border: 2px solid var(--naranja-suave); 
-    width: 120px;
+    width: 105px;
     justify-content: space-between;
     padding: 10px;
     background: transparent;
     color: white;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 28px;
+    transition: border var(--animacion-darkMode) ease;
 }
 
 .ingresarHeadLog {
@@ -211,6 +219,10 @@ body {
     color: var(--principal-color);
     font-weight: bold;
     font-size: 20px;
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 .carritoComprasDeslog {
@@ -229,7 +241,8 @@ body {
     border-radius: 5px;
     padding: 0;
     margin: 0 7px;
-    filter: brightness(var(--brillobtn-headear));     
+    filter: brightness(var(--brillobtn-headear));  
+    transition: filter var(--animacion-darkMode) ease;   
 }
 
 .carritoCompraslog img{
@@ -253,7 +266,7 @@ body {
     border-radius: 5px;
     padding: 0px;
     filter: brightness(var(--brillobtn-headear));     
-
+    transition: filter var(--animacion-darkMode) ease; 
 }
 
 .logout img {
@@ -282,12 +295,14 @@ body {
     padding-left: 10px;
     column-gap: 14px;
     margin: 8px;
-    filter: brightness(var(--brillobtn-headear))
+    filter: brightness(var(--brillobtn-headear));
+    transition: filter var(--animacion-darkMode) ease; 
 }
 
 .barraNavegacion li a {
     color: var(--texto-negativo);
     text-decoration: none;
+    transition: color var(--animacion-darkMode) ease; 
 }
 /*----------FIN Header----------*/
 
@@ -307,6 +322,10 @@ body {
     border-right: 2px solid var(--contorno-MenuFiltro);
     border-bottom: 2px solid var(--contorno-MenuFiltro);
     color: var(--texto-colorPrincipal);
+    transition: 
+        color var(--animacion-darkMode) ease,
+        border-right var(--animacion-darkMode) ease, 
+        border-bottom var(--animacion-darkMode) ease;
 }
 
 .mainProducts {
@@ -365,6 +384,9 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: var(--fondoFlecha-menuFiltro);
+    transition: 
+        border var(--animacion-darkMode) ease, 
+        background-color var(--animacion-darkMode) ease;
 }
 
 #filtros lu {
@@ -431,6 +453,9 @@ body {
     border-bottom-right-radius: 5px;
     cursor: pointer;
     color: var(--texto-colorEnfasis);
+    transition: 
+        border var(--animacion-darkMode) ease, 
+        color var(--animacion-darkMode) ease;
 }
 
 #contOrdenarPor:hover {
@@ -521,7 +546,7 @@ body {
 
 .btn-mostrar {
     padding: 5px;
-    background: var(--naranja-intenso);
+    background-color: var(--naranja-intenso);
     border: none;
     color: white;
     font-size: 14px;
@@ -530,6 +555,7 @@ body {
     width: 70px;
     align-self: center;
     margin-top: 10px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 .btn-mostrar:hover {
@@ -551,7 +577,10 @@ body {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
-    color: var(--texto-colorEnfasis)
+    color: var(--texto-colorEnfasis);
+    transition: 
+        color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 .rangosBoton {
@@ -561,6 +590,9 @@ body {
     text-align: center;
     height: 20px;
     background-color: var(--camposInput-fondo);
+    transition: 
+        border var(--animacion-darkMode) ease, 
+        background-color var(--animacion-darkMode) ease;
 }
 
 #partContOrdenarPor {
@@ -613,7 +645,9 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--texto-colorPrincipal);
     background-color: var(--fondo-cards);
-    transition: transform 0.5s ease;
+    transition: 
+        transform 0.5s ease,
+        color var(--animacion-darkMode) ease;
 }
 
 .card:hover {
@@ -655,7 +689,8 @@ body {
     font-size: clamp(0.7rem, 0.356rem + 0.715vw, 1rem);
     margin-top: 0px;
     margin-bottom: 0;
-    color: var(--texto-colorAtenuado)
+    color: var(--texto-colorAtenuado);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 
@@ -749,6 +784,7 @@ p.card-boton .button {
     border: solid 2px var(--bordeEstandar-color);
     border-radius: 5px;
     background-color: var(--fondo-cards);
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 
@@ -758,6 +794,7 @@ p.card-boton .button {
     display: flex;
     align-items: center;
     background-color: var(--limitadorCont-fondo);
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #imgContPrincipal img {
@@ -805,12 +842,16 @@ p.card-boton .button {
     min-width: 272px;
     background-color: var(--fondo-cards);
     color: var(--texto-colorPrincipal);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 #nombreProd {
     font-size: clamp(2.5rem, 1.466rem + 2.149vw, 3.4rem);
     margin: 0;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #infoVenCat {
@@ -831,6 +872,7 @@ p.card-boton .button {
     font-weight: bold;
     font-size: clamp(1.5rem, 0.696rem + 1.672vw, 2.2rem);
     margin: 0;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #descripcionProd {
@@ -846,6 +888,7 @@ p.card-boton .button {
     background-color: var(--fondoProdRel-cards);
     max-width: 120px;
     min-width: 120px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
     
 
@@ -867,6 +910,9 @@ p.card-boton .button {
     border: 1px solid var(--bordeEstandar-color);
     padding: 5px;
     overflow: auto;
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 #listProdRelacionados p {
@@ -875,6 +921,7 @@ p.card-boton .button {
     white-space: nowrap;
     font-size: 0.85rem;
     border-top: 1px solid var(--bordeEstandar-color);
+    transition: border-top var(--animacion-darkMode) ease;
 }
 
 #imgPrincipal {
@@ -911,6 +958,7 @@ p.card-boton .button {
     height: 60vh;
     margin: 3vw 25vw;
     z-index: -5;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #contMsjErr img {
@@ -932,6 +980,7 @@ p.card-boton .button {
     background-color: var(--sombra-popUps);
     width: 100vw;
     height: 100vh;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 .calificar-mostrar {
@@ -945,7 +994,9 @@ p.card-boton .button {
     max-width: 500px;
     padding: 20px;
     border-radius: 6px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
+
 
 .calificar-ocultar {
     display: none;
@@ -958,6 +1009,7 @@ p.card-boton .button {
     font-weight: 600;
     margin-bottom: 0;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .calificar-mostrar form{
@@ -976,6 +1028,7 @@ p.card-boton .button {
     flex-direction: column;
     font-weight: 550;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .calificar-mostrar form label{
@@ -1005,6 +1058,7 @@ p.card-boton .button {
     min-height: 33px;
     font-weight: 350;
     font-family: 'Inter', sans-serif;
+    transition: border var(--animacion-darkMode) ease;
 }
 
 #aviso.aviso-mostrar {
@@ -1029,6 +1083,7 @@ p.card-boton .button {
     max-width: 500px;
     padding: 35px;
     border-radius: 6px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 .noCalificar-ocultar {
@@ -1103,6 +1158,9 @@ p.card-boton .button {
     min-height: 33px;
     font-weight: 350;
     background-color: var(--camposInput-fondo);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 #aviso.aviso-mostrar {
@@ -1127,6 +1185,7 @@ p.card-boton .button {
     font-weight: 600;
     margin-bottom: 20px;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .noCalificar-mostrar .button {
@@ -1146,6 +1205,7 @@ p.card-boton .button {
     margin: 35px 0px 20px;
     color: var(--texto-colorEnfasis);
     font-size: 2.1rem;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #contenedorComentarios {
@@ -1174,6 +1234,7 @@ p.card-boton .button {
     max-width: 298px;
     padding-bottom: 15px;
     background-color: var(--fondo-contPrincipales);
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #valoraciones>p {
@@ -1181,6 +1242,7 @@ p.card-boton .button {
     font-size: 1.2rem;
     margin-bottom: 0;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .barraCalificacion {
@@ -1192,6 +1254,7 @@ p.card-boton .button {
     justify-content: flex-start;
     border-radius: 5px;
     overflow: hidden;
+    transition: border var(--animacion-darkMode) ease;
 }
 
 .porcentajeP {
@@ -1207,6 +1270,7 @@ p.card-boton .button {
     height: 40px;
     align-items: center;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .contenedorCalificacion p{ 
@@ -1232,13 +1296,15 @@ p.card-boton .button {
     display: flex;
     flex-direction: column;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 .comentario-nombre>span {
     font-size: clamp(0.9rem, 0.44rem + 0.955vw, 1.3rem);
     display: flex;
     align-items: center;
     padding-top: .2rem;
-    color: var(--texto-colorPrincipal)
+    color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 
@@ -1253,6 +1319,10 @@ p.card-boton .button {
     box-sizing: border-box;
     background-color: var(--fondo-cards);
     color: var(--texto-colorPrincipal);
+    transition: 
+        color var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 .comentario-contenido {
@@ -1351,6 +1421,9 @@ p.card-boton .button {
     color: var(--texto-colorPrincipal);
     transition: transform 0.5s ease;
     background-color: var(--fondo-cards);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 .catCardPrincipal:hover {
@@ -1364,6 +1437,7 @@ p.card-boton .button {
     font-weight: 400;
     color: var(--texto-colorAtenuado);
     padding-left: 1px;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .catTitulo{
@@ -1466,13 +1540,13 @@ p.card-boton .button {
         animation: none;
     }
 
-    body.darkmode .contDark {
-        animation-name: contDark;
-    }
-
     body.darkmodeinit .contDark {
         animation: none;
         transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8);
+    }
+
+    body.darkmode .contDark {
+        animation-name: contDark;
     }
 
 .imgDarkmode {
@@ -1509,7 +1583,7 @@ p.card-boton .button {
     animation: solOFF 0.3s linear both
 }
 
-    body.init .lightMode {
+    body.init .lightMode { 
         transform: scale(1) rotate(0);
         animation: none;
     }
@@ -1526,7 +1600,7 @@ p.card-boton .button {
 @keyframes sol {
     0% { transform: scale(1) rotate(0); }
     65% { transform: scale(0.1) rotate(90deg); }
-    100% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(0.1) rotate(90deg)}
 }
 
 @keyframes solOFF {
@@ -1536,7 +1610,7 @@ p.card-boton .button {
 
 @keyframes luna {
     65% { transform: scale(1) rotate(0); z-index: 3; }
-    100% { transform: scale(1) rotate(0); z-index: 3; }
+    100% {transform: scale(1) rotate(0); z-index: 3; }
 }
 
 @keyframes lunaOff {
@@ -1549,7 +1623,7 @@ p.card-boton .button {
 @keyframes contDark {
     0% { transform: translate(0, 0) scale(0.1); }
     65% { transform: translate(0px, 0px) scale(1); }
-    75% { transform: translate(0px, 0px) scale(1); }
+    75% {transform: translate(0px, 0px) scale(1); }
     100% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
 }
 

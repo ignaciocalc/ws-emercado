@@ -263,9 +263,9 @@ botonVender.addEventListener('click', function(pararEvento) {
 
 function setModo(modo){
    if (modo == "oscuro") {
-      body.className = "darkmode darkmodeinit"
+      body.className = "darkmode darkmodeiniciar"
    } else {
-      body.className = "init"
+      body.className = "iniciar"
    }
 }
 
