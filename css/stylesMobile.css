@@ -613,21 +613,29 @@ li a {
 }
 
 .cerrarSesionMenu { 
-    align-self: center;
-    width: 120px;
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 4px;
-    min-width: 60px;
-    margin-top: 14px;
-    background: var(--naranja-suave);
-    border: none;
-    color: white;
-    color: var(--texto-negativo);
+    border-radius: 5px;
+    min-width: 28px;
+    filter: brightness(var(--brilloBtn-menuMobile));
+    box-shadow: 0px 0px 2px 1.5px var(--sombraBtn-menuMobile);
+    transition: 
+        filter var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
 }
 
 .cerrarSesionMenuOculto { 
     display: none;
+}
+
+#menuContOps {
+    flex: 1;
+}
+
+#pieMenu {
+    display: flex;
+    align-items: stretch;
+    padding: 10px;
+    gap: 8px;
+    justify-content: flex-end;
 }
 
 /*-----------Termina menu desplegable--------- */
@@ -818,7 +826,6 @@ li a {
     font-family: 'Inter', sans-serif;
     position: fixed;
     background-color: var(--fondoMobile-menuFiltro);
-    background-color: white;
     bottom: 0;
     left: 0;
     height: 60vh;
@@ -910,11 +917,10 @@ li a {
 .contenedorPFiltro-ocultar {
     display: flex;
     align-items: center;
-    background-color: var(--fondo-menuMobile);
     font-size: clamp(0.6rem, 0.349rem + 2.254vw, 0.8rem);
     cursor: pointer;
     color: var(--texto-colorPrincipal);
-    background-color: var(--fondo-MenuFiltro);
+    background-color: var(--fondoMobile-menuFiltro);
 }
 
 .contenedorPFiltro-ocultar:hover {
@@ -1484,6 +1490,170 @@ li a {
     font-size: clamp(0.45rem, 0.262rem + 1.69vw, 0.6rem);
     padding: 3px;
     border-radius: 3px;
+}
+
+/*-----------btn cambio darkmode header------------- */
+
+#modeBtnMobile {
+    width: 32px;
+    min-width: 32px;
+    margin-right: 0;
+    box-shadow: 0px 0px 2px 2px #f78a53;
+    transition: 
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+    body.init #modeBtnMobile.modeBtn {
+        box-shadow: 0px 0px 2px 2px #f78a53;
+    }
+
+    body.darkmode #modeBtnMobile.modeBtn {
+        background-color: #ced9df;
+        box-shadow: 0px 0px 2px 2px #151937;
+    }
+
+    body.darkmodeinit #modeBtnMobile.modeBtn {
+        transition: none;
+        background-color: #ced9df;
+        box-shadow: 0px 0px 2px 2px #f78a53;
+    }
+
+.modeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 34px;
+    min-width: 34px;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 11px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+    body.init .modeBtn {
+        background-color: white;
+    }
+
+    body.darkmode .modeBtn {
+        background-color: #ebebeb;
+    }
+
+    body.darkmodeinit .modeBtn {
+        transition: none;
+        background-color: #ebebeb;
+    }
+
+.contDark {
+    z-index: 1;
+    position: absolute;
+    border-radius: 50%;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    background-color: #010738;
+    transform: scale(0.1);
+    animation: contDarkOff 0.3s linear both;
+}
+
+    body.init .contDark {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmodeinit .contDark {
+        animation: none;
+        transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8);
+    }
+
+    body.darkmode .contDark {
+        animation-name: contDark;
+    }
+
+.imgDarkmode {
+    z-index: 2;
+    position: absolute;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    transform: scale(0.1) rotate(-180deg);
+    animation: lunaOff 0.3s linear both;
+}
+
+    body.init .imgDarkmode {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmode .imgDarkmode {
+        animation-name: luna;
+    }
+
+    body.darkmodeinit .imgDarkmode {
+        animation: none;
+        transform: scale(1) rotate(0); 
+        z-index: 3;
+    }
+
+.lightMode {
+    position: absolute;
+    object-fit: cover;
+    display: flex;
+    width: 65%;
+    z-index: 1;
+    transform: scale(1);
+    animation: solOFF 0.3s linear both
+}
+
+    body.init .lightMode { 
+        transform: scale(1) rotate(0);
+        animation: none;
+    }
+
+    body.darkmode .lightMode {
+        animation: sol 0.3s linear both
+    }
+
+    body.darkmodeinit .lightMode {
+        animation: none;
+        transform: scale(0.1) rotate(90deg);
+    }
+
+@keyframes sol {
+    0% { transform: scale(1) rotate(0); }
+    65% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(0.1) rotate(90deg)}
+}
+
+@keyframes solOFF {
+    0% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes luna {
+    65% { transform: scale(1) rotate(0); z-index: 3; }
+    100% {transform: scale(1) rotate(0); z-index: 3; }
+}
+
+@keyframes lunaOff {
+    0% { transform: scale(1); }
+    20% { transform: scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
+}
+
+@keyframes contDark {
+    0% { transform: translate(0, 0) scale(0.1); }
+    65% { transform: translate(0px, 0px) scale(1); }
+    75% {transform: translate(0px, 0px) scale(1); }
+    100% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+}
+
+@keyframes contDarkOff {
+    0% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+    20% { transform: translate(0px, 0px) scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
 }
 
 }

@@ -1,6 +1,7 @@
 const 
    body = document.body,
    btnDarkMode = document.getElementById("modeBtn"),
+   btnDarkMMobile = document.getElementById("modeBtnMobile"),
    contBotones = document.getElementById("botonesHead"),
    ingresarHead = document.getElementById("ingresarHead"),
    botonUser = document.getElementById("datosUser"),
@@ -261,15 +262,19 @@ botonVender.addEventListener('click', function(pararEvento) {
    pararEvento.stopPropagation();
 })
 
+// funcionalidades darkmode
 function setModo(modo){
    if (modo == "oscuro") {
       body.className = "darkmode darkmodeiniciar"
    } else {
       body.className = "iniciar"
    }
+
+   setTimeout(() => {body.style.setProperty("--animacion-darkMode", "0.2s")}, 1500);
+   
 }
 
-btnDarkMode.addEventListener('click', function(){
+function clickDarkMode() {
    if (body.classList.contains("darkmode") || body.classList.contains("darkmodeinit")) {
       body.className = "";
       localStorage.setItem("modo", "claro")
@@ -277,6 +282,8 @@ btnDarkMode.addEventListener('click', function(){
       body.className = "darkmode";
       localStorage.setItem("modo", "oscuro")
    }
-})
+}
 
-setModo(localStorage.getItem("modo"))
+btnDarkMode.addEventListener('click', clickDarkMode);
+btnDarkMMobile.addEventListener('click', clickDarkMode);
+setModo(localStorage.getItem("modo"));

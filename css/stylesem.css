@@ -1364,6 +1364,7 @@ p.card-boton .button {
 .barrEstrella {
     background-color: var(--naranja-intenso);
     object-fit: cover;
+    transition: width 0.2s ease;
 }
 
 /*------------ Categories ---------------*/
