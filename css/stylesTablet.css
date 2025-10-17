@@ -79,6 +79,7 @@
     #ingresarLogin {
         margin-top: 10px;
         width: 100%;
+        min-height: 36px;
         font-size: 17px;
     }
 
@@ -1677,7 +1678,7 @@ li a {
     width: 65%;
     z-index: 1;
     transform: scale(1);
-    animation: solOFF 0.3s linear both
+    animation: solOFF 0.3s linear both;
 }
 
     body.init .lightMode { 
@@ -1697,7 +1698,7 @@ li a {
 @keyframes sol {
     0% { transform: scale(1) rotate(0); }
     65% { transform: scale(0.1) rotate(90deg); }
-    100% { transform: scale(0.1) rotate(90deg)}
+    100% { transform: scale(0.1) rotate(90deg); }
 }
 
 @keyframes solOFF {

@@ -265,7 +265,7 @@ botonVender.addEventListener('click', function(pararEvento) {
 // funcionalidades darkmode
 function setModo(modo){
    if (modo == "oscuro") {
-      body.className = "darkmode darkmodeinitr"
+      body.className = "darkmode darkmodeinit"
    } else {
       body.className = "init"
    }
