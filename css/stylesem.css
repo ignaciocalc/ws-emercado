@@ -771,6 +771,10 @@ p.card-boton .button {
     margin: 25px 3vw;
 }
 
+#contPrincipalPinfo {
+    margin: 0;
+}
+
 #contenedorMain {
     display: none;
 }
