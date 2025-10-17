@@ -5,6 +5,7 @@
 
     body {
         background-color: var(--fondo-contPrincipales);
+        transition: background-color var(--animacion-darkMode) ease;
     }
 
     .container {
@@ -76,6 +77,7 @@
     #ingresarLogin {
         margin-top: 10px;
         width: 100%;
+        min-height: 36px;
         font-size: 17px;
     }
 
@@ -109,7 +111,8 @@
         justify-content: flex-start;
         gap: 5px;
         padding-left: 5px;
-        filter: brightness(var(--brillobtn-headear))
+        filter: brightness(var(--brillobtn-headear));
+        transition: filter var(--animacion-darkMode) ease;
     }
 
     #botonesHead {
@@ -140,6 +143,7 @@
     #ingresarIcono {
         width: 37px;
         filter: brightness(var(--brillobtn-headear));
+        transition: filter var(--animacion-darkMode) ease;
     }
 
     .emercadoBuscando {
@@ -170,11 +174,16 @@
         min-width: 110px;
         background-color: var(--color-barraBusqueda);
         color: var(--texto-barraBusqueda);
+        transition: 
+            background-color var(--animacion-darkMode) ease, 
+            color var(--animacion-darkMode) ease,
+            border var(--animacion-darkMode) ease;
     }
 
     .buscando::placeholder {
         color: var(--texto-barraBusqueda);
         opacity: 1;
+        transition: color var(--animacion-darkMode) ease;
     }
 
     .noBuscando {
@@ -223,6 +232,10 @@
     font-weight: bold;
     font-size: 15px;
     margin: 0 4px;
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease,
+        border var(--animacion-darkMode) ease;
 }
 
 #carritoComprasCel img {
@@ -258,7 +271,8 @@
     color: white;
     width: 40px;
     height: 40px;
-    filter: brightness(var(--brillobtn-headear))
+    filter: brightness(var(--brillobtn-headear));
+    transition: filter var(--animacion-darkMode) ease
 }
 
 .logoutNolog {
@@ -343,6 +357,9 @@
         color: var(--texto-colorPrincipal);
         transition: transform 0.5s ease;
         background-color: var(--fondo-cards);
+        transition: 
+            transform 0.5s ease,
+            color var(--animacion-darkMode) ease;
     }
 
     .card:hover {
@@ -391,7 +408,8 @@
         margin-top: 0px;
         font-size: clamp(4px, 3vw, 7px);
         margin-bottom: 0;
-        color: var(--texto-colorAtenuado)
+        color: var(--texto-colorAtenuado);
+        transition: color var(--animacion-darkMode) ease;
     }
 
     .card-footer {
@@ -440,6 +458,10 @@
         border-top-right-radius: 13px;
         border-bottom-right-radius: 13px;
         height: 100%;
+        transition: 
+            box-shadow var(--animacion-darkMode) ease,
+            color var(--animacion-darkMode) ease,
+            border-right var(--animacion-darkMode) ease;
     }
 
     #botonFiltros img {
@@ -465,6 +487,7 @@
     top: 0;
     display: flex;
     flex-direction: column;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #menu.Desplegado {
@@ -478,6 +501,7 @@
     display: flex;
     flex-direction: column;
     min-width: 272px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #usuario-menu {
@@ -487,12 +511,14 @@
     align-items: center;
     justify-content: space-between;
     background: var(--gradiente-primario);
+    transition: border-bottom var(--animacion-darkMode) ease;
 }
 
 #usuario-menu img{
     margin-right: 20px;
     border: 2px solid var(--secundario-color);
     border-radius: 6px;
+    transition: border var(--animacion-darkMode) ease;
 }
 
 .boton-menu{
@@ -502,6 +528,7 @@
     align-items: center;
     justify-content: space-between;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #categoriasMenu {
@@ -519,6 +546,7 @@
     margin-bottom: 15px;
     padding-right: 21.5px;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .categoriasBotonDesplegado {
@@ -530,6 +558,7 @@
     margin-bottom: 5px;
     padding-right: 21.5px;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .link-menu {
@@ -561,6 +590,7 @@
     padding-left: 31px;
     align-self: flex-start;
     margin-top: 0;  
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .flecha-menu{
@@ -605,6 +635,7 @@
     height: auto;
     border-bottom: solid 2px var(--bordeEstandar-color);
     justify-content: center;
+    transition: border-bottom var(--animacion-darkMode) ease;
 }
 
 li a {
@@ -613,21 +644,29 @@ li a {
 }
 
 .cerrarSesionMenu { 
-    align-self: center;
-    width: 120px;
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 4px;
-    min-width: 60px;
-    margin-top: 14px;
-    background: var(--naranja-suave);
-    border: none;
-    color: white;
-    color: var(--texto-negativo);
+    border-radius: 5px;
+    min-width: 28px;
+    filter: brightness(var(--brilloBtn-menuMobile));
+    box-shadow: 0px 0px 2px 1.5px var(--sombraBtn-menuMobile);
+    transition: 
+        filter var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
 }
 
 .cerrarSesionMenuOculto { 
     display: none;
+}
+
+#menuContOps {
+    flex: 1;
+}
+
+#pieMenu {
+    display: flex;
+    align-items: stretch;
+    padding: 10px;
+    gap: 8px;
+    justify-content: flex-end;
 }
 
 /*-----------Termina menu desplegable--------- */
@@ -671,6 +710,9 @@ li a {
     border: solid 2px var(--bordeEstandar-color);
     background-color: var(--fondo-cards);
     border-radius: 5px;
+    transition: 
+        border var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
 
 #imgContPrincipal {
@@ -708,6 +750,7 @@ li a {
     display: flex;
     flex-direction: column;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #acercaDeProducto {
@@ -719,12 +762,14 @@ li a {
     align-self: center;
     box-sizing: border-box;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #nombreProd {
     font-size: clamp(1.4rem, -0.223rem + 13.115vw, 2.4rem);
     margin: 0;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #infoVenCat {
@@ -745,6 +790,7 @@ li a {
     font-weight: bold;
     font-size: clamp(1.4rem, 0.589rem + 6.557vw, 1.9rem);
     margin-bottom: 0px;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #descripcionProd {
@@ -761,6 +807,9 @@ li a {
     background-color: white;
     max-width: 100px;
     min-width: 100px;
+    transition: 
+        box-shadow var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
     
 
@@ -783,13 +832,17 @@ li a {
     border: 1px solid var(--bordeEstandar-color);
     padding: 5px;
     overflow: auto;
-    max-width: 85vw
+    max-width: 85vw;
+    transition: 
+        border var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
 #listProdRelacionados p {
     padding: 5px;
     margin: 0;
     font-size: 0.9rem;
     border-top: 1px solid var(--bordeEstandar-color);
+    transition: border-top var(--animacion-darkMode) ease;
 }
 
 #imgPrincipal {
@@ -807,6 +860,7 @@ li a {
     margin-top: 15px;
     font-size: clamp(0.8rem, 0.232rem + 4.59vw, 1.15rem);
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 /*------------menu filtros------------*/
@@ -818,7 +872,6 @@ li a {
     font-family: 'Inter', sans-serif;
     position: fixed;
     background-color: var(--fondoMobile-menuFiltro);
-    background-color: white;
     bottom: 0;
     left: 0;
     height: 60vh;
@@ -832,6 +885,9 @@ li a {
     transition: bottom 0.2s ease;
     z-index: 10;
     font-size: 0.7rem;
+    transition: 
+        box-shadow var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
 
 .filtrosContenedor-ocultar {
@@ -849,6 +905,7 @@ li a {
     min-width: 273px;
     padding-left: 0px;
     transition: bottom 0.2s ease;
+    transition: box-shadow var(--animacion-darkMode) ease;
 }
 
 
@@ -872,6 +929,7 @@ li a {
     align-content: flex-start;
     justify-content: flex-start;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #contFiltrosBotones {
@@ -883,6 +941,9 @@ li a {
     height: 35px;
     font-family: 'Inter', sans-serif;
     background-color: var(--fondoMobile-menuFiltro);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        border-bottom var(--animacion-darkMode) ease;
 }
 
 #tipoFiltroTablet {
@@ -891,6 +952,7 @@ li a {
     font-weight: 350;
     font-size: 12px;
     color: var(--texto-colorAtenuado);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #imgTipoFiltro {
@@ -905,16 +967,21 @@ li a {
     color: var(--texto-resaltanteAzul);
     font-size: clamp(0.6rem, 0.349rem + 2.254vw, 0.8rem);
     cursor: pointer;
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 .contenedorPFiltro-ocultar {
     display: flex;
     align-items: center;
-    background-color: var(--fondo-menuMobile);
     font-size: clamp(0.6rem, 0.349rem + 2.254vw, 0.8rem);
     cursor: pointer;
     color: var(--texto-colorPrincipal);
-    background-color: var(--fondo-MenuFiltro);
+    background-color: var(--fondoMobile-menuFiltro);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 .contenedorPFiltro-ocultar:hover {
@@ -940,6 +1007,9 @@ li a {
     min-width: 2px;
     z-index: 10;
     box-shadow: 1px 0px 3px 0px var(--bordeEstandar-color);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
 }
 
 
@@ -1012,12 +1082,14 @@ li a {
     margin: 5px 6.5px;
     width: 25px;
     filter: var(--imgsMobile-menuFiltro);
+    transition: filter var(--animacion-darkMode) ease;
 }
 
 .imgAZ {
     margin: 5px 6.5px;
     width: clamp(0.938rem, 0.076rem + 7.746vw, 1.625rem);
     filter: var(--imgsMobile-menuFiltro);
+    transition: filter var(--animacion-darkMode) ease;
 }
 
 
@@ -1026,6 +1098,7 @@ li a {
     font-size: clamp(0.7rem, 0.324rem + 3.38vw, 1rem);
     font-weight: 500;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .ordenarPorContenedor-mostrar {
@@ -1062,6 +1135,7 @@ li a {
     font-size: clamp(0.45rem, -0.239rem + 6.197vw, 1rem);
     font-weight: 475;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #contRangosMobile input {
@@ -1171,6 +1245,7 @@ li a {
     font-weight: 600;
     margin-bottom: 0;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .calificar-mostrar form{
@@ -1189,6 +1264,7 @@ li a {
     flex-direction: column;
     font-weight: 550;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .calificar-mostrar form label{
@@ -1219,6 +1295,9 @@ li a {
     font-weight: 350;
     font-family: 'Inter', sans-serif;
     background-color: var(--camposInput-fondo);
+    transition: 
+        border var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
 
 #aviso.aviso-mostrar {
@@ -1242,6 +1321,7 @@ li a {
     max-width: 600px;
     padding: 20px;
     border-radius: 6px;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 .noCalificar-ocultar {
@@ -1255,6 +1335,7 @@ li a {
     font-weight: 600;
     margin-bottom: 20px;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .noCalificar-mostrar img {
@@ -1279,6 +1360,7 @@ li a {
     margin-bottom: 0px;
     font-size: clamp(0.8rem, 0.232rem + 4.59vw, 1.15rem);
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #contenedorComentarios {
@@ -1310,6 +1392,7 @@ li a {
     border-style: solid;
     border-color: var(--naranja-intenso);
     border-radius: 5px;
+    transition: border-color var(--animacion-darkMode) ease;
 }
 
 .contenedorCalificacion{ 
@@ -1334,6 +1417,7 @@ li a {
     display: flex;
     flex-direction: column;
     color: var(--texto-colorEnfasis);
+    transition: color var(--animacion-darkMode) ease;
 }
 .comentario-nombre>span {
     font-size: clamp(.9rem, 1.3921vw + .1863rem, 1.3rem);
@@ -1341,6 +1425,7 @@ li a {
     align-items: center;
     padding-top: .2rem;
     color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 
@@ -1353,6 +1438,9 @@ li a {
     margin-bottom: 10px;
     background-color: var(--fondo-cards);
     color: var(--texto-colorPrincipal);
+    transition: 
+        color var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease;
 }
 
 .comentario-contenido {
@@ -1380,6 +1468,7 @@ li a {
     cursor: pointer;
     max-width: 74px;
     font-size: clamp(0.65rem, 0.325rem + 2.623vw, 0.85rem);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #btnComentar:hover {
@@ -1431,7 +1520,11 @@ li a {
     font-family: 'Inter', sans-serif;
     color: var(--texto-colorPrincipal);
     transition: transform 1s ease;
-    background-color: var(--fondo-cards)
+    background-color: var(--fondo-cards);
+    transition: 
+        color var(--animacion-darkMode) ease,
+        background-color var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
 }
 
 .catCardPrincipal:hover {
@@ -1445,6 +1538,7 @@ li a {
     font-weight: 400;
     color: var(--texto-colorAtenuado);
     padding-left: 0.5px;
+    transition: color var(--animacion-darkMode) ease;
 }
 
 .catTitulo{
@@ -1484,6 +1578,170 @@ li a {
     font-size: clamp(0.45rem, 0.262rem + 1.69vw, 0.6rem);
     padding: 3px;
     border-radius: 3px;
+}
+
+/*-----------btn cambio darkmode header------------- */
+
+#modeBtnMobile {
+    width: 32px;
+    min-width: 32px;
+    margin-right: 0;
+    box-shadow: 0px 0px 2px 2px #f78a53;
+    transition: 
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+    body.init #modeBtnMobile.modeBtn {
+        box-shadow: 0px 0px 2px 2px #f78a53;
+    }
+
+    body.darkmode #modeBtnMobile.modeBtn {
+        background-color: #ced9df;
+        box-shadow: 0px 0px 2px 2px #151937;
+    }
+
+    body.darkmodeinit #modeBtnMobile.modeBtn {
+        transition: none;
+        background-color: #ced9df;
+        box-shadow: 0px 0px 2px 2px #f78a53;
+    }
+
+.modeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 34px;
+    min-width: 34px;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 11px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+    body.init .modeBtn {
+        background-color: white;
+    }
+
+    body.darkmode .modeBtn {
+        background-color: #ebebeb;
+    }
+
+    body.darkmodeinit .modeBtn {
+        transition: none;
+        background-color: #ebebeb;
+    }
+
+.contDark {
+    z-index: 1;
+    position: absolute;
+    border-radius: 50%;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    background-color: #010738;
+    transform: scale(0.1);
+    animation: contDarkOff 0.3s linear both;
+}
+
+    body.init .contDark {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmodeinit .contDark {
+        animation: none;
+        transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8);
+    }
+
+    body.darkmode .contDark {
+        animation-name: contDark;
+    }
+
+.imgDarkmode {
+    z-index: 2;
+    position: absolute;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    transform: scale(0.1) rotate(-180deg);
+    animation: lunaOff 0.3s linear both;
+}
+
+    body.init .imgDarkmode {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmode .imgDarkmode {
+        animation-name: luna;
+    }
+
+    body.darkmodeinit .imgDarkmode {
+        animation: none;
+        transform: scale(1) rotate(0); 
+        z-index: 3;
+    }
+
+.lightMode {
+    position: absolute;
+    object-fit: cover;
+    display: flex;
+    width: 65%;
+    z-index: 1;
+    transform: scale(1);
+    animation: solOFF 0.3s linear both
+}
+
+    body.init .lightMode { 
+        transform: scale(1) rotate(0);
+        animation: none;
+    }
+
+    body.darkmode .lightMode {
+        animation: sol 0.3s linear both
+    }
+
+    body.darkmodeinit .lightMode {
+        animation: none;
+        transform: scale(0.1) rotate(90deg);
+    }
+
+@keyframes sol {
+    0% { transform: scale(1) rotate(0); }
+    65% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(0.1) rotate(90deg)}
+}
+
+@keyframes solOFF {
+    0% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes luna {
+    65% { transform: scale(1) rotate(0); z-index: 3; }
+    100% {transform: scale(1) rotate(0); z-index: 3; }
+}
+
+@keyframes lunaOff {
+    0% { transform: scale(1); }
+    20% { transform: scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
+}
+
+@keyframes contDark {
+    0% { transform: translate(0, 0) scale(0.1); }
+    65% { transform: translate(0px, 0px) scale(1); }
+    75% {transform: translate(0px, 0px) scale(1); }
+    100% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+}
+
+@keyframes contDarkOff {
+    0% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+    20% { transform: translate(0px, 0px) scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
 }
 
 }

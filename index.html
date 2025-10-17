@@ -32,6 +32,11 @@
       <input id="buscador" class="noBuscando" type="search" placeholder="Buscar">
 
       <div id="botonesHead" class="botonesHeadDeslog">
+        <div id="modeBtn" class="modeBtn">
+          <div id="contDark" class="contDark"></div>
+          <img id="imgDarkmode" class="imgDarkmode" src="img/darkmode.svg">
+          <img id="lightMode" class="lightMode" src="img/lightMode.svg">
+        </div>
         <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
         <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
         <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
@@ -62,30 +67,39 @@
   </header>
 
   <main class="mainProducts">
-    <div id="menu" class="noDesplegado">
-      <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
-      <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
-      <div class="noDesplegadoCategorias" id="categorias-menu"> 
-        <div id="categoriasBoton" class="categoriasBotonContraido">
-          <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
-          <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+      <div id="menu" class="noDesplegado">
+        <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="menuContOps">
+        <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+        <div class="noDesplegadoCategorias" id="categorias-menu"> 
+          <div id="categoriasBoton" class="categoriasBotonContraido">
+            <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+            <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+          </div>
+          <ul id="lista-menu" class="lista-menu-oculto">
+            <li><a href="products.html">Autos</a></li>
+            <li>Jueguetes</li>
+            <li>Muebles</li>
+            <li>Herramientas</li>
+            <li>Computadoras</li>
+            <li>Vestimenta</li>
+            <li>Electrodomésticos</li>
+            <li>Deporte</li>
+            <li>Celulares</li>
+          </ul>
         </div>
-        <ul id="lista-menu" class="lista-menu-oculto">
-          <li><a href="products.html">Autos</a></li>
-          <li>Jueguetes</li>
-          <li>Muebles</li>
-          <li>Herramientas</li>
-          <li>Computadoras</li>
-          <li>Vestimenta</li>
-          <li>Electrodomésticos</li>
-          <li>Deporte</li>
-          <li>Celulares</li>
-        </ul>
+        <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
       </div>
-      <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
-      <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
+      <div id="pieMenu">
+        <div id="modeBtnMobile" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <img id="cerrarSesionMenu" class="cerrarSesionMenu" src="img/logout-menuMobile.svg">
+      </div>
     </div>
-    </main>
+  </main>
 
   <main>
     <div class="jumbotron text-center"></div>

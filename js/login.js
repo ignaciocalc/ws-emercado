@@ -1,4 +1,5 @@
 const
+   body = document.body;
    usuario = document.getElementById("user"),
    contraseña = document.getElementById("password"),
    boton = document.getElementById("ingresarLogin"),
@@ -41,3 +42,13 @@ boton.addEventListener('click', function(){
       }
    }
 })
+
+function setModo(modo){
+   if (modo == "oscuro") {
+      body.className = "darkmode darkmodeinit"
+   } else {
+      body.className = "init"
+   }
+}
+
+setModo(localStorage.getItem("modo"))
