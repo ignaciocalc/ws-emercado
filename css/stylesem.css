@@ -1421,4 +1421,143 @@ p.card-boton .button {
     display: none;
 }
 
+/*-----------btn cambio darkmode header------------- */
+
+.modeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 34px;
+    min-width: 34px;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 11px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+    body.init .modeBtn {
+        background-color: white;
+    }
+
+    body.darkmode .modeBtn {
+        background-color: #ebebeb;
+    }
+
+    body.darkmodeinit .modeBtn {
+        transition: none;
+        background-color: #ebebeb;
+    }
+
+.contDark {
+    z-index: 1;
+    position: absolute;
+    border-radius: 50%;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    background-color: #010738;
+    transform: scale(0.1);
+    animation: contDarkOff 0.3s linear both;
+}
+
+    body.init .contDark {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmode .contDark {
+        animation-name: contDark;
+    }
+
+    body.darkmodeinit .contDark {
+        animation: none;
+        transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8);
+    }
+
+.imgDarkmode {
+    z-index: 2;
+    position: absolute;
+    width: 18px;
+    aspect-ratio: 1 / 1;
+    transform: scale(0.1) rotate(-180deg);
+    animation: lunaOff 0.3s linear both;
+}
+
+    body.init .imgDarkmode {
+        z-index: -1;
+        animation: none;
+    }
+
+    body.darkmode .imgDarkmode {
+        animation-name: luna;
+    }
+
+    body.darkmodeinit .imgDarkmode {
+        animation: none;
+        transform: scale(1) rotate(0); 
+        z-index: 3;
+    }
+
+.lightMode {
+    position: absolute;
+    object-fit: cover;
+    display: flex;
+    width: 65%;
+    z-index: 1;
+    transform: scale(1);
+    animation: solOFF 0.3s linear both
+}
+
+    body.init .lightMode {
+        transform: scale(1) rotate(0);
+        animation: none;
+    }
+
+    body.darkmode .lightMode {
+        animation: sol 0.3s linear both
+    }
+
+    body.darkmodeinit .lightMode {
+        animation: none;
+        transform: scale(0.1) rotate(90deg);
+    }
+
+@keyframes sol {
+    0% { transform: scale(1) rotate(0); }
+    65% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(0.1) rotate(90deg); }
+}
+
+@keyframes solOFF {
+    0% { transform: scale(0.1) rotate(90deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes luna {
+    65% { transform: scale(1) rotate(0); z-index: 3; }
+    100% { transform: scale(1) rotate(0); z-index: 3; }
+}
+
+@keyframes lunaOff {
+    0% { transform: scale(1); }
+    20% { transform: scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
+}
+
+@keyframes contDark {
+    0% { transform: translate(0, 0) scale(0.1); }
+    65% { transform: translate(0px, 0px) scale(1); }
+    75% { transform: translate(0px, 0px) scale(1); }
+    100% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+}
+
+@keyframes contDarkOff {
+    0% { transform: translate(0px, 2px) scaleY(0.1) scaleX(0.8); }
+    20% { transform: translate(0px, 0px) scale(1);}
+    98% { transform: scale(0.1) rotate(-180deg); }
+    100% { transform: scale(0.1); z-index: -1; }
+}
+
 }

@@ -1,4 +1,6 @@
 const 
+   body = document.body,
+   btnDarkMode = document.getElementById("modeBtn"),
    contBotones = document.getElementById("botonesHead"),
    ingresarHead = document.getElementById("ingresarHead"),
    botonUser = document.getElementById("datosUser"),
@@ -259,3 +261,22 @@ botonVender.addEventListener('click', function(pararEvento) {
    pararEvento.stopPropagation();
 })
 
+function setModo(modo){
+   if (modo == "oscuro") {
+      body.className = "darkmode darkmodeinit"
+   } else {
+      body.className = "init"
+   }
+}
+
+btnDarkMode.addEventListener('click', function(){
+   if (body.classList.contains("darkmode") || body.classList.contains("darkmodeinit")) {
+      body.className = "";
+      localStorage.setItem("modo", "claro")
+   } else {
+      body.className = "darkmode";
+      localStorage.setItem("modo", "oscuro")
+   }
+})
+
+setModo(localStorage.getItem("modo"))
