@@ -18,7 +18,7 @@
     --brilloLogo-img: brightness(100%);
     
     /* body && contPrincipales */
-    --fondo-contPrincipales: white;
+    --fondo-contPrincipales: rgb(244, 242, 242);
 
     /*Campos de entrada texto*/
     --camposInput-gris: #dddd;
@@ -56,7 +56,12 @@
     --naranja-oscuroHoversBtn:#dc5a03;
     --colorbtn-normal: rgb(245, 245, 245);
     --colorbtn-hover: rgb(216, 216, 216);
-}
+
+    /* Valor miPerfil */
+    --fondo-miPerfil: rgb(217, 217, 217);
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 30%);
+    
+}   
 
 body.darkmode {
     /* Colores generales */
@@ -115,6 +120,11 @@ body.darkmode {
     --naranja-oscuroHoversBtn: rgba(147, 52, 0, 1); 
     --colorbtn-normal: rgb(245, 245, 245);
     --colorbtn-hover: rgb(216, 216, 216);
+
+    /* Valor miPerfil */
+    --fondo-miPerfil: rgb(29, 29, 29);
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 68%);
+
 }
 
 

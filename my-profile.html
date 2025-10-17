@@ -43,9 +43,14 @@
       <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
 
       <div id="botonesHead" class="botonesHeadDeslog">
+        <div id="modeBtn" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
         <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
         <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
-        <a href="cart.html"><button id="carritoCompras" class="button"><img src="img/carrito.svg"></button></a>
+        <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
         <button id="logout" class="button"><img src="img/logout.svg"></button>
       </div>
 
@@ -72,14 +77,48 @@
     </div>
   </header>
 
+  <main id="contPrincipalCat" class="mainProducts">
+    <div id="menu" class="noDesplegado">
+        <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="menuContOps">
+        <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+        <div class="noDesplegadoCategorias" id="categorias-menu"> 
+          <div id="categoriasBoton" class="categoriasBotonContraido">
+            <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+            <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+          </div>
+          <ul id="lista-menu" class="lista-menu-oculto">
+            <li><a href="products.html">Autos</a></li>
+            <li>Jueguetes</li>
+            <li>Muebles</li>
+            <li>Herramientas</li>
+            <li>Computadoras</li>
+            <li>Vestimenta</li>
+            <li>Electrodomésticos</li>
+            <li>Deporte</li>
+            <li>Celulares</li>
+          </ul>
+        </div>
+        <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      </div>
+      <div id="pieMenu">
+        <div id="modeBtnMobile" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <img id="cerrarSesionMenu" class="cerrarSesionMenu" src="img/logout-menuMobile.svg">
+      </div>
+    </div>
+    </main>
+
   <main>
-    <div id="perfil-contenedorPrincipal">
-
-          <!-- <div id="perfil-positionContenedor" class="perfil-contenedoresCirculo">
+    <!-- <div id="perfil-contenedorPrincipal">
+ 
+          <div id="perfil-positionContenedor" class="perfil-contenedoresCirculo">
             <div class="perfil-contenedoresCirculo">
-
             </div>
-          </div> -->
+          </div> 
 
           <div id="perfil-contenedorInfo">
             <h2>Nombre</h2>
@@ -92,13 +131,43 @@
             <p>09919229</p>
           </div>
       </div>
+    </div> -->
+    <article id="perfil-contenedorPrincipal">
+      <section id="perfil-contenedorTop">
+        <img id="perfil-editarFoto" src="/img/camera.svg">
+        <div id="perfil-contenedorCircularImg">
+          <div id="perfil-img"></div>
+          <img id="perfil-fotoPerfil">
+          <p id="perfil-letraFoto">A</p>
+        </div>
+        <p id="perfil-nombreUsuario">*nombre User*</p>
+      </section>
+      <section id="perfil-contenedorBottom">
+        <div id="perfil-contenedorDatos">
+            
+            <h2>Nombre  <img src="/img/editar-boton.svg" class="perfil-botonEditar"> </h2>
+            <div id="perfil-nombre" class="perfil-dato">
+              <input type="text" class="perfil-inputConfirmado" placeholder="NombreUsuario">  
+            </div>
+            <h2>Apellido </h2>
+            <div id="perfil-apellido" class="perfil-dato">
+              <input type="text" class="perfil-inputConfirmado" placeholder="ApellidoUsuario">
+            </div>
+            <h2>Correo </h2>
+            <div id="perfil-email" class="perfil-dato">
+              <input type="text" class="perfil-inputConfirmado" placeholder="correo@gmail.com">
+            </div>
+            <h2>Número de teléfono </h2>
+            <div id="perfil-telefono" class="perfil-dato">
+              <input type="text" class="perfil-inputConfirmado" placeholder="999999999">
+            </div>
+          </div> 
+      </section>
 
-    </div>
 
-
-
-
-  </main>
+    </article>
+    
+ </main>
   
   <!-- <footer class="text-muted">
     <div class="container">
@@ -107,10 +176,11 @@
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
-  </footer> -->
-  <script src="js/bootstrap.bundle.min.js"></script>
+  </footer>    -->
+  <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/header.js"></script>
 </body>
 
 </html>
