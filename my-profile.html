@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/stylesTablet.css">
   <link rel="shortcut icon" href="img/iconoWeb.ico" type="image/x-icon">
   <link rel="icon" href="img/iconoWeb.ico" type="image/x-icon">
-  <style>
+  <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -27,48 +27,87 @@
         font-size: 3.5rem;
       }
     }
-  </style>
+  </style> -->
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
+ <header class="headerClass">
+    <!-- seccion de navegacion-->
+    <div class="barraBusqueda">
+      <div id="logoHeader">
+        <img id="carritoeMercado" src="img/icono.png">
+        <img id="menuBarras" src="img/menu.svg">
+        <img id="emercado" class="emercadoNoBuscando" src="img/eMercadoIcon.png">
+      </div>
+
+      <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
+
+      <div id="botonesHead" class="botonesHeadDeslog">
+        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
+        <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
+        <a href="cart.html"><button id="carritoCompras" class="button"><img src="img/carrito.svg"></button></a>
+        <button id="logout" class="button"><img src="img/logout.svg"></button>
+      </div>
+
+      <div id="botonesCel" class="botonesCelStyle">
+        <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
+        <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
+        <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
+        <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
       </div>
     </div>
-  </nav>
+    <!-- aca va inicio/categorias/vender -->
+    <div class="barraNavegacion">
+      <ul>
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="categories.html">Categorías</a>
+        </li>
+        <li>
+          <a href="sell.html">Vender</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div id="perfil-contenedorPrincipal">
+
+          <!-- <div id="perfil-positionContenedor" class="perfil-contenedoresCirculo">
+            <div class="perfil-contenedoresCirculo">
+
+            </div>
+          </div> -->
+
+          <div id="perfil-contenedorInfo">
+            <h2>Nombre</h2>
+            <p>NombreUsuario</p>
+            <h2>Apellido</h2>
+            <p>ApellidoUsuario</p>
+            <h2>Correo</h2>
+            <p>Usuario@correo.com</p>
+            <h2>Número de teléfono</h2>
+            <p>09919229</p>
+          </div>
       </div>
+
     </div>
+
+
+
+
   </main>
-  <footer class="text-muted">
+  
+  <!-- <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
-  </footer>
+  </footer> -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
