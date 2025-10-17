@@ -1,4 +1,5 @@
 const
+   body = document.body;
    usuario = document.getElementById("user"),
    contraseña = document.getElementById("password"),
    boton = document.getElementById("ingresarLogin"),
@@ -9,7 +10,7 @@ boton.addEventListener('click', function(){
    if (usuario.value != "" && contraseña.value != "") {
 
       if (usuario.validity.valid) {
-         localStorage.setItem("user", usuario.value);
+         localStorage.setItem("user", JSON.stringify({email : usuario.value}));
          window.history.back();
       } else {
          usuario.classList.replace("camposError", "camposInput");
@@ -41,3 +42,13 @@ boton.addEventListener('click', function(){
       }
    }
 })
+
+function setModo(modo){
+   if (modo == "oscuro") {
+      body.className = "darkmode darkmodeinit"
+   } else {
+      body.className = "init"
+   }
+}
+
+setModo(localStorage.getItem("modo"))

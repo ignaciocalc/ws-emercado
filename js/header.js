@@ -1,4 +1,7 @@
 const 
+   body = document.body,
+   btnDarkMode = document.getElementById("modeBtn"),
+   btnDarkMMobile = document.getElementById("modeBtnMobile"),
    contBotones = document.getElementById("botonesHead"),
    ingresarHead = document.getElementById("ingresarHead"),
    botonUser = document.getElementById("datosUser"),
@@ -30,7 +33,14 @@ let
 
 // ------------------------funciones para barra de busqueda-----------------------------------
 const 
-   barraBusqueda = document.getElementById("buscador");
+   barraBusqueda = document.getElementById("buscador"),
+   btnEmercado = document.getElementById("logoHeader");
+
+
+btnEmercado.addEventListener("click", () => {
+   window.location = "index.html"; 
+}) 
+
 
 function busqueda(){
    let texto = barraBusqueda.value.toLowerCase().trim(),
@@ -108,6 +118,7 @@ if (estaRegistrado != null) {
    logOut.className = "logout";
    cerrarSesionMenu.className = "cerrarSesionMenu";
    ingresarIcon.style.display = "none";
+   emailUser = JSON.parse(estaRegistrado).email;
 
    /* botones cel y tablet */
    datosUserCel.className = "datosUserLogeado"
@@ -122,16 +133,16 @@ if (estaRegistrado != null) {
       window.location.reload();
    });
    
-   if (estaRegistrado.length > 31) {
-      estaRegistrado = estaRegistrado.substring(0, 31) + "..."
+   if (emailUser.length > 31) {
+      emailUser = emailUser.substring(0, 31) + "..."
    }
 
-   email.textContent = "Hola, " + estaRegistrado;
+   email.textContent = "Hola, " + emailUser;
    
-   estaRegistrado = estaRegistrado.substring(0, 1).toUpperCase();
+   emailUser = emailUser.substring(0, 1).toUpperCase();
    
-   contBotUser.textContent = estaRegistrado;
-   contBotUserCel.textContent = estaRegistrado;
+   contBotUser.textContent = emailUser;
+   contBotUserCel.textContent = emailUser;
    
 } else {
    contBotones.className = "botonesHeadDeslog";
@@ -251,3 +262,28 @@ botonVender.addEventListener('click', function(pararEvento) {
    pararEvento.stopPropagation();
 })
 
+// funcionalidades darkmode
+function setModo(modo){
+   if (modo == "oscuro") {
+      body.className = "darkmode darkmodeinit"
+   } else {
+      body.className = "init"
+   }
+
+   setTimeout(() => {body.style.setProperty("--animacion-darkMode", "0.2s")}, 1500);
+   
+}
+
+function clickDarkMode() {
+   if (body.classList.contains("darkmode") || body.classList.contains("darkmodeinit")) {
+      body.className = "";
+      localStorage.setItem("modo", "claro")
+   } else {
+      body.className = "darkmode";
+      localStorage.setItem("modo", "oscuro")
+   }
+}
+
+btnDarkMode.addEventListener('click', clickDarkMode);
+btnDarkMMobile.addEventListener('click', clickDarkMode);
+setModo(localStorage.getItem("modo"));

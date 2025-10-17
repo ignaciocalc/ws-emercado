@@ -208,6 +208,7 @@ enviar.addEventListener('click', function(evento){ //funcion para enviar comenta
    const 
       score = bttnsRadio.value,
       comentarioText = contComentario.value;
+      emailUser = JSON.parse(nombreUser).email
          
    if (score == "" || comentarioText == ""){
 
@@ -229,7 +230,7 @@ enviar.addEventListener('click', function(evento){ //funcion para enviar comenta
                         product : localStorage.getItem("idProducto"), 
                         score : score,
                         description : comentarioText,
-                        user : nombreUser.substring(0, nombreUser.indexOf('@')),
+                        user : emailUser.substring(0, emailUser.indexOf('@')),
                         dateTime : fechaFormato
                      };
 
