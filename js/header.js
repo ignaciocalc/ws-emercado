@@ -262,6 +262,11 @@ botonVender.addEventListener('click', function(pararEvento) {
    pararEvento.stopPropagation();
 })
 
+
+botonUser.addEventListener('click', ()=> window.location = "my-profile.html")
+
+
+
 // funcionalidades darkmode
 function setModo(modo){
    if (modo == "oscuro") {

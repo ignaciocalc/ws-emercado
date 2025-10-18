@@ -49,7 +49,7 @@
           <img class="lightMode" src="img/lightMode.svg">
         </div>
         <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
-        <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
+        <button id="datosUser" class="button"><span id="contenidoUser"><a href="my-profile.html"></a></span></button>
         <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
         <button id="logout" class="button"><img src="img/logout.svg"></button>
       </div>
@@ -134,36 +134,38 @@
     </div> -->
     <article id="perfil-contenedorPrincipal">
       <section id="perfil-contenedorTop">
-        <img id="perfil-editarFoto" src="/img/camera.svg">
+        <!-- <img id="perfil-editarFoto" src="/img/camera.svg"> -->
+        <input type="file" id="perfil-inputFile" accept="image/*" style="display: none;">
         <div id="perfil-contenedorCircularImg">
           <div id="perfil-img"></div>
           <img id="perfil-fotoPerfil">
-          <p id="perfil-letraFoto">A</p>
+          <p id="perfil-letraFoto"></p>
         </div>
-        <p id="perfil-nombreUsuario">*nombre User*</p>
+        <p id="perfil-nombreUsuario"></p>
       </section>
       <section id="perfil-contenedorBottom">
         <div id="perfil-contenedorDatos">
-            
-            <h2>Nombre  <img src="/img/editar-boton.svg" class="perfil-botonEditar"> </h2>
-            <div id="perfil-nombre" class="perfil-dato">
-              <input type="text" class="perfil-inputConfirmado" placeholder="NombreUsuario">  
-            </div>
-            <h2>Apellido </h2>
-            <div id="perfil-apellido" class="perfil-dato">
-              <input type="text" class="perfil-inputConfirmado" placeholder="ApellidoUsuario">
-            </div>
-            <h2>Correo </h2>
-            <div id="perfil-email" class="perfil-dato">
-              <input type="text" class="perfil-inputConfirmado" placeholder="correo@gmail.com">
-            </div>
-            <h2>Número de teléfono </h2>
-            <div id="perfil-telefono" class="perfil-dato">
-              <input type="text" class="perfil-inputConfirmado" placeholder="999999999">
-            </div>
+            <form action="">
+              <h2>Nombre  <img src="/img/editar-boton.svg" class="perfil-botonEditar"> </h2>
+              <div id="perfil-nombre" class="perfil-dato">
+                <input id="perfil-inputNombre" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su nombre">  
+              </div>
+              <h2>Apellido </h2>
+              <div id="perfil-apellido" class="perfil-dato">
+                <input id="perfil-inputApellido" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su apellido">
+              </div>
+              <h2>Correo </h2>
+              <div id="perfil-email" class="perfil-dato">
+                <input id="perfil-inputEmail" type="email" class="perfil-inputConfirmado" placeholder="Introduzca su email" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$">
+              </div>
+              <h2>Número de teléfono </h2>
+              <div id="perfil-telefono" class="perfil-dato">
+                <input id="perfil-inputTel" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su telefono">
+              </div>
+              <button id="perfil-btnConfirmar">OK</button>
+            </form>
           </div> 
       </section>
-
 
     </article>
     

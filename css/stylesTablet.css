@@ -1865,7 +1865,7 @@ li a {
 .perfil-dato {
     display: flex;
     flex-direction: row;
-    align-items: space-between;
+    /* align-items: space-between; */
     padding: 5px 0;
 }
 
