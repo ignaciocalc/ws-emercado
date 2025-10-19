@@ -1747,6 +1747,7 @@ li a {
     justify-content: center;
     min-height: calc(100vh - 55px);
     background-color: var(--fondo-miPerfil);
+    transition: background-color var(--animacion-darkMode) ease
 }
 
 #perfil-contenedorPrincipal {
@@ -1758,6 +1759,7 @@ li a {
     overflow: hidden;
     margin: 0;
     height: 100%;
+    transition: background-color var(--animacion-darkMode) ease
 }
 
 #perfil-contenedorTop {
@@ -1769,6 +1771,7 @@ li a {
     gap: 10px;
     flex: 1;
     padding: 25px 30px;
+    transition: background-color var(--animacion-darkMode) ease
 }
 
 #perfil-contenedorCircularImg {
@@ -1783,9 +1786,10 @@ li a {
     font-size: 90px;
     position: relative;
     border: 4px solid var(--principal-color);
-            box-shadow: 0px 0px 0px 1px var(--fondoContDatos-miPerfil);
+    box-shadow: 0px 0px 0px 1px var(--fondoContDatos-miPerfil);
     min-width: var(--tamano-fotoPerfil);
     min-height: var(--tamano-fotoPerfil);
+    transition: box-shadow var(--animacion-darkMode) ease
 }
 
 #perfil-ImgCamEdit {
@@ -1798,6 +1802,7 @@ li a {
     background-color: var(--principal-color);
     border-radius: 50%;
     padding: 6px;
+    transition: background-color var(--animacion-darkMode) ease
 }
 
 #perfil-ImgCamEdit img{
@@ -1822,6 +1827,7 @@ li a {
     background-color: var(--fondo-miPerfil);
     flex: 4;
     padding: 0 30px;
+    transition: background-color var(--animacion-darkMode) ease
 }
 
 #perfil-contenedorDatos {
@@ -1835,12 +1841,16 @@ li a {
     color: var(--texto-colorPrincipal);
     position: relative;
     margin-bottom: 20px;
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 #perfil-letraFoto {
     color: var(--principal-color);
     margin: 0;
     font-size: clamp(3.3rem, 0.53rem + 13.807vw, 5rem);
+    transition: color var(--animacion-darkMode) ease;
 }
 
 #perfil-popUp-confirmar {
@@ -1871,6 +1881,7 @@ li a {
     top: 0;
     left: 0;
     z-index: 4;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #perfil-popUp-principal {
@@ -1884,6 +1895,7 @@ li a {
     font-family: 'Inter', sans-serif;
     max-width: 339px;
     box-sizing: border-box;
+    transition: background-color var(--animacion-darkMode) ease;
 }
 
 #perfil-popUp-circulo {
@@ -1942,6 +1954,7 @@ li a {
         text-align: center;
         font-weight: 600;
         color: var(--camposInput-error);
+        transition: color var(--animacion-darkMode) ease;
     }
     .perfil-popUp-invalido #perfil-popUp-botones {
         display: none
@@ -1984,6 +1997,9 @@ li a {
     width: 100%;
     border-radius: 3px;
     font-size: 0.95rem; 
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        color var(--animacion-darkMode) ease;
 }
 
 .perfil-dato input:focus {
@@ -1999,12 +2015,14 @@ li a {
     width: 100%;
     border: solid 2px var(--camposInput-gris);
     padding: 3px;
+    transition: border var(--animacion-darkMode) ease;
 }
 
 .perfil-inputError {
     width: 100%;
     border: solid 2px var(--camposInput-error);
     padding: 3px;
+    transition: border var(--animacion-darkMode) ease;
 }
 #perfil-nombreUsuario{
     font-size: clamp(0.9rem, -0.375rem + 6.355vw, 1.75rem);
@@ -2013,5 +2031,6 @@ li a {
     margin: 0;
     padding-bottom: 10px;
     padding-left: 5px;
+    transition: color var(--animacion-darkMode) ease;
 }
 } 
