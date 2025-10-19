@@ -158,6 +158,8 @@ if (estaRegistrado != null) {
       contBotUser.textContent = emailUser;
       contBotUserCel.textContent = emailUser;
    }
+
+   email.addEventListener('click', ()=> {window.location = "my-profile.html"});
    
 } else {
    contBotones.className = "botonesHeadDeslog";
@@ -175,6 +177,7 @@ if (estaRegistrado != null) {
    email.addEventListener('click', function(){
       window.location.href = "login.html";
    });
+
 } 
 
 // controla la visualizacion de la barra de busqueda en pantalla de celular y tablet

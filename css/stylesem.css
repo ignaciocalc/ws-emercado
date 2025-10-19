@@ -1801,6 +1801,7 @@ p.card-boton .button {
         font-size: 1.3rem;
         text-align: center;
         font-weight: 600;
+        color: var(--texto-colorPrincipal);
     }
     
     .perfil-popUp-valido #perfil-popUp-pInvalido{

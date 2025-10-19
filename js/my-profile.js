@@ -22,7 +22,13 @@ const   nombre          = document.getElementById("perfil-inputNombre"),
         contenedorImg   = document.getElementById("perfil-contenedorCircularImg"),
         imgPerfil       = document.getElementById("perfil-fotoPerfil"),
         inputFile       = document.getElementById("perfil-inputFile"),
-        etiquetaUsuario = document.getElementById("perfil-nombreUsuario");
+        etiquetaUsuario = document.getElementById("perfil-nombreUsuario"),
+        imgHeader       = document.getElementById("header-fotoPerfil"),
+        imgHeaderimg    = document.getElementById("header-fotoPerfilMobile"),
+        spanMobile      = document.getElementById("contenidoUserCel"),
+        spanSem         = document.getElementById("contenidoUser");
+
+
 const //popUp
     perfilPopUp = document.getElementById("perfil-popUp"),
     imgPopUp = document.getElementById("perfil-popUp-img"),
@@ -143,10 +149,16 @@ popUpbtnDescartar.addEventListener("click", function(){
 popUpbtnConfirmar.addEventListener("click", function(){
     imgPerfil.src = imgPopUp.src;
     user.img = imgPopUp.src;
+    imgHeaderimg.src = user.img;
+    imgHeader.src = user.img;
     imgPopUp.src = "";
     imgPerfil.style.display = "block";
     letraFoto.style.display = "none";
-    perfilPopUp.className = "perfil-popUp-ocultar"
+    spanSem.style.display = "none";
+    spanMobile.style.display = "none";
+    imgHeader.style.display = "block";
+    imgHeaderimg.style.display = "block";
+    perfilPopUp.className = "perfil-popUp-ocultar";
     localStorage.setItem('user', JSON.stringify(user));
 })
 

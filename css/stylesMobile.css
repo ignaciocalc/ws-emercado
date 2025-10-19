@@ -1778,10 +1778,10 @@ li a {
 
 #perfil-contenedorTop {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: var(--perfil-gradiente-primario);  
+    background: var(--perfil-gradiente-primario);  
     gap: 10px;
     flex: 1;
     padding: 25px 30px;
@@ -1941,6 +1941,7 @@ li a {
         font-size: 1.3rem;
         text-align: center;
         font-weight: 600;
+        color: var(--texto-colorPrincipal);
     }
     
     .perfil-popUp-valido #perfil-popUp-pInvalido{
@@ -2041,7 +2042,7 @@ li a {
     transition: border var(--animacion-darkMode) ease;
 }
 #perfil-nombreUsuario{
-    font-size: clamp(0.6rem, 0.117rem + 4.174vw, 0.9rem);
+    font-size: clamp(1.1rem, 0.689rem + 3.556vw, 1.4rem);
     font-weight: 550;
     color: var(--texto-colorPrincipal);
     margin: 0;
