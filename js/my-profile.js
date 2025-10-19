@@ -175,7 +175,7 @@ btnEditar.addEventListener('click', function(){
         btnEditar.setAttribute("editando", "true")
         inputs.forEach((input)=> {input.className="perfil-inputEditando"; input.removeAttribute("readonly")});
         btnEditar.src = "/img/check.svg";
-    } else if ((nombreVal) && (apellidoval) && (telVal)){
+    } else if ((nombreVal != "") && (apellidoval != "") && (telVal != "")){
         user.nombre = nombreVal;
         user.apellido = apellidoval;
         user.tel = telVal;
