@@ -113,30 +113,14 @@
     </main>
 
   <main>
-    <!-- <div id="perfil-contenedorPrincipal">
- 
-          <div id="perfil-positionContenedor" class="perfil-contenedoresCirculo">
-            <div class="perfil-contenedoresCirculo">
-            </div>
-          </div> 
-
-          <div id="perfil-contenedorInfo">
-            <h2>Nombre</h2>
-            <p>NombreUsuario</p>
-            <h2>Apellido</h2>
-            <p>ApellidoUsuario</p>
-            <h2>Correo</h2>
-            <p>Usuario@correo.com</p>
-            <h2>Número de teléfono</h2>
-            <p>09919229</p>
-          </div>
-      </div>
-    </div> -->
     <article id="perfil-contenedorPrincipal">
       <section id="perfil-contenedorTop">
         <!-- <img id="perfil-editarFoto" src="/img/camera.svg"> -->
         <input type="file" id="perfil-inputFile" accept="image/*" style="display: none;">
         <div id="perfil-contenedorCircularImg">
+          <div id="perfil-ImgCamEdit">
+            <img src="img/camara.svg">
+          </div>
           <div id="perfil-img"></div>
           <img id="perfil-fotoPerfil">
           <p id="perfil-letraFoto"></p>
@@ -166,7 +150,21 @@
             </form>
           </div> 
       </section>
+    </article>
 
+    <article id="perfil-popUp" class="perfil-popUp-ocultar">
+      <div id="perfil-popUp-principal">
+        <div id="perfil-popUp-circulo">
+          <img id="perfil-popUp-img">
+        </div>
+        <p id="perfil-popUp-pValido">¿Desea establecer esta imagen como foto de perfil?</p>
+        <p id="perfil-popUp-pInvalido">Su imagen supera los 4MB, debe seleccionar otra</p>
+        <div id="perfil-popUp-botones">
+          <button id="perfil-popUp-descartar" class="buttonSecundario">Descartar</button>
+          <button id="perfil-popUp-confirmar" class="button">Confirmar</button>
+        </div>
+        <button id="perfil-popUp-seleccionar" class="button">Seleccionar</button>
+      </div>
     </article>
     
  </main>

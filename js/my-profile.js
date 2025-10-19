@@ -23,6 +23,12 @@ const   nombre          = document.getElementById("perfil-inputNombre"),
         contenedorImg   = document.getElementById("perfil-contenedorCircularImg"),
         imgPerfil       = document.getElementById("perfil-fotoPerfil"),
         inputFile       = document.getElementById("perfil-inputFile");
+const //popUp
+    perfilPopUp = document.getElementById("perfil-popUp"),
+    imgPopUp = document.getElementById("perfil-popUp-img"),
+    popUpbtnConfirmar = document.getElementById("perfil-popUp-confirmar"),
+    popUpbtnDescartar = document.getElementById("perfil-popUp-descartar"),
+    popUpbtnSelect = document.getElementById("perfil-popUp-seleccionar");
 
 
 if(userDir == null){
@@ -33,9 +39,8 @@ if(userDir == null){
 let user = JSON.parse(userDir),
     etiquetaUsuario = document.getElementById("perfil-nombreUsuario");
 
-
 // seteo la foto si esta guardada en local storage o no    
-if(user.img != undefined){
+if((user.img != undefined) && (user.img != "")){
     imgPerfil.style.display = "block";
     imgPerfil.src = user.img;
     letraFoto.style.display = "none";
@@ -101,7 +106,6 @@ btnConfirmar.addEventListener("click", ()=>{
 
 contenedorImg.addEventListener("click", ()=> {
     inputFile.click();
-
 })
 
 inputFile.addEventListener("change", cargarImagen);
@@ -110,27 +114,54 @@ function cargarImagen(){
     const   file = inputFile.files[0],
             lector = new FileReader();
 
-    // file.size 
     lector.addEventListener("load", () => {
         let resultado = lector.result;
-        const seisMB = 4 * 1024 * 1024;
-        
-       alert(file.size)
+        const imgMB = 4 * 1024 * 1024;
 
-        if (file.size < seisMB) {
-            imgPerfil.src = resultado;
-            user.img = resultado;
-            imgPerfil.style.display = "block";
-            letraFoto.style.display = "none";
-            localStorage.setItem('user', JSON.stringify(user));
+        if ((file.size < imgMB) && file.type.startsWith('image/')) {
+            perfilPopUp.className = "perfil-popUp-valido";
+            imgPopUp.src = resultado;
+            inputFile.value = ""
         } else {
-            alert("ei ei ei pequeño");
-        }
-        
-        
+            if (!file.type.startsWith('image/')) {
+                alert("Debe cargar una imagen");
+                inputFile.value = ""
+            } else {
+                perfilPopUp.className = "perfil-popUp-invalido";
+                imgPopUp.src = resultado;
+                inputFile.value = ""
+            }
+        }    
     })
 
     if(file){
         lector.readAsDataURL(file);
     }
 }
+
+
+perfilPopUp.addEventListener("click", function(evento){
+    if (evento.target == perfilPopUp){
+        imgPopUp.src = "";
+        perfilPopUp.className = "perfil-popUp-ocultar"
+    }
+})
+
+popUpbtnSelect.addEventListener("click", ()=> {
+    inputFile.click();
+})
+
+popUpbtnDescartar.addEventListener("click", function(){
+    imgPopUp.src = "";
+    perfilPopUp.className = "perfil-popUp-ocultar"
+})
+
+popUpbtnConfirmar.addEventListener("click", function(){
+    imgPerfil.src = imgPopUp.src;
+    user.img = imgPopUp.src;
+    imgPopUp.src = "";
+    imgPerfil.style.display = "block";
+    letraFoto.style.display = "none";
+    perfilPopUp.className = "perfil-popUp-ocultar"
+    localStorage.setItem('user', JSON.stringify(user));
+})
