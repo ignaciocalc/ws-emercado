@@ -278,7 +278,8 @@ botonVender.addEventListener('click', function(pararEvento) {
 })
 
 
-botonUser.addEventListener('click', ()=> window.location = "my-profile.html")
+botonUser.addEventListener('click', ()=> window.location = "my-profile.html");
+datosUserCel.addEventListener('click', ()=> window.location = "my-profile.html");
 
 
 

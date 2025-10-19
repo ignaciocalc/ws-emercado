@@ -1741,15 +1741,23 @@ li a {
 
 /* Profile ------------------------- */
 
+#miPerfil-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: calc(100vh - 55px);
+    background-color: var(--fondo-miPerfil);
+}
+
 #perfil-contenedorPrincipal {
     display: flex;
     flex-direction: column;
     background-color: var(--fondo-miPerfil);
-    width: 80vw;
-    margin: 20px 10vw;
+    width: 100%;
     box-sizing: border-box;
     overflow: hidden;
-    border-radius: 15px;
+    margin: 0;
+    height: 100%;
 }
 
 #perfil-contenedorTop {
@@ -1757,87 +1765,63 @@ li a {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 20px;
-    padding-bottom: 10px;
     background: var(--perfil-gradiente-primario);  
     gap: 10px;
     flex: 1;
-
-    min-width: 430px;
+    padding: 25px 30px;
 }
 
 #perfil-contenedorCircularImg {
+    --tamano-fotoPerfil: clamp(5rem, 2.963rem + 10.152vw, 6.25rem);
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 50%;
-    margin-top: 10px;
-    width: clamp(6.25rem, 4.4587rem + 8.9286vw, 8.75rem);
-    height: clamp(6.25rem, 4.4587rem + 8.9286vw, 8.75rem);
+    width: var(--tamano-fotoPerfil);
+    height: var(--tamano-fotoPerfil);
     background-color: #ebebeb;
-    /* border: 1px solid black; */
-    box-shadow: 0px 0px 1px 1px #5d5d5ddd;
-
-    font-size:clamp(4.6875rem, 4.0158rem + 3.3482vw, 5.625rem);
-}
-
-#perfil-editarFoto {
-    display: none;
-    position: absolute;
-    left: 158px;
-
-    aspect-ratio: 1/1;
-    width: 90px;
-    z-index: 2;
-    filter: invert();
-}
-
-/* #perfil-contenedorCircularImg::before {
-    content: "";
+    font-size: 90px;
     position: relative;
-    inset: 0;
-    
-    background: inherit;
-
-    border-radius: 50%;
-    margin-top: 10px;
-    width: 139px;
-    height: 139px;
-    margin:0;
-
-    z-index: 0;
-    object-fit: cover;
-    filter: brightness(80%);
-    transition: .4s;
-} */
-
-/* ^^^^^^^ agregar opacidad al hacer hover en la foto */
-
-
-#perfil-contenedorCircularImg:hover {
-    /* filter: brightness(60%); */
-    #perfil-letraFoto{
-        display: none;
-    }
-
-    #perfil-editarFoto {
-        display: block;
-    }
+    border: 4px solid var(--principal-color);
+            box-shadow: 0px 0px 0px 1px var(--fondoContDatos-miPerfil);
+    min-width: var(--tamano-fotoPerfil);
+    min-height: var(--tamano-fotoPerfil);
 }
 
+#perfil-ImgCamEdit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -2px;
+    right: -7px;
+    background-color: var(--principal-color);
+    border-radius: 50%;
+    padding: 6px;
+}
 
-/* #perfil-nombreUsuario {
-} */
+#perfil-ImgCamEdit img{
+    filter: brightness(1);
+    width: 23px;
+}
+
+#perfil-fotoPerfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
     
 #perfil-contenedorBottom {
     display: flex;    
     flex-direction: column;
     align-items: stretch;
+    justify-content: center;
     height: 75%;
     padding: 15px;
     background-color: var(--fondo-miPerfil);
     flex: 4;
+    padding: 0 30px;
 }
 
 #perfil-contenedorDatos {
@@ -1847,27 +1831,128 @@ li a {
     padding: 20px;
     padding-top: 10px;
     border-radius: 10px;
-
-    background-color: var(--fondo-cards);
+    background-color: var(--fondoContDatos-miPerfil);
     color: var(--texto-colorPrincipal);
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.perfil-botonEditar {
-    /* vertical-align:super ; */
-    /* float: right; */
-    width: 28px;
-    aspect-ratio: 1 / 1;
-    position: absolute;
-    right: 2px;
-    top: 3px;
+#perfil-letraFoto {
+    color: var(--principal-color);
+    margin: 0;
+    font-size: clamp(3.3rem, 0.53rem + 13.807vw, 5rem);
+}
+
+#perfil-popUp-confirmar {
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+#perfil-popUp-seleccionar {
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+/* popUp Mipefil */
+.perfil-popUp-ocultar {
     display: none;
 }
 
-#perfil-contenedorDatos:hover {
-    .perfil-botonEditar {
-        display: block;
-    }
+#perfil-popUp {
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--sombra-popUps);
+    top: 0;
+    left: 0;
+    z-index: 4;
 }
+
+#perfil-popUp-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    padding: 20px 30px;
+    border-radius: 12px;
+    background-color: var(--fondo-cards);
+    font-family: 'Inter', sans-serif;
+    max-width: 339px;
+    box-sizing: border-box;
+}
+
+#perfil-popUp-circulo {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#perfil-popUp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* imagen valida */
+.perfil-popUp-valido {
+    display: flex;
+}
+
+    .perfil-popUp-valido #perfil-popUp-pValido{
+        display: block;
+        margin: 21px 0;
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .perfil-popUp-valido #perfil-popUp-pInvalido{
+        display: none;
+    }
+    .perfil-popUp-valido #perfil-popUp-botones {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+    .perfil-popUp-valido #perfil-popUp-seleccionar{
+        display: none;
+    }
+
+.perfil-popUp-invalido {
+    display: flex;
+}
+    .perfil-popUp-invalido #perfil-popUp-pValido{
+        display: none;
+    }
+    .perfil-popUp-invalido #perfil-popUp-pInvalido{
+        display: block;
+        margin: 21px 0;
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: 600;
+        color: var(--camposInput-error);
+    }
+    .perfil-popUp-invalido #perfil-popUp-botones {
+        display: none
+    }
+    .perfil-popUp-invalido #perfil-popUp-seleccionar{
+        display: block;
+        
+    }
+
+
+/* Edicion de datos */
 .perfil-dato {
     display: flex;
     flex-direction: row;
@@ -1875,11 +1960,34 @@ li a {
     padding: 5px 0;
 }
 
+#perfil-botonEditar {
+    display: none;
+}   
+   
+#perfil-contenedorDatos:hover #perfil-botonEditar {
+    display: block;
+    position: absolute;
+    width: 30px;
+    right: 20px;
+    top: 20px;   
+}
+
 #perfil-contenedorDatos h2 {
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    font-size: medium;
+    font-size: 1.4rem;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.perfil-dato input {
+    background-color: var(--fondoContDatos-miPerfil);
+    color: var(--texto-colorPrincipal);
+    width: 100%;
+    border-radius: 3px;
+    font-size: 0.95rem; 
+}
+
+.perfil-dato input:focus {
+    outline: none;
 }
 
 .perfil-inputConfirmado {
@@ -1887,23 +1995,23 @@ li a {
     padding: 0;
 }
 
-/* .perfil-inputConfirmado::placeholder {
-    color: red;
-} */
-
-.perfil-dato input {
-    background-color: var(--fondo-cards);
-    color: var(--texto-colorPrincipal)
-
+.perfil-inputEditando {
+    width: 100%;
+    border: solid 2px var(--camposInput-gris);
+    padding: 3px;
 }
 
-.perfil-dato input:focus {
-    outline: none;
-    /* border: 1px solid red; */
+.perfil-inputError {
+    width: 100%;
+    border: solid 2px var(--camposInput-error);
+    padding: 3px;
 }
-
-
-
-
-
+#perfil-nombreUsuario{
+    font-size: clamp(0.9rem, -0.375rem + 6.355vw, 1.75rem);
+    font-weight: 550;
+    color: var(--texto-colorPrincipal);
+    margin: 0;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
 } 

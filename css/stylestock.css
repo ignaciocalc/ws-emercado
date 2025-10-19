@@ -60,7 +60,7 @@
     /* Valor miPerfil */
     --fondo-miPerfil: rgb(217, 217, 217);
     --fondoContDatos-miPerfil: white;
-    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 30%);
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
     
 }   
 
@@ -125,7 +125,7 @@ body.darkmode {
     /* Valor miPerfil */
     --fondo-miPerfil: #2D2D2D;
     --fondoContDatos-miPerfil: #434343;
-    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 68%);
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
 
 }
 
@@ -160,7 +160,7 @@ body.darkmode {
     padding: 10px;
     background: var(--secundario-color);
     border: none;
-    color: white;
+    color: var(--colorbtn-normal);
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
