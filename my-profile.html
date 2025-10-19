@@ -49,7 +49,7 @@
           <img class="lightMode" src="img/lightMode.svg">
         </div>
         <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
-        <button id="datosUser" class="button"><span id="contenidoUser"><a href="my-profile.html"></a></span></button>
+        <div id="datosUser"><span id="contenidoUser"></span><img id="header-fotoPerfil"></div>
         <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
         <button id="logout" class="button"><img src="img/logout.svg"></button>
       </div>
@@ -57,7 +57,7 @@
       <div id="botonesCel" class="botonesCelStyle">
         <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
         <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
-        <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
+        <div id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span><img id="header-fotoPerfilMobile"></div>
         <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
       </div>
     </div>
@@ -129,26 +129,26 @@
       </section>
       <section id="perfil-contenedorBottom">
         <div id="perfil-contenedorDatos">
+            <img src="/img/editar-boton.svg" id="perfil-botonEditar" editando="false">
             <form action="">
-              <h2>Nombre  <img src="/img/editar-boton.svg" class="perfil-botonEditar"> </h2>
+              <h2>Nombre</h2>
               <div id="perfil-nombre" class="perfil-dato">
-                <input id="perfil-inputNombre" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su nombre">  
+                <input id="perfil-inputNombre" type="text" maxlength="15" class="perfil-inputConfirmado" placeholder="Introduzca su nombre" readonly>  
               </div>
               <h2>Apellido </h2>
               <div id="perfil-apellido" class="perfil-dato">
-                <input id="perfil-inputApellido" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su apellido">
+                <input id="perfil-inputApellido" type="text" maxlength="15" class="perfil-inputConfirmado" placeholder="Introduzca su apellido" readonly>
               </div>
               <h2>Correo </h2>
               <div id="perfil-email" class="perfil-dato">
-                <input id="perfil-inputEmail" type="email" class="perfil-inputConfirmado" placeholder="Introduzca su email" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$">
+                <input id="perfil-inputEmail" type="email" class="perfil-inputConfirmado" placeholder="Introduzca su email" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$" readonly>
               </div>
               <h2>Número de teléfono </h2>
               <div id="perfil-telefono" class="perfil-dato">
-                <input id="perfil-inputTel" type="text" class="perfil-inputConfirmado" placeholder="Introduzca su telefono">
+                <input id="perfil-inputTel" type="number" class="perfil-inputConfirmado" placeholder="Introduzca su telefono" readonly>
               </div>
-              <button id="perfil-btnConfirmar">OK</button>
             </form>
-          </div> 
+          </div>
       </section>
     </article>
 

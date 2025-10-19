@@ -233,6 +233,12 @@
         border var(--animacion-darkMode) ease;
 }
 
+#header-fotoPerfilMobile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #carritoComprasCel img {
     width: 30px;
 }

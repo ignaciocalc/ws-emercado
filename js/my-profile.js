@@ -17,27 +17,27 @@ const   nombre          = document.getElementById("perfil-inputNombre"),
         apellido        = document.getElementById("perfil-inputApellido"),
         tel             = document.getElementById("perfil-inputTel"),
         correo          = document.getElementById("perfil-inputEmail"),
-        btnConfirmar    = document.getElementById("perfil-btnConfirmar"),
         userDir         = localStorage.getItem('user'),
         letraFoto       = document.getElementById("perfil-letraFoto"),
         contenedorImg   = document.getElementById("perfil-contenedorCircularImg"),
         imgPerfil       = document.getElementById("perfil-fotoPerfil"),
-        inputFile       = document.getElementById("perfil-inputFile");
+        inputFile       = document.getElementById("perfil-inputFile"),
+        etiquetaUsuario = document.getElementById("perfil-nombreUsuario");
 const //popUp
     perfilPopUp = document.getElementById("perfil-popUp"),
     imgPopUp = document.getElementById("perfil-popUp-img"),
     popUpbtnConfirmar = document.getElementById("perfil-popUp-confirmar"),
     popUpbtnDescartar = document.getElementById("perfil-popUp-descartar"),
-    popUpbtnSelect = document.getElementById("perfil-popUp-seleccionar");
+    popUpbtnSelect = document.getElementById("perfil-popUp-seleccionar"),
+    btnEditar = document.getElementById("perfil-botonEditar");
 
 
 if(userDir == null){
-    alert("no deberías estar aquí");
+    alert("No deberías estar aquí");
     window.location = "index.html";
 }
     
-let user = JSON.parse(userDir),
-    etiquetaUsuario = document.getElementById("perfil-nombreUsuario");
+let user = JSON.parse(userDir);
 
 // seteo la foto si esta guardada en local storage o no    
 if((user.img != undefined) && (user.img != "")){
@@ -51,12 +51,15 @@ if((user.img != undefined) && (user.img != "")){
 }
 
 if(user.nombre !== undefined){
-    nombre.placeholder          = user.nombre       !== ''  ? user.nombre   : "Introduzca su nombre";
-    apellido.placeholder        = user.apellido     !== ''  ? user.apellido : "Introduzca su apellido";
-    correo.placeholder          = user.email        !== ''  ? user.email    : "Introduzca su email";
-    tel.placeholder             = user.tel          !== ''  ? user.tel      : "Introduzca su telefono";
-    etiquetaUsuario.textContent = user.nombre       !== ''  ? user.nombre   : user.email;
-    
+    nombre.value          = user.nombre       !== ''  ? user.nombre   : "Introduzca su nombre";
+    apellido.value        = user.apellido     !== ''  ? user.apellido : "Introduzca su apellido";
+    correo.value          = user.email        !== ''  ? user.email    : "Introduzca su email";
+    tel.value             = user.tel          !== ''  ? user.tel      : "Introduzca su telefono";
+    if (user.nombre != ""){
+        etiquetaUsuario.textContent = user.nombre;
+        if ((user.apellido != undefined) & (user.apellido != ""))
+            etiquetaUsuario.textContent = user.nombre + " " + user.apellido
+    }  
 } else {
     correo.placeholder          = user.email;
     etiquetaUsuario.textContent = user.email;
@@ -64,45 +67,26 @@ if(user.nombre !== undefined){
 
 
 
-btnConfirmar.addEventListener("click", ()=>{
-    // let user = JSON.parse(userDir);
+// function guardarDatos(){
+//     // let user = JSON.parse(userDir);
     
-    let nombre1     = nombre.value;
-    let apellido1   = apellido.value;
-    let tel1        = tel.value;
+//     let nombre1     = nombre.value;
+//     let apellido1   = apellido.value;
+//     let tel1        = tel.value;
   
-    let correoFinal, nombreFinal, apellidoFinal, telFinal;
+//     // if(user.nombre !== undefined && nombre == ''){
+//     //     nombreFinal = user.nombre;
+//     // } else {
+//     //     nombreFinal = nombre;}
 
-    // if(user.nombre !== undefined && nombre == ''){
-    //     nombreFinal = user.nombre;
-    // } else {
-    //     nombreFinal = nombre;}
+//     //   ||||||||
+//     //   vvvvvvvv es la misma logica que ese if
+//     user.nombre     = (user.nombre      !== undefined && nombre1    == '') ? user.nombre    : nombre1;
+//     user.apellido   = (user.apellido    !== undefined && apellido1  == '') ? user.apellido  : apellido1;
+//     user.tel        = (user.tel         !== undefined && tel1       == '') ? user.tel       : tel1;
 
-    //   ||||||||
-    //   vvvvvvvv es la misma logica que ese if
-    nombreFinal     = (user.nombre      !== undefined && nombre1    == '') ? user.nombre    : nombre1;
-    apellidoFinal   = (user.apellido    !== undefined && apellido1  == '') ? user.apellido  : apellido1;
-    telFinal        = (user.tel         !== undefined && tel1       == '') ? user.tel       : tel1;
-
-    if(correo.validity.valid && correo.value != ''){
-        correoFinal = correo.value;
-    } else {
-        correoFinal = user.email;
-    }
-
-    // esto debería pasar siempre porque no se puede acceder a mi usuario sin estar registrado
-
-    let res ={
-            nombre   : nombreFinal, 
-            apellido : apellidoFinal,
-            email    : correoFinal,
-            tel      : telFinal,
-            img     : ''
-            };         
-
-
-    localStorage.setItem('user', JSON.stringify(res));
-})
+//     localStorage.setItem('user', JSON.stringify(res));
+// }
 
 contenedorImg.addEventListener("click", ()=> {
     inputFile.click();
@@ -165,3 +149,36 @@ popUpbtnConfirmar.addEventListener("click", function(){
     perfilPopUp.className = "perfil-popUp-ocultar"
     localStorage.setItem('user', JSON.stringify(user));
 })
+
+//edicion de datos (boton editar)
+btnEditar.addEventListener('click', function(){
+    const 
+        editando = btnEditar.getAttribute("editando"),
+        inputs = [nombre, apellido, tel],
+        nombreVal = nombre.value,
+        apellidoval = apellido.value,
+        telVal = tel.value;
+
+    if (editando == "false"){
+        btnEditar.setAttribute("editando", "true")
+        inputs.forEach((input)=> {input.className="perfil-inputEditando"; input.removeAttribute("readonly")});
+        btnEditar.src = "/img/check.svg";
+    } else if ((nombreVal) && (apellidoval) && (telVal)){
+        user.nombre = nombreVal;
+        user.apellido = apellidoval;
+        user.tel = telVal;
+        btnEditar.setAttribute("editando", "false");
+        inputs.forEach((input)=> {input.className="perfil-inputConfirmado"; input.setAttribute("readonly", "")});
+        btnEditar.src = "/img/editar-boton.svg";
+        etiquetaUsuario.textContent = user.nombre + " " + user.apellido
+        localStorage.setItem('user', JSON.stringify(user));
+    } else{
+        inputs.forEach((input)=> input.className="perfil-inputEditando");
+        if (nombreVal == "")
+            nombre.className = "perfil-inputError";
+        if (apellidoval == "")
+            apellido.className = "perfil-inputError";
+        if (telVal == "")
+            tel.className = "perfil-inputError";
+    } 
+}) 

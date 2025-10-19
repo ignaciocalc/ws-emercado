@@ -8,7 +8,9 @@ const
    carritoCompras = document.getElementById("carritoCompras"),
    ingresarIcon = document.getElementById("ingresarIcono"),
    logOut = document.getElementById("logout"),
-   contBotUser = document.getElementById("contenidoUser");
+   contBotUser = document.getElementById("contenidoUser"),
+   imgPerfilHead = document.getElementById("header-fotoPerfil"),
+   imgPerfilHeadMob = document.getElementById("header-fotoPerfilMobile");
 
    // botones de tablet y celular
 const
@@ -118,7 +120,8 @@ if (estaRegistrado != null) {
    logOut.className = "logout";
    cerrarSesionMenu.className = "cerrarSesionMenu";
    ingresarIcon.style.display = "none";
-   emailUser = JSON.parse(estaRegistrado).email;
+   userLs = JSON.parse(estaRegistrado)
+   emailUser = userLs.email;
 
    /* botones cel y tablet */
    datosUserCel.className = "datosUserLogeado"
@@ -141,8 +144,20 @@ if (estaRegistrado != null) {
    
    emailUser = emailUser.substring(0, 1).toUpperCase();
    
-   contBotUser.textContent = emailUser;
-   contBotUserCel.textContent = emailUser;
+   if ((userLs.img != undefined) && (userLs.img != "")) {
+      imgPerfilHead.style.display = "block"
+      contBotUser.style.display = "none";
+      contBotUserCel.style.displa = "none";
+      imgPerfilHead.src = userLs.img;
+      imgPerfilHeadMob.src = userLs.img;
+   } else {
+      imgPerfilHead.style.display = "none";
+      imgPerfilHeadMob.style.display = "none";
+      contBotUser.style.display = "block";
+      contBotUserCel.style.displa = "block"
+      contBotUser.textContent = emailUser;
+      contBotUserCel.textContent = emailUser;
+   }
    
 } else {
    contBotones.className = "botonesHeadDeslog";

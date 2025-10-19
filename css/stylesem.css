@@ -3,7 +3,7 @@
 @media (min-width: 769px) {
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "inter", sans-serif;
     background-color: var(--fondo-contPrincipales);
     transition: background-color var(--animacion-darkMode) ease;
 }
@@ -223,6 +223,12 @@ body {
         background-color var(--animacion-darkMode) ease,
         color var(--animacion-darkMode) ease,
         border var(--animacion-darkMode) ease;
+}
+
+#header-fotoPerfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .carritoComprasDeslog {
@@ -1721,56 +1727,9 @@ p.card-boton .button {
     padding: 20px;
     padding-top: 10px;
     border-radius: 10px;
-
-    background-color: var(--fondo-cards);
+    background-color: var(--fondoContDatos-miPerfil);
     color: var(--texto-colorPrincipal);
-}
-
-.perfil-botonEditar {
-    /* vertical-align:super ; */
-    /* float: right; */
-    width: 28px;
-    aspect-ratio: 1 / 1;
-    position: absolute;
-    right: 2px;
-    top: 3px;
-    display: none;
-}
-
-#perfil-contenedorDatos:hover {
-    .perfil-botonEditar {
-        display: block;
-    }
-}
-.perfil-dato {
-    display: flex;
-    flex-direction: row;
-    /* align-items: space-between; */
-    padding: 5px 0;
-}
-
-#perfil-contenedorDatos h2 {
     position: relative;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    font-size: medium;
-}
-
-.perfil-inputConfirmado {
-    border: none;
-    padding: 0;
-}
-
-
-.perfil-dato input {
-    background-color: var(--fondo-cards);
-    color: var(--texto-colorPrincipal)
-
-}
-
-.perfil-dato input:focus {
-    outline: none;
-    /* border: 1px solid red; */
 }
 
 #perfil-letraFoto {
@@ -1872,7 +1831,65 @@ p.card-boton .button {
         display: block;
         
     }
-    
+
+
+/* Edicion de datos */
+.perfil-dato {
+    display: flex;
+    flex-direction: row;
+    /* align-items: space-between; */
+    padding: 5px 0;
+}
+
+#perfil-botonEditar {
+    display: none;
+}   
+   
+#perfil-contenedorDatos:hover #perfil-botonEditar {
+    display: block;
+    position: absolute;
+    width: 30px;
+    right: 20px;
+    top: 20px;   
+}
+
+#perfil-contenedorDatos h2 {
+    font-size: 1.4rem;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.perfil-dato input {
+    background-color: var(--fondoContDatos-miPerfil);
+    color: var(--texto-colorPrincipal);
+    width: 100%;
+}
+
+.perfil-dato input:focus {
+    outline: none;
+}
+
+.perfil-inputConfirmado {
+    border: none;
+    padding: 0;
+}
+
+.perfil-inputEditando {
+    width: 100%;
+    border: solid 2px var(--camposInput-gris);
+    padding: 3px;
+}
+
+.perfil-inputError {
+    width: 100%;
+    border: solid 2px var(--camposInput-error);
+    padding: 3px;
+}
+#perfil-nombreUsuario{
+    font-size: 1.75rem;
+    font-weight: 550;
+    color: var(--texto-colorPrincipal);
+}
 
 }
 
