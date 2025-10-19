@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/stylesTablet.css">
   <link rel="shortcut icon" href="img/iconoWeb.ico" type="image/x-icon">
   <link rel="icon" href="img/iconoWeb.ico" type="image/x-icon">
-  <style>
+  <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -27,51 +27,160 @@
         font-size: 3.5rem;
       }
     }
-  </style>
+  </style> -->
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
+ <header class="headerClass">
+    <!-- seccion de navegacion-->
+    <div class="barraBusqueda">
+      <div id="logoHeader">
+        <img id="carritoeMercado" src="img/icono.png">
+        <img id="menuBarras" src="img/menu.svg">
+        <img id="emercado" class="emercadoNoBuscando" src="img/eMercadoIcon.png">
+      </div>
+
+      <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
+
+      <div id="botonesHead" class="botonesHeadDeslog">
+        <div id="modeBtn" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
+        <div id="datosUser"><span id="contenidoUser"></span><img id="header-fotoPerfil"></div>
+        <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
+        <button id="logout" class="button"><img src="img/logout.svg"></button>
+      </div>
+
+      <div id="botonesCel" class="botonesCelStyle">
+        <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
+        <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
+        <div id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span><img id="header-fotoPerfilMobile"></div>
+        <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
       </div>
     </div>
-  </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <!-- aca va inicio/categorias/vender -->
+    <div class="barraNavegacion">
+      <ul>
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="categories.html">Categorías</a>
+        </li>
+        <li>
+          <a href="sell.html">Vender</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="contPrincipalCat" class="mainProducts">
+    <div id="menu" class="noDesplegado">
+        <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="menuContOps">
+        <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+        <div class="noDesplegadoCategorias" id="categorias-menu"> 
+          <div id="categoriasBoton" class="categoriasBotonContraido">
+            <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+            <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+          </div>
+          <ul id="lista-menu" class="lista-menu-oculto">
+            <li><a href="products.html">Autos</a></li>
+            <li>Jueguetes</li>
+            <li>Muebles</li>
+            <li>Herramientas</li>
+            <li>Computadoras</li>
+            <li>Vestimenta</li>
+            <li>Electrodomésticos</li>
+            <li>Deporte</li>
+            <li>Celulares</li>
+          </ul>
+        </div>
+        <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+      </div>
+      <div id="pieMenu">
+        <div id="modeBtnMobile" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <img id="cerrarSesionMenu" class="cerrarSesionMenu" src="img/logout-menuMobile.svg">
       </div>
     </div>
-  </main>
-  <footer class="text-muted">
+    </main>
+
+  <main id="miPerfil-main">
+    <article id="perfil-contenedorPrincipal">
+      <section id="perfil-contenedorTop">
+        <!-- <img id="perfil-editarFoto" src="/img/camera.svg"> -->
+        <input type="file" id="perfil-inputFile" accept="image/*" style="display: none;">
+        <div id="perfil-contenedorCircularImg">
+          <div id="perfil-ImgCamEdit">
+            <img src="img/camara.svg" id="perfil-imgDescriptiva">
+          </div>
+          <div id="perfil-img"></div>
+          <img id="perfil-fotoPerfil">
+          <p id="perfil-letraFoto"></p>
+        </div>
+        <p id="perfil-nombreUsuario"></p>
+      </section>
+      <section id="perfil-contenedorBottom">
+        <div id="perfil-contenedorDatos">
+            <img src="/img/editar-boton.svg" id="perfil-botonEditar" editando="false">
+            <form action="">
+              <h2>Nombre</h2>
+              <div id="perfil-nombre" class="perfil-dato">
+                <input id="perfil-inputNombre" type="text" maxlength="15" class="perfil-inputConfirmado" placeholder="Introduzca su nombre" readonly>  
+              </div>
+              <h2>Apellido </h2>
+              <div id="perfil-apellido" class="perfil-dato">
+                <input id="perfil-inputApellido" type="text" maxlength="15" class="perfil-inputConfirmado" placeholder="Introduzca su apellido" readonly>
+              </div>
+              <h2>Correo </h2>
+              <div id="perfil-email" class="perfil-dato">
+                <input id="perfil-inputEmail" type="email" class="perfil-inputConfirmado" placeholder="Introduzca su email" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$" readonly>
+              </div>
+              <h2>Número de teléfono </h2>
+              <div id="perfil-telefono" class="perfil-dato">
+                <input id="perfil-inputTel" type="number" class="perfil-inputConfirmado" placeholder="Introduzca su telefono" readonly>
+              </div>
+            </form>
+          </div>
+      </section>
+    </article>
+
+    <article id="perfil-popUp" class="perfil-popUp-ocultar">
+      <div id="perfil-popUp-principal">
+        <div id="perfil-popUp-circulo">
+          <img id="perfil-popUp-img">
+        </div>
+        <p id="perfil-popUp-pValido">¿Desea establecer esta imagen como foto de perfil?</p>
+        <p id="perfil-popUp-pInvalido">Su imagen supera los 4MB, debe seleccionar otra</p>
+        <div id="perfil-popUp-botones">
+          <button id="perfil-popUp-descartar" class="buttonSecundario">Descartar</button>
+          <button id="perfil-popUp-confirmar" class="button">Confirmar</button>
+        </div>
+        <button id="perfil-popUp-seleccionar" class="button">Seleccionar</button>
+      </div>
+    </article>
+    
+ </main>
+  
+  <!-- <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
-  </footer>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  </footer>    -->
+  <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/header.js"></script>
 </body>
 
 </html>

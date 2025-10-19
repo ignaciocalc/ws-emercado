@@ -56,7 +56,13 @@
     --naranja-oscuroHoversBtn:#dc5a03;
     --colorbtn-normal: rgb(245, 245, 245);
     --colorbtn-hover: rgb(216, 216, 216);
-}
+
+    /* Valor miPerfil */
+    --fondo-miPerfil: rgb(217, 217, 217);
+    --fondoContDatos-miPerfil: white;
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
+    
+}   
 
 body.darkmode {
     /* Colores generales */
@@ -115,6 +121,12 @@ body.darkmode {
     --naranja-oscuroHoversBtn: rgba(147, 52, 0, 1); 
     --colorbtn-normal: rgb(245, 245, 245);
     --colorbtn-hover: rgb(216, 216, 216);
+
+    /* Valor miPerfil */
+    --fondo-miPerfil: #2D2D2D;
+    --fondoContDatos-miPerfil: #434343;
+    --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
+
 }
 
 
@@ -146,16 +158,16 @@ body.darkmode {
 
 .buttonSecundario {
     padding: 10px;
-    background: #F89E59;
+    background: var(--secundario-color);
     border: none;
-    color: white;
+    color: var(--colorbtn-normal);
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .buttonSecundario:hover {
-    background: #e65c00;
+    background: var(--naranja-oscuroHoversBtn);
 }
 
 /* Estrellas */
