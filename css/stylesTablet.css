@@ -680,6 +680,7 @@ li a {
 }
 
 
+
 #contenedorTop {
     font-family: 'Inter', sans-serif;
     display: flex;
@@ -845,7 +846,8 @@ li a {
     align-self: flex-start;
     width: 100%;
     margin: 17px 0;
-    font-size: clamp(0.9rem, 0.413rem + 2.388vw, 1.1rem)
+    font-size: clamp(0.9rem, 0.413rem + 2.388vw, 1.1rem);
+    margin-top: 10px
 }
 
 #relProductos h2 {
@@ -853,6 +855,14 @@ li a {
     font-size: clamp(1.1rem, 0.769rem + 1.644vw, 1.55rem);
     color: var(--texto-colorEnfasis);
     transition: color var(--animacion-darkMode) ease;
+}
+
+#botoncomprarinfo{
+    align-self: flex-start;
+    width: 100%;
+    margin: 17px 0;
+    font-size: clamp(0.9rem, 0.413rem + 2.388vw, 1.1rem);
+    margin-bottom:0px;
 }
 
 /*------------menu filtros------------*/
