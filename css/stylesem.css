@@ -188,30 +188,43 @@ body {
 }
 
 .ingresarHeadDesLog {
+    position: relative;
     display: flex;
     align-items: flex-end; 
     border: 2px solid var(--naranja-suave); 
-    width: 105px;
-    justify-content: space-between;
+    width: 85px;
+    justify-content: center;
     padding: 10px;
-    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 28px;
-    transition: border var(--animacion-darkMode) ease;
+    transition: 
+        border var(--animacion-darkMode) ease,
+        box-shadow 0.07s ease,
+        background-color var(--iconosCirculares-duracionAni) ease;
+    box-shadow: 0px 0px 0px 0px var(--iconosCircularesAnimacion-color);
+}
+
+.ingresarHeadDesLog:hover {
+    box-shadow: 0px 0px 0px 4px var(--iconosCircularesAnimacion-color);
+    /* background-color: var(--iconosCircularesAnimacion-color); */
+    animation: fIconosCirculares var(--iconosCirculares-duracionAni) linear none; 
 }
 
 .ingresarHeadLog {
     display: none;
 }
 
+.ingresarHeadDesLog img {
+    margin-left: 5px;
+}
 .datosUserDesLog {
     display: none;
 }
 
 .datosUserLogeado {
+    position: relative;
     display: flex;
-    border: 2px solid var(--principal-color);
     overflow: hidden;
     border-radius: 50%;
     text-align: center;
@@ -226,7 +239,24 @@ body {
     transition: 
         background-color var(--animacion-darkMode) ease,
         color var(--animacion-darkMode) ease,
-        border var(--animacion-darkMode) ease;
+        border var(--animacion-darkMode) ease,
+        box-shadow 0.07s ease;
+    box-shadow: 0px 0px 0px 0px var(--iconosCircularesAnimacion-color);
+}
+
+.datosUserLogeado:hover {
+    box-shadow: 0px 0px 0px 4px var(--iconosCircularesAnimacion-color);
+    animation: fIconosCirculares var(--iconosCirculares-duracionAni) linear none; 
+}
+
+@keyframes fIconosCirculares {
+    0% {
+            box-shadow: 0px 0px 0px 0px var(--iconosCircularesAnimacion-color);
+        }
+    
+    60% {
+            box-shadow: 0px 0px 0px 6px var(--iconosCircularesAnimacion-color);
+        }
 }
 
 #header-fotoPerfil {
@@ -243,16 +273,36 @@ body {
     display: flex;
     align-items: flex-end;
     border: none;
-    justify-content: space-between;
+    justify-content: center;
     width: 35px;
-    background: transparent;
     color: white;
     font-size: 16px;
     border-radius: 5px;
     padding: 0;
     margin: 0 7px;
     filter: brightness(var(--brillobtn-headear));  
-    transition: filter var(--animacion-darkMode) ease;   
+    transition: filter var(--animacion-darkMode) ease; 
+    position: relative;  
+}
+
+#cartSem-animacion {
+    position: absolute;
+    align-self: center;
+    z-index: -1;
+    aspect-ratio: 1 / 1;
+    width: 20%;
+    height: 20%;
+    border-radius: 6px;
+    background-color: var(--iconosCuadrados-colorOculto);
+    filter: brightness(145%);
+    transition: all var(--iconosCuadrados-duracionTra) ease;
+}
+
+.carritoCompraslog:hover #cartSem-animacion{
+    width: 124%; 
+    height: 124%; 
+    background-color: var(--iconosCuadrados-colorVisto);
+    animation: fIconosBarra var(--iconosCuadrados-duracionAni) linear none;    
 }
 
 .carritoCompraslog img{
@@ -268,7 +318,7 @@ body {
     display: flex;
     align-items: flex-end;
     border: none;
-    justify-content: space-between;
+    justify-content: center;
     width: 37px;
     background: transparent;
     color: white;
@@ -277,11 +327,45 @@ body {
     padding: 0px;
     filter: brightness(var(--brillobtn-headear));     
     transition: filter var(--animacion-darkMode) ease; 
+    position: relative;
+}
+
+#logout-animacion {
+    position: absolute;
+    align-self: center;
+    z-index: -1;
+    aspect-ratio: 1 / 1;
+    width: 20%;
+    height: 20%;
+    border-radius: 6px;
+    background-color: var(--iconosCuadrados-colorOculto);
+    filter: brightness(145%);
+    transition: all var(--iconosCuadrados-duracionTra) ease;
+}
+
+.logout:hover #logout-animacion{
+    width: 115%; 
+    height: 115%; 
+    background-color: var(--iconosCuadrados-colorVisto);
+    animation: fIconosBarra var(--iconosCuadrados-duracionAni) linear none;    
+}
+
+@keyframes fIconosBarra {
+    0% { 
+            z-index: -1; 
+            background-color: var(--iconosCuadrados-colorVisto)
+        }
+
+    60% { 
+            width: 135%; 
+            height: 135%; 
+        }
 }
 
 .logout img {
     width: 100%;
 }
+
 /* Fin botones del head */
 
 #carritoeMercado {
@@ -1517,15 +1601,26 @@ p.card-boton .button {
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 34px;
-    min-width: 34px;
+    width: 37px;
+    min-width: 37px;
     aspect-ratio: 1 / 1;
     background-color: white;
     border-radius: 50%;
-    margin-right: 11px;
+    margin-right: 9px;
     overflow: hidden;
-    transition: background-color 0.2s ease;
+    transition: 
+        background-color 0.2s ease,
+        box-shadow 0.15s ease;
+    box-shadow: 0px 0px 0px 0px var(--iconosCircularesAnimacion-color);
+
 }
+
+.modeBtn:hover {
+    box-shadow: 0px 0px 0px 4px var(--iconosCircularesAnimacion-color);
+    animation: fIconosCirculares var(--iconosCirculares-duracionAni) linear none; 
+}
+
+
     body.init .modeBtn {
         background-color: white;
     }
