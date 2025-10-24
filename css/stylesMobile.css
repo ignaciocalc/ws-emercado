@@ -863,6 +863,7 @@ li a {
     width: 100%;
     margin: 10px 0;
     font-size: clamp(0.8rem, -0.032rem + 5.161vw, 1rem);
+    margin-top: 7px
 }
 
 #relProductos h2 {
@@ -870,6 +871,14 @@ li a {
     font-size: clamp(0.8rem, 0.232rem + 4.59vw, 1.15rem);
     color: var(--texto-colorEnfasis);
     transition: color var(--animacion-darkMode) ease;
+}
+
+#botoncomprarinfo{
+    align-self: center;
+    width: 100%;
+    margin: 10px 0;
+    font-size: clamp(0.8rem, -0.032rem + 5.161vw, 1rem);
+    margin-bottom:0px
 }
 
 /*------------menu filtros------------*/

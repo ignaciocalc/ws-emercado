@@ -1032,6 +1032,7 @@ p.card-boton .button {
     margin: 15px 0;
     padding: 7px;
     font-size: clamp(0.88rem, 0.512rem + 0.764vw, 1.2rem);
+    margin-top:10px
 }
 
 #relProductos h2 {
@@ -1061,6 +1062,15 @@ p.card-boton .button {
 
 #contMsjErr img {
     width: 350px;
+}
+
+#botoncomprarinfo{
+    align-self: center;
+    width: 95%;
+    margin: 15px 0;
+    padding: 7px;
+    font-size: clamp(0.88rem, 0.512rem + 0.764vw, 1.2rem);
+    margin-bottom:0px;
 }
 
 /*------------ Hacer un comentario ---------------*/
