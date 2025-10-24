@@ -61,6 +61,15 @@
     --fondo-miPerfil: rgb(217, 217, 217);
     --fondoContDatos-miPerfil: white;
     --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
+
+        /* Animacion barra de navegacion */
+    --iconosCirculares-duracionAni: 0.15s;
+    --iconosCircularesAnimacion-color: #ef6b24;
+
+    --iconosCuadrados-colorOculto: rgb(165, 74, 25, 0);
+    --iconosCuadrados-colorVisto: rgb(165, 74, 25, 1);
+    --iconosCuadrados-duracionAni: 0.15s;
+    --iconosCuadrados-duracionTra: 0.15s;
     
 }   
 
@@ -126,6 +135,15 @@ body.darkmode {
     --fondo-miPerfil: #2D2D2D;
     --fondoContDatos-miPerfil: #434343;
     --perfil-gradiente-primario: linear-gradient(to bottom, var(--principal-color) 60%, var(--fondo-miPerfil) 40%);
+
+    /* Animacion barra de navegacion */
+    --iconosCirculares-duracionAni: 0.15s;
+    --iconosCircularesAnimacion-color: #eb5f00;
+
+    --iconosCuadrados-colorOculto: rgba(204, 71, 0, 0);
+    --iconosCuadrados-colorVisto: rgba(204, 71, 0, 1);
+    --iconosCuadrados-duracionAni: 0.15s;
+    --iconosCuadrados-duracionTra: 0.15s;
 
 }
 
