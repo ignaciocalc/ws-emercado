@@ -147,12 +147,3 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
-
-
-
-/*
- 1) Chequear si existe el carrito al clickear en agregar a carrito, si no crearlo
- 2) Si existe, aumentar la cantidad de items de ese tipo, el total y el badge
- 3) Asignar al badge el nuevo total de productos
-
-*/

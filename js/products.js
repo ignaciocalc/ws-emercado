@@ -7,6 +7,15 @@ const
     cotDolar = 43,
     buscar = document.getElementById("buscador");
 
+/*
+ 1) Chequear si existe el carrito al clickear en agregar a carrito, si no crearlo [R]
+ 2) Si existe, aumentar la cantidad de items de ese tipo, el total y el badge [R] 
+ 3) Asignar al badge el nuevo total de productos [R]
+
+*/
+
+
+
 
 // Renderiza los productos en el contenedor
 function writeData(){
@@ -22,7 +31,91 @@ function writeData(){
             currentProductsArray[i].id
         );
     }    
+
+    let carrito = document.getElementsByClassName("card-button");
+
+    console.log(carrito);
+    
+    for(let i = 0; i < carrito.length; i++){
+        carrito[i].addEventListener("click", (evento)=>{
+            crearCarrito();
+            // agregar condicional si obtProd es null
+            let prod = obtenerProducto(carrito[i].getAttribute('data-id'));
+          
+            let res = {
+                idProducto : prod.id,
+                nombre : prod.name,
+                costo : prod.cost,
+                moneda : prod.currency,
+                cantidad : 1, 
+                img : prod.image
+            }
+            
+            agregarACarrito(res);
+
+            evento.stopPropagation();  
+            // porque se está metiendo al botón del carrito
+            // como el elemento card tiene un evento click, hace bubble hacia el contenedor padre
+        })
+    }
+
 }
+
+// too late for this
+// class producto {
+//     producto(id, nombre, costo, moneda, cantidad, img){
+//         this.idProducto = id; 
+//     }
+// }
+
+
+function crearCarrito(){
+    let carrito = localStorage.getItem('cart');
+
+    if(carrito == null){
+        let cart = {
+            productos: [],
+            cantProductos: 0
+        };
+    
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('badge', '0');
+    }
+}
+
+// POST: retorna el producto con idProducto == id o null si no lo encuentra
+function obtenerProducto(id){
+    console.log("El array de productos es: " + currentProductsArray)
+    console.log(id);
+
+    return currentProductsArray.find(e => e.id == id) || null;
+    // este es el caso donde no se encuentra el producto
+}
+
+
+
+// PRE: el carrito existe 
+// POST: carrito actualizado con prod agregado
+function agregarACarrito(prod){
+    let carrito = JSON.parse(localStorage.getItem('cart'));
+
+    if(carrito !== null){          // busca la primera expresión que coincida en el array y devuelve el  índice
+        let pos = carrito.productos.findIndex(e => e.idProducto === prod.idProducto ); 
+
+        if (pos === -1){
+            carrito.productos.push(prod);
+        } else {
+            carrito.productos[pos].cantidad ++;
+        }
+
+        carrito.cantProductos = carrito.cantProductos + prod.cantidad; 
+
+        localStorage.setItem('cart', JSON.stringify(carrito));
+        localStorage.setItem('badge', JSON.stringify(carrito.cantProductos));
+    }
+}
+
+
 
 // define si se esta haciendo una busqueda o ingresando a una categoria
 document.addEventListener("DOMContentLoaded", function(e){
@@ -65,7 +158,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
     }
-
 })
 
 function insertarHtml(contenedor, html){
@@ -89,16 +181,21 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
         <div class="card-footer">
             <p class="card-precio">${currency} ${cost}</p>
-            <p class="card-boton"><button class="button">Agregar al carrito</button></p>
+            <p class="card-boton"><button class="button card-button" data-id="${ID}" >Agregar al carrito</button></p>
         </div>
     `;
-
+    // Agregué una clase en el botón para seleccionarla ^  porque con la clase que tenía
+    // estaba seleccionando otras cosas. Con un query   |  selector style quizás se puede hacer
+    
     insertarHtml("contenedorItem", htmlToInsert);
     let card_link = document.querySelector(`[data-id="${ID}"]`);
+    // let card_link = document.className("card-img");
 
     card_link.addEventListener("click", function() {
+
         localStorage.setItem("idProducto", ID);
         window.location = "product-info.html";
+
     })
 }    
 
