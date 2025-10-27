@@ -1,3 +1,5 @@
+import {inicializaListenerCarrito} from "./utils.js";
+
 const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
@@ -6,6 +8,14 @@ let originalProductsArray = [];
 const 
     cotDolar = 43,
     buscar = document.getElementById("buscador");
+
+/*
+ 1) Chequear si existe el carrito al clickear en agregar a carrito, si no crearlo [R]
+ 2) Si existe, aumentar la cantidad de items de ese tipo, el total y el badge [R] 
+ 3) Asignar al badge el nuevo total de productos [R]
+
+*/
+
 
 
 // Renderiza los productos en el contenedor
@@ -21,8 +31,24 @@ function writeData(){
             currentProductsArray[i].soldCount, 
             currentProductsArray[i].id
         );
+
     }    
+
+    // inicializaListenerCarrito(document.getElementsByClassName("card-button"));
+
+  
+    let cardButton = document.getElementsByClassName("card-boton");
+    
 }
+
+// too late for this
+// class producto {
+//     producto(id, nombre, costo, moneda, cantidad, img){
+//         this.idProducto = id; 
+//     }
+// }
+
+
 
 // define si se esta haciendo una busqueda o ingresando a una categoria
 document.addEventListener("DOMContentLoaded", function(e){
@@ -65,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
     }
-
 })
 
 function insertarHtml(contenedor, html){
@@ -89,17 +114,24 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
         <div class="card-footer">
             <p class="card-precio">${currency} ${cost}</p>
-            <p class="card-boton"><button class="button">Agregar al carrito</button></p>
+            <p class="card-boton"><button class="button card-button" id="${ID}" >Agregar al carrito</button></p>
         </div>
     `;
-
+    // Agregué una clase en el botón para seleccionarla ^  porque con la clase que tenía
+    // estaba seleccionando otras cosas. Con un query   |  selector style quizás se puede hacer
+    
     insertarHtml("contenedorItem", htmlToInsert);
     let card_link = document.querySelector(`[data-id="${ID}"]`);
+    // let card_link = document.className("card-img");
 
     card_link.addEventListener("click", function() {
+
         localStorage.setItem("idProducto", ID);
         window.location = "product-info.html";
+
     })
+
+    inicializaListenerCarrito(document.getElementById(ID), {idProducto : ID, nombre : name, costo : cost, moneda : currency, cantidad : 1, img : img});
 }    
 
 /*filtra el precio */
