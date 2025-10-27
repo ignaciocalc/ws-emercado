@@ -1,3 +1,5 @@
+import {inicializaListenerCarrito} from "./utils.js";
+
 const catID = localStorage.getItem("catID");
 const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
 let currentProductsArray = [];
@@ -16,7 +18,6 @@ const
 
 
 
-
 // Renderiza los productos en el contenedor
 function writeData(){
     document.getElementById("contenedorItem").innerHTML = ""; // limpia antes de renderizar
@@ -32,32 +33,8 @@ function writeData(){
         );
     }    
 
-    let carrito = document.getElementsByClassName("card-button");
+    inicializaListenerCarrito(document.getElementsByClassName("card-button"));
 
-    console.log(carrito);
-    
-    for(let i = 0; i < carrito.length; i++){
-        carrito[i].addEventListener("click", (evento)=>{
-            crearCarrito();
-            // agregar condicional si obtProd es null
-            let prod = obtenerProducto(carrito[i].getAttribute('data-id'));
-          
-            let res = {
-                idProducto : prod.id,
-                nombre : prod.name,
-                costo : prod.cost,
-                moneda : prod.currency,
-                cantidad : 1, 
-                img : prod.image
-            }
-            
-            agregarACarrito(res);
-
-            evento.stopPropagation();  
-            // porque se está metiendo al botón del carrito
-            // como el elemento card tiene un evento click, hace bubble hacia el contenedor padre
-        })
-    }
 
 }
 
@@ -67,53 +44,6 @@ function writeData(){
 //         this.idProducto = id; 
 //     }
 // }
-
-
-function crearCarrito(){
-    let carrito = localStorage.getItem('cart');
-
-    if(carrito == null){
-        let cart = {
-            productos: [],
-            cantProductos: 0
-        };
-    
-        localStorage.setItem('cart', JSON.stringify(cart));
-        localStorage.setItem('badge', '0');
-    }
-}
-
-// POST: retorna el producto con idProducto == id o null si no lo encuentra
-function obtenerProducto(id){
-    console.log("El array de productos es: " + currentProductsArray)
-    console.log(id);
-
-    return currentProductsArray.find(e => e.id == id) || null;
-    // este es el caso donde no se encuentra el producto
-}
-
-
-
-// PRE: el carrito existe 
-// POST: carrito actualizado con prod agregado
-function agregarACarrito(prod){
-    let carrito = JSON.parse(localStorage.getItem('cart'));
-
-    if(carrito !== null){          // busca la primera expresión que coincida en el array y devuelve el  índice
-        let pos = carrito.productos.findIndex(e => e.idProducto === prod.idProducto ); 
-
-        if (pos === -1){
-            carrito.productos.push(prod);
-        } else {
-            carrito.productos[pos].cantidad ++;
-        }
-
-        carrito.cantProductos = carrito.cantProductos + prod.cantidad; 
-
-        localStorage.setItem('cart', JSON.stringify(carrito));
-        localStorage.setItem('badge', JSON.stringify(carrito.cantProductos));
-    }
-}
 
 
 
