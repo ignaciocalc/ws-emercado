@@ -4,49 +4,20 @@
     Se debe importar como módulo en el HTML que se quiera usar
 */
 
-
-// PRE: debe recibir un array de elementos DOM a los que ponerle el eventlistener
-
-export const inicializaListenerCarrito = function (DOMvar){
-    // let carrito = document.getElementsByClassName("card-button");
+export const inicializaListenerCarrito = function (DOMvar, prod){
 
     console.log(DOMvar);
     
-    for(let i = 0; i < DOMvar.length; i++){
-        DOMvar[i].addEventListener("click", async (evento)=>{
-            crearCarrito();
-            evento.preventDefault(); 
-            evento.stopPropagation();  
+    DOMvar.addEventListener("click", (evento)=>{
+        crearCarrito();
+        evento.preventDefault(); 
+        evento.stopPropagation(); 
 
-            // agregar condicional si obtProd es null
-            let id  = DOMvar[i].getAttribute("data-id");
-            let prod = await obtenerProducto(id);
-          
-            let res = {
-                idProducto : prod.id,
-                nombre : prod.name,
-                costo : prod.cost,
-                moneda : prod.currency,
-                cantidad : 1, 
-                img : prod.images[0]
-            }
-            
-            agregarACarrito(res);
+        agregarACarrito(prod);
 
-            })
-    }
+    })
+
 }
-
-
-// POST: retorna el producto con idProducto == id o null si no lo encuentra
-// function obtenerProducto(id){
-//     console.log("El array de productos es: " + currentProductsArray)
-//     console.log(id);
-
-//     return currentProductsArray.find(e => e.id == id) || null;
-//     // este es el caso donde no se encuentra el producto
-// }
-
 
 // POST: retorna el producto con idProducto == id o null si no lo encuentra
 async function obtenerProducto(id){
@@ -71,10 +42,12 @@ function agregarACarrito(prod){
             carrito.productos[pos].cantidad ++;
         }
 
-        carrito.cantProductos = carrito.cantProductos + prod.cantidad; 
+        carrito.cantProductos += prod.cantidad; 
 
         localStorage.setItem('cart', JSON.stringify(carrito));
-        localStorage.setItem('badge', JSON.stringify(carrito.cantProductos));
+        // document.getElementById("carrito-badge").textContent = carrito.cantProductos;
+
+        // localStorage.setItem('badge', JSON.stringify(carrito.cantProductos));
     }
 }
 
@@ -89,7 +62,7 @@ function crearCarrito(){
         };
     
         localStorage.setItem('cart', JSON.stringify(cart));
-        localStorage.setItem('badge', '0');
+        // localStorage.setItem('badge', '0');
     }
 }
 

@@ -31,11 +31,14 @@ function writeData(){
             currentProductsArray[i].soldCount, 
             currentProductsArray[i].id
         );
+
     }    
 
-    inicializaListenerCarrito(document.getElementsByClassName("card-button"));
+    // inicializaListenerCarrito(document.getElementsByClassName("card-button"));
 
-
+  
+    let cardButton = document.getElementsByClassName("card-boton");
+    
 }
 
 // too late for this
@@ -111,7 +114,7 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
 
         <div class="card-footer">
             <p class="card-precio">${currency} ${cost}</p>
-            <p class="card-boton"><button class="button card-button" data-id="${ID}" >Agregar al carrito</button></p>
+            <p class="card-boton"><button class="button card-button" id="${ID}" >Agregar al carrito</button></p>
         </div>
     `;
     // Agregué una clase en el botón para seleccionarla ^  porque con la clase que tenía
@@ -127,6 +130,8 @@ function createItemCard(name, description, cost, currency, img, soldCount, ID){
         window.location = "product-info.html";
 
     })
+
+    inicializaListenerCarrito(document.getElementById(ID), {idProducto : ID, nombre : name, costo : cost, moneda : currency, cantidad : 1, img : img});
 }    
 
 /*filtra el precio */

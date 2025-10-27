@@ -23,9 +23,9 @@ let
 
 async function productInfo(link) {
    let 
-      producto = await (await fetch(link)).json(),
-      imgSelecionables;
-   
+      imgSelecionables,   
+      producto = await (await fetch(link)).json();
+        
    function imgSelecionada(img) {
       for (let imgs of imgSelecionables) {
          imgs.style.border = "solid 3px #e0e0e0";
@@ -85,6 +85,15 @@ async function productInfo(link) {
 
       listProdRel.appendChild(divCont);
    }
+
+   let prod = {idProducto : idProductoLS, nombre : producto.name, costo : producto.cost, moneda : producto.currency, cantidad : 1, img : producto.image};
+   inicializaListenerCarrito(document.getElementById("botoncomprarinfo"), prod);
+   inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);
+   
+   document.getElementById("botoncomprarinfo").addEventListener("click", ()=> {
+      window.location.href = 'cart.html'
+   })
+
 }
 
 //Actualiza las valoraciones generales
@@ -340,9 +349,4 @@ productInfo(linkProducto);
 obtenerComentarios();
 
 
-// agrego los data-id a los botones para la funcionalidad del carrito
-
-document.getElementById("botoncomprarinfo").setAttribute("data-id", idProductoLS);
-document.getElementById("agregarCarritoInfo").setAttribute("data-id", idProductoLS);
-
-inicializaListenerCarrito([document.getElementById("botoncomprarinfo"), document.getElementById("agregarCarritoInfo")]);
+// document.getElementById("agregarCarritoInfo").setAttribute("data-id", idProductoLS);
