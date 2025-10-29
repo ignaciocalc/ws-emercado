@@ -70,12 +70,14 @@
     --iconosCuadrados-colorVisto: rgb(165, 74, 25, 1);
     --iconosCuadrados-duracionAni: 0.15s;
     --iconosCuadrados-duracionTra: 0.15s;
-    
+
+    /* Carrito */
     --brilloImg-carritoVacio: brightness(175%);
     --colorBoton-carritoVacio: #f5f5f5;
     --colorTextBoton-carritoVacio: #b4b3b3;
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
+    --fondoImgPortada-carritoLleno: #e7e7e7;
 }   
 
 body.darkmode {
@@ -150,6 +152,13 @@ body.darkmode {
     --iconosCuadrados-duracionAni: 0.15s;
     --iconosCuadrados-duracionTra: 0.15s;
 
+    /* Carrito */
+    --brilloImg-carritoVacio: brightness(175%);
+    --colorBoton-carritoVacio: #f5f5f5;
+    --colorTextBoton-carritoVacio: #b4b3b3;
+    --colorBotonH-carritoVacio: #ff9954;
+    --colorTextBtonoH-carritoVacio: #fddabc;
+    --fondoImgPortada-carritoLleno: #272626;
 }
 
 

@@ -1,5 +1,6 @@
 const
    cotizacionDolar = 43,
+   descubrirProductos = document.getElementById("carrito-descubrirProductos"),
    contenedorProductos = document.getElementById("carrito-productos"),
    contPrincipal = document.getElementById("carrito-contPrincipal"),
    valorTotal = document.getElementById("carrito-total"),
@@ -189,12 +190,14 @@ function alternarMoneda() {
       monedaActual = carritoTipoMoneda.getAttribute("moneda");
 
    if (monedaActual== "UYU"){
-      pesosText.style.left = `-${pesosText.offsetWidth + 2}px`;
+      carritoTipoMoneda.style.minWidth = `${dolaresText.offsetWidth}px`
+      pesosText.style.left = `+${pesosText.offsetWidth + 2}px`;
       dolaresText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "USD");
       actualizarTotal()
    } else {
-      dolaresText.style.left = `-${dolaresText.offsetWidth + 2}px`;
+      carritoTipoMoneda.style.minWidth = `${pesosText.offsetWidth}px`
+      dolaresText.style.left = `+${dolaresText.offsetWidth + 2}px`;
       pesosText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "UYU");
       actualizarTotal()
@@ -249,5 +252,7 @@ function inicializarCarrito(){
 
 
 btnAlternarMoneda.addEventListener('click', alternarMoneda);
+descubrirProductos.addEventListener('click', ()=> window.location = "categories.html");
 inicializarCarrito();
-dolaresText.style.left = `-${dolaresText.offsetWidth + 2}px`;
+dolaresText.style.left = `+${dolaresText.offsetWidth + 2}px`;
+carritoTipoMoneda.style.minWidth = `${pesosText.offsetWidth}px`
