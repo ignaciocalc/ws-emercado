@@ -34,7 +34,7 @@ function agregarACarrito(prod){
     let carrito = JSON.parse(localStorage.getItem('cart'));
 
     if(carrito !== null){          // busca la primera expresión que coincida en el array y devuelve el  índice
-        let pos = carrito.productos.findIndex(e => e.idProducto === prod.idProducto ); 
+        let pos = carrito.productos.findIndex(e => e.idProducto == prod.idProducto ); 
 
         if (pos === -1){
             carrito.productos.push(prod);
