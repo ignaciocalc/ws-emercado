@@ -8,7 +8,7 @@
     --texto-colorEnfasis: black;
     --texto-colorPrincipal:#2a2a2a;
     --texto-colorAtenuado:#b4b3b3;
-    --texto-colorSuavizado: #d6d6d6;
+    --texto-colorSuavizado: #d8d8d8;
     --texto-resaltanteAzul:#3483fa;
     --texto-negativo: white;
     --bordeEstandar-color: #ddd;
@@ -71,6 +71,11 @@
     --iconosCuadrados-duracionAni: 0.15s;
     --iconosCuadrados-duracionTra: 0.15s;
     
+    --brilloImg-carritoVacio: brightness(175%);
+    --colorBoton-carritoVacio: #f5f5f5;
+    --colorTextBoton-carritoVacio: #b4b3b3;
+    --colorBotonH-carritoVacio: #ff9954;
+    --colorTextBtonoH-carritoVacio: #fddabc;
 }   
 
 body.darkmode {

@@ -313,4 +313,4 @@ btnDarkMode.addEventListener('click', clickDarkMode);
 btnDarkMMobile.addEventListener('click', clickDarkMode);
 setModo(localStorage.getItem("modo"));
 
-carritoBoton.addEventListenner(() => window.location = "cart.html")
+carritoBoton.addEventListener("click", () => window.location = "cart.html");
