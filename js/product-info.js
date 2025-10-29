@@ -1,3 +1,4 @@
+import {inicializaListenerCarrito} from "./utils.js";
 const
    idProductoLS = localStorage.getItem('idProducto'),
    linkProducto = "https://japceibal.github.io/emercado-api/products/" + idProductoLS + ".json",
@@ -22,9 +23,9 @@ let
 
 async function productInfo(link) {
    let 
-      producto = await (await fetch(link)).json(),
-      imgSelecionables;
-   
+      imgSelecionables,   
+      producto = await (await fetch(link)).json();
+        
    function imgSelecionada(img) {
       for (let imgs of imgSelecionables) {
          imgs.style.border = "solid 3px #e0e0e0";
@@ -33,9 +34,9 @@ async function productInfo(link) {
       imgPrincipal.src = producto.images[img];
    }
 
-   //cargar imagen principal
+   //cargar imagen principal  
    imgPrincipal.src = producto.images[0];
-
+   
    // cargar imagenes en el contemedor de galImg y su funcionalidad
    for (let i = 0; i < producto.images.length; i++){
       const nuevaImagen = document.createElement('img');
@@ -84,6 +85,15 @@ async function productInfo(link) {
 
       listProdRel.appendChild(divCont);
    }
+
+   let prod = {idProducto : idProductoLS, nombre : producto.name, costo : producto.cost, moneda : producto.currency, cantidad : 1, img : producto.image};
+   inicializaListenerCarrito(document.getElementById("botoncomprarinfo"), prod);
+   inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);
+   
+   document.getElementById("botoncomprarinfo").addEventListener("click", ()=> {
+      window.location.href = 'cart.html'
+   })
+
 }
 
 //Actualiza las valoraciones generales
@@ -151,7 +161,7 @@ let
    ingresar = document.getElementById("ingresarComent"),
    contComentario = document.getElementById('comentUser'),
    aviso = document.getElementById('aviso'),
-   popUpCalificar = document.getElementById("popUpCalificar")
+   popUpCalificar = document.getElementById("popUpCalificar"),
    bttnsRadio = document.getElementById('cantEstrellas').elements.calif;
 
 function pintarEstrella(evento){
@@ -337,3 +347,6 @@ async function obtenerComentarios() {
 
 productInfo(linkProducto);
 obtenerComentarios();
+
+
+// document.getElementById("agregarCarritoInfo").setAttribute("data-id", idProductoLS);
