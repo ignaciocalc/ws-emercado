@@ -114,3 +114,21 @@ function mostrarProducto(producto) {
 
    contenedorProductos.appendChild(productoCard)
 }
+
+function inicializarCarrito(){
+   const
+      carritoLs = localStorage.getItem("cart"),
+      contPrincipal = document.getElementById("carrito-contPrincipal");
+   
+   if (carritoLs) {
+      contPrincipal.className = "carrito-lleno";
+      const carrito = JSON.parse(carritoLs);
+      carrito.productos.forEach(producto => {
+         mostrarProducto(producto)
+      });
+   } else {
+      contPrincipal.className = "carrito-vacio";
+   }
+}
+
+inicializarCarrito();
