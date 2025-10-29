@@ -1,30 +1,99 @@
 const
-   contenedorProductos = document.getElementById("carrito-productos");
+   cotizacionDolar = 43,
+   contenedorProductos = document.getElementById("carrito-productos"),
+   contPrincipal = document.getElementById("carrito-contPrincipal"),
+   valorTotal = document.getElementById("carrito-total"),
+   btnAlternarMoneda = document.getElementById("carrito-alternadorMoneda"),
+   carritoTipoMoneda = document.getElementById("carrito-tipoMoneda"),
+   pesosText = document.querySelector("#carrito-tipoMoneda :first-child"),
+   dolaresText = document.querySelector("#carrito-tipoMoneda :last-child"),
+   estiloMoneda = new Intl.NumberFormat('es-UY');
 
+function actualizarCantItem(id, cantidadItem){
+// si cantidadItem es 0 elimina el elemento por completo
+// si se puede llamar a esta funcion existe el item cart en el ls
+// si cantidadItem tiene un valor, ese valor se suma (o resta si es negativo) a la cantidad actual de productos
+const
+   carrito = JSON.parse(localStorage.getItem("cart"));
+   posicion = carrito.productos.findIndex(elemento => elemento.idProducto == id);
 
-function agregarAlSubtotal(elemento) {
-   const 
-      valor = parseInt(elemento.value);
+   if (cantidadItem == 0){
+      const
+         cantidadEliminados = carrito.productos[posicion].cantidad;
 
-   if (valor < 99) 
-      elemento.value = valor + 1
+      carrito.productos.splice(posicion, 1);
+      if (carrito.productos.length == 0) {
+         contPrincipal.className = "carrito-vacio"
+         localStorage.removeItem("cart");
+         //actualizar badge
+      } else {
+         carrito.cantProductos = carrito.cantProductos - cantidadEliminados;
+         //actualizar badge
+         localStorage.setItem("cart", JSON.stringify(carrito))
+      }
+   } else {
+      carrito.productos[posicion].cantidad += cantidadItem;
+      carrito.cantProductos += cantidadItem; 
+      localStorage.setItem("cart", JSON.stringify(carrito));
+   }
 }
 
-function quitarAlSubtotal(elemento) {
+function actSubtotal(idProducto, inputCantidad, precioU, accion) {
    const 
-      valor = parseInt(elemento.value);
+      valorInput = parseInt(inputCantidad.value),
+      subtotalCont = document.getElementById(`subtotal-${idProducto}`),
+      monedaSubTotal = subtotalCont.getAttribute("moneda"),
+      monedaTotal = carritoTipoMoneda.getAttribute("moneda");
 
-   if (valor <= 1) 
-      alert("hola")
-   else
-      elemento.value = valor - 1
+   let
+      totalActual = parseInt(valorTotal.getAttribute('valor')),
+      valorSubtotalAct,
+      aux;
+
+   function actTotalySubtotal(){
+      // Actualiza subtotal
+      valorSubtotalAct = inputCantidad.value * precioU;
+      subtotalCont.textContent = monedaSubTotal + " " + valorSubtotalAct;
+      subtotalCont.setAttribute("valor", valorSubtotalAct);
+
+      // Actualiza total
+      totalActual -= valorInput * aux;
+      totalActual += inputCantidad.value * aux;
+      valorTotal.textContent = monedaTotal + " " + estiloMoneda.format(totalActual);
+      valorTotal.setAttribute("valor", totalActual);
+   }
+
+   //Convertir moneda
+   aux = precioU;
+   if (monedaTotal != monedaSubTotal)
+      if (monedaSubTotal == "UYU")
+         aux = precioU / cotizacionDolar;
+      else
+         aux = precioU * cotizacionDolar;
+
+
+   if ((valorInput < 99) && (accion == "agregar")) {
+      //Actualizar su subtotal
+      inputCantidad.value = valorInput + 1;
+
+      //Actualizar total, subtotal y localstorage
+      actTotalySubtotal();
+      actualizarCantItem(idProducto, 1);
+   } else if ((valorInput > 1) && (accion == "remover")) {
+      inputCantidad.value = valorInput - 1;
+      //Actualizar total, subtotal y localstorage
+      actTotalySubtotal();
+      actualizarCantItem(idProducto, -1);
+   }  
 }
 
-function removerItem(item) {
+function removerItem(item, id) {
    let
       duracionMs = 200,
       cantPasos = 30,
       pixeles = item.offsetHeight;
+
+   // Elimina visualmente el elemento
    item.style.transform = "scale(0.95)";
    item.style.opacity = "0.0";
    duracionMs = duracionMs / cantPasos;
@@ -33,12 +102,9 @@ function removerItem(item) {
       setTimeout(()=> {item.style.height = `${(cantPasos - i) * pixeles}px`}, i*duracionMs)
    }
    setTimeout(()=>{item.remove()}, duracionMs*cantPasos);
-}
-   
 
-function actSubtotal(idProducto, cantidad, precioU, moneda){
-   const
-      subtotalCont = document.getElementById(idProducto)
+   // Elimina el producto del localStorage y actualiza la cantidad de items
+   actualizarCantItem(id, 0)
 }
 
 function mostrarProducto(producto) {
@@ -70,13 +136,16 @@ function mostrarProducto(producto) {
 
    contEliMod.className = "carrito-contEliMod";
    btnEliminar.textContent = "Eliminar";
-   btnEliminar.addEventListener("click", ()=> {removerItem(productoCard)})
+   btnEliminar.addEventListener("click", ()=> {
+      removerItem(productoCard, producto.idProducto)
+   })
    contEliMod.appendChild(btnEliminar);
    contEliMod.appendChild(contCantidad);
    btnAgregar.className = "carrito-btnAgregar";
    btnAgregar.src = "img/add.svg";
-   btnAgregar.addEventListener('click', ()=> {agregarAlSubtotal(cantidad)
-                                              actSubtotal(producto.idProducto, cantidad.value, producto.costo)});
+   btnAgregar.addEventListener('click', function(){
+      actSubtotal(producto.idProducto, cantidad, producto.costo, "agregar");
+   });
 
    contCantidad.classList = "carrito-controlCantidad";
    contCantidad.appendChild(btnAgregar);
@@ -84,13 +153,13 @@ function mostrarProducto(producto) {
    cantidad.className = "carrito-cantProductos";
    cantidad.value = producto.cantidad;
 
-   cantidad.addEventListener("input", ()=> actSubtotal(producto.idProducto, producto.cantidad, producto.costo, producto.moneda)); 
-   
-
    contCantidad.appendChild(cantidad);
    btnRemover.className = "carrito-btnRemover";
    btnRemover.src = "img/remove.svg";
-   btnRemover.addEventListener('click', ()=> quitarAlSubtotal(cantidad))
+   btnRemover.addEventListener('click', function() {
+      actSubtotal(producto.idProducto, cantidad, producto.costo, "remover");
+   })
+
    contCantidad.appendChild(btnRemover);
 
    infoProducto.className = "carrito-infoProducto"
@@ -115,10 +184,56 @@ function mostrarProducto(producto) {
    contenedorProductos.appendChild(productoCard)
 }
 
+function alternarMoneda() {
+   const
+      monedaActual = carritoTipoMoneda.getAttribute("moneda");
+
+   if (monedaActual== "UYU"){
+      pesosText.style.left = `-${pesosText.offsetWidth + 2}px`;
+      dolaresText.style.left = "0";
+      carritoTipoMoneda.setAttribute("moneda", "USD");
+      actualizarTotal()
+   } else {
+      dolaresText.style.left = `-${dolaresText.offsetWidth + 2}px`;
+      pesosText.style.left = "0";
+      carritoTipoMoneda.setAttribute("moneda", "UYU");
+      actualizarTotal()
+   }
+}
+
+function actualizarTotal(){
+   const
+      subtotales = document.querySelectorAll(".carrito-subtotal"),
+      moneda = carritoTipoMoneda.getAttribute("moneda");
+   let
+      total = 0;
+   
+   subtotales.forEach((elemento)=> {
+      const
+         monedaSub = elemento.getAttribute("moneda");
+      let   
+         valorSub = parseInt(elemento.getAttribute("valor"));
+      
+      if (moneda != monedaSub)
+         if (moneda == "UYU")
+            valorSub = valorSub * cotizacionDolar;
+         else  
+            valorSub = valorSub / cotizacionDolar;
+      
+      total += valorSub;
+   })
+
+   
+   if (total % 1 != 0)
+      total = total.toFixed(2); 
+
+   valorTotal.textContent = moneda + " " + estiloMoneda.format(total);
+   valorTotal.setAttribute('valor', total);  
+}
+
 function inicializarCarrito(){
    const
-      carritoLs = localStorage.getItem("cart"),
-      contPrincipal = document.getElementById("carrito-contPrincipal");
+      carritoLs = localStorage.getItem("cart");
    
    if (carritoLs) {
       contPrincipal.className = "carrito-lleno";
@@ -126,9 +241,13 @@ function inicializarCarrito(){
       carrito.productos.forEach(producto => {
          mostrarProducto(producto)
       });
+      actualizarTotal()
    } else {
       contPrincipal.className = "carrito-vacio";
    }
 }
 
+
+btnAlternarMoneda.addEventListener('click', alternarMoneda);
 inicializarCarrito();
+dolaresText.style.left = `-${dolaresText.offsetWidth + 2}px`;
