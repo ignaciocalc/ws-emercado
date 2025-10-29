@@ -2083,7 +2083,7 @@ li a {
         width: clamp(13.125rem, 9.305rem + 19.101vw, 18.438rem);
         filter: var(--brilloImg-carritoVacio);
         order: 1;
-        margin-bottom: 2px;
+        margin-bottom: 12px;
     }
 
     #carrito-descubrirProductos {
@@ -2096,7 +2096,7 @@ li a {
             background-color var(--animacion-darkMode) ease,
             box-shadow var(--animacion-darkMode) ease,
             color var(--animacion-darkMode) ease;
-        font-size: (0.8rem, 0.44rem + 1.798vw, 1.3rem);
+        font-size: clamp(0.8rem, 0.44rem + 1.798vw, 1.3rem);
     }
 
     #carrito-descubrirProductos:hover {
@@ -2123,31 +2123,40 @@ li a {
 
     #carrito-contPrincipal.carrito-lleno #carrito-lleno{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         padding: 2vw 3.5vw;
         gap: 10px;
     }
 
     #carrito-totalComprar {
+        box-sizing: border-box;
+        position: fixed;
         display: flex;
+        align-self: center;
         flex-direction: column;
         padding: 15px;
         flex: 1;
-        border-radius: 5px;
-        min-width: fit-content;
-        max-height: fit-content;
-        max-width: fit-content;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
         box-shadow: 0px 0px 2px 2px var(--sombra-cards);
         background-color: var(--fondo-cards);
+        bottom: 0;
+        width: 100vw;
         transition: 
             background-color var(--animacion-darkMode) ease,
             box-shadow var(--animacion-darkMode) ease;
     }
 
+    #carrito-totalComprar button{
+        font-size: 1.3rem ;
+        padding: 6px;
+    }
+    
+
     #carrito-contTotal {
         display: flex;
-        flex-direction: column;    
+        flex-direction: row;
         justify-content: space-between;
         font-size: clamp(1.1rem, 0.689rem + 0.856vw, 1.4rem);
     }
@@ -2160,7 +2169,6 @@ li a {
         #carrito-contTotal :last-child{
             margin: 0;
             white-space: nowrap;
-            margin-right: 15px;
         }
 
     #carrito-alternadorMoneda {
@@ -2213,21 +2221,23 @@ li a {
 
     .carrito-contImgProducto {
         display: flex;
-        flex: 1; 
+        flex: 3.5;
         padding: 0.5%;
-        aspect-ratio: 1 / 1;
-        max-width: 120px;   
+        aspect-ratio: 1 / 1;  
+        max-width: 120px; 
     }
 
     .carrito-infoProducto {
-        flex: 4
+        flex: 5;
+        overflow: hidden;
     }
 
     .carrito-infoProducto h1{
         margin-bottom: 0px;
         margin-left: 6px;
         margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
-        font-size: clamp(1.6rem, 0.42rem + 2.456vw, 2.3rem);
+        font-size: clamp(1.2rem, 0.697rem + 2.517vw, 1.9rem);
+        white-space: nowrap;
     }
 
     .carrito-contSubtotal {
@@ -2237,8 +2247,8 @@ li a {
         justify-content: center;
         flex: 1;
         padding: clamp(0.625rem, -0.232rem + 1.783vw, 1.25rem);
-        font-size: clamp(0.8rem, -0.434rem + 2.567vw, 1.7rem);
-        padding-right: 20px;
+        font-size: clamp(0.7rem, 0.233rem + 2.337vw, 1.35rem);
+        padding-right: 10px;
         white-space: nowrap;    
     }
 
@@ -2270,8 +2280,8 @@ li a {
 
     .carrito-contEliMod {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: flex-start;    
     }
 
     .carrito-contEliMod p{
@@ -2279,22 +2289,25 @@ li a {
         color: var(--secundario-color);
         cursor: pointer;
         margin-left: 6px;
-        font-size: clamp(0.8rem, 0.463rem + 0.702vw, 1rem);
+        font-size: clamp(0.7rem, 0.448rem + 1.258vw, 1.05rem);
         transition: color var(--animacion-darkMode) ease;
     }
 
     .carrito-controlCantidad{
+        margin-top: 2px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        border: solid 2px var(--bordeEstandar-color);
-        border-radius: 5px;
-        margin-right: 10px;
+        box-shadow: 0px 0px 2px 1px var(--bordeEstandar-color);
+        border-radius: 4px;
+        width: clamp(3.813rem, 2.959rem + 4.27vw, 5rem);
+        margin-left: 7px;
         transition: border var(--animacion-darkMode) ease;
+        margin: 8px;
     }
 
     .carrito-btnAgregar {
-        width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem); 
     }
 
     .carrito-controlCantidad input{
@@ -2303,14 +2316,14 @@ li a {
         border: none;
         background-color: var(--fondo-cards);
         color: var(--texto-colorPrincipal);
-        font-size: clamp(0.6rem, 0.094rem + 1.053vw, 0.9rem);
+        font-size: clamp(0.75rem, 0.139rem + 3.056vw, 1.6rem);
         transition: 
             background-color var(--animacion-darkMode) ease,
             color var(--animacion-darkMode) ease;
     }
 
     .carrito-btnRemover {
-        width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem);
     }
 
 } 
