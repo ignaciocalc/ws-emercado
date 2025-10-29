@@ -276,7 +276,7 @@ body {
     align-items: flex-end;
     border: none;
     justify-content: center;
-    width: 35px;
+    width: 37px;
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -2270,5 +2270,19 @@ p.card-boton .button {
 
     .carrito-btnRemover {
         width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+    }
+
+/* badge */
+
+    #carrito-badgeCel {
+        position: absolute;
+        left: 0px;
+        font-size: 0.65rem;
+    }
+
+    #carrito-badge {
+        position: absolute;
+        top: 0;
+        font-size: 0.65rem;
     }
 }
