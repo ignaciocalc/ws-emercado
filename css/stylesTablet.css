@@ -1858,6 +1858,8 @@ li a {
 }
 
 #perfil-letraFoto {
+    user-select: none;
+    margin: 0;
     color: var(--principal-color);
     margin: 0;
     font-size: clamp(3.3rem, 0.53rem + 13.807vw, 5rem);

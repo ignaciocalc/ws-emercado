@@ -37,6 +37,9 @@ const //popUp
     popUpbtnSelect = document.getElementById("perfil-popUp-seleccionar"),
     btnEditar = document.getElementById("perfil-botonEditar");
 
+const //eliminar foto de perfil
+    imagenAux = document.getElementById("perfil-imgDescriptiva"),
+    btnImagenAux = document.getElementById("perfil-ImgCamEdit");
 
 if(userDir == null){
     alert("No deberías estar aquí");
@@ -50,6 +53,8 @@ if((user.img != undefined) && (user.img != "")){
     imgPerfil.style.display = "block";
     imgPerfil.src = user.img;
     letraFoto.style.display = "none";
+    if (window.matchMedia("(max-width: 769px)").matches) 
+            imagenAux.src = 'img/delete.svg';
 } else {
     letraFoto.style.display = "block";
     letraFoto.textContent       = user.email.substring(0, 1).toUpperCase();
@@ -94,8 +99,26 @@ if(user.nombre !== undefined){
 //     localStorage.setItem('user', JSON.stringify(res));
 // }
 
-contenedorImg.addEventListener("click", ()=> {
-    inputFile.click();
+btnImagenAux.addEventListener('mouseover', function(){
+    if (imgPerfil.style.display != "none")
+        imagenAux.src = 'img/delete.svg'
+})
+
+btnImagenAux.addEventListener('mouseout', function(){
+    imagenAux.src = 'img/camara.svg'
+})
+
+contenedorImg.addEventListener("click", (evento)=> {
+    if ((imgPerfil.style.display == "none") || evento.target == imgPerfil){
+        inputFile.click();
+    } else if ((evento.target == btnImagenAux) || (evento.target == imagenAux)) {
+        const
+            user = JSON.parse(localStorage.getItem("user"));
+
+        user.img = "";
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
+    }
 })
 
 inputFile.addEventListener("change", cargarImagen);
@@ -160,6 +183,8 @@ popUpbtnConfirmar.addEventListener("click", function(){
     imgHeaderimg.style.display = "block";
     perfilPopUp.className = "perfil-popUp-ocultar";
     localStorage.setItem('user', JSON.stringify(user));
+    if (window.matchMedia("(max-width: 769px)").matches) 
+            imagenAux.src = 'img/delete.svg';
 })
 
 //edicion de datos (boton editar)

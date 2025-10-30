@@ -1873,6 +1873,8 @@ li a {
 }
 
 #perfil-letraFoto {
+    user-select: none;
+    margin: 0;
     color: var(--principal-color);
     transition: color var(--animacion-darkMode) ease;
     margin: 0;
