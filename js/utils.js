@@ -102,9 +102,9 @@ export function alerteMercado(string, duracionMs){
 
     requestAnimationFrame(() => {
         cartelPrincipal.style.top = `${1}vh`;
-        // setTimeout(()=> {
-        //     cartelPrincipal.style.top = `-${cartelPrincipal.offsetHeight + 20}px`;
-        //     setTimeout(()=>cartelPrincipal.remove(), transicionMs)
-        // },duracion)
+        setTimeout(()=> {
+            cartelPrincipal.style.top = `-${cartelPrincipal.offsetHeight + 20}px`;
+            setTimeout(()=>cartelPrincipal.remove(), transicionMs)
+        },duracion)
     })
 }

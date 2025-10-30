@@ -1,3 +1,4 @@
+import {alerteMercado} from "./utils.js";
 /*
 LOGICA
 1) Obtener los datos del formulario y cargarlos al local storage [R]
@@ -42,7 +43,7 @@ const //eliminar foto de perfil
     btnImagenAux = document.getElementById("perfil-ImgCamEdit");
 
 if(userDir == null){
-    alert("No deberías estar aquí");
+    alerteMercado("No deberías estar aquí");
     window.location = "index.html";
 }
     
@@ -137,7 +138,7 @@ function cargarImagen(){
             inputFile.value = ""
         } else {
             if (!file.type.startsWith('image/')) {
-                alert("Debe cargar una imagen");
+                alerteMercado("Debe cargar una imagen");
                 inputFile.value = ""
             } else {
                 perfilPopUp.className = "perfil-popUp-invalido";
