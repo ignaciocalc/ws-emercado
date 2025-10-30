@@ -217,8 +217,8 @@ ingresar.addEventListener('click', function(){
 enviar.addEventListener('click', function(evento){ //funcion para enviar comentario
    const 
       score = bttnsRadio.value,
-      comentarioText = contComentario.value;
-      emailUser = JSON.parse(nombreUser).email
+      comentarioText = contComentario.value,
+      emailUser = JSON.parse(nombreUser).email;
          
    if (score == "" || comentarioText == ""){
 
