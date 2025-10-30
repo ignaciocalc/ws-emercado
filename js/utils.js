@@ -67,3 +67,26 @@ export function actualizarBadge(cant){
     badgeSem.textContent = cant;
     badgeCel.textContent = cant;
 }
+
+export function alerteMercado(string){
+    const
+        cartelPrincipal = document.createElement("div"),
+        contImgLogo = document.createElement('div'),
+        imgLogo = document.createElement('img'),
+        mensaje = document.createElement('p');
+    
+    cartelPrincipal.id = "alerteMercado";
+
+    contImgLogo.id = "alerteMercado-imagencont";
+    imgLogo.id = "alerteMercado-imagen";
+    imgLogo.src = "img/Logo_Naranja.png";
+    contImgLogo.appendChild(imgLogo);
+
+    mensaje.id = "alerteMercado-mensaje";
+    mensaje.textContent = string;
+
+    cartelPrincipal.appendChild(contImgLogo);
+    cartelPrincipal.appendChild(mensaje);
+
+    document.body.appendChild(cartelPrincipal);
+}
