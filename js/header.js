@@ -1,3 +1,4 @@
+import {actualizarBadge} from "./utils.js";
 const 
    body = document.body,
    btnDarkMode = document.getElementById("modeBtn"),
@@ -26,8 +27,7 @@ const
    barraBuscador = document.getElementById("buscador"),
    menuBarras = document.getElementById("menuBarras"),
    menuDesplegable = document.getElementById("menu"),
-   email = document.getElementById("email");
-
+   email = document.getElementById("email"),
    cerrarSesionMenu = document.getElementById("cerrarSesionMenu");
 
 let 
@@ -113,6 +113,10 @@ barraBusqueda.addEventListener('click', function() {
 
 
 if (estaRegistrado != null) {
+   let
+      userLs = JSON.parse(estaRegistrado),
+      emailUser = userLs.email;
+
    /* Se muestra el tipo de botones correspondiente */
    contBotones.className = "botonesHeadLog";
    ingresarHead.className = "ingresarHeadLog";
@@ -121,9 +125,6 @@ if (estaRegistrado != null) {
    logOut.className = "logout";
    cerrarSesionMenu.className = "cerrarSesionMenu";
    ingresarIcon.style.display = "none";
-   userLs = JSON.parse(estaRegistrado)
-   emailUser = userLs.email;
-
    /* botones cel y tablet */
    datosUserCel.className = "datosUserLogeado"
 
@@ -314,3 +315,14 @@ btnDarkMMobile.addEventListener('click', clickDarkMode);
 setModo(localStorage.getItem("modo"));
 
 carritoBoton.addEventListener("click", () => window.location = "cart.html");
+
+// actualizacion del badge
+function inicializarBadge(){
+   const 
+   carrito = localStorage.getItem("cart");
+
+   if (carrito != null)
+      actualizarBadge(JSON.parse(carrito).cantProductos);
+}
+
+inicializarBadge()

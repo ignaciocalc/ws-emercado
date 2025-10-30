@@ -247,7 +247,7 @@
 }
 
 #carritoComprasCel img {
-    width: 30px;
+    width: 100%;
 }
 
 #buscadorIcono {
@@ -272,16 +272,17 @@
 
 .carritoCompraslog {
     display: flex;
-    align-items: center; 
-    border: 0px; 
+    align-items: center;
+    border: 0px;
     padding: 0;
     justify-content: center;
     background-color: transparent;
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 31px;
+    height: 35px;
     filter: brightness(var(--brillobtn-headear));
-    transition: filter var(--animacion-darkMode) ease
+    transition: filter var(--animacion-darkMode) ease;
+    position: relative;
 }
 
 .logoutNolog {
@@ -2317,6 +2318,7 @@ li a {
         margin-left: 7px;
         transition: border var(--animacion-darkMode) ease;
         margin: 8px;
+        user-select: none;
     }
 
     .carrito-btnAgregar {
@@ -2329,7 +2331,7 @@ li a {
         border: none;
         background-color: var(--fondo-cards);
         color: var(--texto-colorPrincipal);
-        font-size: clamp(0.75rem, 0.139rem + 3.056vw, 1.6rem);
+        font-size: clamp(0.55rem, 0.402rem + 1.28vw, 0.65rem);
         transition: 
             background-color var(--animacion-darkMode) ease,
             color var(--animacion-darkMode) ease;
@@ -2339,5 +2341,9 @@ li a {
         width: clamp(0.688rem, -0.503rem + 10.294vw, 1.563rem);
     }
 
-
+    #carrito-badgeCel{
+        position: absolute;
+        top: 2px;
+        font-size: 0.60rem;
+    }
 }

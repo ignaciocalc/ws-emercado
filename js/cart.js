@@ -1,3 +1,5 @@
+import {actualizarBadge} from "./utils.js";
+
 const
    cotizacionDolar = 43,
    descubrirProductos = document.getElementById("carrito-descubrirProductos"),
@@ -15,7 +17,7 @@ function actualizarCantItem(id, cantidadItem){
 // si se puede llamar a esta funcion existe el item cart en el ls
 // si cantidadItem tiene un valor, ese valor se suma (o resta si es negativo) a la cantidad actual de productos
 const
-   carrito = JSON.parse(localStorage.getItem("cart"));
+   carrito = JSON.parse(localStorage.getItem("cart")),
    posicion = carrito.productos.findIndex(elemento => elemento.idProducto == id);
 
    if (cantidadItem == 0){
@@ -26,15 +28,16 @@ const
       if (carrito.productos.length == 0) {
          contPrincipal.className = "carrito-vacio"
          localStorage.removeItem("cart");
-         //actualizar badge
+         actualizarBadge(0);
       } else {
          carrito.cantProductos = carrito.cantProductos - cantidadEliminados;
-         //actualizar badge
+         actualizarBadge(carrito.cantProductos);
          localStorage.setItem("cart", JSON.stringify(carrito))
       }
    } else {
       carrito.productos[posicion].cantidad += cantidadItem;
-      carrito.cantProductos += cantidadItem; 
+      carrito.cantProductos += cantidadItem;
+      actualizarBadge(carrito.cantProductos); 
       localStorage.setItem("cart", JSON.stringify(carrito));
    }
 }
@@ -86,7 +89,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
-   }  else {
+   }  else if (valorInput != 1) {
       alert("No es posible agregar mas de 99 articulos al carrito")
    }
 }
