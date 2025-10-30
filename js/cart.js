@@ -11,7 +11,7 @@ const
    estiloMoneda = new Intl.NumberFormat('es-UY');
 
 function actualizarCantItem(id, cantidadItem){
-// si cantidadItem es 0 elimina el elemento por completo
+// si cantidadItem es 0 elimina el elemento por completo, actualizando el total si es necesario
 // si se puede llamar a esta funcion existe el item cart en el ls
 // si cantidadItem tiene un valor, ese valor se suma (o resta si es negativo) a la cantidad actual de productos
 const
@@ -44,6 +44,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       valorInput = parseInt(inputCantidad.value),
       subtotalCont = document.getElementById(`subtotal-${idProducto}`),
       monedaSubTotal = subtotalCont.getAttribute("moneda"),
+      cantidadProdGeneral = JSON.parse(localStorage.getItem("cart")).cantProductos,
       monedaTotal = carritoTipoMoneda.getAttribute("moneda");
 
    let
@@ -54,7 +55,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
    function actTotalySubtotal(){
       // Actualiza subtotal
       valorSubtotalAct = inputCantidad.value * precioU;
-      subtotalCont.textContent = monedaSubTotal + " " + valorSubtotalAct;
+      subtotalCont.textContent = monedaSubTotal + " " + estiloMoneda.format(valorSubtotalAct);
       subtotalCont.setAttribute("valor", valorSubtotalAct);
 
       // Actualiza total
@@ -73,7 +74,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
          aux = precioU * cotizacionDolar;
 
 
-   if ((valorInput < 99) && (accion == "agregar")) {
+   if ((valorInput < 99) && (accion == "agregar") && (cantidadProdGeneral < 99)) {
       //Actualizar su subtotal
       inputCantidad.value = valorInput + 1;
 
@@ -85,7 +86,9 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
-   }  
+   }  else {
+      alert("No es posible agregar mas de 99 articulos al carrito")
+   }
 }
 
 function removerItem(item, id) {
@@ -102,10 +105,10 @@ function removerItem(item, id) {
    for (let i = 1; i <= cantPasos; i++){
       setTimeout(()=> {item.style.height = `${(cantPasos - i) * pixeles}px`}, i*duracionMs)
    }
-   setTimeout(()=>{item.remove()}, duracionMs*cantPasos);
+   setTimeout(()=>{item.remove();  actualizarTotal();}, duracionMs*cantPasos);
 
    // Elimina el producto del localStorage y actualiza la cantidad de items
-   actualizarCantItem(id, 0)
+   actualizarCantItem(id, 0);
 }
 
 function mostrarProducto(producto) {
@@ -134,6 +137,10 @@ function mostrarProducto(producto) {
    //crear seccion con titulo, boton eliminar e input
    nombreProducto.textContent = producto.nombre;
    nombreProducto.className = "carrito-nombreProducto";
+   nombreProducto.addEventListener("click", ()=>{
+      localStorage.setItem("idProducto", producto.idProducto);
+      window.location = "product-info.html"
+   })
 
    contEliMod.className = "carrito-contEliMod";
    btnEliminar.textContent = "Eliminar";
@@ -150,7 +157,8 @@ function mostrarProducto(producto) {
 
    contCantidad.classList = "carrito-controlCantidad";
    contCantidad.appendChild(btnAgregar);
-   cantidad.setAttribute("readonly", "")
+   cantidad.setAttribute("disabled", "");
+   cantidad.setAttribute("id", producto.idProducto);
    cantidad.className = "carrito-cantProductos";
    cantidad.value = producto.cantidad;
 
@@ -168,7 +176,7 @@ function mostrarProducto(producto) {
    infoProducto.appendChild(contEliMod);
 
    //crear seccion con subtotal de producto
-   subtotal.textContent = producto.moneda + " " + subTotalValor;
+   subtotal.textContent = producto.moneda + " " + estiloMoneda.format(subTotalValor);
    subtotal.className = "carrito-subtotal";
    subtotal.id = `subtotal-${producto.idProducto}`;
    subtotal.setAttribute("moneda", producto.moneda);
