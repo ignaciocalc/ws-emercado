@@ -2293,24 +2293,29 @@ p.card-boton .button {
     /* alerteMercado */
 
 #alerteMercado{
+    position: absolute;
     box-sizing: border-box;
-    padding: 1.3vw;
+    padding: 0.85vw;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     background-color: var(--fondo-cards);
     color: var(--texto-colorPrincipal);
-    max-width: 40vw;
-    margin: 0 30vw;
-    border-radius: 0.5vw;
-    font-size: 1.3vw;
+    min-width: 32vw;
+    max-width: 32vw;
+    margin: 0 34vw;
+    border-radius: 0.3vw;
+    font-size: 1vw;
     align-items: center;
+    left: 0;
+    box-shadow: 0px 0px 2px 2px var(--sombra-cards);
 }
 
 #alerteMercado-imagencont{
     display: flex;
     align-items: center;
-    max-width: 4vw;
+    max-width: 2.5vw;
+    min-width: 2.5vw;
     margin-right: 0.5vw;
     justify-content: center;
 }
@@ -2322,8 +2327,9 @@ p.card-boton .button {
 
 #alerteMercado p{
     margin: 0;
-    width: 100%;
+    width: 85%;
     padding-left: 2%;
+    overflow-wrap: break-word;
 }
 
 }
