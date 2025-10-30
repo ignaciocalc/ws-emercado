@@ -10,7 +10,8 @@ const
    logOut = document.getElementById("logout"),
    contBotUser = document.getElementById("contenidoUser"),
    imgPerfilHead = document.getElementById("header-fotoPerfil"),
-   imgPerfilHeadMob = document.getElementById("header-fotoPerfilMobile");
+   imgPerfilHeadMob = document.getElementById("header-fotoPerfilMobile"),
+   carritoBoton = document.getElementById("carritoCompras");
 
    // botones de tablet y celular
 const
@@ -311,3 +312,5 @@ function clickDarkMode() {
 btnDarkMode.addEventListener('click', clickDarkMode);
 btnDarkMMobile.addEventListener('click', clickDarkMode);
 setModo(localStorage.getItem("modo"));
+
+carritoBoton.addEventListener("click", () => window.location = "cart.html");

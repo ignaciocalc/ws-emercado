@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <header class="headerClass">
+<header class="headerClass">
     <!-- seccion de navegacion-->
     <div class="barraBusqueda">
       <div id="logoHeader">
@@ -33,15 +33,13 @@
 
       <div id="botonesHead" class="botonesHeadDeslog">
         <div id="modeBtn" class="modeBtn">
-          <div id="contDark" class="contDark"></div>
-          <img id="imgDarkmode" class="imgDarkmode" src="img/darkmode.svg">
-          <img id="lightMode" class="lightMode" src="img/lightMode.svg">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
         </div>
-        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
-        <div id="datosUser"><span id="contenidoUser"></span><img id="header-fotoPerfil"></div>
-        <a href="cart.html">
-          <div id="carritoCompras" class="button"><img src="img/carrito.svg"><div id="cartSem-animacion"></div></div>
-        </a>
+        <a href="login.html"><div id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></div></a>
+        <div id="datosUser"><span id="contenidoUser"></span><img id="header-fotoPerfil"><div id="datosUser-animacion"></div></div>
+        <div id="carritoCompras" class="button"><img src="img/carrito.svg"><div id="cartSem-animacion"></div></div>
         <div id="logout" class="button"><img src="img/logout.svg"><div id="logout-animacion"></div></div>
       </div>
 
@@ -68,7 +66,7 @@
     </div>
   </header>
 
-  <main id="contPrincipalPinfo" class="mainProducts">
+  <main id="contPrincipalCat" class="mainProducts">
     <div id="menu" class="noDesplegado">
         <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
       <div id="menuContOps">
@@ -101,10 +99,10 @@
         <img id="cerrarSesionMenu" class="cerrarSesionMenu" src="img/logout-menuMobile.svg">
       </div>
     </div>
-    </main>
+  </main>
 
   
-      <article id="popUpCalificar" class="popUpCalificar-ocultar">
+    <article id="popUpCalificar" class="popUpCalificar-ocultar">
       <section id="calificar" class="calificar-mostrar">
         <p>Nos gustaría conocer tu opinión</p>
         <form id="cantEstrellas">
@@ -165,8 +163,6 @@
           </section> 
         </article>
       </section>
-    <!-- Borrar al mergear -->
-    <!-- Borrar al mergear -->
     </div>
 
     <div id="contenedorBottom">
@@ -174,9 +170,7 @@
       <div id="contenedorComentarios">
 
         <div id="valoraciones">
-          <!-- valoraciones -->
           <p>Valoraciones</p>
-            <!-- poner estrellitas aca -->
             <div class="contenedorCalificacion">
               <p class="cantEstrellas">5 estrellas</p>
               <div class="barraCalificacion"><div id="barrEstrella5" class="barrEstrella"></div></div>
@@ -213,8 +207,6 @@
           <article id="list-comment">
           <h3 id="opiniones-titulo">Opiniones del producto</h3>
           <p id="btnComentar">Comentar</p>
-
-          <!-- AGREGADO PARA TEST -->
           </article>
 
         </div>

@@ -10,6 +10,7 @@ body {
     font-family: "inter", sans-serif;
     background-color: var(--fondo-contPrincipales);
     transition: background-color var(--animacion-darkMode) ease;
+    min-height: 100vh;
 }
 
 /*---------------Login---------------*/
@@ -242,6 +243,7 @@ body {
         border var(--animacion-darkMode) ease,
         box-shadow 0.07s ease;
     box-shadow: 0px 0px 0px 0px var(--iconosCircularesAnimacion-color);
+    cursor: default;
 }
 
 .datosUserLogeado:hover {
@@ -1799,7 +1801,7 @@ p.card-boton .button {
     font-size: 90px;
     position: relative;
     border: 4px solid var(--principal-color);
-            box-shadow: 0px 0px 0px 1px var(--fondoContDatos-miPerfil);
+    box-shadow: 0px 0px 0px 1px var(--fondoContDatos-miPerfil);
 }
 
 #perfil-ImgCamEdit {
@@ -2009,18 +2011,270 @@ p.card-boton .button {
     color: var(--texto-colorPrincipal);
 }
 
+/*-----------Carrito------------- */
+#carrito-contPrincipal{
+    display: flex;
+    width: 100%;
+    font-family: "inter", sans-serif;
 }
 
+#carrito-contPrincipal.carrito-vacio{
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 106px);
+}
 
+    #carrito-contPrincipal.carrito-vacio #carrito-vacio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-/* 
-DISEÑO
-1) arreglar el lapiz (PRONTO)
-2) arreglar la foto de perfil, hover y letra (PRONTO)
-3) hay que arreglar los inputs al hacer click, ver los estilos
-    quizas que no se muestre el borde (PRONTO)
-4) Arreglar variables de colores para que funque el modo oscuro (PRONTO)
-5) -extra- crear alguna animacion
-6) MAKE IT RESPONSIVE (PRONTO)
--el color del fondo de la card de mi perfil ta raro-
-*/
+    #carrito-vacio div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: clamp(3.3rem, 0.976rem + 5.551vw, 5rem);
+        color: var(--texto-colorSuavizado);
+        font-weight: 450;
+        transition: color var(--animacion-darkMode) ease;
+    }
+
+    #carrito-vacio img {
+        width: clamp(5rem, -1.837rem + 16.327vw, 10rem);
+        filter: var(--brilloImg-carritoVacio);
+    }
+
+    #carrito-vacio button {
+        width: 50%;
+        background-color: var(--colorBoton-carritoVacio);
+        color: var(--colorTextBoton-carritoVacio);
+        font-weight: 500;
+        box-shadow: 0px 0px 5px 3px var(--texto-colorSuavizado);
+        transition: 
+            background-color var(--animacion-darkMode) ease,
+            box-shadow var(--animacion-darkMode) ease,
+            color var(--animacion-darkMode) ease;
+    }
+
+    #carrito-vacio button:hover {
+        width: 50%;
+        background-color: var(--colorBotonH-carritoVacio);
+        color: var(--colorTextBtonoH-carritoVacio);
+        box-shadow: 0px 0px 5px 3px var(--colorBotonH-carritoVacio);
+    }
+
+    #carrito-contPrincipal.carrito-vacio #carrito-totalComprar{
+        display: none;
+    }
+
+#carrito-contPrincipal.carrito-lleno{
+    display: flex;
+    justify-content: center;
+    color: var(--texto-colorPrincipal);
+    transition: color var(--animacion-darkMode) ease;
+}
+
+    #carrito-contPrincipal.carrito-lleno #carrito-vacio{
+        display: none;
+    }
+
+    #carrito-contPrincipal.carrito-lleno #carrito-lleno{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 2vw 3.5vw;
+        gap: 10px;
+    }
+
+    #carrito-totalComprar {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        flex: 1;
+        border-radius: 5px;
+        min-width: fit-content;
+        max-height: fit-content;
+        max-width: fit-content;
+        box-shadow: 0px 0px 2px 2px var(--sombra-cards);
+        background-color: var(--fondo-cards);
+        transition: 
+            background-color var(--animacion-darkMode) ease,
+            box-shadow var(--animacion-darkMode) ease;
+    }
+
+    #carrito-contTotal {
+        display: flex;
+        flex-direction: column;    
+        justify-content: space-between;
+        font-size: clamp(1.1rem, 0.689rem + 0.856vw, 1.4rem);
+    }
+
+        #carrito-contTotal :first-child{
+            margin: 0;
+            font-weight: 550;
+        }
+
+        #carrito-contTotal :last-child{
+            margin: 0;
+            white-space: nowrap;
+            margin-right: 15px;
+        }
+
+    #carrito-alternadorMoneda {
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        user-select: none;
+        justify-content: space-between;
+    
+    }
+
+     #carrito-alternadorMoneda :first-child{
+        font-weight: 450;
+    }
+
+    #carrito-alternadorMoneda p {
+        margin: 10px 0;
+    }
+
+        #carrito-tipoMoneda {
+            display: flex;
+            flex-direction: row;
+            margin-left: 4px;
+            overflow: hidden;
+            position: relative;
+            color: var(--texto-resaltanteAzul);
+            max-width: fit-content;
+            transition: color var(--animacion-darkMode) ease;
+        }
+
+            #carrito-tipoMoneda :first-child {
+                position: absolute;
+                user-select: none;
+                transition: left 0.2s ease;
+            }
+
+            #carrito-tipoMoneda :last-child {
+                position: absolute;
+                user-select: none;
+                transition: left 0.2s ease;
+            }
+    
+    #carrito-productos {
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+    }
+
+    /* estilos tarjetas */
+
+    .carrito-contImgProducto {
+        display: flex;
+        flex: 1; 
+        padding: 0.5%;
+        aspect-ratio: 1 / 1;
+        max-width: 120px;   
+    }
+
+    .carrito-infoProducto {
+        flex: 4
+    }
+
+    .carrito-infoProducto h1{
+        margin-bottom: 0px;
+        margin-left: 6px;
+        margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
+        font-size: clamp(1.6rem, 0.42rem + 2.456vw, 2.3rem);
+        max-width: fit-content;
+    }
+
+    .carrito-nombreProducto:hover {
+        color: var(--principal-color);
+        cursor: pointer;
+    }
+
+    .carrito-contSubtotal {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        flex: 1;
+        padding: clamp(0.625rem, -0.232rem + 1.783vw, 1.25rem);
+        font-size: clamp(0.8rem, -0.434rem + 2.567vw, 1.7rem);
+        padding-right: 20px;
+        white-space: nowrap;    
+    }
+
+    .carrito-cardProducto {
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0px 0px 2px 2px var(--sombra-cards);
+        background-color: var(--fondo-cards);
+        overflow: hidden;
+        border-radius: 5px;
+        transform: scale(1);
+        opacity: 1;
+        margin-bottom: 5px;
+        transition:
+            transform 0.1s ease,
+            opacity 0.1s ease,
+            background-color var(--animacion-darkMode) ease,
+            box-shadow var(--animacion-darkMode) ease;
+    }
+
+    .carrito-imgProducto {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 5px;
+        background-color: var(--fondoImgPortada-carritoLleno);
+        transition: 
+            background-color var(--animacion-darkMode) ease;
+    }
+
+    .carrito-contEliMod {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .carrito-contEliMod p{
+        margin: 0;
+        color: var(--secundario-color);
+        cursor: pointer;
+        margin-left: 6px;
+        font-size: clamp(0.8rem, 0.463rem + 0.702vw, 1rem);
+        transition: color var(--animacion-darkMode) ease;
+    }
+
+    .carrito-controlCantidad{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 2px var(--bordeEstandar-color);
+        border-radius: 5px;
+        margin-right: 10px;
+        transition: border var(--animacion-darkMode) ease;
+    }
+
+    .carrito-btnAgregar {
+        width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+    }
+
+    .carrito-controlCantidad input{
+        width: clamp(0.75rem, -1.147rem + 3.947vw, 1.875rem);
+        text-align: center;
+        border: none;
+        background-color: var(--fondo-cards);
+        color: var(--texto-colorPrincipal);
+        font-size: clamp(0.6rem, 0.094rem + 1.053vw, 0.9rem);
+        transition: 
+            background-color var(--animacion-darkMode) ease,
+            color var(--animacion-darkMode) ease;
+    }
+
+    .carrito-btnRemover {
+        width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+    }
+}

@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <header class="headerClass">
+<header class="headerClass">
     <!-- seccion de navegacion-->
     <div class="barraBusqueda">
       <div id="logoHeader">
@@ -29,16 +29,21 @@
       <input id="buscador" class="noBuscando" type="text" placeholder="Buscar">
 
       <div id="botonesHead" class="botonesHeadDeslog">
-        <a href="login.html"><button id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></button></a>
-        <button id="datosUser" class="button"><span id="contenidoUser"></span></button>
-        <button id="carritoCompras" class="button"><img src="img/carrito.svg"></button>
-        <button id="logout" class="button"><img src="img/logout.svg"></button>
+        <div id="modeBtn" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <a href="login.html"><div id="ingresarHead" class="button ingresarHeadDesLog">Ingresar<img src="img/pruebaUser.svg"></div></a>
+        <div id="datosUser"><span id="contenidoUser"></span><img id="header-fotoPerfil"><div id="datosUser-animacion"></div></div>
+        <div id="carritoCompras" class="button"><img src="img/carrito.svg"><div id="cartSem-animacion"></div></div>
+        <div id="logout" class="button"><img src="img/logout.svg"><div id="logout-animacion"></div></div>
       </div>
 
       <div id="botonesCel" class="botonesCelStyle">
         <button id="buscadorIcono" class="buscadorIconoMostando"> <img src="img/Buscar.svg"></button>
         <a href="login.html"><img id="ingresarIcono" class="ingresarHeadDesLog" src="img/pruebaUser.svg"></a>
-        <button id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span></button>
+        <div id="datosUserCel" class="datosUserLogeado"><span id="contenidoUserCel"></span><img id="header-fotoPerfilMobile"></div>
         <a href="cart.html"><button id="carritoComprasCel" class="carritoCompraslog"><img src="img/carrito.svg"></button></a>
       </div>
     </div>
@@ -58,56 +63,74 @@
     </div>
   </header>
 
-  <main class="mainProducts">
+  <main id="contPrincipalCat" class="mainProducts">
     <div id="menu" class="noDesplegado">
-      <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
-      <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
-      <div class="noDesplegadoCategorias" id="categorias-menu"> 
-        <div id="categoriasBoton" class="categoriasBotonContraido">
-          <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
-          <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+        <div id="usuario-menu"> <span id="email"></span><img id="botonClose" src="img/close blanco.svg"></div>
+      <div id="menuContOps">
+        <div id="IrInicioMenu" class="boton-menu"> <a class="link-menu">INICIO</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
+        <div class="noDesplegadoCategorias" id="categorias-menu"> 
+          <div id="categoriasBoton" class="categoriasBotonContraido">
+            <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
+            <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
+          </div>
+          <ul id="lista-menu" class="lista-menu-oculto">
+            <li><a href="products.html">Autos</a></li>
+            <li>Jueguetes</li>
+            <li>Muebles</li>
+            <li>Herramientas</li>
+            <li>Computadoras</li>
+            <li>Vestimenta</li>
+            <li>Electrodomésticos</li>
+            <li>Deporte</li>
+            <li>Celulares</li>
+          </ul>
         </div>
-        <ul id="lista-menu" class="lista-menu-oculto">
-          <li><a href="products.html">Autos</a></li>
-          <li>Jueguetes</li>
-          <li>Muebles</li>
-          <li>Herramientas</li>
-          <li>Computadoras</li>
-          <li>Vestimenta</li>
-          <li>Electrodomésticos</li>
-          <li>Deporte</li>
-          <li>Celulares</li>
-        </ul>
+        <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
       </div>
-      <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
-      <button id="cerrarSesionMenu" class="cerrarSesionMenu">Cerrar Sesion</button>
-    </div>
-    </main>
-
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div id="pieMenu">
+        <div id="modeBtnMobile" class="modeBtn">
+          <div class="contDark"></div>
+          <img class="imgDarkmode" src="img/darkmode.svg">
+          <img class="lightMode" src="img/lightMode.svg">
+        </div>
+        <img id="cerrarSesionMenu" class="cerrarSesionMenu" src="img/logout-menuMobile.svg">
       </div>
     </div>
   </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <!--Fin header-->
+  
+  <main id="carrito-contPrincipal" class="carrito-lleno">
+    <article id="carrito-vacio">
+      <div id="carrito-cartel"> 
+        <img src="img/cart-off.svg">
+        <p>Su carrito esta vacío</p>
+      </div>
+      <button id="carrito-descubrirProductos" class="button">Descubrir productos</button>
+    </article>
+
+    <article id="carrito-lleno">
+      <section id="carrito-productos">
+      </section>
+
+      <section id="carrito-totalComprar">
+        <div id="carrito-contTotal">
+          <p>Total:</p>
+          <p id="carrito-total"></p>
+        </div>
+        <div id="carrito-alternadorMoneda" class="carrito-pesos">
+          <p>Moneda:</p>
+          <div id="carrito-tipoMoneda" moneda="UYU">
+            <p>UYU</p>
+            <p>USD</p>
+          </div>
+        </div>
+        <button class="button">Continuar compra</button>
+      </section>
+
+    </article>
+  </main>
+
+
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>

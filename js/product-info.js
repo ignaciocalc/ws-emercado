@@ -86,7 +86,7 @@ async function productInfo(link) {
       listProdRel.appendChild(divCont);
    }
 
-   let prod = {idProducto : idProductoLS, nombre : producto.name, costo : producto.cost, moneda : producto.currency, cantidad : 1, img : producto.image};
+   let prod = {idProducto : idProductoLS, nombre : producto.name, costo : producto.cost, moneda : producto.currency, cantidad : 1, img : producto.images[0]};
    inicializaListenerCarrito(document.getElementById("botoncomprarinfo"), prod);
    inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);
    
