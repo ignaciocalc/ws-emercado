@@ -50,15 +50,16 @@ function agregarACarrito(prod){
             carrito.productos.push(prod);
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
+            localStorage.setItem('cart', JSON.stringify(carrito));
         } else if (carrito.cantProductos < 99 ){
             carrito.productos[pos].cantidad ++;
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
+            localStorage.setItem('cart', JSON.stringify(carrito));
         } else {
             alert("No es posible agregar mas de 99 productos al carrito")
         }
          
-        localStorage.setItem('cart', JSON.stringify(carrito));
     }
 }
 
