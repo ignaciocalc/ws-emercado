@@ -27,27 +27,38 @@ async function obtenerProducto(id){
     return await res.json();
 }
 
+function actualizarBadge(cant){
+    const 
+        badgeSem = document.getElementById("carrito-badge"),
+        badgeCel = document.getElementById("carrito-badgeCel");
+    
+    badgeSem.textContent = cant;
+    badgeCel.textContent = cant;
+}
+
 
 // PRE: el carrito existe 
 // POST: carrito actualizado con prod agregado
 function agregarACarrito(prod){
+    
     let carrito = JSON.parse(localStorage.getItem('cart'));
 
     if(carrito !== null){          // busca la primera expresión que coincida en el array y devuelve el  índice
         let pos = carrito.productos.findIndex(e => e.idProducto == prod.idProducto ); 
 
-        if (pos === -1){
+        if ((pos === -1) && (carrito.cantProductos < 99)){
             carrito.productos.push(prod);
-        } else {
+            carrito.cantProductos += prod.cantidad;
+            actualizarBadge(carrito.cantProductos);
+        } else if (carrito.cantProductos < 99 ){
             carrito.productos[pos].cantidad ++;
+            carrito.cantProductos += prod.cantidad;
+            actualizarBadge(carrito.cantProductos);
+        } else {
+            alert("No es posible agregar mas de 99 productos al carrito")
         }
-
-        carrito.cantProductos += prod.cantidad; 
-
+         
         localStorage.setItem('cart', JSON.stringify(carrito));
-        // document.getElementById("carrito-badge").textContent = carrito.cantProductos;
-
-        // localStorage.setItem('badge', JSON.stringify(carrito.cantProductos));
     }
 }
 

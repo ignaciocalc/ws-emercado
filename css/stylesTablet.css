@@ -277,7 +277,8 @@
     width: 40px;
     height: 40px;
     filter: brightness(var(--brillobtn-headear));
-    transition: filter var(--animacion-darkMode) ease
+    transition: filter var(--animacion-darkMode) ease;
+    position: relative;
 }
 
 .logoutNolog {
@@ -2324,6 +2325,12 @@ li a {
 
     .carrito-btnRemover {
         width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem);
+    }
+
+    #carrito-badgeCel{
+        position: absolute;
+        top: 1px;
+        font-size: 0.75rem; 
     }
 
 } 
