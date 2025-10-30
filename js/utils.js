@@ -27,7 +27,7 @@ async function obtenerProducto(id){
     return await res.json();
 }
 
-function actualizarBadge(cant){
+export function actualizarBadge(cant){
     const 
         badgeSem = document.getElementById("carrito-badge"),
         badgeCel = document.getElementById("carrito-badgeCel");
@@ -74,7 +74,6 @@ function crearCarrito(){
         };
     
         localStorage.setItem('cart', JSON.stringify(cart));
-        // localStorage.setItem('badge', '0');
     }
 }
 
