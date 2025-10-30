@@ -1,4 +1,5 @@
 import {actualizarBadge} from "./utils.js";
+import {alerteMercado} from "./utils.js";
 
 const
    cotizacionDolar = 43,
@@ -90,7 +91,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
    }  else if (valorInput != 1) {
-      alert("No es posible agregar mas de 99 articulos al carrito")
+      alerteMercado("No es posible agregar mas de 99 articulos al carrito");
    }
 }
 

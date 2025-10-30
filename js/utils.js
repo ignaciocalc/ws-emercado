@@ -39,7 +39,7 @@ function agregarACarrito(prod){
             actualizarBadge(carrito.cantProductos);
             localStorage.setItem('cart', JSON.stringify(carrito));
         } else {
-            alert("No es posible agregar mas de 99 productos al carrito")
+            alerteMercado("No es posible agregar mas de 99 productos al carrito")
         }
          
     }
@@ -66,4 +66,45 @@ export function actualizarBadge(cant){
     
     badgeSem.textContent = cant;
     badgeCel.textContent = cant;
+}
+
+export function alerteMercado(string, duracionMs){
+    const
+        cartelPrincipal = document.createElement("div"),
+        contImgLogo = document.createElement('div'),
+        imgLogo = document.createElement('img'),
+        mensaje = document.createElement('p'),
+        transicionMs = 200,
+        duracionEstandarMs = 3500; 
+    
+    let
+        duracion = duracionEstandarMs;
+    
+    if (duracionMs != undefined) {
+        duracion = duracionMs;
+    }
+
+    cartelPrincipal.id = "alerteMercado";
+
+    contImgLogo.id = "alerteMercado-imagencont";
+    imgLogo.id = "alerteMercado-imagen";
+    imgLogo.src = "img/Logo_Naranja.png";
+    contImgLogo.appendChild(imgLogo);
+
+    mensaje.id = "alerteMercado-mensaje";
+    mensaje.textContent = string;
+
+    cartelPrincipal.appendChild(contImgLogo);
+    cartelPrincipal.appendChild(mensaje);
+    document.body.appendChild(cartelPrincipal);
+    cartelPrincipal.style.top = `-${cartelPrincipal.offsetHeight + 20}px`;
+    cartelPrincipal.style.transition = `top ${transicionMs}ms ease`
+
+    requestAnimationFrame(() => {
+        cartelPrincipal.style.top = `${1}vh`;
+        setTimeout(()=> {
+            cartelPrincipal.style.top = `-${cartelPrincipal.offsetHeight + 20}px`;
+            setTimeout(()=>cartelPrincipal.remove(), transicionMs)
+        },duracion)
+    })
 }
