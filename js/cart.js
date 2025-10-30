@@ -36,7 +36,8 @@ const
       }
    } else {
       carrito.productos[posicion].cantidad += cantidadItem;
-      carrito.cantProductos += cantidadItem; 
+      carrito.cantProductos += cantidadItem;
+      actualizarBadge(carrito.cantProductos); 
       localStorage.setItem("cart", JSON.stringify(carrito));
    }
 }
@@ -88,7 +89,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
-   }  else {
+   }  else if (valorInput != 1) {
       alert("No es posible agregar mas de 99 articulos al carrito")
    }
 }

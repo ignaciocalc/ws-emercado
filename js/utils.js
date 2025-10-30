@@ -19,24 +19,6 @@ export const inicializaListenerCarrito = function (DOMvar, prod){
 
 }
 
-// POST: retorna el producto con idProducto == id o null si no lo encuentra
-async function obtenerProducto(id){
-    let link = "https://japceibal.github.io/emercado-api/products/" + id + ".json";
-     
-    let res = await fetch(link);
-    return await res.json();
-}
-
-export function actualizarBadge(cant){
-    const 
-        badgeSem = document.getElementById("carrito-badge"),
-        badgeCel = document.getElementById("carrito-badgeCel");
-    
-    badgeSem.textContent = cant;
-    badgeCel.textContent = cant;
-}
-
-
 // PRE: el carrito existe 
 // POST: carrito actualizado con prod agregado
 function agregarACarrito(prod){
@@ -77,3 +59,11 @@ function crearCarrito(){
     }
 }
 
+export function actualizarBadge(cant){
+    const 
+        badgeSem = document.getElementById("carrito-badge"),
+        badgeCel = document.getElementById("carrito-badgeCel");
+    
+    badgeSem.textContent = cant;
+    badgeCel.textContent = cant;
+}

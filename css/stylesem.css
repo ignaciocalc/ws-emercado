@@ -2256,6 +2256,7 @@ p.card-boton .button {
         border-radius: 5px;
         margin-right: 10px;
         transition: border var(--animacion-darkMode) ease;
+        user-select: none;
     }
 
     .carrito-btnAgregar {
@@ -2280,15 +2281,9 @@ p.card-boton .button {
 
 /* badge */
 
-    #carrito-badgeCel {
-        position: absolute;
-        left: 0px;
-        font-size: 0.65rem;
-    }
-
     #carrito-badge {
         position: absolute;
         top: 0;
-        font-size: 0.65rem;
+        font-size: 0.68rem;
     }
 }

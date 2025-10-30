@@ -1,3 +1,4 @@
+import {actualizarBadge} from "./utils.js";
 const 
    body = document.body,
    btnDarkMode = document.getElementById("modeBtn"),
@@ -314,3 +315,14 @@ btnDarkMMobile.addEventListener('click', clickDarkMode);
 setModo(localStorage.getItem("modo"));
 
 carritoBoton.addEventListener("click", () => window.location = "cart.html");
+
+// actualizacion del badge
+function inicializarBadge(){
+   const 
+   carrito = localStorage.getItem("cart");
+
+   if (carrito != null)
+      actualizarBadge(JSON.parse(carrito).cantProductos);
+}
+
+inicializarBadge()
