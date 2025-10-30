@@ -2187,6 +2187,12 @@ p.card-boton .button {
         margin-left: 6px;
         margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
         font-size: clamp(1.6rem, 0.42rem + 2.456vw, 2.3rem);
+        max-width: fit-content;
+    }
+
+    .carrito-nombreProducto:hover {
+        color: var(--principal-color);
+        cursor: pointer;
     }
 
     .carrito-contSubtotal {

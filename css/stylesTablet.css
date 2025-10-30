@@ -2240,6 +2240,10 @@ li a {
         white-space: nowrap;
     }
 
+    #carrito-nombreProducto:hover {
+        color: var(--texto-colorPrincipal);
+    }
+
     .carrito-contSubtotal {
         display: flex;
         flex-direction: column;
