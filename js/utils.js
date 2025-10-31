@@ -5,16 +5,19 @@
 */
 
 export const inicializaListenerCarrito = function (DOMvar, prod){
-
-    console.log(DOMvar);
     
     DOMvar.addEventListener("click", (evento)=>{
-        crearCarrito();
+        const
+            user = localStorage.getItem('user');
+        
         evento.preventDefault(); 
-        evento.stopPropagation(); 
+        evento.stopPropagation();
 
-        agregarACarrito(prod);
-
+        if (user != null) {
+            crearCarrito();
+            agregarACarrito(prod);
+        } else 
+            alerteMercado("Debe estar registrado para poder realizar una compra");
     })
 
 }
@@ -39,7 +42,7 @@ function agregarACarrito(prod){
             actualizarBadge(carrito.cantProductos);
             localStorage.setItem('cart', JSON.stringify(carrito));
         } else {
-            alerteMercado("No es posible agregar mas de 99 productos al carrito")
+            alerteMercado("No es posible agregar mas de 99 productos al carrito");
         }
          
     }

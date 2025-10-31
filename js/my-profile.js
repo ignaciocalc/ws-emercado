@@ -43,41 +43,41 @@ const //eliminar foto de perfil
     btnImagenAux = document.getElementById("perfil-ImgCamEdit");
 
 if(userDir == null){
-    alerteMercado("No deberías estar aquí");
-    window.location = "index.html";
+    alerteMercado("Debe registrarse para acceder a su informacion de perfil", 3500);
+    setTimeout(()=> window.location = "index.html", 3800);
 }
-    
-let user = JSON.parse(userDir);
+
+let user = JSON.parse(userDir)
 
 // seteo la foto si esta guardada en local storage o no    
-if((user.img != undefined) && (user.img != "")){
-    imgPerfil.style.display = "block";
-    imgPerfil.src = user.img;
-    letraFoto.style.display = "none";
-    if (window.matchMedia("(max-width: 769px)").matches) 
-            imagenAux.src = 'img/delete.svg';
-} else {
-    letraFoto.style.display = "block";
-    letraFoto.textContent       = user.email.substring(0, 1).toUpperCase();
-    imgPerfil.style.display     = "none";
+if (user != null) {
+    if((user.img != undefined) && (user.img != "")){
+        imgPerfil.style.display = "block";
+        imgPerfil.src = user.img;
+        letraFoto.style.display = "none";
+        if (window.matchMedia("(max-width: 769px)").matches) 
+                imagenAux.src = 'img/delete.svg';
+    } else {
+        letraFoto.style.display = "block";
+        letraFoto.textContent       = user.email.substring(0, 1).toUpperCase();
+        imgPerfil.style.display     = "none";
+    }
+
+    if(user.nombre !== undefined){
+        nombre.value          = user.nombre       !== ''  ? user.nombre   : "Introduzca su nombre";
+        apellido.value        = user.apellido     !== ''  ? user.apellido : "Introduzca su apellido";
+        correo.value          = user.email        !== ''  ? user.email    : "Introduzca su email";
+        tel.value             = user.tel          !== ''  ? user.tel      : "Introduzca su telefono";
+        if (user.nombre != ""){
+            etiquetaUsuario.textContent = user.nombre;
+            if ((user.apellido != undefined) & (user.apellido != ""))
+                etiquetaUsuario.textContent = user.nombre + " " + user.apellido
+        }  
+    } else {
+        correo.placeholder          = user.email;
+        etiquetaUsuario.textContent = user.email;
+    }
 }
-
-if(user.nombre !== undefined){
-    nombre.value          = user.nombre       !== ''  ? user.nombre   : "Introduzca su nombre";
-    apellido.value        = user.apellido     !== ''  ? user.apellido : "Introduzca su apellido";
-    correo.value          = user.email        !== ''  ? user.email    : "Introduzca su email";
-    tel.value             = user.tel          !== ''  ? user.tel      : "Introduzca su telefono";
-    if (user.nombre != ""){
-        etiquetaUsuario.textContent = user.nombre;
-        if ((user.apellido != undefined) & (user.apellido != ""))
-            etiquetaUsuario.textContent = user.nombre + " " + user.apellido
-    }  
-} else {
-    correo.placeholder          = user.email;
-    etiquetaUsuario.textContent = user.email;
-}
-
-
 
 // function guardarDatos(){
 //     // let user = JSON.parse(userDir);
