@@ -130,6 +130,7 @@ if (estaRegistrado != null) {
 
    logOut.addEventListener('click', function(){
       localStorage.removeItem("user");
+      localStorage.removeItem("cart");
       window.location.reload();
    });
 

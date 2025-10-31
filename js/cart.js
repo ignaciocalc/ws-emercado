@@ -248,7 +248,8 @@ function actualizarTotal(){
 
 function inicializarCarrito(){
    const
-      carritoLs = localStorage.getItem("cart");
+      carritoLs = localStorage.getItem("cart"),
+      user = localStorage.getItem("user");
    
    if (carritoLs) {
       contPrincipal.className = "carrito-lleno";
@@ -259,6 +260,11 @@ function inicializarCarrito(){
       actualizarTotal()
    } else {
       contPrincipal.className = "carrito-vacio";
+   }
+
+   if (user == null) {
+      alerteMercado("Debe estar registrado para accede a esta sección", 3500);
+      setTimeout(()=>window.location = "index.html", 3600)
    }
 }
 

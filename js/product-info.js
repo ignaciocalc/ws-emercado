@@ -91,7 +91,8 @@ async function productInfo(link) {
    inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);
    
    document.getElementById("botoncomprarinfo").addEventListener("click", ()=> {
-      window.location.href = 'cart.html'
+      if (nombreUser != null)
+         window.location.href = 'cart.html';
    })
 
 }
