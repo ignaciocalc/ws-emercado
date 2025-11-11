@@ -2092,9 +2092,10 @@ p.card-boton .button {
     }
 
     #carrito-totalComprar {
+        --hoverMenuCarrito: #eeeeeedd;
         display: flex;
         flex-direction: column;
-        padding: 15px;
+        padding: 15px 5px;
         flex: 1;
         border-radius: 5px;
         min-width: fit-content;
@@ -2107,22 +2108,31 @@ p.card-boton .button {
             box-shadow var(--animacion-darkMode) ease;
     }
 
-    #carrito-contTotal {
-        display: flex;
-        flex-direction: column;    
-        justify-content: space-between;
-        font-size: clamp(1.1rem, 0.689rem + 0.856vw, 1.4rem);
+    #carrito-totalComprar article {
+        padding: 0px 10px;
     }
 
-        #carrito-contTotal :first-child{
+    #carrito-totalComprar .button{
+        margin: 5px 10px 0;
+    }
+
+    #carrito-contSubtotalGeneral {
+        display: flex;
+        flex-direction: row;    
+        justify-content: space-between;
+        gap: 10px;
+        color: #aeaeae;
+        font-weight: 450;
+        padding: 0px 3px;
+    }
+
+        #carrito-contSubtotalGeneral :first-child{
             margin: 0;
-            font-weight: 550;
         }
 
-        #carrito-contTotal :last-child{
+        #carrito-contSubtotalGeneral :last-child{
             margin: 0;
             white-space: nowrap;
-            margin-right: 15px;
         }
 
     #carrito-alternadorMoneda {
@@ -2131,8 +2141,13 @@ p.card-boton .button {
         cursor: pointer;
         user-select: none;
         justify-content: space-between;
-    
+        padding: 0px 10px;
+        border-radius: 3px;
     }
+
+    #carrito-alternadorMoneda:hover {
+        background-color: var(--hoverMenuCarrito);
+    } 
 
      #carrito-alternadorMoneda :first-child{
         font-weight: 450;
@@ -2280,6 +2295,157 @@ p.card-boton .button {
 
     .carrito-btnRemover {
         width: clamp(0.938rem, 0.41rem + 1.096vw, 1.25rem);
+    }
+
+    /*lista Productos*/
+
+    #carrito-tituloResumen{
+        text-align: center;
+    }
+
+    .carrito-linea {
+        height: 2px;
+        width: 100%;
+        margin: 6px 0px;
+        background-color: #ddd;
+    }
+    
+    .carrito-listContProduct {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        color: #aeaeae;
+        font-weight: 450;
+        padding: 0px 3px;
+    }
+
+    .carrito-listContProduct p {
+        margin: 0;
+    }
+
+    .carrito-listPorductName{
+        max-width: 40%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    #carrito-precioEnvioCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #aeaeae;
+        font-weight: 450;
+        padding: 0px 3px;
+    }
+
+    #carrito-precioEnvioCont p {
+        margin: 6px 0 0;
+    }
+
+    #carrito-totalCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #5d5a5a;
+        font-weight: 600;
+    }
+
+    #carrito-totalCont p{
+        margin: 4px 0 8px;
+    }
+    /* Tipo de envio contenedor */
+
+    #carrito-tipoEnvioContenedor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    #carrito-tipoEnvioContenedor:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-eleccionEnvio-ocultar #carrito-opcionesEnvio{
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0%;
+        overflow: hidden;
+        transition: 
+            max-height 0.13s linear,
+            margin 0.13s linear,
+            padding 0.13s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-ocultar #carrito-tipoEnvioContenedor img{
+            width: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        #carrito-duracionEnvioCont p{
+            margin: 0;
+        }
+
+        #carrito-demoraEnvio {
+            font-size: 0.65rem;
+            color: #ff6d1f;
+            font-weight: 500;
+        }
+
+    .carrito-eleccionEnvio-mostrar #carrito-opcionesEnvio{
+        display: flex;
+        flex-direction: column;
+        margin: 7px 0px 3px;
+        max-height: 200px;
+        opacity: 100%; 
+        transition: 
+            max-height 0.2s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-mostrar #carrito-tipoEnvioContenedor img {
+            width: 12px;
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+        }
+
+    .carrito-contOpcionEnvio {
+        display: flex;
+        flex-direction: row;
+        gap: 7px;
+        padding: 3px 0;
+        padding-left: 5px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .carrito-contOpcionEnvio:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-contOpcionEnvio p {
+        margin: 0;
+    }
+
+    .carrito-contOpcionEnvio :first-child {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .carrito-contOpcionEnvio :last-child {
+        font-size: 0.65rem;
+    }
+
+    .carrito-contOpcionEnvio input{
+        accent-color: #f76416;
     }
 
 /* badge */

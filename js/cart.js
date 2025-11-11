@@ -6,12 +6,21 @@ const
    descubrirProductos = document.getElementById("carrito-descubrirProductos"),
    contenedorProductos = document.getElementById("carrito-productos"),
    contPrincipal = document.getElementById("carrito-contPrincipal"),
-   valorTotal = document.getElementById("carrito-total"),
+   valorSubtotalGen = document.getElementById("carrito-subtotalGeneral"),
    btnAlternarMoneda = document.getElementById("carrito-alternadorMoneda"),
    carritoTipoMoneda = document.getElementById("carrito-tipoMoneda"),
    pesosText = document.querySelector("#carrito-tipoMoneda :first-child"),
    dolaresText = document.querySelector("#carrito-tipoMoneda :last-child"),
-   estiloMoneda = new Intl.NumberFormat('es-UY');
+   estiloMoneda = new Intl.NumberFormat('es-UY'),
+
+   // Seleccionador de envio
+   contListProduct = document.getElementById("contResumen"),
+   tipoEnvioCont = document.getElementById("carrito-tipoEnvioGeneral"),
+   btnDesplegarEnvio = document.getElementById("carrito-tipoEnvioContenedor"),
+   formTipoEnvio = document.getElementById("carrito-opcionesEnvio"),
+   precioEnvioCont = document.getElementById("carrito-precioEnvioLista"),
+   carritoTotalCont = document.getElementById("carrito-total");
+
 
 function actualizarCantItem(id, cantidadItem){
 // si cantidadItem es 0 elimina el elemento por completo, actualizando el total si es necesario
@@ -33,7 +42,8 @@ const
       } else {
          carrito.cantProductos = carrito.cantProductos - cantidadEliminados;
          actualizarBadge(carrito.cantProductos);
-         localStorage.setItem("cart", JSON.stringify(carrito))
+         localStorage.setItem("cart", JSON.stringify(carrito));
+         sumarEnvioySubtotal()
       }
    } else {
       carrito.productos[posicion].cantidad += cantidadItem;
@@ -49,24 +59,35 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       subtotalCont = document.getElementById(`subtotal-${idProducto}`),
       monedaSubTotal = subtotalCont.getAttribute("moneda"),
       cantidadProdGeneral = JSON.parse(localStorage.getItem("cart")).cantProductos,
-      monedaTotal = carritoTipoMoneda.getAttribute("moneda");
+      monedaTotal = carritoTipoMoneda.getAttribute("moneda"),
+      productListPrecio = document.getElementById(`productList-precio-${idProducto}`);
 
    let
-      totalActual = parseInt(valorTotal.getAttribute('valor')),
+      subtotalGenActual = parseInt(valorSubtotalGen.getAttribute('valor')),
       valorSubtotalAct,
       aux;
 
    function actTotalySubtotal(){
       // Actualiza subtotal
+      let subtotalProductoActual = inputCantidad.value * aux;
+
+      if (subtotalProductoActual % 1 != 0)
+      subtotalProductoActual = subtotalProductoActual.toFixed(2); 
+
       valorSubtotalAct = inputCantidad.value * precioU;
       subtotalCont.textContent = monedaSubTotal + " " + estiloMoneda.format(valorSubtotalAct);
       subtotalCont.setAttribute("valor", valorSubtotalAct);
+      productListPrecio.textContent = monedaTotal + " " + estiloMoneda.format(subtotalProductoActual); 
 
       // Actualiza total
-      totalActual -= valorInput * aux;
-      totalActual += inputCantidad.value * aux;
-      valorTotal.textContent = monedaTotal + " " + estiloMoneda.format(totalActual);
-      valorTotal.setAttribute("valor", totalActual);
+      
+
+      subtotalGenActual -= valorInput * aux;
+      subtotalGenActual += subtotalProductoActual;
+      if (subtotalGenActual % 1 != 0)
+      subtotalGenActual = subtotalGenActual.toFixed(2); 
+      valorSubtotalGen.textContent = monedaTotal + " " + estiloMoneda.format(subtotalGenActual);
+      valorSubtotalGen.setAttribute("valor", subtotalGenActual);
    }
 
    //Convertir moneda
@@ -85,17 +106,21 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, 1);
+      sumarEnvioySubtotal()
    } else if ((valorInput > 1) && (accion == "remover")) {
       inputCantidad.value = valorInput - 1;
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
+      sumarEnvioySubtotal()
    }  else if (valorInput != 1) {
       alerteMercado("No es posible agregar mas de 99 articulos al carrito");
    }
 }
 
 function removerItem(item, id) {
+   const
+      productoEnList = document.getElementById(`productList-${id}`);
    let
       duracionMs = 200,
       cantPasos = 30,
@@ -105,11 +130,12 @@ function removerItem(item, id) {
    item.style.transform = "scale(0.95)";
    item.style.opacity = "0.0";
    duracionMs = duracionMs / cantPasos;
-   pixeles = pixeles / cantPasos
+   pixeles = pixeles / cantPasos;
+   productoEnList.remove();
    for (let i = 1; i <= cantPasos; i++){
       setTimeout(()=> {item.style.height = `${(cantPasos - i) * pixeles}px`}, i*duracionMs)
    }
-   setTimeout(()=>{item.remove();  actualizarTotal();}, duracionMs*cantPasos);
+   setTimeout(()=>{item.remove(); actualizarTotal();}, duracionMs*cantPasos);
 
    // Elimina el producto del localStorage y actualiza la cantidad de items
    actualizarCantItem(id, 0);
@@ -207,12 +233,14 @@ function alternarMoneda() {
       dolaresText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "USD");
       actualizarTotal()
+      actualizarSubtotales()
    } else {
       carritoTipoMoneda.style.minWidth = `${pesosText.offsetWidth}px`
       dolaresText.style.left = `+${dolaresText.offsetWidth + 2}px`;
       pesosText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "UYU");
       actualizarTotal()
+      actualizarSubtotales()
    }
 }
 
@@ -221,7 +249,7 @@ function actualizarTotal(){
       subtotales = document.querySelectorAll(".carrito-subtotal"),
       moneda = carritoTipoMoneda.getAttribute("moneda");
    let
-      total = 0;
+      subtotalGen = 0;
    
    subtotales.forEach((elemento)=> {
       const
@@ -235,15 +263,44 @@ function actualizarTotal(){
          else  
             valorSub = valorSub / cotizacionDolar;
       
-      total += valorSub;
+      subtotalGen += valorSub;
    })
 
-   
-   if (total % 1 != 0)
-      total = total.toFixed(2); 
+   // Actualizar subtotales
+   if (subtotalGen % 1 != 0)
+      subtotalGen = subtotalGen.toFixed(2); 
 
-   valorTotal.textContent = moneda + " " + estiloMoneda.format(total);
-   valorTotal.setAttribute('valor', total);  
+   valorSubtotalGen.textContent = moneda + " " + estiloMoneda.format(subtotalGen);
+   valorSubtotalGen.setAttribute('valor', subtotalGen);  
+
+   // Actualizar total segun envio
+   sumarEnvioySubtotal()
+}
+
+function actualizarSubtotales(){
+   const
+      listSubtotales = document.querySelectorAll(".carrito-listProductCost"),
+      subTotalesProduct = document.querySelectorAll(".carrito-subtotal"),
+      moneda = carritoTipoMoneda.getAttribute("moneda");
+
+   for (let i = 0; i < subTotalesProduct.length; i++){
+      const
+         monedaProducto = subTotalesProduct[i].getAttribute("moneda");
+      let
+         precioProducto = Number(subTotalesProduct[i].getAttribute("valor"));
+
+      if (monedaProducto != moneda) {
+         if (monedaProducto == "UYU")
+            precioProducto = precioProducto / cotizacionDolar;
+         else
+            precioProducto = precioProducto * cotizacionDolar;
+      }
+
+      if (precioProducto % 1 != 0)
+      precioProducto = precioProducto.toFixed(2); 
+
+      listSubtotales[i].textContent = moneda + " " + estiloMoneda.format(precioProducto);
+   }
 }
 
 function inicializarCarrito(){
@@ -255,7 +312,8 @@ function inicializarCarrito(){
       contPrincipal.className = "carrito-lleno";
       const carrito = JSON.parse(carritoLs);
       carrito.productos.forEach(producto => {
-         mostrarProducto(producto)
+         mostrarProducto(producto);
+         mostrarProductoSubtotal(producto);
       });
       actualizarTotal()
    } else {
@@ -267,6 +325,97 @@ function inicializarCarrito(){
       setTimeout(()=>window.location = "index.html", 3600)
    }
 }
+
+function mostrarProductoSubtotal(producto){
+   const
+      moneda = carritoTipoMoneda.getAttribute("moneda"),
+      monedaProducto = producto.moneda,
+      contProducto = document.createElement("div"),
+      nombreProducto = document.createElement("p"),
+      costoProducto = document.createElement("p");
+   
+   let
+      productoCosto = Number(producto.costo),
+      subtotal;
+
+   if (moneda != monedaProducto)
+      if (monedaProducto == "UYU")
+         productoCosto = productoCosto / cotizacionDolar;
+      else  
+         productoCosto = productoCosto * cotizacionDolar;
+   
+   subtotal = productoCosto * producto.cantidad;
+
+   nombreProducto.textContent = producto.nombre;
+   nombreProducto.className = "carrito-listPorductName";
+   costoProducto.className = "carrito-listProductCost";
+   costoProducto.id = `productList-precio-${producto.idProducto}`;
+   costoProducto.textContent = moneda + " " + estiloMoneda.format(subtotal);
+   
+
+   contProducto.className = "carrito-listContProduct";
+   contProducto.id = `productList-${producto.idProducto}`
+   contProducto.appendChild(nombreProducto);
+   contProducto.appendChild(costoProducto);
+
+   contListProduct.appendChild(contProducto)
+}
+
+function sumarEnvioySubtotal(){
+   const
+      tipoEnvio = formTipoEnvio.elements.envio.value,
+      tipoEnvioCont = document.getElementById("carrito-tipoEnvioMostrar"),
+      demoraEnvioCont = document.getElementById("carrito-demoraEnvio"),
+      moneda = carritoTipoMoneda.getAttribute("moneda"),
+      subtotal = Number(valorSubtotalGen.getAttribute("valor"));
+   let
+      precioEnvio,
+      totalCarrito;
+
+   switch (tipoEnvio) {
+      case "Standard":
+         precioEnvio = subtotal * 5 / 100;
+         tipoEnvioCont.textContent = "Standard";
+         demoraEnvioCont.textContent = "Llega de 12 a 15 días";
+         break;
+      case "Express":
+         precioEnvio = subtotal * 7 / 100;
+         tipoEnvioCont.textContent = "Express";
+         demoraEnvioCont.textContent = "Llega de 5 a 8 días"
+         break;
+      case "Premium":
+         precioEnvio = subtotal * 15 / 100;
+         tipoEnvioCont.textContent = "Premium";
+         demoraEnvioCont.textContent = "Llega de 2 a 5 días"
+         break;
+   }
+
+   totalCarrito = precioEnvio + subtotal;
+
+   if (totalCarrito % 1 != 0)
+      totalCarrito = totalCarrito.toFixed(2); 
+   if (precioEnvio % 1 != 0)
+      precioEnvio = precioEnvio.toFixed(2); 
+
+   carritoTotalCont.textContent = moneda + " " + estiloMoneda.format(totalCarrito);
+   precioEnvioCont.textContent = moneda + " " + estiloMoneda.format(precioEnvio);
+}
+
+// Seleccionar tipo envio
+btnDesplegarEnvio.addEventListener('click', function(){
+   if (tipoEnvioCont.classList.contains("carrito-eleccionEnvio-mostrar")){
+      formTipoEnvio.style.removeProperty("min-height");
+      tipoEnvioCont.className = "carrito-eleccionEnvio-ocultar";
+   } else{
+      tipoEnvioCont.className = "carrito-eleccionEnvio-mostrar";
+      setTimeout(()=> formTipoEnvio.style.minHeight = "fit-content", 200);
+   }
+      
+})
+
+document.getElementById("carrito-contEnvioStandar").addEventListener("click", sumarEnvioySubtotal);
+document.getElementById("carrito-contEnvioExpress").addEventListener("click", sumarEnvioySubtotal);
+document.getElementById("carrito-contEnvioPremium").addEventListener("click", sumarEnvioySubtotal);
 
 
 btnAlternarMoneda.addEventListener('click', alternarMoneda);
