@@ -55,7 +55,9 @@ function crearCarrito(){
     if(carrito == null){
         let cart = {
             productos: [],
-            cantProductos: 0
+            cantProductos: 0,
+            tipoEnvio: "Standard",
+            moneda: "UYU"
         };
     
         localStorage.setItem('cart', JSON.stringify(cart));
