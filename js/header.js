@@ -327,3 +327,31 @@ function inicializarBadge(){
 }
 
 inicializarBadge()
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+   const categorias = {
+      Autos: 101,
+      Juguetes: 102,
+      Muebles: 103,
+      Herramientas: 104,
+      Computadoras: 105,
+      Vestimenta: 106,
+      Electrodomesticos: 107,
+      Deporte: 108,
+      elulares: 109
+   };
+
+   for (let id in categorias) {
+      const elemento = document.getElementById(id);
+      if (elemento) {
+         elemento.addEventListener("click", function(e) {
+            e.preventDefault(); // Evita que el enlace cargue la página antes de guardar el catID
+            localStorage.setItem("catID", categorias[id]);
+            localStorage.setItem("redirect", true);
+            window.location = "products.html";
+         });
+      }
+   }
+});
