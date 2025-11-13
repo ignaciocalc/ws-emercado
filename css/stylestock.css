@@ -7,6 +7,7 @@
     --naranja-suave:#FF8849;
     --texto-colorEnfasis: black;
     --texto-colorPrincipal:#2a2a2a;
+    --texto-totalCart: #5d5a5a;
     --texto-colorAtenuado:#b4b3b3;
     --texto-colorSuavizado: #d8d8d8;
     --texto-resaltanteAzul:#3483fa;
@@ -78,6 +79,9 @@
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #e7e7e7;
+
+    --hoverMenuCarrito: #eeeeeedd;
+    --inputRadio-envio: #f76416;
 }   
 
 body.darkmode {
@@ -89,6 +93,7 @@ body.darkmode {
     --naranja-suave:#B84000;
     --texto-colorEnfasis: rgb(238, 238, 238); /* ?? */
     --texto-colorPrincipal:#D9D9D9;
+    --texto-totalCart: #bababa;
     --texto-colorAtenuado:#888888;
     --texto-colorSuavizado: #C0C0C0; /* ?? */
     --texto-resaltanteAzul:#295ba4;
@@ -159,6 +164,9 @@ body.darkmode {
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #272626;
+
+    --hoverMenuCarrito: #242424;
+    --inputRadio-envio: #bb3508;
 }
 
 

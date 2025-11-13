@@ -3,6 +3,10 @@
 /*--------------Login tablet---------*/
 @media (min-width: 321px) and (max-width: 768px) {
 
+    html{
+        scrollbar-width: none;
+    }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -735,6 +739,7 @@ li a {
     min-height: fit-content;
     overflow-x: auto;
     gap: 20px;
+    scrollbar-width: none;
 }
 
 /* Parte derecha */
@@ -1610,7 +1615,7 @@ li a {
     body.darkmodeinit #modeBtnMobile.modeBtn {
         transition: none;
         background-color: #ced9df;
-        box-shadow: 0px 0px 2px 2px #f78a53;
+        box-shadow: 0px 0px 2px 2px #151937;
     }
 
 .modeBtn {
@@ -2125,20 +2130,24 @@ li a {
     }
 
     #carrito-contPrincipal.carrito-lleno #carrito-lleno{
+        box-sizing: border-box;
+        height: calc(100vh - 55px);
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 2vw 3.5vw;
+        padding: 2vw 3vw;
         gap: 10px;
     }
 
     #carrito-totalComprar {
+        --fontSize-menuCarrito: clamp(1.1rem, 1.028rem + 0.358vw, 1.2rem);
         box-sizing: border-box;
         position: fixed;
         display: flex;
         align-self: center;
         flex-direction: column;
-        padding: 15px;
+        padding: 15px 5px;
+        padding-top: 0;
         flex: 1;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -2146,30 +2155,39 @@ li a {
         background-color: var(--fondo-cards);
         bottom: 0;
         width: 100vw;
+        max-height: 75vh;
         transition: 
             background-color var(--animacion-darkMode) ease,
             box-shadow var(--animacion-darkMode) ease;
     }
 
     #carrito-totalComprar button{
-        font-size: 1.3rem ;
+        font-size: var(--fontSize-menuCarrito) ;
         padding: 6px;
+        margin: 2px 10px 0;
     }
     
-
-    #carrito-contTotal {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: clamp(1.1rem, 0.689rem + 0.856vw, 1.4rem);
+    #carrito-totalComprar article{
+        padding: 0 10px
     }
 
-        #carrito-contTotal :first-child{
+
+    #carrito-contSubtotalGeneral {
+        display: flex;
+        flex-direction: row;    
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--texto-colorAtenuado);
+        font-weight: 450;
+        padding: 0px 3px;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+        #carrito-contSubtotalGeneral :first-child{
             margin: 0;
-            font-weight: 550;
         }
 
-        #carrito-contTotal :last-child{
+        #carrito-contSubtotalGeneral :last-child{
             margin: 0;
             white-space: nowrap;
         }
@@ -2180,7 +2198,13 @@ li a {
         cursor: pointer;
         user-select: none;
         justify-content: space-between;
-    
+        padding: 0.9ex 10px;
+        border-radius: 3px;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-alternadorMoneda:hover {
+        background-color: var(--hoverMenuCarrito);
     }
 
      #carrito-alternadorMoneda :first-child{
@@ -2188,7 +2212,7 @@ li a {
     }
 
     #carrito-alternadorMoneda p {
-        margin: 10px 0;
+        margin: 0;
     }
 
         #carrito-tipoMoneda {
@@ -2206,28 +2230,37 @@ li a {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
 
             #carrito-tipoMoneda :last-child {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
     
     #carrito-productos {
         display: flex;
         flex-direction: column;
-        flex: 4;
+        max-height: calc(100% - 200px);
+        overflow: auto;
+        scrollbar-width: none;
+        padding: 5px;
     }
 
     /* estilos tarjetas */
 
     .carrito-contImgProducto {
+        --ancho-alto-img: calc(var(--tamañoTituloTarjeta) * 3.2);
         display: flex;
         flex: 3.5;
         padding: 0.5%;
         aspect-ratio: 1 / 1;  
-        max-width: 120px; 
+        max-width: var(--ancho-alto-img); 
+        min-width: var(--ancho-alto-img);
+        max-height: var(--ancho-alto-img); 
+        min-height: var(--ancho-alto-img);
     }
 
     .carrito-infoProducto {
@@ -2239,8 +2272,12 @@ li a {
         margin-bottom: 0px;
         margin-left: 6px;
         margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
-        font-size: clamp(1.2rem, 0.697rem + 2.517vw, 1.9rem);
+        font-size: var(--tamañoTituloTarjeta);
         white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     #carrito-nombreProducto:hover {
@@ -2260,11 +2297,11 @@ li a {
     }
 
     .carrito-cardProducto {
+        --tamañoTituloTarjeta: clamp(1.2rem, 0.697rem + 2.517vw, 1.9rem);
         display: flex;
         flex-direction: row;
         box-shadow: 0px 0px 2px 2px var(--sombra-cards);
         background-color: var(--fondo-cards);
-        overflow: hidden;
         border-radius: 5px;
         transform: scale(1);
         opacity: 1;
@@ -2287,7 +2324,8 @@ li a {
 
     .carrito-contEliMod {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         justify-content: flex-start;    
     }
 
@@ -2295,8 +2333,8 @@ li a {
         margin: 0;
         color: var(--secundario-color);
         cursor: pointer;
-        margin-left: 6px;
-        font-size: clamp(0.7rem, 0.448rem + 1.258vw, 1.05rem);
+        margin-left: 0.4ex;
+        font-size: calc(var(--tamañoTituloTarjeta) / 2);
         transition: color var(--animacion-darkMode) ease;
     }
 
@@ -2315,25 +2353,228 @@ li a {
     }
 
     .carrito-btnAgregar {
-        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem); 
+        width: calc(var(--tamañoTituloTarjeta)/2); 
     }
 
     .carrito-controlCantidad input{
-        width: clamp(1.25rem, 1.015rem + 1.142vw, 1.563rem);
+        width: 2.5ex;
         text-align: center;
         border: none;
         background-color: var(--fondo-cards);
         color: var(--texto-colorPrincipal);
-        font-size: clamp(0.8rem, 0.423rem + 1.826vw, 1.3rem);
+        font-size: calc(var(--tamañoTituloTarjeta)/2);
         transition: 
             background-color var(--animacion-darkMode) ease,
             color var(--animacion-darkMode) ease;
     }
 
     .carrito-btnRemover {
-        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem);
+        width: calc(var(--tamañoTituloTarjeta)/2);
     }
 
+    /*lista Productos*/
+
+    #carrito-flechaDespliegueResumen{
+        display: flex;
+        justify-content: center;   
+        padding: 7px 0; 
+    }
+    
+    #carrito-flechaDespliegueResumen img{
+        width: 10px;
+        align-self: center;
+    }
+
+    .carrito-resumen-oculto #carrito-flechaDespliegueResumen img{
+        transform: rotate(-90deg)
+    }
+
+    .carrito-resumen-visible #carrito-flechaDespliegueResumen img{
+        transform: rotate(90deg)
+    }
+
+    .carrito-resumen-oculto #carrito-exSubtotalEnvio{
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0%;
+        transition: 
+            opacity 0.2s linear,
+            max-height 0.2s linear;
+    }
+
+    .carrito-resumen-visible #carrito-exSubtotalEnvio{
+        max-height: 200px;
+        opacity: 100%;
+        transition: 
+            opacity 0.2s linear,
+            max-height 0.2s linear;
+    }
+
+    #carrito-tituloResumen{
+        display: none;
+    }
+
+    #contResumen{
+        overflow: auto;
+        box-sizing: border-box;
+        max-height: calc((var(--fontSize-menuCarrito) + 10px) * 4);
+        scrollbar-width: none;
+    }
+    
+
+    .carrito-linea {
+        height: 2px;
+        width: 100%;
+        margin: 6px 0px;
+        background-color: var(--texto-colorAtenuado);
+    }
+    
+    .carrito-listContProduct {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        color: var(--texto-colorAtenuado);
+        font-weight: 450;
+        padding: 0px 3px;
+    }
+
+    .carrito-listContProduct p {
+        font-size: var(--fontSize-menuCarrito);
+        margin: 0;
+    }
+
+    .carrito-listPorductName{
+        max-width: 40%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    #carrito-precioEnvioCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #aeaeae;
+        font-weight: 450;
+        padding: 0px 3px;
+        color: var(--texto-colorAtenuado);
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-precioEnvioCont p {
+        margin: 6px 0 0;
+    }
+
+    #carrito-totalCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: var(--texto-totalCart);
+        font-weight: 600;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-totalCont p{
+        margin: 4px 0 8px;
+    }
+    /* Tipo de envio contenedor */
+
+    #carrito-tipoEnvioContenedor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+        padding: 0.5ex 10px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    #carrito-tipoEnvioContenedor:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-eleccionEnvio-ocultar #carrito-opcionesEnvio{
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0%;
+        overflow: hidden;
+        transition: 
+            max-height 0.13s linear,
+            margin 0.13s linear,
+            padding 0.13s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-ocultar #carrito-tipoEnvioContenedor img{
+            width: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        #carrito-duracionEnvioCont :first-child{
+            color: var(--texto-colorPrincipal);
+            margin: 0;
+            font-size: var(--fontSize-menuCarrito);
+        }
+
+        #carrito-demoraEnvio {
+            color: var(--naranja-intenso);
+            margin: 0;
+            font-weight: 500;
+            font-size: calc(var(--fontSize-menuCarrito) * 0.65);
+        }
+
+    .carrito-eleccionEnvio-mostrar #carrito-opcionesEnvio{
+        display: flex;
+        flex-direction: column;
+        margin: 7px 0px 3px;
+        max-height: 120px;
+        opacity: 100%; 
+        padding-left: 10px;
+        transition: 
+            max-height 0.2s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-mostrar #carrito-tipoEnvioContenedor img {
+            width: 12px;
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+        }
+
+    .carrito-contOpcionEnvio {
+        display: flex;
+        flex-direction: row;
+        gap: 7px;
+        padding: 3px 0;
+        padding-left: 5px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .carrito-contOpcionEnvio:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-contOpcionEnvio p {
+        margin: 0;
+    }
+
+    .carrito-contOpcionEnvio :first-child {
+        font-size: calc(var(--fontSize-menuCarrito) * 0.8);
+        font-weight: 600;
+    }
+
+    .carrito-contOpcionEnvio :last-child {
+        font-size: calc(var(--fontSize-menuCarrito) * 0.65);
+    }
+
+    .carrito-contOpcionEnvio input{
+        accent-color: var(--inputRadio-envio);
+    }
+
+    /* badge */
     #carrito-badgeCel{
         position: absolute;
         top: 2px;
