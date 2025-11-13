@@ -19,8 +19,11 @@ const
    btnDesplegarEnvio = document.getElementById("carrito-tipoEnvioContenedor"),
    formTipoEnvio = document.getElementById("carrito-opcionesEnvio"),
    precioEnvioCont = document.getElementById("carrito-precioEnvioLista"),
-   carritoTotalCont = document.getElementById("carrito-total");
+   carritoTotalCont = document.getElementById("carrito-total"),
 
+   // MenuCelular/Tablet
+   btnDesplegarMenu = document.getElementById("carrito-flechaDespliegueResumen"),
+   contLateral = document.getElementById("carrito-totalComprar");
 
 function actualizarCantItem(id, cantidadItem){
 // si cantidadItem es 0 elimina el elemento por completo, actualizando el total si es necesario
@@ -177,8 +180,8 @@ function mostrarProducto(producto) {
    btnEliminar.addEventListener("click", ()=> {
       removerItem(productoCard, producto.idProducto)
    })
-   contEliMod.appendChild(btnEliminar);
    contEliMod.appendChild(contCantidad);
+   contEliMod.appendChild(btnEliminar);
    btnAgregar.className = "carrito-btnAgregar";
    btnAgregar.src = "img/add.svg";
    btnAgregar.addEventListener('click', function(){
@@ -433,8 +436,20 @@ btnDesplegarEnvio.addEventListener('click', function(){
    } else{
       tipoEnvioCont.className = "carrito-eleccionEnvio-mostrar";
       setTimeout(()=> formTipoEnvio.style.minHeight = "fit-content", 200);
-   }
-      
+   }    
+})
+
+   const
+      subtotalesCont = document.getElementById("carrito-exSubtotalEnvio");
+
+btnDesplegarMenu.addEventListener("click", function(){
+   if (contLateral.classList.contains("carrito-resumen-oculto")){
+      contLateral.className = "carrito-resumen-visible";
+      setTimeout(()=> subtotalesCont.style.minHeight = "fit-content", 200);
+   } else{
+      subtotalesCont.style.removeProperty("min-height");
+      contLateral.className = "carrito-resumen-oculto";
+   }  
 })
 
 document.getElementById("carrito-contEnvioStandar").addEventListener("click", sumarEnvioySubtotal);

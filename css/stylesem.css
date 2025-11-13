@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-
+html {
+    scrollbar-width: thin;
+}
 #contIndex {
     background-color: var(--fondo-contPrincipales);
 }
@@ -2092,7 +2094,7 @@ p.card-boton .button {
     }
 
     #carrito-totalComprar {
-        --hoverMenuCarrito: #eeeeeedd;
+        --fontSize-menuCarrito: clamp(0.8rem, 0.225rem + 1.194vw, 1.3rem);
         display: flex;
         flex-direction: column;
         padding: 15px 5px;
@@ -2112,8 +2114,13 @@ p.card-boton .button {
         padding: 0px 10px;
     }
 
+    #carrito-flechaDespliegueResumen {
+        display: none;
+    }
+
     #carrito-totalComprar .button{
         margin: 5px 10px 0;
+        font-size: var(--fontSize-menuCarrito);
     }
 
     #carrito-contSubtotalGeneral {
@@ -2121,9 +2128,10 @@ p.card-boton .button {
         flex-direction: row;    
         justify-content: space-between;
         gap: 10px;
-        color: #aeaeae;
+        color: var(--texto-colorAtenuado);
         font-weight: 450;
         padding: 0px 3px;
+        font-size: var(--fontSize-menuCarrito);
     }
 
         #carrito-contSubtotalGeneral :first-child{
@@ -2141,8 +2149,9 @@ p.card-boton .button {
         cursor: pointer;
         user-select: none;
         justify-content: space-between;
-        padding: 0px 10px;
+        padding: 0.7ex 10px;
         border-radius: 3px;
+        font-size: calc(var(--fontSize-menuCarrito) * 1);
     }
 
     #carrito-alternadorMoneda:hover {
@@ -2150,6 +2159,7 @@ p.card-boton .button {
     } 
 
      #carrito-alternadorMoneda :first-child{
+        margin: 0;
         font-weight: 450;
     }
 
@@ -2172,12 +2182,14 @@ p.card-boton .button {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
 
             #carrito-tipoMoneda :last-child {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
     
     #carrito-productos {
@@ -2189,11 +2201,15 @@ p.card-boton .button {
     /* estilos tarjetas */
 
     .carrito-contImgProducto {
+        --alto-ancho-img: calc(var(--tamañoTituloTarjeta) * 2.8); /*Depende del tamaño del titulo*/
         display: flex;
-        flex: 1; 
+        flex: 1;
         padding: 0.5%;
         aspect-ratio: 1 / 1;
-        max-width: 120px;   
+        max-height: var(--alto-ancho-img);
+        max-width: var(--alto-ancho-img);
+        min-height: var(--alto-ancho-img);
+        min-width: var(--alto-ancho-img);
     }
 
     .carrito-infoProducto {
@@ -2206,6 +2222,7 @@ p.card-boton .button {
         margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
         font-size: clamp(1.6rem, 0.42rem + 2.456vw, 2.3rem);
         max-width: fit-content;
+        white-space: nowrap;
     }
 
     .carrito-nombreProducto:hover {
@@ -2219,13 +2236,13 @@ p.card-boton .button {
         align-items: flex-end;
         justify-content: center;
         flex: 1;
-        padding: clamp(0.625rem, -0.232rem + 1.783vw, 1.25rem);
         font-size: clamp(0.8rem, -0.434rem + 2.567vw, 1.7rem);
-        padding-right: 20px;
+        padding: 0 15px;
         white-space: nowrap;    
     }
 
     .carrito-cardProducto {
+        --tamañoTituloTarjeta: clamp(1.6rem, 0.42rem + 2.456vw, 2.3rem);
         display: flex;
         flex-direction: row;
         box-shadow: 0px 0px 2px 2px var(--sombra-cards);
@@ -2254,14 +2271,17 @@ p.card-boton .button {
     .carrito-contEliMod {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 10px;
+        align-items: center;
+        margin-top: 1.5%;
+        margin-left: 7px;
     }
 
     .carrito-contEliMod p{
         margin: 0;
         color: var(--secundario-color);
         cursor: pointer;
-        margin-left: 6px;
         font-size: clamp(0.8rem, 0.463rem + 0.702vw, 1rem);
         transition: color var(--animacion-darkMode) ease;
     }
@@ -2270,11 +2290,11 @@ p.card-boton .button {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        border: solid 2px var(--bordeEstandar-color);
-        border-radius: 5px;
-        margin-right: 10px;
+        border: solid 1.5px var(--bordeEstandar-color);
+        border-radius: 4px;
         transition: border var(--animacion-darkMode) ease;
         user-select: none;
+        padding: 1px 2px;
     }
 
     .carrito-btnAgregar {
@@ -2299,28 +2319,35 @@ p.card-boton .button {
 
     /*lista Productos*/
 
+    #carrito-flechaDespliegueResumen{
+        display: none;
+    }
+
     #carrito-tituloResumen{
+        color: var(--texto-colorEnfasis);
         text-align: center;
+        margin-top: 2px;
+        font-size: calc(var(--fontSize-menuCarrito) * 1.2);
     }
 
     .carrito-linea {
         height: 2px;
         width: 100%;
         margin: 6px 0px;
-        background-color: #ddd;
+        background-color: var(--texto-colorAtenuado);
     }
     
     .carrito-listContProduct {
         display: flex;
-        gap: 10px;
         justify-content: space-between;
         margin-bottom: 5px;
-        color: #aeaeae;
+        color: var(--texto-colorAtenuado);
         font-weight: 450;
         padding: 0px 3px;
     }
 
     .carrito-listContProduct p {
+        font-size: var(--fontSize-menuCarrito);
         margin: 0;
     }
 
@@ -2338,6 +2365,8 @@ p.card-boton .button {
         color: #aeaeae;
         font-weight: 450;
         padding: 0px 3px;
+        color: var(--texto-colorAtenuado);
+        font-size: var(--fontSize-menuCarrito);
     }
 
     #carrito-precioEnvioCont p {
@@ -2348,8 +2377,9 @@ p.card-boton .button {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        color: #5d5a5a;
+        color: var(--texto-totalCart);
         font-weight: 600;
+        font-size: var(--fontSize-menuCarrito);
     }
 
     #carrito-totalCont p{
@@ -2363,7 +2393,7 @@ p.card-boton .button {
         align-items: center;
         justify-content: space-between;
         margin-top: 8px;
-        padding: 5px 10px;
+        padding: 0.5ex 10px;
         border-radius: 3px;
         user-select: none;
     }
@@ -2390,14 +2420,17 @@ p.card-boton .button {
             transition: transform 0.2s ease;
         }
 
-        #carrito-duracionEnvioCont p{
+        #carrito-duracionEnvioCont :first-child{
+            color: var(--texto-colorPrincipal);
             margin: 0;
+            font-size: var(--fontSize-menuCarrito);
         }
 
         #carrito-demoraEnvio {
-            font-size: 0.65rem;
-            color: #ff6d1f;
+            color: var(--naranja-intenso);
+            margin: 0;
             font-weight: 500;
+            font-size: calc(var(--fontSize-menuCarrito) * 0.65);
         }
 
     .carrito-eleccionEnvio-mostrar #carrito-opcionesEnvio{
@@ -2436,16 +2469,16 @@ p.card-boton .button {
     }
 
     .carrito-contOpcionEnvio :first-child {
-        font-size: 0.8rem;
+        font-size: calc(var(--fontSize-menuCarrito) * 0.8);
         font-weight: 600;
     }
 
     .carrito-contOpcionEnvio :last-child {
-        font-size: 0.65rem;
+        font-size: calc(var(--fontSize-menuCarrito) * 0.65);
     }
 
     .carrito-contOpcionEnvio input{
-        accent-color: #f76416;
+        accent-color: var(--inputRadio-envio);
     }
 
 /* badge */
