@@ -135,3 +135,16 @@ export function alerteMercado(string, duracionMs){
         },duracion)
     })
 }
+
+export function btnComprarUnProducto(producto){
+    const 
+        buyOneProduct = {
+                            productos: [producto],
+                            cantProductos: 1,
+                            tipoEnvio: "Standard",
+                            moneda: "UYU"
+                        };
+    
+    localStorage.setItem('buyOneProduct', JSON.stringify(buyOneProduct));
+    window.location = "purchase-process.html";
+}
