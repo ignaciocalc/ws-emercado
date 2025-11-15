@@ -82,6 +82,14 @@
 
     --hoverMenuCarrito: #eeeeeedd;
     --inputRadio-envio: #f76416;
+
+    /* Proceso de compra */
+    --border-circulos-noSelect: #adaaaa;
+    --border-circulos-Select: #595959;
+    --input-textDescription: #4B4B4B;
+    --fondo-inputsPurchaseProcess: #F9F9F9;
+    --border-inputsPurchaseProcess: #e2e2e2;
+    --hover-opcionSelect: #e0dfdf;
 }   
 
 body.darkmode {

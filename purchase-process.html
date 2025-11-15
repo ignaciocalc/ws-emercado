@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/stylesem.css">
+  <link rel="stylesheet" href="css/stylestock.css">
+  <link rel="stylesheet" href="css/stylesMobile.css">
+  <link rel="stylesheet" href="css/stylesTablet.css">
+  <link rel="shortcut icon" href="img/iconoWeb.ico" type="image/x-icon">
+  <link rel="icon" href="img/iconoWeb.ico" type="image/x-icon">
+  <script src="js/purchase-process.js" type="module" defer></script>
+</head>
+
+<body>
+  <header id="purchaseProcess-nav">
+    <div id="purchaseProcess-nav-container">
+      <img id="purchaseProcess-nav-logo" src="img/icono.png">
+      <img id="purchaseProcess-nav-text" src="img/eMercadoIcon.png">
+    </div>
+  </header>
+  <main id="purchaseProcess-main" class="purchaseStep1">
+    <article id="purchaseProcess-container">
+      <div id="purchaseProcess-stepContainer">
+        <div id="purchaseProcess-step1" class="purchaseProcess-step">
+          <div><p>1</p></div>
+          <p>Dirección de envió</p>
+        </div>
+        <div id="purchaseProcess-step2" class="purchaseProcess-step">
+          <div><p>2</p></div>
+          <p>Medio de pago</p>
+        </div>
+      </div>
+      <h1 id="purchaseProcess-h1-step1">Indique donde quiere recibir la compra</h1>
+      <div id="purchaseProcess-form">
+        <div id="purchaseProcess-inputContDepartamento" class="purchaseProcess-inputDescriptionContLarge">
+          <p class="purchaseProcess-inputDescription">Departamento</p>
+          <div class="purchaseProcess-select">
+            <input id="purchaseProcess-inputDepartamento" type="text" class="purchaseProcess-optionSelect" placeholder="Seleccione su departamento" readonly>
+            <div class="purchaseProcess-selectContOptions">
+              <div class="purchaseProcess-selectOption" value="Artigas">Artigas</div>
+              <div class="purchaseProcess-selectOption" value="Canelones">Canelones</div>
+              <div class="purchaseProcess-selectOption" value="CerroLargo">Cerro Largo</div>
+              <div class="purchaseProcess-selectOption" value="Colonia">Colonia</div>
+              <div class="purchaseProcess-selectOption" value="Durazno">Durazno</div>
+              <div class="purchaseProcess-selectOption" value="Flores">Flores</div>
+              <div class="purchaseProcess-selectOption" value="Florida">Florida</div>
+              <div class="purchaseProcess-selectOption" value="Lavalleja">Lavalleja</div>
+              <div class="purchaseProcess-selectOption" value="Maldonado">Maldonado</div>
+              <div class="purchaseProcess-selectOption" value="Montevideo">Montevideo</div>
+              <div class="purchaseProcess-selectOption" value="Paysandu">Paysandú</div>
+              <div class="purchaseProcess-selectOption" value="RioNegro">Río Negro</div>
+              <div class="purchaseProcess-selectOption" value="Rivera">Rivera</div>
+              <div class="purchaseProcess-selectOption" value="Rocha">Rocha</div>
+              <div class="purchaseProcess-selectOption" value="Salto">Salto</div>
+              <div class="purchaseProcess-selectOption" value="SanJose">San José</div>
+              <div class="purchaseProcess-selectOption" value="Soriano">Soriano</div>
+              <div class="purchaseProcess-selectOption" value="Tacuarembo">Tacuarembó</div>
+              <div class="purchaseProcess-selectOption" value="TreintayTres">Treinta y Tres</div>
+            </div>
+            <img class="purchase-process-selectImg" src="img/flecha-abajo.svg">
+          </div>
+          <p class="purchaseProcess-inputError">Debe seleccionar un departamento</p>
+        </div>
+
+        <div id="purchaseProcess-inputContLocalidad" class="purchaseProcess-inputDescriptionContLarge">
+          <p class="purchaseProcess-inputDescription">Localidad</p>
+          <div class="purchaseProcess-select">
+            <input type="text" id="purchaseProcess-inputLocalidad" class="purchaseProcess-optionSelect" placeholder="Seleccione su localidad" readonly>
+            <div id="purchaseProcess-selectContLocalidad" class="purchaseProcess-selectContOptions">
+            </div>
+            <img class="purchase-process-selectImg" src="img/flecha-abajo.svg">
+          </div>
+          <p class="purchaseProcess-inputError">Debe seleccionar una localidad</p>
+        </div>
+
+        <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContLarge">
+          <p class="purchaseProcess-inputDescription">Calle</p>
+          <div class="purchaseProcess-inputCont">
+            <input type="text" class="purchaseProcess-inputText" placeholder="Indique la calle">
+          </div>
+          <p class="purchaseProcess-inputError">Debe ingresar una calle</p>
+        </div>
+
+        <div class="purchaseProcess-contEsquinaAndDireccion">
+          <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContDoble">
+            <p class="purchaseProcess-inputDescription">Esquina</p>
+            <div class="purchaseProcess-inputCont">
+              <input type="text" class="purchaseProcess-inputText" placeholder="Indique la esquina">
+            </div>
+            <p class="purchaseProcess-inputError">Debe ingresar una esquina</p>
+          </div>
+          <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContDoble">
+            <p class="purchaseProcess-inputDescription">Número de puerta</p>
+            <div class="purchaseProcess-inputCont">
+              <input type="text" class="purchaseProcess-inputText" placeholder="Indique el número de puerta">
+            </div>
+            <p class="purchaseProcess-inputError">Debe ingresar un número de puerta</p>
+          </div>
+        </div>
+
+        <div id="purchaseProcess-interaction">
+          <div id="purchaseProcess-shippingMethod" class="shippingMethod-hiddenOptions">
+            <div id="purchaseProcess-btnshippingMethod">
+              <div>
+                <p>Envio <span id="purchaseProcess-shippingMethodSpan"></span></p>
+                <p id="purchaseProcess-shippingDelay"></p>
+              </div>
+              <img src="img/flecha-abajo.svg">
+            </div>
+            <form id="purchaseProcess-shippingMethod-form">
+              <label class="purchaseProcess-shippingMethodOptionContain">
+                <input type="radio" name="tipoEnvio" class="purchaseProcess-shippingMethodInput" value="Standard" checked>
+                <div>
+                  <p>Standard (5%)</p>
+                  <p>Llega de 12 a 15 días</p>
+                </div>
+              </label>
+              <label class="purchaseProcess-shippingMethodOptionContain">
+                <input type="radio" name="tipoEnvio" class="purchaseProcess-shippingMethodInput" value="Express">
+                <div>
+                  <p>Express (7%)</p>
+                  <p>Llega de 5 a 8 días</p>
+                </div>
+              </label>
+              <label class="purchaseProcess-shippingMethodOptionContain">
+                <input type="radio" name="tipoEnvio" class="purchaseProcess-shippingMethodInput" value="Premium">
+                <div>
+                  <p>Premium (15%)</p>
+                  <p>Llega de 2 a 5 días</p>
+                </div>
+              </label>
+            </form>
+          </div>
+
+          <div id="purchaseProcess-currencyChange" moneda="UYU">
+            <p>Moneda:</p>
+            <div>
+              <p id="currencyUYU">UYU</p>
+              <p id="currencyUSD">USD</p>
+            </div>
+          </div>
+
+          <button id="purchaseProcess-btnContinuar" class="button">Continuar</button>
+        </div>
+      </div> 
+    </article>
+
+    <article id="purchaseProcess-orderSummary">
+      <p id="purchaseProcess-title">Resumen de compra</p>
+      <article>
+        <div>
+          <div id="purchaseProcess-contProducts">
+          </div>
+
+          <div class="purchaseProcess-line"></div>
+
+          <div id="purchaseProcess-contSubtotal">
+            <p>Subtotal</p>
+            <p id="purchaseProcess-subtotal"></p>
+          </div>
+          <div id="purchaseProcess-shippingCostCont">
+            <p>Envío</p>
+            <p id="purchaseProcess-shippingCost">...</p>
+          </div>
+
+          <div class="purchaseProcess-line"></div>
+        </div>
+        
+        <div id="purchaseProcess-orderSummary-total">
+          <p>Total</p>
+          <p id="orderSummary-total">...</p>
+        </div>
+      </article>
+    </article>
+  </main>
+  <footer id="pruchaseProcess-menu-mobile">
+
+  </footer>
+</body>
