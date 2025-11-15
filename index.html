@@ -104,7 +104,7 @@
   </main>
 
   <main>
-    <div class="jumbotron text-center"></div>
+    <!-- <div class="jumbotron text-center"></div>
     <div class="album py-5" id="contIndex">
       <div class="container">
         <div class="row">
@@ -143,17 +143,135 @@
           <a href="categories.html"></a>
         </div>
       </div>
+    </div> -->
+
+    <article id="index-bannerContainer">
+    <!-- Banner de autos -->
+      <section id="index-carCard" class="index-bannerCard">
+        <div class="index-sideBannerContainer">
+          <div class="index-logosBannerContainer">
+            <!-- este no es le logo que va pero no encuentro el bueno -->
+              <img src="/img/logo.png" class="index-logoBanner" alt="">
+              <div class="index-lineaIntermedia"></div>
+              <img src="/img/eMercadoIcon.png" class="index-eMercadoBanner" alt="">
+          </div>
+          <!-- cambiar color de la imagen porque luce raro cuando se junta con el bg -->
+          <img src="/img/sideBanner-car.png" alt="" class="index-sideBanner" id="index-sideBannerCar">
+          
+          <div class="index-fraseBanner">      
+            <!-- <div class="index-fraseContainer"> -->
+              <p>ENCONTRÁ EL AUTO DE
+              TUS SUEÑOS AL MEJOR 
+              PRECIO </p>
+            <!-- </div>       -->
+          </div>
+        </div>
+        <!-- <img src="/img/bg-carSideBannerPeak.svg" alt="" class="index-sideBanner" id="index-sideBannerCar"> -->
+        <div class="index-bannerProductContainer">
+          <div class="index-bannerProduct index-bannerProductCar">
+            <img src="/img/prod60804_1.jpg" alt="" class="index-carProduct">
+            <p>PRECIO USD</p>
+          </div>
+          <div class="index-bannerProduct index-bannerProductCar">
+            <img src="/img/prod40281_1.jpg" alt="" class="index-carProduct">
+            <p>PRECIO USD</p>
+          </div>
+          <div class="index-bannerProduct index-bannerProductCar">
+            <img src="" alt="" class="index-carProduct">
+            <p>PRECIO USD</p>
+        </div>
+
+        </div>
+
+        <div>
+           <a class="index-bannerSiguiente" href="#index-furnitureCard"><img src="/img/arrow_forward.svg" alt=""></a>
+        </div>
+      </section>
+      <!-- Banner de muebles -->
+      <section id="index-furnitureCard" class="index-bannerCard">
+        <div class="index-sideBannerContainer">
+          <div class="index-bannerAnteriorContainer">
+            <a class="index-bannerAnterior" href="#index-carCard"><img src="/img/arrow_back.svg" alt=""></a>
+          </div>
+          <img src="/img/sideBanner-furniture.png" alt="" class="index-sideBanner" id="index-sideBannerFurniture">
+          <div class="index-fraseBanner index-fraseBannerFurniture">            
+            <p>¡RENOVÁ TU HOGAR!</p>
+            <p>EL MEJOR PRECIO EN MUEBLES DE LA NUEVA COLECCIÓN</p>
+          </div>
+        </div>
+
+        <div class="index-bannerProduct index-bannerProductFurniture">
+          <img src="/img/prod50742_4.jpg" alt="" class="index-furnitureProduct">
+          <p>PRECIO USD</p>
+        </div>
+        <div class="index-bannerProduct index-bannerProductFurniture">
+          <img src="" alt="" class="index-furnitureProduct">
+          <p>PRECIO USD</p>
+        </div>
+
+        <div>
+          <a class="index-bannerSiguiente" href="#index-toyCard"><img src="/img/arrow_forward.svg" alt=""></a>
+        </div>
+      </section>
+      
+      <!-- Banner de jueguetes -->
+      <section id="index-toyCard" class="index-bannerCard"> 
+        <div class="index-sideBannerContainer">
+          <div class="index-bannerAnteriorContainer">
+            <a class="index-bannerAnterior" href="#index-furnitureCard"><img src="/img/arrow_back.svg" alt=""></a>
+          </div>
+
+          <div class="index-logosBannerContainer">
+              <img src="/img/logo.png" class="index-logoBanner" alt="">
+              <img src="/img/eMercadoIcon.png" class="index-eMercadoBanner" alt="">
+          </div>
+
+          <img src="/img/sideBanner-toy.png" alt="" class="index-sideBanner" id="index-sideBannerToy">
+          <div class="index-fraseBanner index-fraseToy">            
+            <p>DIVERSIÓN 24/7 DIRECTA AL CARRITO</p>
+          </div>
+        </div>
+
+        <div class="index-bannerProductContainer">
+          <div class="index-bannerProduct index-bannerProductToy">
+            <img src="/img/prod50923_3.jpg" alt="" class="index-toyProduct">
+            <p>PRECIO USD</p>
+          </div>
+          <div class="index-bannerProduct index-bannerProductToy">
+            <img src="/img/prod50741_4.jpg" alt="" class="index-toyProduct">
+            <p>PRECIO USD</p>
+          </div>
+          <div class="index-bannerProduct index-bannerProductToy" id="index-bannerProductToyLast">
+            <img src="" alt="" class="index-toyProduct">
+            <p>PRECIO USD</p>
+          </div>
+        </div>
+      </section> 
+
+    </article>
+
+
+
+    <div id="index-categoriesContainer">
+      <div class="index-categoriesLogoContainer">
+        <img src="/img/indexLogo-car.svg" alt="" class="index-categoriesLogo">
+        <p>Autos</p>
+      </div>
+      <div class="index-categoriesLogoContainer">
+        <img src="/img/indexLogo-furniture.svg" alt="" class="index-categoriesLogo">
+        <p>Muebles</p>
+      </div>
+      <div class="index-categoriesLogoContainer">
+        <img src="/img/indexLogo-toy.svg" alt="" class="index-categoriesLogo">
+        <p>Juguetes</p>
+      </div>
     </div>
+    <div id="index-buttonCategoriesContainer">
+      <a href="categories.html"><button id="index-buttonCategories" class="buttonSecundario">Más categorías</button></a>
+    </div>
+
   </main>
-  <footer id="footerIndex" class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <script src="js/bootstrap.bundle.min.js"></script>
+
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
 </body>

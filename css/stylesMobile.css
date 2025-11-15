@@ -2390,4 +2390,386 @@ li a {
     padding-left: 2%;
     overflow-wrap: break-word;
 }
+
+/* --------- Index --------- */
+.mainProducts {
+    margin: 0;
 }
+/* consultar a nacho q onda con ese margin */
+
+#index-bannerContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+    
+    /* no esta funcionando */
+    scroll-snap-type: x mandatory;
+
+    width: 100vw;
+    height: 30vw;
+
+    overflow: hidden;   
+    scroll-behavior: smooth;
+    
+}
+
+.index-bannerCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 100%;
+
+    gap: 2%;
+
+    /* sin esta propiedad se ajustan al contenedor */
+    flex-shrink: 0; 
+    
+    background-color: beige;
+
+    /* centra el scroll del banner en el centro de la tarjeta */
+    scroll-snap-align: center;  
+    /* evita que scrollee mas de una tarjeta a la vez */
+    scroll-snap-stop: always;
+}
+
+#index-carCard {
+    background-image: url("/img/bg-carBanner.svg");
+    background-size: cover;
+    /* object-fit: cover; */
+}
+
+#index-toyCard {
+    background-image: url("/img/bg-toyBanner.svg");
+    background-size: cover;
+}
+
+#index-furnitureCard {
+    background-image: url("/img/bg-furnitureBanner.svg");
+    background-size: cover;
+}
+
+.index-bannerAnterior img{
+    position: absolute;
+    padding-left: 8px;
+    z-index: 1;
+    width: 30px;
+}
+
+.index-bannerSiguiente img{
+    /* position: absolute; */
+    /* padding-left: 8px; */
+    z-index: 1;
+    width: 20px;
+}
+
+.index-sideBanner {
+    align-self: stretch;
+    z-index: 0;
+
+    /* esto va a ser un problema para el responsive!! */
+    width: 100%;
+    height: 100%;
+
+    /* object-fit: contain; */
+}
+/* estoy alineando los contenedores padre con 
+position relative, para poder superponer imagenes,
+y convirtiendolos en contendores flex  */
+
+/* #index-sideBannerContainerContainer{
+    display: flex;
+    position: relative;
+    flex: 1;
+    max-width: 490px;
+    height: 100%;
+}
+
+#index-sideBannerContainerContainer img{
+    height: 100%;
+} */
+
+.index-sideBannerContainer {
+    display: flex;
+    position: relative;
+    flex: 1;
+    justify-content: center;
+    /* max-width: 490px; */
+    max-width: 45%;
+    /* min-width: 101px; */
+
+    height: 100%;
+
+    flex-shrink: 0;
+}
+
+.index-bannerAnteriorContainer{
+    display: flex;
+    align-items: center;
+    
+    position: relative;
+    height: 100%;
+ }
+
+.index-logosBannerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+
+    width: 100%;
+
+    padding-top: 15px;
+    padding-right: 20px;
+    position: absolute;
+}
+
+.index-logoBanner {
+    display: none;
+    /* display: inline-block; */
+    height: auto;
+    position: relative;
+
+    width: 33%;
+    min-width: 100px;
+
+    z-index: 4;
+
+    overflow: visible;
+    /* border-right: 2px solid white; */
+    padding: 0px 1px 0px 25px;
+}
+
+.index-lineaIntermedia {
+    width: 2px;
+    height: 70%;
+    background-color: #dddd;
+}
+
+/* no me salió, era para poner el border más
+pequeño, hay un problema con los overflow creo */
+
+/* #pepe::before {
+    content: "";
+    color: red;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100px;
+    width: 5px;
+    z-index: 5;
+} */
+
+
+.index-eMercadoBanner {
+    display: none;
+    width: 39%;
+    height: auto;
+    min-width: 126px;
+
+    z-index: 2;
+}
+
+.index-fraseBanner {
+    display: flex;
+    /* justify-content: end; */
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-right: 5px;
+
+    position: absolute;
+    height: 100%;
+    /* padding-bottom: 2%; */
+    overflow-wrap: break-word;
+}
+
+.index-fraseBanner p {
+    color: white;
+    font-weight: 750;
+    font-size: clamp(0.25rem, -0.1338rem + 4.0936vw, 0.6875rem);
+    line-height: 1.1;
+    padding-left: 10%;
+
+
+    /* padding-top: 40%; */
+    /* padding-left: 20px; */
+    text-align: start;
+    margin: 0;
+    
+}
+
+.index-fraseContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+.index-fraseBannerFurniture {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.index-fraseBannerFurniture p{
+    /* padding: 0; */
+}
+
+.index-fraseToy p {
+    padding-bottom: 10%;
+}
+
+.index-bannerProduct {
+    position: relative;
+
+    min-width: 40px;
+    width: 20vw;
+    /* height: 15%; */
+    aspect-ratio: 16/10;
+
+    background-color: grey;
+    border: 1.2px solid #7800C8;
+
+    border-radius: 3px;
+}
+
+.index-bannerProductContainer {
+    display: flex;
+    gap: 1vw;
+}
+
+.index-bannerProduct p{
+    /* padding: 8px;*/
+    padding: 4%;
+
+
+    font-size: clamp(0.1875rem, -0.329rem + 4.1322vw, 0.5rem);   
+    border-radius: 3px;
+    font-weight: 600;
+
+    z-index: 11;
+
+    min-width: 10px;
+}
+
+.index-bannerProductCar p{
+    position: absolute;
+    right: -15%;
+    top: -15%;
+
+    border: 1px solid #7800C8;
+    color: #480B77;
+
+    background-color: white;
+}
+
+.index-bannerProductFurniture {
+    border: 2px solid #8D3E0C;
+    /* width: 280px; */
+    /* height: 170px; */
+}
+
+.index-bannerProductFurniture p{
+    border: 1px solid #8D3E0C;
+    color: #8D3E0C;
+
+    position: absolute;
+    right: -21%;
+    bottom: -36%;
+    /* padding: 12px; */
+    padding: 4%;
+
+    background-color: rgb(222, 221, 221);
+}
+
+.index-bannerProductToy p{
+    border: 1px solid #7800C8;
+    color: #480B77;
+
+    position: absolute;
+    right: -15px;
+    bottom: -27px;
+
+    background-color: #00FF85;
+}
+
+.index-bannerProduct img{
+    object-fit: cover;  
+    width: 100%;
+    height: 100%; 
+
+    border-radius: inherit;
+
+}
+
+.index-imagesContainer {
+    display: flex;
+}
+
+#index-bannerProductToyLast {
+    margin-right: 20px;
+}
+
+#index-categoriesContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+
+    padding-top: 7vw;
+    padding-bottom: 3vw;
+}
+
+.index-categoriesLogo {
+    aspect-ratio: 1/1;
+    width: 15vw;
+
+}
+
+.index-categoriesLogoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--texto-colorPrincipal);
+    font-weight: 500;
+    font-size: 2.2vw;
+
+    transition: filter 0.5s;
+}
+
+.index-categoriesLogoContainer:hover {
+    /* usa los argumentos de filtro para cambiar el color de una img
+    generador: https://codepen.io/sosuke/pen/Pjoqqp */
+  
+    filter: brightness(0) saturate(100%) invert(32%) sepia(52%) saturate(5407%) hue-rotate(17deg) brightness(92%) contrast(101%);
+
+    /* box-shadow: 4px 4px 2px #1c1b1b; */  
+}
+
+
+.index-categoriesLogoContainer p{
+}
+
+#index-buttonCategoriesContainer{
+    display: flex;
+    justify-content: center;
+
+    width: 100vw;
+
+    padding-bottom: 50px;
+}
+
+#index-buttonCategories {
+    width: 60vw;
+    font-size: clamp(0.5625rem, 0.4727rem + 0.4474vw, 0.6875rem);
+    padding: 2px;
+    border-radius: 2px;
+}
+}
+
