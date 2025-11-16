@@ -3119,7 +3119,7 @@ li a {
 /* tarjeta de credito y debito */
 
 #purchaseProcess-TC-TD {
-    width: 80%;
+    width: 100%;
     margin: 1.2ex 0;
 }
 
@@ -3204,7 +3204,7 @@ li a {
 
 #purchaseProcess-contOptionTCTD {
     align-self: center;
-    width: 70%;
+    width: 80%;
     max-width: 375px;
 }
 
@@ -3313,7 +3313,7 @@ li a {
 /* Mercado pago */
 
 #purchaseProcess-MercadoPago {
-    width: 80%;
+    width: 100%;
     margin: 1.2ex 0;
 }
 
@@ -3345,7 +3345,7 @@ li a {
 #purchaseProcess-MercadoPago-dropdown > div {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
 }
 
 #purchaseProcess-MercadoPago-numOpCont .purchaseProcess-TCTDinputDescription {
@@ -3383,7 +3383,7 @@ li a {
 }
 
 #purchaseProcess-RedCobranza{
-    width: 80%;
+    width: 100%;
     margin: 1.2ex 0;
 }
 
@@ -3723,6 +3723,11 @@ li a {
 
 #purchaseProcess-contImgSuccess img{
     width: 100%;
+}
+
+#pruchaseProcess-arrowBtnImg {
+    transition: transform 0.2s ease;
+    transform: rotateX(0deg);
 }
 
 } 

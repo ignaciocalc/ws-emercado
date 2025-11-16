@@ -92,6 +92,7 @@ const
 
 const //orderSummaryMobile
    arrowButton = document.getElementById("pruchaseProcess-arrowBtn"),
+   arrowButtonimg = document.getElementById("pruchaseProcess-arrowBtnImg"),
    orderSummaryGeneralCont = document.getElementById("purchaseProcess-orderSummary");
 
 
@@ -311,9 +312,11 @@ step1ClickArea.addEventListener("click", () => {purchaseProcessMain.classList.re
 
 arrowButton.addEventListener("click", function(){
    if (orderSummaryGeneralCont.style.bottom != "100%"){
-      orderSummaryGeneralCont.style.bottom = "100%"
+      orderSummaryGeneralCont.style.bottom = "100%";
+      arrowButtonimg.style.transform = "rotateX(180deg)"
    } else {
-      orderSummaryGeneralCont.style.bottom = `calc(100% - ${orderSummaryGeneralCont.offsetHeight}px)`
+      orderSummaryGeneralCont.style.bottom = `calc(100% - ${orderSummaryGeneralCont.offsetHeight}px)`;
+      arrowButtonimg.style.transform = "rotateX(0deg)"
    }
       
 })
@@ -322,8 +325,6 @@ arrowButton.addEventListener("click", function(){
 // ----> declaracion de funciones
 // ------------- 
 
-// popUpsCont = document.getElementById("purchaseProcess-orderConfirmation"),
-//    popUpsMessegeLoading
 
 function showLoadingPopUps() {
    popUpsCont.style.display = "flex";
@@ -339,15 +340,13 @@ function showLoadingPopUps() {
                      setTimeout(() => {
                                        imgContCover.className = "imgSuccesShow";
                                        pSuccess.style.opacity = "100%";
-                                       // setTimeout(() => {finishPurchaseProcess()}, 500)
+                                       setTimeout(() => {finishPurchaseProcess()}, 500)
                                       }, 100 + 200);
                   }, 200);
    
    }, 3000)})
    
 }
-
-showLoadingPopUps()
 
 function finishPurchaseProcess() {
    if (buyOneProduct != null) {
