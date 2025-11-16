@@ -36,8 +36,9 @@
           <p>Medio de pago</p>
         </div>
       </div>
-      <h1 id="purchaseProcess-h1-step1">Indique donde quiere recibir la compra</h1>
+      
       <div id="purchaseProcess-form">
+        <h1 id="purchaseProcess-h1-step1">Indique donde quiere recibir la compra</h1>
         <div id="purchaseProcess-inputContDepartamento" class="purchaseProcess-inputDescriptionContLarge">
           <p class="purchaseProcess-inputDescription">Departamento</p>
           <div class="purchaseProcess-select">
@@ -82,23 +83,23 @@
         <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContLarge">
           <p class="purchaseProcess-inputDescription">Calle</p>
           <div class="purchaseProcess-inputCont">
-            <input type="text" class="purchaseProcess-inputText" placeholder="Indique la calle">
+            <input id="purchaseProcess-inputCalle" type="text" class="purchaseProcess-inputText" placeholder="Indique la calle">
           </div>
           <p class="purchaseProcess-inputError">Debe ingresar una calle</p>
         </div>
 
         <div class="purchaseProcess-contEsquinaAndDireccion">
-          <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContDoble">
+          <div id="purchaseProcess-inputContEsquina" class="purchaseProcess-inputDescriptionContDoble">
             <p class="purchaseProcess-inputDescription">Esquina</p>
             <div class="purchaseProcess-inputCont">
-              <input type="text" class="purchaseProcess-inputText" placeholder="Indique la esquina">
+              <input id="purchaseProcess-inputEsquina" type="text" class="purchaseProcess-inputText" placeholder="Indique la esquina">
             </div>
             <p class="purchaseProcess-inputError">Debe ingresar una esquina</p>
           </div>
-          <div id="purchaseProcess-inputContCalle" class="purchaseProcess-inputDescriptionContDoble">
+          <div id="purchaseProcess-inputContNumeroPuerta" class="purchaseProcess-inputDescriptionContDoble">
             <p class="purchaseProcess-inputDescription">Número de puerta</p>
             <div class="purchaseProcess-inputCont">
-              <input type="text" class="purchaseProcess-inputText" placeholder="Indique el número de puerta">
+              <input id="purchaseProcess-inputPuerta"  type="text" class="purchaseProcess-inputText" placeholder="Indique el número de puerta">
             </div>
             <p class="purchaseProcess-inputError">Debe ingresar un número de puerta</p>
           </div>
@@ -149,6 +150,112 @@
           <button id="purchaseProcess-btnContinuar" class="button">Continuar</button>
         </div>
       </div> 
+
+      <section id="purchaseProcess-paymentOptions">
+        <h1 id="purchaseProcess-h1-step2">Seleccione su medio de pago</h1>
+        <div id="purchaseProcess-TC-TD" class="purchaseProcess-paymentOptionhidden">
+          <div id="purchaseProcess-TC-TD-clickArea" class="purchaseProcess-paymentOptionCont">
+            <div>
+              <p>Tarjeta de credito/debito</p>
+              <div class="contLogoOption">
+                <img id="purchaseProcess-logoMaster" src="img/MastercardLogo.svg">
+              </div>
+              <div class="contLogoOption">
+                <img id="purchaseProcess-logoVisa" src="img/Visa_2021.svg">
+              </div>
+            </div>
+            <img class="purchaseProcess-imgFlecha" src="img/flecha-abajo.svg">
+          </div>
+          <div id="purchaseProcess-TC-TD-dropdown" class="purchaseProcess-paymentOption">
+            <h2>Ingrese los datos de su tarjeta</h2>
+            <div id="purchaseProcess-contOptionTCTD">
+              <form id="purchaseProcess-formTCTDInformation">
+                <label id="purchaseProcess-TCTDNumberCont" class="purchaseProcess-forminputContTCTD">
+                  <p class="purchaseProcess-TCTDinputDescription">Número de tarjeta</p>
+                  <div>
+                    <img id="purchaseProcess-imgCard" src="img/tarjetaStandar.svg">
+                    <input id="purchaseProcess-TCTDnumber" type="number" class="purchaseProcess-formTCTDinput number" placeholder="0000 0000 0000 0000">
+                  </div>
+                  <p class="purchaseProcess-TCTDinputErrorDescription">Debe ingresar un numero de tarjeta valido</p>
+                </label>
+
+                <div id="purchaseProcess-contDateAndCvv">
+                  <label id="purchaseProcess-DateTCCont" class="purchaseProcess-forminputContTCTD-row">
+                    <p class="purchaseProcess-TCTDinputDescription">Fecha de expiracion</p>
+                    <div>
+                      <input id="purchaseProcess-DateTC" type="text" class="purchaseProcess-formTCTDinput number" placeholder="MM / YY">
+                    </div>
+                    <p class="purchaseProcess-TCTDinputErrorDescription">Ingrese una fecha MM/YY</p>
+                  </label>
+                  <label id="purchaseProcess-CVVCVCCont" class="purchaseProcess-forminputContTCTD-row">
+                    <p class="purchaseProcess-TCTDinputDescription">CVV/CVC</p>
+                    <div>
+                      <input id="purchaseProcess-CVVCVC" type="number" class="purchaseProcess-formTCTDinput number" placeholder="CVV/CVC">
+                    </div>
+                    <p class="purchaseProcess-TCTDinputErrorDescription">Ingrese un CVV o CVC</p>
+                  </label>
+                </div>
+
+                <label id="purchaseProcess-nameTCTDCont" class="purchaseProcess-forminputContTCTD">
+                  <p class="purchaseProcess-TCTDinputDescription">Titular</p>
+                  <div>
+                    <input id="purchaseProcess-nameTCTD" type="text" class="purchaseProcess-formTCTDinput" placeholder="Ej: Jose Luis">
+                  </div>
+                  <p class="purchaseProcess-TCTDinputErrorDescription">Ingrese el nombre grabado en la tarjeta</p>
+                </label>
+              </form>
+              <button id="purchaseProcess-Pagar" class="button">Pagar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="purchaseProcess-MercadoPago" class="purchaseProcess-paymentOptionhidden">
+          <div id="purchaseProcess-MercadoPago-clickArea" class="purchaseProcess-paymentOptionCont">
+            <div>
+              <p>Mercado Pago</p>
+              <div class="contLogoOption">
+                <img id="purchaseProcess-logoMaster" src="img/MercadoPagoLogo.svg">
+              </div>
+            </div>
+            <img class="purchaseProcess-imgFlecha" src="img/flecha-abajo.svg">
+          </div>
+          <div id="purchaseProcess-MercadoPago-dropdown" class="purchaseProcess-paymentOption">
+            <div>
+              <p>Realiza tu pago <a href="https://www.mercadopago.com.uy/" target="_blank" rel="noopener noreferrer">aqui</a>. Una vez hecho ingresa el número de operacion  </p>
+            
+              <label id="purchaseProcess-MercadoPago-numOpCont" class="purchaseProcess-forminputContTCTD">
+                <p class="purchaseProcess-TCTDinputDescription">Número de operación</p>
+                <div>
+                  <input id="purchaseProcess-MercadoPago-numOp" type="number" class="purchaseProcess-formTCTDinput number" placeholder="Número de operación">
+                </div>
+                <p class="purchaseProcess-TCTDinputErrorDescription">Debe ingresar el número de operación</p>
+              </label>
+
+              <button id="purchaseProcess-Validar" class="button">Validar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="purchaseProcess-RedCobranza" class="purchaseProcess-paymentOptionhidden">
+          <div id="purchaseProcess-RedCobranza-clickArea" class="purchaseProcess-paymentOptionCont">
+            <div>
+              <p>Redes de cobranza</p>
+              <img id="purchaseProcess-logoRedPagos" src="img/redpagosLogo.svg">
+              <div class="contLogoOption">
+                <img id="purchaseProcess-logoAbitab" src="img/AbitabLogo.svg">
+              </div>
+            </div>
+            <img class="purchaseProcess-imgFlecha" src="img/flecha-abajo.svg">
+          </div>
+          <div id="purchaseProcess-RedCobranza-dropdown" class="purchaseProcess-paymentOption">
+            <p>Dirigete a la red de cobranza de tu preferencia e indica que quieres abonar un pago para eMercado, 
+              te solicitaran el siguiente numero de compra <span id="purchaseProcess-RedCobranzaOrderId"></span></p> 
+            <P>Una vez realizado el pago te enviaremos un mail con la confirmacion de la compra</p>
+
+            <button id="purchaseProcess-Finalizar" class="button">Finalizar</button>
+          </div>
+        </div>
+      </section>
     </article>
 
     <article id="purchaseProcess-orderSummary">
@@ -179,6 +286,26 @@
       </article>
     </article>
   </main>
+
+  <article id="purchaseProcess-orderConfirmation">
+    <div id="purchaseProcess-orderConfirmation-contmessage">
+      <div id="purchaseProcess-contmessage-loading">
+        <img src="img/Logo_eMercado.png">
+        <div>
+          <div id="purchaseProcess-circle1" class="contmessage-loading-circle"></div>
+          <div id="purchaseProcess-circle2" class="contmessage-loading-circle"></div>
+          <div id="purchaseProcess-circle3" class="contmessage-loading-circle"></div>
+        </div>
+      </div>
+      <div id="purchaseProcess-contmessage-success">
+        <div id="purchaseProcess-contImgSuccess">
+          <div id="purchaseProcess-contCoverImgSuccess" class="imgSuccesHidden"></div>
+          <img src="img/checkCompra.svg">
+        </div>
+        <p id="purchaseProcess-pSuccess">¡Compra finalizada con exito!</p>
+      </div>
+    </div>
+  </article>
   <footer id="pruchaseProcess-menu-mobile">
 
   </footer>
