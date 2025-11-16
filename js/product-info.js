@@ -1,4 +1,6 @@
 import {inicializaListenerCarrito} from "./utils.js";
+import {btnComprarUnProducto} from "./utils.js";
+
 const
    idProductoLS = localStorage.getItem('idProducto'),
    linkProducto = "https://japceibal.github.io/emercado-api/products/" + idProductoLS + ".json",
@@ -87,13 +89,11 @@ async function productInfo(link) {
    }
 
    let prod = {idProducto : idProductoLS, nombre : producto.name, costo : producto.cost, moneda : producto.currency, cantidad : 1, img : producto.images[0]};
-   inicializaListenerCarrito(document.getElementById("botoncomprarinfo"), prod);
-   inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);
    
    document.getElementById("botoncomprarinfo").addEventListener("click", ()=> {
-      if (nombreUser != null)
-         window.location.href = 'cart.html';
+      btnComprarUnProducto(prod);
    })
+
 
 }
 

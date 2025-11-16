@@ -452,6 +452,11 @@ btnDesplegarMenu.addEventListener("click", function(){
    }  
 })
 
+document.getElementById("carrito-btnContinuar").addEventListener("click", function(){
+   localStorage.removeItem("buyOneProduct");
+   window.location = "purchase-process.html"
+})
+
 document.getElementById("carrito-contEnvioStandar").addEventListener("click", sumarEnvioySubtotal);
 document.getElementById("carrito-contEnvioExpress").addEventListener("click", sumarEnvioySubtotal);
 document.getElementById("carrito-contEnvioPremium").addEventListener("click", sumarEnvioySubtotal);

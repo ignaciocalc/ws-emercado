@@ -4,6 +4,28 @@
     Se debe importar como módulo en el HTML que se quiera usar
 */
 
+export const DEPARTAMENTOSYLOCALIDADES = {
+    Artigas: ["Artigas", "Bella Unión", "Tomás Gomensoro", "Sequeira", "Baltasar Brum"],
+    Canelones: ["Canelones", "Las Piedras", "Pando", "Ciudad de la Costa", "Santa Lucía", "Sauce", "Tala", "Toledo", "Progreso", "La Paz"],
+    CerroLargo: ["Melo", "Río Branco", "Fraile Muerto", "Aceguá", "Noblía", "Tupambaé"],
+    Colonia: ["Colonia del Sacramento", "Carmelo", "Nueva Palmira", "Rosario", "Juan Lacaze", "Nueva Helvecia", "Tarariras"],
+    Durazno: ["Durazno", "Sarandí del Yí", "La Paloma", "Carmen", "Centenario", "Blanquillo"],
+    Flores: ["Trinidad", "Ismael Cortinas"],
+    Florida: ["Florida", "Sarandí Grande", "25 de Agosto", "Casupá", "25 de Mayo", "Fray Marcos"],
+    Lavalleja: ["Minas", "José Pedro Varela", "Solís de Mataojo", "Zapicán", "Mariscala"],
+    Maldonado: ["Maldonado", "Punta del Este", "San Carlos", "Piriápolis", "Pan de Azúcar", "Aiguá"],
+    Montevideo: ["Montevideo", "Pocitos", "Cordón", "Centro", "Prado", "Malvín"],
+    Paysandu: ["Paysandú", "Guichón", "Quebracho", "Piedras Coloradas", "Lorenzo Geyres"],
+    RioNegro: ["Fray Bentos", "Young", "Nuevo Berlín", "San Javier", "Grecco"],
+    Rivera: ["Rivera", "Tranqueras", "Minas de Corrales", "Vichadero", "Mandubí"],
+    Rocha: ["Rocha", "Chuy", "Castillos", "Lascano", "La Paloma", "Aguas Dulces", "19 de Abril"],
+    Salto: ["Salto", "San Antonio", "Constitución", "Belén", "Colonia Lavalleja"],
+    SanJose: ["San José de Mayo", "Ciudad del Plata", "Libertad", "Ecilda Paullier", "Rafael Perazza"],
+    Soriano: ["Mercedes", "Dolores", "Cardona", "José Enrique Rodó", "Palmitas", "Risso"],
+    Tacuarembo: ["Tacuarembó", "Paso de los Toros", "San Gregorio de Polanco", "Curtina", "Ansina"],
+    TreintayTres: ["Treinta y Tres", "Vergara", "Santa Clara de Olimar", "Cerro Chato", "Valentines"]
+};
+
 export const inicializaListenerCarrito = function (DOMvar, prod){
     
     DOMvar.addEventListener("click", (evento)=>{
@@ -112,4 +134,24 @@ export function alerteMercado(string, duracionMs){
             setTimeout(()=>cartelPrincipal.remove(), transicionMs)
         },duracion)
     })
+}
+
+export function btnComprarUnProducto(producto){
+    const
+        registrado = localStorage.getItem("user");
+
+    if (registrado != null ) {
+        const 
+            buyOneProduct = {
+                                productos: [producto],
+                                cantProductos: 1,
+                                tipoEnvio: "Standard",
+                                moneda: "UYU"
+                            };
+        
+        localStorage.setItem('buyOneProduct', JSON.stringify(buyOneProduct));
+        window.location = "purchase-process.html";
+    } else {
+        alerteMercado("Debe estar registrado para poder comprar")
+    }
 }
