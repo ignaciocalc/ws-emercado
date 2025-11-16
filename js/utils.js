@@ -137,14 +137,21 @@ export function alerteMercado(string, duracionMs){
 }
 
 export function btnComprarUnProducto(producto){
-    const 
-        buyOneProduct = {
-                            productos: [producto],
-                            cantProductos: 1,
-                            tipoEnvio: "Standard",
-                            moneda: "UYU"
-                        };
-    
-    localStorage.setItem('buyOneProduct', JSON.stringify(buyOneProduct));
-    window.location = "purchase-process.html";
+    const
+        registrado = localStorage.getItem("user");
+
+    if (registrado != null ) {
+        const 
+            buyOneProduct = {
+                                productos: [producto],
+                                cantProductos: 1,
+                                tipoEnvio: "Standard",
+                                moneda: "UYU"
+                            };
+        
+        localStorage.setItem('buyOneProduct', JSON.stringify(buyOneProduct));
+        window.location = "purchase-process.html";
+    } else {
+        alerteMercado("Debe estar registrado para poder comprar")
+    }
 }

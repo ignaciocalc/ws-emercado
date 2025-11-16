@@ -2587,6 +2587,7 @@ p.card-boton .button {
     flex-direction: row;
     gap: 10px;
     margin: 20px;
+    color: var(--texto-colorPrincipal);
 }
 
 .purchaseProcess-step {
@@ -2651,6 +2652,7 @@ p.card-boton .button {
     font-size: var(--font-size-step1);
     margin: 6px 0;
     width: 95%;
+    color: var(--texto-colorH-procesoCompra);
 }
 
 #purchaseProcess-form {
@@ -2682,7 +2684,7 @@ p.card-boton .button {
     align-items: center;
     width: 100%;
     padding: 0.9ex 1ex;
-    border: solid 2px #dddd;
+    border: solid 2px var(--inputBorde-procesoCompra);
     border-radius: 6px;
     background-color: var(--fondo-inputsPurchaseProcess);
     cursor: pointer;
@@ -2725,12 +2727,19 @@ p.card-boton .button {
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--border-inputsPurchaseProcess) transparent;
-    z-index: 10;
     transition: max-height 0.2s ease;
+}
+
+#purchaseProcess-contOptionDepartamento {
+    z-index: 20;
+}
+#purchaseProcess-selectContLocalidad {
+    z-index: 10;
 }
 
 .purchaseProcess-selectOption {
     padding: 1ex;
+    color: var(--texto-colorPrincipal);
     font-size: calc(var(--font-size-step1) / 2);
 }
 
@@ -2756,7 +2765,7 @@ p.card-boton .button {
     align-items: center;
     width: 100%;
     padding: 0.9ex 1ex;
-    border: solid 2px #dddd;
+    border: solid 2px var(--inputBorde-procesoCompra);
     border-radius: 6px;
     background-color: var(--fondo-inputsPurchaseProcess);
 }
@@ -2827,17 +2836,18 @@ p.card-boton .button {
 /* shippingMethod */
 
 #purchaseProcess-shippingMethod {
-    --font-size-shippingMethod: calc(var(--font-size-step1) * 0.50);
+    --font-size-shippingMethod: calc(var(--font-size-step1) * 0.42);
     position: relative;
     box-sizing: border-box;
     display: none;
     align-items: center;
-    width: 100%;
     padding: 0.9ex 1ex;
-    border: solid 2px #dddd;
+    color: var(--texto-colorPrincipal);;
+    border: solid 2px var(--inputBorde-procesoCompra);
     border-radius: 6px;
-    flex: 1;
     background-color: var(--fondo-inputsPurchaseProcess);
+    min-width: 130px;
+    padding-right: 1px;
 }
 
 #purchaseProcess-main.buyOneProduct #purchaseProcess-shippingMethod{
@@ -2923,7 +2933,7 @@ p.card-boton .button {
 }
 
 .shippingMethod-showOptions #purchaseProcess-shippingMethod-form {
-    max-height: 120px;
+    max-height: fit-content;
     border: solid 2px var(--border-inputsPurchaseProcess);
 }
 
@@ -2939,13 +2949,14 @@ p.card-boton .button {
     display: none;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     padding: 0.9ex 1ex;
-    border: solid 2px #dddd;
+    min-width: 110px;
+    color: var(--texto-colorPrincipal);
+    border: solid 2px var(--inputBorde-procesoCompra);
     border-radius: 6px;
-    flex: 1;
     background-color: var(--fondo-inputsPurchaseProcess);
     cursor: pointer;
+    min-width: 130px;
 }
 
 #purchaseProcess-main.buyOneProduct #purchaseProcess-currencyChange{
@@ -2976,12 +2987,12 @@ p.card-boton .button {
 }
 
 /* boton continuar */
-#purchaseProcess-main.buyOneProduct #purchaseProcess-btnContinuar{
-    flex: 1;
-    width: auto;
-    font-size: calc(var(--font-size-step1) * 0.65);
+#purchaseProcess-btnContinuar {
+    width: 85%;
+    font-size: calc(var(--font-size-step1) * 0.60);
+    max-width: fit-content;
+    margin: 2ex 0;
 }
-
 
 /* proceso de compra - seccion interactiva- step 2 */
 
@@ -3000,6 +3011,7 @@ p.card-boton .button {
 #purchaseProcess-h1-step2 {
     font-size: var(--font-size-step2);
     margin: 6px 0;
+    color: var(--texto-colorH-procesoCompra);
 }
 
 /* tarjeta de credito y debito */
@@ -3016,13 +3028,11 @@ p.card-boton .button {
     align-items: center;
     width: 100%;
     padding: 1.1ex 1ex;
-    border: solid 2px #dddd;
+    border: solid 2px var(--border-inputsPurchaseProcess);
     border-radius: 6px;
     justify-content: space-between;
     background-color: var(--fondo-inputsPurchaseProcess);
     user-select: none;
-    max-height: 400px;
-    transition: max-height 0.2s ease;
 }
 
 .purchaseProcess-paymentOptionShow .purchaseProcess-paymentOptionCont{
@@ -3041,6 +3051,7 @@ p.card-boton .button {
     font-size: calc(var(--font-size-step2) * 0.6);
     font-weight: 500;
     margin: 0;
+    color: var(--texto-colorPrincipal);
 }
 
 .purchaseProcess-paymentOptionCont .contLogoOption {
@@ -3048,8 +3059,8 @@ p.card-boton .button {
     align-self: stretch;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    border: solid 1px #dddd;
+    background-color: var(--cardLogos-background);
+    border: solid 1px var(--border-inputsPurchaseProcess);
     padding: 3px;
     border-radius: 3px;   
     width: fit-content;
@@ -3067,7 +3078,7 @@ p.card-boton .button {
 .purchaseProcess-paymentOption {
     display: flex;
     box-sizing: border-box;
-    border: solid 1px #dddd;
+    border: solid 1px var(--border-inputsPurchaseProcess);;
     background-color: var(--fondo-inputsPurchaseProcess);
     flex-direction: column;
     padding: 1ex;
@@ -3086,6 +3097,7 @@ p.card-boton .button {
     margin: 0;
     font-weight: 450;
     padding: 1ex;
+    color: var(--texto-colorPrincipal);
 }
 
 #purchaseProcess-contOptionTCTD {
@@ -3109,7 +3121,7 @@ p.card-boton .button {
 .purchaseProcess-forminputContTCTD div{
     display: flex;
     width: 100%;
-    background-color: var(--inputFondoMedioPago);
+    background-color: var(--fondo-inputsPurchaseProcess);
     border: solid 2px var(--inputBorde-procesoCompra);
     border-radius: 3px;
     align-items: center;
@@ -3144,6 +3156,7 @@ p.card-boton .button {
     color: var(--texto-colorAtenuado);
     padding: 0;
     width: 100%;
+    background-color: transparent;
 }
 
 #purchaseProcess-imgCard {
@@ -3171,8 +3184,8 @@ p.card-boton .button {
 
 .purchaseProcess-forminputContTCTD-row div{
     display: flex;
-    background-color: var(--inputFondoMedioPago);
-    border: solid 2px var(--inputBorde-procesoCompra);
+    background-color: var(--fondo-inputsPurchaseProcess);
+    border: solid 2px var(--border-inputsPurchaseProcess);
     border-radius: 3px;
     align-items: center;
     padding: 0.8ex 1ex;
@@ -3207,7 +3220,7 @@ p.card-boton .button {
 }
 
 #purchaseProcess-MercadoPago-dropdown {
-    padding: 1ex 2ex;
+    padding: 2ex;
 }
 
 .purchaseProcess-paymentOptionhidden #purchaseProcess-MercadoPago-dropdown {
@@ -3218,6 +3231,7 @@ p.card-boton .button {
     font-size: calc(var(--font-size-step2) * 0.45);
     margin: 0;
     font-weight: 450;
+    color: var(--texto-colorPrincipal);
 }   
 
 #purchaseProcess-MercadoPago-dropdown p a {
@@ -3272,12 +3286,13 @@ p.card-boton .button {
 }
 
 .purchaseProcess-paymentOptionShow #purchaseProcess-RedCobranza-dropdown{
-    padding: 1ex 2ex;
+    padding: 1.4ex 2ex;
 }
 
 #purchaseProcess-RedCobranza-dropdown p {
     font-size: calc(var(--font-size-step2) * 0.47);
     margin: 0.8ex 0 0.4ex;
+    color: var(--texto-colorPrincipal);
 }
 
 #purchaseProcess-Finalizar{
@@ -3417,7 +3432,7 @@ p.card-boton .button {
     opacity: 0%;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -3435,8 +3450,9 @@ p.card-boton .button {
     background-color: var(--fondo-cards);
     padding: 15px;
     width: 25%;
-    aspect-ratio: 1 / 1.05;
+    min-height: 250px;
     border-radius: 7px;
+    max-width: 180px;
 }
 
 #purchaseProcess-contmessage-loading {
@@ -3456,14 +3472,14 @@ p.card-boton .button {
     box-sizing: border-box;
 }
 
-#purchaseProcess-contmessage-loading div {
+#purchaseProcess-contmessage-loading > div {
     --duracion-animacion-loading: 1s;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    min-height: 46px;
     gap: 10%;
 }
 

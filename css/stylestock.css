@@ -93,6 +93,9 @@
 
     --inputBorde-procesoCompra: #dddd;
     --inputFondoMedioPago: white;
+    --texto-colorH-procesoCompra: rgb(31, 31, 31);
+
+    --cardLogos-background: white;
 }   
 
 body.darkmode {
@@ -178,6 +181,20 @@ body.darkmode {
 
     --hoverMenuCarrito: #242424;
     --inputRadio-envio: #bb3508;
+
+    /* Proceso de compra */
+    --border-circulos-noSelect: #adaaaa;
+    --border-circulos-Select: #c0c0c0;
+    --input-textDescription: #bababa;
+    --fondo-inputsPurchaseProcess: #282828;
+    --border-inputsPurchaseProcess: #727272dd;
+    --hover-opcionSelect: #313131;
+
+    --inputBorde-procesoCompra: #727272dd;
+    --inputFondoMedioPago: white;
+    --texto-colorH-procesoCompra: rgb(227, 227, 227);
+
+    --cardLogos-background: #242424;
 }
 
 

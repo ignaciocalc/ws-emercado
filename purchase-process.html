@@ -43,7 +43,7 @@
           <p class="purchaseProcess-inputDescription">Departamento</p>
           <div class="purchaseProcess-select">
             <input id="purchaseProcess-inputDepartamento" type="text" class="purchaseProcess-optionSelect" placeholder="Seleccione su departamento" readonly>
-            <div class="purchaseProcess-selectContOptions">
+            <div id="purchaseProcess-contOptionDepartamento" class="purchaseProcess-selectContOptions">
               <div class="purchaseProcess-selectOption" value="Artigas">Artigas</div>
               <div class="purchaseProcess-selectOption" value="Canelones">Canelones</div>
               <div class="purchaseProcess-selectOption" value="CerroLargo">Cerro Largo</div>
@@ -146,9 +146,8 @@
               <p id="currencyUSD">USD</p>
             </div>
           </div>
-
-          <button id="purchaseProcess-btnContinuar" class="button">Continuar</button>
         </div>
+        <button id="purchaseProcess-btnContinuar" class="button">Continuar</button>
       </div> 
 
       <section id="purchaseProcess-paymentOptions">
@@ -258,7 +257,7 @@
       </section>
     </article>
 
-    <article id="purchaseProcess-orderSummary">
+    <article id="purchaseProcess-orderSummary" style="bottom: 100%">
       <p id="purchaseProcess-title">Resumen de compra</p>
       <article>
         <div>
@@ -307,6 +306,12 @@
     </div>
   </article>
   <footer id="pruchaseProcess-menu-mobile">
-
+    <div id="pruchaseProcess-arrowBtn">
+      <img src="img/flecha-abajo.svg">
+    </div>
+    <div>
+      <p class="pruchaseProcess-p-footer" id="pruchaseProcess-menuMobile-total">Total:</p>
+      <p class="pruchaseProcess-p-footer" id="pruchaseProcess-menuMobile-totalCost"></p>
+    </div>
   </footer>
 </body>

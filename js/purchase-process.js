@@ -2,9 +2,11 @@ import {DEPARTAMENTOSYLOCALIDADES} from "./utils.js";
 
 const
    cart = localStorage.getItem("cart"),
+   mode = localStorage.getItem("modo"),
    buyOneProduct = localStorage.getItem("buyOneProduct"),
    cotizacionDolar = 43,
-   coinStyle = new Intl.NumberFormat('es-UY',{minimumFractionDigits: 2, maximumFractionDigits: 2});
+   coinStyle = new Intl.NumberFormat('es-UY',{minimumFractionDigits: 2, maximumFractionDigits: 2}),
+   body = document.body;
 
 const
    contProducts = document.getElementById("purchaseProcess-contProducts"),
@@ -45,7 +47,8 @@ const //input del form
 const
    subTotalContainer = document.getElementById("purchaseProcess-subtotal"),
    shippingContainer = document.getElementById("purchaseProcess-shippingCost"),
-   totalContainer = document.getElementById("orderSummary-total");
+   totalContainer = document.getElementById("orderSummary-total"),
+   totalContainerMobile = document.getElementById("pruchaseProcess-menuMobile-totalCost");
 
 const
    btnContinuar = document.getElementById("purchaseProcess-btnContinuar");
@@ -86,6 +89,11 @@ const //despliegue de opcion pagar con mercado pago
 
 const
    btnFinalizar = document.getElementById("purchaseProcess-Finalizar");
+
+const //orderSummaryMobile
+   arrowButton = document.getElementById("pruchaseProcess-arrowBtn"),
+   orderSummaryGeneralCont = document.getElementById("purchaseProcess-orderSummary");
+
 
 const //popUps
    popUpsCont = document.getElementById("purchaseProcess-orderConfirmation"),
@@ -301,6 +309,15 @@ btnFinalizar.addEventListener("click", ()=> {finishPurchaseProcess()})
 step1ClickArea.addEventListener("click", () => {purchaseProcessMain.classList.replace('purchaseStep2', 'purchaseStep1')})
 
 
+arrowButton.addEventListener("click", function(){
+   if (orderSummaryGeneralCont.style.bottom != "100%"){
+      orderSummaryGeneralCont.style.bottom = "100%"
+   } else {
+      orderSummaryGeneralCont.style.bottom = `calc(100% - ${orderSummaryGeneralCont.offsetHeight}px)`
+   }
+      
+})
+
 // ------------- 
 // ----> declaracion de funciones
 // ------------- 
@@ -322,13 +339,15 @@ function showLoadingPopUps() {
                      setTimeout(() => {
                                        imgContCover.className = "imgSuccesShow";
                                        pSuccess.style.opacity = "100%";
-                                       setTimeout(() => {finishPurchaseProcess()}, 500)
+                                       // setTimeout(() => {finishPurchaseProcess()}, 500)
                                       }, 100 + 200);
                   }, 200);
    
    }, 3000)})
    
 }
+
+showLoadingPopUps()
 
 function finishPurchaseProcess() {
    if (buyOneProduct != null) {
@@ -414,7 +433,7 @@ const
       }
 
       if ((optionSelect != element) && (optionSelect != input) ){
-         input.setAttribute("placeholder", optionSelect.textContent);
+         input.setAttribute("value", optionSelect.textContent);
          input.setAttribute("valueInput", optionSelect.getAttribute('value'));
          input.dispatchEvent(new Event("input"));
       }
@@ -494,6 +513,7 @@ function shippingMethodselected(shippingMethod){
 
    shippingContainer.textContent = currencyGeneral + " " + coinStyle.format(shippingCost);
    totalContainer.textContent = currencyGeneral + " " + coinStyle.format(total);
+   totalContainerMobile.textContent = currencyGeneral + " " + coinStyle.format(total);
 
    if (buyOneProduct != null){
       const buyOneProductOBJ = JSON.parse(localStorage.getItem("buyOneProduct"));
@@ -554,6 +574,7 @@ function calcSubtotal(itemLS) {
    })
 
    subTotalContainer.textContent = itemLS.moneda + " " + coinStyle.format(total);
+   totalContainerMobile.textContent = itemLS.moneda + " " + coinStyle.format(total);
    subTotalContainer.setAttribute("valor", total);
    shippingMethodselected(itemLS.tipoEnvio)
 }
@@ -577,10 +598,15 @@ function initPurchaseProcess(){
    initInputs();
 }
 
-
+function setMode() {
+   if (mode == "oscuro")
+      body.className = "darkmode"
+   else
+      body.className = ""
+}
 
 // ----------- 
 // ----> Instrucciones
 // ----------- 
-
+setMode();
 initPurchaseProcess();
