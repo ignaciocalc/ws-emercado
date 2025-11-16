@@ -78,6 +78,9 @@
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #e7e7e7;
+
+    --brillo-logosindex: brightness(0) saturate(100%);
+
 }   
 
 body.darkmode {
@@ -159,6 +162,8 @@ body.darkmode {
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #272626;
+
+    --brillo-logosindex: brightness(1) saturate(100%)
 }
 
 

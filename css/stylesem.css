@@ -2671,6 +2671,8 @@ pequeño, hay un problema con los overflow creo */
     color: var(--texto-colorPrincipal);
     font-weight: 500;
     font-size: 2.2vw;
+    
+    filter: var(----brillo-logosindex);
 
     transition: filter 0.5s;
 }

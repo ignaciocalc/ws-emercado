@@ -13,13 +13,15 @@ const
 const
     index         = localStorage.getItem("index") || null,
     actualDate    = ((d) => [d.getFullYear(), d.getMonth(), d.getDate()])(new Date());
-    // actualDate = [2024, 1, 2]; testing
+    // actualDate = [2024, 1, 2]; 
 const
     CATS                    = [101, 102, 103], // autos, juguetes, muebles
     PRODUCTS_CAT            = "https://japceibal.github.io/emercado-api/cats_products/",
     IMGSBANNER_CAR          = document.getElementsByClassName("index-carProduct"),
     IMGSBANNER_FURNITURE    = document.getElementsByClassName("index-furnitureProduct"),
     IMGSBANNER_TOY          = document.getElementsByClassName("index-toyProduct");
+const 
+    modo = localStorage.getItem("modo");
 
 
 // Listeners de los logos  en el index
@@ -38,6 +40,11 @@ logoFurniture.addEventListener("click", function() {
     // localStorage.setItem("redirect", true);
     window.location = "products.html"
 });
+
+// if(modo != "oscuro"){
+//     logoCar.style.filter = "brightness(0) saturate(100%)";
+// }
+
 
 // inicializa index en LS
 async function createIndexLS(){
