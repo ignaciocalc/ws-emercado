@@ -5,7 +5,7 @@ const
    mode = localStorage.getItem("modo"),
    buyOneProduct = localStorage.getItem("buyOneProduct"),
    cotizacionDolar = 43,
-   coinStyle = new Intl.NumberFormat('es-UY',{minimumFractionDigits: 2, maximumFractionDigits: 2}),
+   coinStyle = new Intl.NumberFormat('es-UY',{minimumFractionDigits: 0, maximumFractionDigits: 2}),
    body = document.body;
 
 const
@@ -531,7 +531,7 @@ function showProduct(product, currencyShow) {
       nameProduct = document.createElement("p"),
       costProductCont = document.createElement("p");
 
-   let productCost = Number(product.costo);
+   let productCost = Number(product.costo) * Number(product.cantidad);
 
    nameProduct.textContent = product.nombre;
    nameProduct.className = "purchaseProcess-orderSummary-productName";
