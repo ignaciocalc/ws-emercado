@@ -344,7 +344,6 @@ document.addEventListener("DOMContentLoaded", function() {
    };
 
    for (let id in categorias) {
-      alert(id)
       const elemento = document.getElementById(id);
       if (elemento) {
          elemento.addEventListener("click", function(e) {
