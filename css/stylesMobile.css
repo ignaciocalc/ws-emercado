@@ -3777,7 +3777,7 @@ li a {
 
 
 /* --------- Index --------- */
-.mainProducts {
+#mainProductsIndex {
     margin: 0;
 }
 /* consultar a nacho q onda con ese margin */
@@ -4002,9 +4002,9 @@ pequeño, hay un problema con los overflow creo */
     
 }
 
-.index-fraseBannerFurniture p{
-    /* padding: 0; */
-}
+/* .index-fraseBannerFurniture p{
+    padding: 0;
+} */
 
 .index-fraseToy p {
     padding-bottom: 10%;
@@ -4124,6 +4124,7 @@ pequeño, hay un problema con los overflow creo */
     color: var(--texto-colorPrincipal);
     font-weight: 500;
     font-size: 2.2vw;
+    filter: var(--brillo-logosindex);
 
     transition: filter 0.5s;
 }
@@ -4135,10 +4136,6 @@ pequeño, hay un problema con los overflow creo */
     filter: brightness(0) saturate(100%) invert(32%) sepia(52%) saturate(5407%) hue-rotate(17deg) brightness(92%) contrast(101%);
 
     /* box-shadow: 4px 4px 2px #1c1b1b; */  
-}
-
-
-.index-categoriesLogoContainer p{
 }
 
 #index-buttonCategoriesContainer{

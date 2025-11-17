@@ -3584,10 +3584,10 @@ p.card-boton .button {
 
 
 /* ---------- Index ----------- */
-.mainProducts {
-    /* margin: 0; */
+#mainProductsIndex {
+    margin: 0;
 }
-/* consultar a nacho q onda con ese margin */
+
 
 #index-bannerContainer {
     display: flex;
@@ -3596,7 +3596,6 @@ p.card-boton .button {
 
     overflow-x: auto;
     
-    /* no esta funcionando */
     scroll-snap-type: x mandatory;
 
     width: 100vw;
@@ -3922,7 +3921,7 @@ pequeño, hay un problema con los overflow creo */
     font-weight: 500;
     font-size: 2.2vw;
     
-    filter: var(----brillo-logosindex);
+    filter: var(--brillo-logosindex);
 
     transition: filter 0.5s;
 }
@@ -3937,8 +3936,8 @@ pequeño, hay un problema con los overflow creo */
 }
 
 
-.index-categoriesLogoContainer p{
-}
+/* .index-categoriesLogoContainer p{
+} */
 
 #index-buttonCategoriesContainer{
     display: flex;
