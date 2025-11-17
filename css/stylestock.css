@@ -96,6 +96,9 @@
     --texto-colorH-procesoCompra: rgb(31, 31, 31);
 
     --cardLogos-background: white;
+
+    --brillo-logosindex: brightness(0) saturate(100%);
+
 }   
 
 body.darkmode {
@@ -195,6 +198,8 @@ body.darkmode {
     --texto-colorH-procesoCompra: rgb(227, 227, 227);
 
     --cardLogos-background: #242424;
+
+    --brillo-logosindex: brightness(1) saturate(100%)
 }
 
 
