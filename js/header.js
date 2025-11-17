@@ -340,10 +340,11 @@ document.addEventListener("DOMContentLoaded", function() {
       Vestimenta: 106,
       Electrodomesticos: 107,
       Deporte: 108,
-      elulares: 109
+      Celulares: 109
    };
 
    for (let id in categorias) {
+      alert(id)
       const elemento = document.getElementById(id);
       if (elemento) {
          elemento.addEventListener("click", function(e) {
