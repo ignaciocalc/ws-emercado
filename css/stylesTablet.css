@@ -3,6 +3,10 @@
 /*--------------Login tablet---------*/
 @media (min-width: 321px) and (max-width: 768px) {
 
+    html{
+        scrollbar-width: none;
+    }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -735,6 +739,7 @@ li a {
     min-height: fit-content;
     overflow-x: auto;
     gap: 20px;
+    scrollbar-width: none;
 }
 
 /* Parte derecha */
@@ -1610,7 +1615,7 @@ li a {
     body.darkmodeinit #modeBtnMobile.modeBtn {
         transition: none;
         background-color: #ced9df;
-        box-shadow: 0px 0px 2px 2px #f78a53;
+        box-shadow: 0px 0px 2px 2px #151937;
     }
 
 .modeBtn {
@@ -2125,20 +2130,24 @@ li a {
     }
 
     #carrito-contPrincipal.carrito-lleno #carrito-lleno{
+        box-sizing: border-box;
+        height: calc(100vh - 55px);
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 2vw 3.5vw;
+        padding: 2vw 3vw;
         gap: 10px;
     }
 
     #carrito-totalComprar {
+        --fontSize-menuCarrito: clamp(1.1rem, 1.028rem + 0.358vw, 1.2rem);
         box-sizing: border-box;
         position: fixed;
         display: flex;
         align-self: center;
         flex-direction: column;
-        padding: 15px;
+        padding: 15px 5px;
+        padding-top: 0;
         flex: 1;
         border-top-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -2146,30 +2155,39 @@ li a {
         background-color: var(--fondo-cards);
         bottom: 0;
         width: 100vw;
+        max-height: 75vh;
         transition: 
             background-color var(--animacion-darkMode) ease,
             box-shadow var(--animacion-darkMode) ease;
     }
 
     #carrito-totalComprar button{
-        font-size: 1.3rem ;
+        font-size: var(--fontSize-menuCarrito) ;
         padding: 6px;
+        margin: 2px 10px 0;
     }
     
-
-    #carrito-contTotal {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: clamp(1.1rem, 0.689rem + 0.856vw, 1.4rem);
+    #carrito-totalComprar article{
+        padding: 0 10px
     }
 
-        #carrito-contTotal :first-child{
+
+    #carrito-contSubtotalGeneral {
+        display: flex;
+        flex-direction: row;    
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--texto-colorAtenuado);
+        font-weight: 450;
+        padding: 0px 3px;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+        #carrito-contSubtotalGeneral :first-child{
             margin: 0;
-            font-weight: 550;
         }
 
-        #carrito-contTotal :last-child{
+        #carrito-contSubtotalGeneral :last-child{
             margin: 0;
             white-space: nowrap;
         }
@@ -2180,7 +2198,13 @@ li a {
         cursor: pointer;
         user-select: none;
         justify-content: space-between;
-    
+        padding: 0.9ex 10px;
+        border-radius: 3px;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-alternadorMoneda:hover {
+        background-color: var(--hoverMenuCarrito);
     }
 
      #carrito-alternadorMoneda :first-child{
@@ -2188,7 +2212,7 @@ li a {
     }
 
     #carrito-alternadorMoneda p {
-        margin: 10px 0;
+        margin: 0;
     }
 
         #carrito-tipoMoneda {
@@ -2206,28 +2230,37 @@ li a {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
 
             #carrito-tipoMoneda :last-child {
                 position: absolute;
                 user-select: none;
                 transition: left 0.2s ease;
+                margin: 0;
             }
     
     #carrito-productos {
         display: flex;
         flex-direction: column;
-        flex: 4;
+        max-height: calc(100% - 200px);
+        overflow: auto;
+        scrollbar-width: none;
+        padding: 5px;
     }
 
     /* estilos tarjetas */
 
     .carrito-contImgProducto {
+        --ancho-alto-img: calc(var(--tamañoTituloTarjeta) * 3.2);
         display: flex;
         flex: 3.5;
         padding: 0.5%;
         aspect-ratio: 1 / 1;  
-        max-width: 120px; 
+        max-width: var(--ancho-alto-img); 
+        min-width: var(--ancho-alto-img);
+        max-height: var(--ancho-alto-img); 
+        min-height: var(--ancho-alto-img);
     }
 
     .carrito-infoProducto {
@@ -2239,8 +2272,12 @@ li a {
         margin-bottom: 0px;
         margin-left: 6px;
         margin-top: clamp(0.344rem, -0.658rem + 2.083vw, 0.938rem);
-        font-size: clamp(1.2rem, 0.697rem + 2.517vw, 1.9rem);
+        font-size: var(--tamañoTituloTarjeta);
         white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     #carrito-nombreProducto:hover {
@@ -2260,11 +2297,11 @@ li a {
     }
 
     .carrito-cardProducto {
+        --tamañoTituloTarjeta: clamp(1.2rem, 0.697rem + 2.517vw, 1.9rem);
         display: flex;
         flex-direction: row;
         box-shadow: 0px 0px 2px 2px var(--sombra-cards);
         background-color: var(--fondo-cards);
-        overflow: hidden;
         border-radius: 5px;
         transform: scale(1);
         opacity: 1;
@@ -2287,7 +2324,8 @@ li a {
 
     .carrito-contEliMod {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         justify-content: flex-start;    
     }
 
@@ -2295,8 +2333,8 @@ li a {
         margin: 0;
         color: var(--secundario-color);
         cursor: pointer;
-        margin-left: 6px;
-        font-size: clamp(0.7rem, 0.448rem + 1.258vw, 1.05rem);
+        margin-left: 0.4ex;
+        font-size: calc(var(--tamañoTituloTarjeta) / 2);
         transition: color var(--animacion-darkMode) ease;
     }
 
@@ -2315,25 +2353,228 @@ li a {
     }
 
     .carrito-btnAgregar {
-        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem); 
+        width: calc(var(--tamañoTituloTarjeta)/2); 
     }
 
     .carrito-controlCantidad input{
-        width: clamp(1.25rem, 1.015rem + 1.142vw, 1.563rem);
+        width: 2.5ex;
         text-align: center;
         border: none;
         background-color: var(--fondo-cards);
         color: var(--texto-colorPrincipal);
-        font-size: clamp(0.8rem, 0.423rem + 1.826vw, 1.3rem);
+        font-size: calc(var(--tamañoTituloTarjeta)/2);
         transition: 
             background-color var(--animacion-darkMode) ease,
             color var(--animacion-darkMode) ease;
     }
 
     .carrito-btnRemover {
-        width: clamp(1.563rem, 1.113rem + 2.247vw, 2.188rem);
+        width: calc(var(--tamañoTituloTarjeta)/2);
     }
 
+    /*lista Productos*/
+
+    #carrito-flechaDespliegueResumen{
+        display: flex;
+        justify-content: center;   
+        padding: 7px 0; 
+    }
+    
+    #carrito-flechaDespliegueResumen img{
+        width: 10px;
+        align-self: center;
+    }
+
+    .carrito-resumen-oculto #carrito-flechaDespliegueResumen img{
+        transform: rotate(-90deg)
+    }
+
+    .carrito-resumen-visible #carrito-flechaDespliegueResumen img{
+        transform: rotate(90deg)
+    }
+
+    .carrito-resumen-oculto #carrito-exSubtotalEnvio{
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0%;
+        transition: 
+            opacity 0.2s linear,
+            max-height 0.2s linear;
+    }
+
+    .carrito-resumen-visible #carrito-exSubtotalEnvio{
+        max-height: 200px;
+        opacity: 100%;
+        transition: 
+            opacity 0.2s linear,
+            max-height 0.2s linear;
+    }
+
+    #carrito-tituloResumen{
+        display: none;
+    }
+
+    #contResumen{
+        overflow: auto;
+        box-sizing: border-box;
+        max-height: calc((var(--fontSize-menuCarrito) + 10px) * 4);
+        scrollbar-width: none;
+    }
+    
+
+    .carrito-linea {
+        height: 2px;
+        width: 100%;
+        margin: 6px 0px;
+        background-color: var(--texto-colorAtenuado);
+    }
+    
+    .carrito-listContProduct {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        color: var(--texto-colorAtenuado);
+        font-weight: 450;
+        padding: 0px 3px;
+    }
+
+    .carrito-listContProduct p {
+        font-size: var(--fontSize-menuCarrito);
+        margin: 0;
+    }
+
+    .carrito-listPorductName{
+        max-width: 40%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    #carrito-precioEnvioCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #aeaeae;
+        font-weight: 450;
+        padding: 0px 3px;
+        color: var(--texto-colorAtenuado);
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-precioEnvioCont p {
+        margin: 6px 0 0;
+    }
+
+    #carrito-totalCont {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: var(--texto-totalCart);
+        font-weight: 600;
+        font-size: var(--fontSize-menuCarrito);
+    }
+
+    #carrito-totalCont p{
+        margin: 4px 0 8px;
+    }
+    /* Tipo de envio contenedor */
+
+    #carrito-tipoEnvioContenedor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+        padding: 0.5ex 10px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    #carrito-tipoEnvioContenedor:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-eleccionEnvio-ocultar #carrito-opcionesEnvio{
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0%;
+        overflow: hidden;
+        transition: 
+            max-height 0.13s linear,
+            margin 0.13s linear,
+            padding 0.13s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-ocultar #carrito-tipoEnvioContenedor img{
+            width: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        #carrito-duracionEnvioCont :first-child{
+            color: var(--texto-colorPrincipal);
+            margin: 0;
+            font-size: var(--fontSize-menuCarrito);
+        }
+
+        #carrito-demoraEnvio {
+            color: var(--naranja-intenso);
+            margin: 0;
+            font-weight: 500;
+            font-size: calc(var(--fontSize-menuCarrito) * 0.65);
+        }
+
+    .carrito-eleccionEnvio-mostrar #carrito-opcionesEnvio{
+        display: flex;
+        flex-direction: column;
+        margin: 7px 0px 3px;
+        max-height: 120px;
+        opacity: 100%; 
+        padding-left: 10px;
+        transition: 
+            max-height 0.2s linear,
+            opacity 0.1s linear;
+    }
+
+        .carrito-eleccionEnvio-mostrar #carrito-tipoEnvioContenedor img {
+            width: 12px;
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+        }
+
+    .carrito-contOpcionEnvio {
+        display: flex;
+        flex-direction: row;
+        gap: 7px;
+        padding: 3px 0;
+        padding-left: 5px;
+        border-radius: 3px;
+        user-select: none;
+    }
+
+    .carrito-contOpcionEnvio:hover {
+        background-color: var(--hoverMenuCarrito);
+    }
+
+    .carrito-contOpcionEnvio p {
+        margin: 0;
+    }
+
+    .carrito-contOpcionEnvio :first-child {
+        font-size: calc(var(--fontSize-menuCarrito) * 0.8);
+        font-weight: 600;
+    }
+
+    .carrito-contOpcionEnvio :last-child {
+        font-size: calc(var(--fontSize-menuCarrito) * 0.65);
+    }
+
+    .carrito-contOpcionEnvio input{
+        accent-color: var(--inputRadio-envio);
+    }
+
+    /* badge */
     #carrito-badgeCel{
         position: absolute;
         top: 2px;
@@ -2380,6 +2621,2220 @@ li a {
     width: 85%;
     padding-left: 2%;
     overflow-wrap: break-word;
+}
+
+                /*Proceso de compras*/
+
+        /* Barra navegacion proceso de compras */
+#purchaseProcess-nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 55px;
+    background: var(--gradiente-primario);
+}
+
+#purchaseProcess-nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60%;
+    gap:10px
+}
+
+#purchaseProcess-nav-logo {
+    height: 100%;
+}
+
+#purchaseProcess-nav-text {
+    height: 60%;
+}
+
+        /* proceso de compra - contenedor principal */
+#purchaseProcess-main{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 5vw;
+    position: relative;
+}
+
+        /* proceso de compra - paso a paso */
+#purchaseProcess-container {
+    --font-size-step1: clamp(1.8rem, 1.571rem + 0.477vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Indicador de paso */
+
+#purchaseProcess-stepContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 15px 0 ;
+    color: var(--texto-colorPrincipal);
+    font-size: clamp(0.75rem, -0.032rem + 3.883vw, 1rem);
+}
+
+#purchaseProcess-stepContainer p {
+    white-space: nowrap;
+    font-size: clamp(0.75rem, -0.032rem + 3.883vw, 1rem);
+}
+
+.purchaseProcess-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.purchaseProcess-step div {
+    --purchase-process-widthCircles: clamp(1.563rem, 0.586rem + 4.854vw, 1.875rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px var(--border-circulos-noSelect);
+    border-radius: 50%;
+    min-width: var(--purchase-process-widthCircles);
+    min-height: var(--purchase-process-widthCircles);
+}
+
+.purchaseProcess-step div p{
+    color: var(--border-circulos-noSelect);
+    font-weight: 560;
+    font-size: 0.85rem;
+    margin: 0;
+    max-width: fit-content;
+}
+
+.purchaseStep1 #purchaseProcess-step1 div{
+    background-color: var(--principal-color);
+    border-color: var(--border-circulos-Select);
+
+}
+
+.purchaseStep1 #purchaseProcess-step1 div p{
+    color: white
+}
+
+.purchaseStep2 #purchaseProcess-step2 div{
+    background-color: var(--principal-color);
+    border-color: var(--border-circulos-Select);
+    transition: 
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.purchaseStep2 #purchaseProcess-step2 div p{
+    color: white
+}
+
+/* proceso de compra - paso 1 */
+
+#purchaseProcess-step1 {
+    cursor: pointer;
+}
+
+#purchaseProcess-step2{
+    cursor: default;
+}
+
+#purchaseProcess-h1-step1 {
+    font-size: calc(var(--font-size-step1) * 0.80);
+    margin: 6px 0;
+    width: 100%;
+    color: var(--texto-colorH-procesoCompra);
+}
+
+#purchaseProcess-form {
+    display: none;
+    flex-direction: column;
+    padding-bottom: 15ex;
+}
+
+.purchaseStep1  #purchaseProcess-form {
+    display: flex
+}
+
+.purchaseProcess-inputDescriptionContLarge {
+    width: 100%;
+    margin: 17px 0 0;
+}
+
+.purchaseProcess-inputDescription {
+    font-size: calc(var(--font-size-step1) / 1.8);
+    color: var(--input-textDescription);
+    margin: 5px 0px;
+    font-weight: 500;
+}
+
+.purchaseProcess-select {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9ex 1ex;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    cursor: pointer;
+}
+
+.purchaseProcess-optionSelect{
+    appearance: none;
+    border: none;
+    font-size: calc(var(--font-size-step1) / 2);
+    color: var(--texto-colorPrincipal);
+    margin: 0;
+    width: 80%; 
+    background: transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.purchaseProcess-optionSelect:focus{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-optionSelect:focus-visible{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-optionSelect[value="Seleccione su departamento"] {
+    color: var(--texto-colorAtenuado);
+}
+
+.purchaseProcess-selectContOptions{
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    width: 100%;
+    max-height: 0vw;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-inputsPurchaseProcess) transparent;
+    transition: max-height 0.2s ease;
+}
+
+#purchaseProcess-contOptionDepartamento {
+    z-index: 20;
+}
+#purchaseProcess-selectContLocalidad {
+    z-index: 10;
+}
+
+.purchaseProcess-selectOption {
+    padding: 1ex;
+    color: var(--texto-colorPrincipal);
+    font-size: calc(var(--font-size-step1) / 2);
+}
+
+.purchaseProcess-selectOption.purchaseProcess-selectOptionPlaceholder {
+    color: var(--texto-colorAtenuado);
+}
+
+.purchaseProcess-selectOption:hover{
+    background-color: var(--hover-opcionSelect);
+}
+
+
+.purchase-process-selectImg{
+    position: absolute;
+    right: 8px;
+    transition: transform 0.2s ease;
+}
+
+.purchaseProcess-inputCont {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9ex 1ex;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+}
+
+.purchaseProcess-inputText{
+    appearance: none;
+    border: none;
+    font-size: calc(var(--font-size-step1) / 2);
+    color: var(--texto-colorPrincipal);
+    margin: 0;
+    width: 80%; 
+    background: transparent;
+    user-select: none;
+}
+
+.purchaseProcess-inputText:focus{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-inputText:focus-visible{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-inputError {
+    display: none;
+    font-size: calc(var(--font-size-step1) / 2.4);
+    margin: 3px 0;
+}
+
+.purchaseProcess-contEsquinaAndDireccion{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+    margin: 17px 0 0;
+}
+
+.purchaseProcess-inputDescriptionContDoble {
+    flex: 1;
+}
+
+.invalid .purchaseProcess-inputError {
+    display: block;
+    color: var(--camposInput-error)
+}
+
+.invalid .purchaseProcess-select {
+    display: block;
+    border-color: var(--camposInput-error)
+}
+
+.invalid .purchaseProcess-inputCont {
+    border-color: var(--camposInput-error)
+}   
+
+/* proceso de compra - seccion interactiva- step 1 */
+#purchaseProcess-interaction {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+    margin: 21px 0 0;
+    user-select: none;
+}
+
+/* shippingMethod */
+
+#purchaseProcess-shippingMethod {
+    --font-size-shippingMethod: calc(var(--font-size-step1) * 0.42);
+    position: relative;
+    box-sizing: border-box;
+    display: none;
+    align-items: center;
+    padding: 0.9ex 1ex;
+    color: var(--texto-colorPrincipal);;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    min-width: 130px;
+    padding-right: 1px;
+}
+
+#purchaseProcess-main.buyOneProduct #purchaseProcess-shippingMethod{
+    display: flex;
+}
+
+#purchaseProcess-shippingMethod div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#purchaseProcess-shippingMethod div div{
+    display: flex;
+    flex-direction: column;
+}
+
+#purchaseProcess-btnshippingMethod #purchaseProcess-shippingMethodSpan{
+    font-size: var(--font-size-shippingMethod);
+}
+
+#purchaseProcess-shippingMethod div div :first-child{
+    font-size: var(--font-size-shippingMethod);
+    margin: 0;
+    white-space: nowrap;
+}
+
+#purchaseProcess-shippingDelay {
+    font-size: calc(var(--font-size-shippingMethod) / 1.55);
+    color: var(--naranja-intenso);
+    margin: 0;
+    font-weight: 500;
+}
+
+#purchaseProcess-shippingMethod-form {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    overflow: hidden;
+}
+
+#purchaseProcess-shippingMethod-form label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7ex 0.7ex;
+    gap: 1%;
+}
+
+#purchaseProcess-shippingMethod-form label:hover{
+    background-color: var(--hover-opcionSelect);
+}
+
+#purchaseProcess-shippingMethod-form label div{
+    display: flex;
+    flex-direction: column;
+}
+
+#purchaseProcess-shippingMethod-form label div :first-child{
+    font-size: calc(var(--font-size-shippingMethod) / 1.15);
+    margin: 0;
+    font-weight: 600;
+}
+
+#purchaseProcess-shippingMethod-form label div :last-child{
+    font-size: calc(var(--font-size-shippingMethod) / 1.55);
+    margin: 0;
+}
+
+.shippingMethod-hiddenOptions #purchaseProcess-shippingMethod-form {
+    max-height: 0;
+    border: none;
+}
+
+.shippingMethod-hiddenOptions div img{
+    transform: rotate(-90deg);
+}
+
+.shippingMethod-showOptions #purchaseProcess-shippingMethod-form {
+    max-height: fit-content;
+    border: solid 2px var(--border-inputsPurchaseProcess);
+}
+
+.purchaseProcess-shippingMethodInput{
+    accent-color: var(--inputRadio-envio);
+    width: 10px;
+}
+
+/* currencyChange */
+#purchaseProcess-currencyChange {
+    --font-size-currencyChange: calc(var(--font-size-step1) * 0.43);
+    box-sizing: border-box;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9ex 1ex;
+    min-width: 110px;
+    color: var(--texto-colorPrincipal);
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    cursor: pointer;
+    min-width: 130px;
+}
+
+#purchaseProcess-main.buyOneProduct #purchaseProcess-currencyChange{
+    display: flex;
+}
+
+#purchaseProcess-currencyChange p{
+    font-size: var(--font-size-currencyChange);
+    margin: 0;
+    user-select: none;
+}
+
+#purchaseProcess-currencyChange div{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#purchaseProcess-currencyChange div p{
+    color: var(--texto-resaltanteAzul);
+    position: absolute;
+    right: 0;
+    transition: right 0.2s ease;
+    user-select: none;
+}
+
+/* boton continuar */
+#purchaseProcess-main.buyOneProduct #purchaseProcess-btnContinuar{
+    width: 85%;
+    font-size: calc(var(--font-size-step1) * 0.60);
+    max-width: fit-content;
+    padding: 0.8ex 1.4ex;
+    margin: 2ex 0;
+}
+
+
+/* proceso de compra - seccion interactiva- step 2 */
+
+#purchaseProcess-paymentOptions {
+    --font-size-step2: clamp(1.55rem, 1.036rem + 1.071vw, 2rem);
+    display: none;
+    flex-direction: column;
+    padding-bottom: 15ex;
+    box-sizing: border-box;
+}
+
+.purchaseStep2 #purchaseProcess-paymentOptions{
+    display: flex;
+}
+
+#purchaseProcess-h1-step2 {
+    font-size: var(--font-size-step2);
+    margin: 6px 0;
+    color: var(--texto-colorH-procesoCompra);
+}
+
+/* tarjeta de credito y debito */
+
+#purchaseProcess-TC-TD {
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+.purchaseProcess-paymentOptionCont {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 1.1ex 1ex;
+    border: solid 2px var(--border-inputsPurchaseProcess);
+    border-radius: 6px;
+    justify-content: space-between;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    user-select: none;
+}
+
+.purchaseProcess-paymentOptionShow .purchaseProcess-paymentOptionCont{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.purchaseProcess-paymentOptionCont div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.purchaseProcess-paymentOptionCont div p {
+    font-size: calc(var(--font-size-step2) * 0.6);
+    font-weight: 500;
+    margin: 0;
+    color: var(--texto-colorPrincipal);
+}
+
+.purchaseProcess-paymentOptionCont .contLogoOption {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cardLogos-background);
+    border: solid 1px var(--border-inputsPurchaseProcess);
+    padding: 3px;
+    border-radius: 3px;   
+    width: fit-content;
+    margin-left: 1%;
+}
+
+#purchaseProcess-logoMaster {
+    width: 25px;
+}
+
+#purchaseProcess-logoVisa {
+    width: 30px
+}
+
+.purchaseProcess-paymentOption {
+    display: flex;
+    box-sizing: border-box;
+    border: solid 1px var(--border-inputsPurchaseProcess);;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    flex-direction: column;
+    padding: 1ex;
+    overflow: hidden;
+    border-top: none;
+}
+
+.purchaseProcess-paymentOptionhidden .purchaseProcess-paymentOption {
+    max-height: 0px;
+    padding: 0;
+    border: none;
+}
+
+.purchaseProcess-paymentOption h2{ 
+    font-size: calc(var(--font-size-step2) * 0.45);
+    margin: 0;
+    font-weight: 450;
+    padding: 1ex;
+    color: var(--texto-colorPrincipal);
+}
+
+#purchaseProcess-contOptionTCTD {
+    align-self: center;
+    width: 80%;
+    max-width: 375px;
+}
+
+#purchaseProcess-formTCTDInformation {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchaseProcess-TCTDinputDescription {
+    font-size: calc(var(--font-size-step2) * 0.45);
+    color: var(--input-textDescription);
+    margin: 0.5ex 0px;
+}
+
+.purchaseProcess-forminputContTCTD div{
+    display: flex;
+    width: 100%;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 3px;
+    align-items: center;
+    padding: 0.8ex 1ex;
+    box-sizing: border-box;
+}
+
+.purchaseProcess-forminputContTCTD {
+    margin: 10px 0;
+}
+
+.invalid.purchaseProcess-forminputContTCTD div {
+    border-color: var(--camposInput-error);
+}
+
+
+.purchaseProcess-formTCTDinput.number::-webkit-inner-spin-button,
+.purchaseProcess-formTCTDinput.number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.purchaseProcess-formTCTDinput.number {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.purchaseProcess-formTCTDinput {
+    outline: none;
+    border: none;
+    font-weight: 400;
+    font-size: calc(var(--font-size-step2) * 0.45);
+    color: var(--texto-colorAtenuado);
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+}
+
+#purchaseProcess-imgCard {
+    width: 28px;
+    margin-right: 7px;
+}
+
+.purchaseProcess-TCTDinputErrorDescription {
+    font-size: calc(var(--font-size-step2) * 0.38);
+    margin: 3px 0;
+    color: var(--camposInput-error);
+    display: none;
+}
+
+.invalid .purchaseProcess-TCTDinputErrorDescription{
+    display: block;
+}
+
+#purchaseProcess-contDateAndCvv {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.purchaseProcess-forminputContTCTD-row div{
+    display: flex;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    border: solid 2px var(--border-inputsPurchaseProcess);
+    border-radius: 3px;
+    align-items: center;
+    padding: 0.8ex 1ex;
+    box-sizing: border-box;
+}
+
+.invalid.purchaseProcess-forminputContTCTD-row div {
+    border-color: var(--camposInput-error);
+}
+
+.purchaseProcess-forminputContTCTD-row {
+    flex: 1;
+}
+
+#purchaseProcess-Pagar {
+    font-size: calc(var(--font-size-step2) * 0.4);
+    width: 100%;
+    margin: 2.2ex 0;
+    padding: 1.2ex 0;
+    border-radius: 3px;
+}
+
+/* Mercado pago */
+
+#purchaseProcess-MercadoPago {
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+#purchaseProcess-MercadoPago-clickArea div img{
+    width: 55px;
+}
+
+#purchaseProcess-MercadoPago-dropdown {
+    padding: 2ex;
+}
+
+.purchaseProcess-paymentOptionhidden #purchaseProcess-MercadoPago-dropdown {
+    padding: 0;
+}
+
+#purchaseProcess-MercadoPago-dropdown div p {
+    font-size: calc(var(--font-size-step2) * 0.45);
+    margin: 0;
+    font-weight: 450;
+    color: var(--texto-colorPrincipal);
+}   
+
+#purchaseProcess-MercadoPago-dropdown p a {
+    color: var(--principal-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#purchaseProcess-MercadoPago-dropdown > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#purchaseProcess-MercadoPago-numOpCont .purchaseProcess-TCTDinputDescription {
+    font-size: calc(var(--font-size-step2) * 0.40);
+    margin-bottom: 0.8ex;
+}
+
+#purchaseProcess-MercadoPago-numOpCont .purchaseProcess-formTCTDinput{
+    font-size: calc(var(--font-size-step2) * 0.38);
+}
+
+#purchaseProcess-MercadoPago-dropdown .purchaseProcess-TCTDinputErrorDescription{
+    font-size: calc(var(--font-size-step2) * 0.35);
+    margin-top: 0.70ex;
+}
+        
+
+#purchaseProcess-Validar {
+    font-size: calc(var(--font-size-step2) * 0.36);
+    width: 20%;
+    margin: 1ex 0;
+    padding: 1ex 0;
+    border-radius: 3px;
+    max-width: 85px
+}
+/* redes de cobranza */
+#purchaseProcess-logoRedPagos {
+    width: 80px;
+    margin-left: 1%;
+    border-radius: 3px;
+}
+
+#purchaseProcess-logoAbitab {
+    width: 55px;
+}
+
+#purchaseProcess-RedCobranza{
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+.purchaseProcess-paymentOptionShow #purchaseProcess-RedCobranza-dropdown{
+    padding: 1.4ex 2ex;
+}
+
+#purchaseProcess-RedCobranza-dropdown p {
+    font-size: calc(var(--font-size-step2) * 0.47);
+    margin: 0.8ex 0 0.4ex;
+    color: var(--texto-colorPrincipal);
+}
+
+#purchaseProcess-Finalizar{
+    font-size: calc(var(--font-size-step2) * 0.36);
+    width: 20%;
+    margin: 1ex 0;
+    padding: 1ex 0;
+    border-radius: 3px;
+    max-width: 85px;
+}
+
+.purchaseProcess-imgFlecha {
+    transition: transform 0.2s linear;
+}
+
+.purchaseProcess-paymentOptionShow .purchaseProcess-imgFlecha {
+    transform: rotateX(180deg);
+}
+
+#purchaseProcess-RedCobranzaOrderId {
+    color: var(--principal-color);
+}
+
+/* proceso de compra - resumen de compra */
+#purchaseProcess-orderSummary {
+    --fontSize-orderSummary: clamp(1rem, 0.713rem + 1.432vw, 1.4rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    min-width: fit-content;
+    max-height: fit-content;
+    max-width: fit-content;
+    border: solid 2px var(--secundario-color);
+    border-top: none;
+    background-color: var(--fondo-cards);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
+    position: absolute;
+    align-self: center;
+    bottom: 100%;
+    transition: bottom 0.2s ease;
+}
+
+.purchaseProcess-orderSummary-productName{
+        max-width: 40%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+.purchaseProcess-orderSummary-contProductList {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: var(--texto-colorAtenuado);
+    font-weight: 450;
+    padding: 0px 3px;
+}
+
+.purchaseProcess-orderSummary-contProductList p {
+    font-size: var(--fontSize-orderSummary);
+    margin: 0;
+}
+
+#purchaseProcess-title {
+    color: var(--texto-colorEnfasis);
+    text-align: center;
+    margin-top: 2px;
+    font-size: calc(var(--fontSize-orderSummary) * 1.2);
+}
+
+.purchaseProcess-line {
+    height: 2px;
+    width: 100%;
+    margin: 6px 0px;
+    background-color: var(--texto-colorAtenuado);
+}
+
+#purchaseProcess-contSubtotal {
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--texto-colorAtenuado);
+    font-weight: 450;
+    padding: 0px 3px;
+    font-size: var(--fontSize-orderSummary);
+}
+
+    #purchaseProcess-contSubtotal :first-child{
+        margin: 0;
+    }
+
+    #purchaseProcess-contSubtotal :last-child{
+        margin: 0;
+        white-space: nowrap;
+    }
+
+#purchaseProcess-shippingCostCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 450;
+    padding: 0px 3px;
+    color: var(--texto-colorAtenuado);
+    font-size: var(--fontSize-orderSummary);
+}
+
+#purchaseProcess-shippingCostCont p{
+    margin: 0;
+}
+
+#purchaseProcess-orderSummary-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--texto-totalCart);
+    font-weight: 600;
+    font-size: var(--fontSize-orderSummary);
+}
+
+#purchaseProcess-orderSummary-total p{
+    margin: 4px 0 8px;
+}
+
+
+#pruchaseProcess-menu-mobile{
+    font-family: 'Inter', sans-serif;
+    --font-size-footerMobile: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo-cards);
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 0 1ex;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pruchaseProcess-p-footer {
+    color: var(--texto-colorPrincipal);
+    margin: 0.2ex 0 0.9ex;
+    font-size: var(--font-size-footerMobile);
+}
+
+#pruchaseProcess-menuMobile-totalCost {
+    font-size: calc(var(--font-size-footerMobile)*0.85);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#pruchaseProcess-menu-mobile div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+#pruchaseProcess-menu-mobile :last-child{
+    justify-content: space-between;
+    padding: 0 1ex;
+}
+
+/* popUp compra exitosa */
+#purchaseProcess-orderConfirmation {
+    /* display: flex; */
+    display: none;
+    transform: scale(1);
+    opacity: 0%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: var(--sombra-popUps);
+    box-sizing: border-box;
+    transition: 
+        opacity 0.2s linear;
+}
+
+#purchaseProcess-orderConfirmation-contmessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fondo-cards);
+    padding: 15px;
+    width: 80%;
+    max-width: 175px;
+    min-height: 245px;
+    border-radius: 7px;
+}
+
+#purchaseProcess-contmessage-loading {
+    display: flex;
+    transform: scale(1);
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    transition: 
+        transform 0.2s linear;
+}
+
+#purchaseProcess-contmessage-loading img{
+    width: 90%;
+    padding: 10% 5%;
+    box-sizing: border-box;
+}
+
+#purchaseProcess-contmessage-loading > div {
+    --duracion-animacion-loading: 1s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 45px;
+    gap: 10%;
+}
+
+#purchaseProcess-contmessage-loading .contmessage-loading-circle {
+    --circle-loading-widthHeight: 20px;
+    width: var(--circle-loading-widthHeight);
+    height: var(--circle-loading-widthHeight);
+    background-color: var(--principal-color);
+    border-radius: 50%;
+}
+
+#purchaseProcess-circle1 {
+    animation: cargandoMovCirc1 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite;    
+}
+
+#purchaseProcess-circle2 {
+    animation: cargandoMovCirc2 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite;  
+}
+
+#purchaseProcess-circle3 {
+    animation: cargandoMovCirc3 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite; 
+}
+
+@keyframes cargandoMovCirc1 {
+    0% {margin-bottom: 0%;}
+    16.5% {margin-bottom: 13%;}
+    33% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+@keyframes cargandoMovCirc2 {
+    0% {margin-bottom: 0%;}
+    24% {margin-bottom: 0%;}
+    49.5% {margin-bottom: 13%;}
+    66% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+@keyframes cargandoMovCirc3 {
+    0% {margin-bottom: 0%;}
+    57% {margin-bottom: 0%;}
+    82.5% {margin-bottom: 13%;}
+    99% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+#purchaseProcess-contmessage-success {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#purchaseProcess-contImgSuccess {
+    transform: scale(0);
+    transition: 
+        transform 0.2s linear;
+}
+
+#purchaseProcess-contmessage-success p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #51DF4C;
+    font-weight: 600;
+    margin: 5% 0 0;
+    opacity: 0%;
+    transition: opacity 0.3s ease;
+}
+
+#purchaseProcess-contImgSuccess {
+    position: relative;
+    width: 70%;
+}
+
+#purchaseProcess-contImgSuccess > div {
+    position: absolute;
+    background-color: #51df4c;
+    right: 22%;
+    height: 48%;
+    top: 28%;
+    transition:
+        transform 0.2s ease,
+        width 0.4s ease;
+}
+
+#purchaseProcess-contImgSuccess > div.imgSuccesHidden {
+    width: 55%;
+}
+
+#purchaseProcess-contImgSuccess > div.imgSuccesShow {
+    width: 0%;
+}
+
+#purchaseProcess-contImgSuccess img{
+    width: 100%;
+}
+
+#pruchaseProcess-arrowBtnImg {
+    transition: transform 0.2s ease;
+    transform: rotateX(0deg);
+}
+
+                /*Proceso de compras*/
+
+        /* Barra navegacion proceso de compras */
+#purchaseProcess-nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 55px;
+    background: var(--gradiente-primario);
+}
+
+#purchaseProcess-nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60%;
+    gap:10px
+}
+
+#purchaseProcess-nav-logo {
+    height: 100%;
+}
+
+#purchaseProcess-nav-text {
+    height: 60%;
+}
+
+        /* proceso de compra - contenedor principal */
+#purchaseProcess-main{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 5vw;
+    position: relative;
+}
+
+        /* proceso de compra - paso a paso */
+#purchaseProcess-container {
+    --font-size-step1: clamp(1.8rem, 1.571rem + 0.477vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Indicador de paso */
+
+#purchaseProcess-stepContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 15px 0 ;
+    color: var(--texto-colorPrincipal);
+    font-size: clamp(0.75rem, -0.032rem + 3.883vw, 1rem);
+}
+
+#purchaseProcess-stepContainer p {
+    white-space: nowrap;
+    font-size: clamp(0.75rem, -0.032rem + 3.883vw, 1rem);
+}
+
+.purchaseProcess-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.purchaseProcess-step div {
+    --purchase-process-widthCircles: clamp(1.563rem, 0.586rem + 4.854vw, 1.875rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px var(--border-circulos-noSelect);
+    border-radius: 50%;
+    min-width: var(--purchase-process-widthCircles);
+    min-height: var(--purchase-process-widthCircles);
+}
+
+.purchaseProcess-step div p{
+    color: var(--border-circulos-noSelect);
+    font-weight: 560;
+    font-size: 0.85rem;
+    margin: 0;
+    max-width: fit-content;
+}
+
+.purchaseStep1 #purchaseProcess-step1 div{
+    background-color: var(--principal-color);
+    border-color: var(--border-circulos-Select);
+
+}
+
+.purchaseStep1 #purchaseProcess-step1 div p{
+    color: white
+}
+
+.purchaseStep2 #purchaseProcess-step2 div{
+    background-color: var(--principal-color);
+    border-color: var(--border-circulos-Select);
+    transition: 
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.purchaseStep2 #purchaseProcess-step2 div p{
+    color: white
+}
+
+/* proceso de compra - paso 1 */
+
+#purchaseProcess-step1 {
+    cursor: pointer;
+}
+
+#purchaseProcess-step2{
+    cursor: default;
+}
+
+#purchaseProcess-h1-step1 {
+    font-size: calc(var(--font-size-step1) * 0.80);
+    margin: 6px 0;
+    width: 100%;
+    color: var(--texto-colorH-procesoCompra);
+}
+
+#purchaseProcess-form {
+    display: none;
+    flex-direction: column;
+    padding-bottom: 15ex;
+}
+
+.purchaseStep1  #purchaseProcess-form {
+    display: flex
+}
+
+.purchaseProcess-inputDescriptionContLarge {
+    width: 100%;
+    margin: 17px 0 0;
+}
+
+.purchaseProcess-inputDescription {
+    font-size: calc(var(--font-size-step1) / 1.8);
+    color: var(--input-textDescription);
+    margin: 5px 0px;
+    font-weight: 500;
+}
+
+.purchaseProcess-select {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9ex 1ex;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    cursor: pointer;
+}
+
+.purchaseProcess-optionSelect{
+    appearance: none;
+    border: none;
+    font-size: calc(var(--font-size-step1) / 2);
+    color: var(--texto-colorPrincipal);
+    margin: 0;
+    width: 80%; 
+    background: transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.purchaseProcess-optionSelect:focus{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-optionSelect:focus-visible{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-optionSelect[value="Seleccione su departamento"] {
+    color: var(--texto-colorAtenuado);
+}
+
+.purchaseProcess-selectContOptions{
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    width: 100%;
+    max-height: 0vw;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-inputsPurchaseProcess) transparent;
+    transition: max-height 0.2s ease;
+}
+
+#purchaseProcess-contOptionDepartamento {
+    z-index: 20;
+}
+#purchaseProcess-selectContLocalidad {
+    z-index: 10;
+}
+
+.purchaseProcess-selectOption {
+    padding: 1ex;
+    color: var(--texto-colorPrincipal);
+    font-size: calc(var(--font-size-step1) / 2);
+}
+
+.purchaseProcess-selectOption.purchaseProcess-selectOptionPlaceholder {
+    color: var(--texto-colorAtenuado);
+}
+
+.purchaseProcess-selectOption:hover{
+    background-color: var(--hover-opcionSelect);
+}
+
+
+.purchase-process-selectImg{
+    position: absolute;
+    right: 8px;
+    transition: transform 0.2s ease;
+}
+
+.purchaseProcess-inputCont {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.9ex 1ex;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+}
+
+.purchaseProcess-inputText{
+    appearance: none;
+    border: none;
+    font-size: calc(var(--font-size-step1) / 2);
+    color: var(--texto-colorPrincipal);
+    margin: 0;
+    width: 80%; 
+    background: transparent;
+    user-select: none;
+}
+
+.purchaseProcess-inputText:focus{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-inputText:focus-visible{
+    outline: none;
+    border: none;
+}
+
+.purchaseProcess-inputError {
+    display: none;
+    font-size: calc(var(--font-size-step1) / 2.4);
+    margin: 3px 0;
+}
+
+.purchaseProcess-contEsquinaAndDireccion{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+    margin: 17px 0 0;
+}
+
+.purchaseProcess-inputDescriptionContDoble {
+    flex: 1;
+}
+
+.invalid .purchaseProcess-inputError {
+    display: block;
+    color: var(--camposInput-error)
+}
+
+.invalid .purchaseProcess-select {
+    display: block;
+    border-color: var(--camposInput-error)
+}
+
+.invalid .purchaseProcess-inputCont {
+    border-color: var(--camposInput-error)
+}   
+
+/* proceso de compra - seccion interactiva- step 1 */
+#purchaseProcess-interaction {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+    margin: 21px 0 0;
+    user-select: none;
+}
+
+/* shippingMethod */
+
+#purchaseProcess-shippingMethod {
+    --font-size-shippingMethod: calc(var(--font-size-step1) * 0.42);
+    position: relative;
+    box-sizing: border-box;
+    display: none;
+    align-items: center;
+    padding: 0.9ex 1ex;
+    color: var(--texto-colorPrincipal);;
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    min-width: 130px;
+    padding-right: 1px;
+}
+
+#purchaseProcess-main.buyOneProduct #purchaseProcess-shippingMethod{
+    display: flex;
+}
+
+#purchaseProcess-shippingMethod div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#purchaseProcess-shippingMethod div div{
+    display: flex;
+    flex-direction: column;
+}
+
+#purchaseProcess-btnshippingMethod #purchaseProcess-shippingMethodSpan{
+    font-size: var(--font-size-shippingMethod);
+}
+
+#purchaseProcess-shippingMethod div div :first-child{
+    font-size: var(--font-size-shippingMethod);
+    margin: 0;
+    white-space: nowrap;
+}
+
+#purchaseProcess-shippingDelay {
+    font-size: calc(var(--font-size-shippingMethod) / 1.55);
+    color: var(--naranja-intenso);
+    margin: 0;
+    font-weight: 500;
+}
+
+#purchaseProcess-shippingMethod-form {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    overflow: hidden;
+}
+
+#purchaseProcess-shippingMethod-form label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7ex 0.7ex;
+    gap: 1%;
+}
+
+#purchaseProcess-shippingMethod-form label:hover{
+    background-color: var(--hover-opcionSelect);
+}
+
+#purchaseProcess-shippingMethod-form label div{
+    display: flex;
+    flex-direction: column;
+}
+
+#purchaseProcess-shippingMethod-form label div :first-child{
+    font-size: calc(var(--font-size-shippingMethod) / 1.15);
+    margin: 0;
+    font-weight: 600;
+}
+
+#purchaseProcess-shippingMethod-form label div :last-child{
+    font-size: calc(var(--font-size-shippingMethod) / 1.55);
+    margin: 0;
+}
+
+.shippingMethod-hiddenOptions #purchaseProcess-shippingMethod-form {
+    max-height: 0;
+    border: none;
+}
+
+.shippingMethod-hiddenOptions div img{
+    transform: rotate(-90deg);
+}
+
+.shippingMethod-showOptions #purchaseProcess-shippingMethod-form {
+    max-height: fit-content;
+    border: solid 2px var(--border-inputsPurchaseProcess);
+}
+
+.purchaseProcess-shippingMethodInput{
+    accent-color: var(--inputRadio-envio);
+    width: 10px;
+}
+
+/* currencyChange */
+#purchaseProcess-currencyChange {
+    --font-size-currencyChange: calc(var(--font-size-step1) * 0.43);
+    box-sizing: border-box;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9ex 1ex;
+    min-width: 110px;
+    color: var(--texto-colorPrincipal);
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 6px;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    cursor: pointer;
+    min-width: 130px;
+}
+
+#purchaseProcess-main.buyOneProduct #purchaseProcess-currencyChange{
+    display: flex;
+}
+
+#purchaseProcess-currencyChange p{
+    font-size: var(--font-size-currencyChange);
+    margin: 0;
+    user-select: none;
+}
+
+#purchaseProcess-currencyChange div{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#purchaseProcess-currencyChange div p{
+    color: var(--texto-resaltanteAzul);
+    position: absolute;
+    right: 0;
+    transition: right 0.2s ease;
+    user-select: none;
+}
+
+/* boton continuar */
+#purchaseProcess-main.buyOneProduct #purchaseProcess-btnContinuar{
+    width: 85%;
+    font-size: calc(var(--font-size-step1) * 0.60);
+    max-width: fit-content;
+    padding: 0.8ex 1.4ex;
+    margin: 2ex 0;
+}
+
+
+/* proceso de compra - seccion interactiva- step 2 */
+
+#purchaseProcess-paymentOptions {
+    --font-size-step2: clamp(1.55rem, 1.036rem + 1.071vw, 2rem);
+    display: none;
+    flex-direction: column;
+    padding-bottom: 15ex;
+    box-sizing: border-box;
+}
+
+.purchaseStep2 #purchaseProcess-paymentOptions{
+    display: flex;
+}
+
+#purchaseProcess-h1-step2 {
+    font-size: var(--font-size-step2);
+    margin: 6px 0;
+    color: var(--texto-colorH-procesoCompra);
+}
+
+/* tarjeta de credito y debito */
+
+#purchaseProcess-TC-TD {
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+.purchaseProcess-paymentOptionCont {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 1.1ex 1ex;
+    border: solid 2px var(--border-inputsPurchaseProcess);
+    border-radius: 6px;
+    justify-content: space-between;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    user-select: none;
+}
+
+.purchaseProcess-paymentOptionShow .purchaseProcess-paymentOptionCont{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.purchaseProcess-paymentOptionCont div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.purchaseProcess-paymentOptionCont div p {
+    font-size: calc(var(--font-size-step2) * 0.6);
+    font-weight: 500;
+    margin: 0;
+    color: var(--texto-colorPrincipal);
+}
+
+.purchaseProcess-paymentOptionCont .contLogoOption {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cardLogos-background);
+    border: solid 1px var(--border-inputsPurchaseProcess);
+    padding: 3px;
+    border-radius: 3px;   
+    width: fit-content;
+    margin-left: 1%;
+}
+
+#purchaseProcess-logoMaster {
+    width: 25px;
+}
+
+#purchaseProcess-logoVisa {
+    width: 30px
+}
+
+.purchaseProcess-paymentOption {
+    display: flex;
+    box-sizing: border-box;
+    border: solid 1px var(--border-inputsPurchaseProcess);;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    flex-direction: column;
+    padding: 1ex;
+    overflow: hidden;
+    border-top: none;
+}
+
+.purchaseProcess-paymentOptionhidden .purchaseProcess-paymentOption {
+    max-height: 0px;
+    padding: 0;
+    border: none;
+}
+
+.purchaseProcess-paymentOption h2{ 
+    font-size: calc(var(--font-size-step2) * 0.45);
+    margin: 0;
+    font-weight: 450;
+    padding: 1ex;
+    color: var(--texto-colorPrincipal);
+}
+
+#purchaseProcess-contOptionTCTD {
+    align-self: center;
+    width: 80%;
+    max-width: 375px;
+}
+
+#purchaseProcess-formTCTDInformation {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchaseProcess-TCTDinputDescription {
+    font-size: calc(var(--font-size-step2) * 0.45);
+    color: var(--input-textDescription);
+    margin: 0.5ex 0px;
+}
+
+.purchaseProcess-forminputContTCTD div{
+    display: flex;
+    width: 100%;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    border: solid 2px var(--inputBorde-procesoCompra);
+    border-radius: 3px;
+    align-items: center;
+    padding: 0.8ex 1ex;
+    box-sizing: border-box;
+}
+
+.purchaseProcess-forminputContTCTD {
+    margin: 10px 0;
+}
+
+.invalid.purchaseProcess-forminputContTCTD div {
+    border-color: var(--camposInput-error);
+}
+
+
+.purchaseProcess-formTCTDinput.number::-webkit-inner-spin-button,
+.purchaseProcess-formTCTDinput.number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.purchaseProcess-formTCTDinput.number {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.purchaseProcess-formTCTDinput {
+    outline: none;
+    border: none;
+    font-weight: 400;
+    font-size: calc(var(--font-size-step2) * 0.45);
+    color: var(--texto-colorAtenuado);
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+}
+
+#purchaseProcess-imgCard {
+    width: 28px;
+    margin-right: 7px;
+}
+
+.purchaseProcess-TCTDinputErrorDescription {
+    font-size: calc(var(--font-size-step2) * 0.38);
+    margin: 3px 0;
+    color: var(--camposInput-error);
+    display: none;
+}
+
+.invalid .purchaseProcess-TCTDinputErrorDescription{
+    display: block;
+}
+
+#purchaseProcess-contDateAndCvv {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.purchaseProcess-forminputContTCTD-row div{
+    display: flex;
+    background-color: var(--fondo-inputsPurchaseProcess);
+    border: solid 2px var(--border-inputsPurchaseProcess);
+    border-radius: 3px;
+    align-items: center;
+    padding: 0.8ex 1ex;
+    box-sizing: border-box;
+}
+
+.invalid.purchaseProcess-forminputContTCTD-row div {
+    border-color: var(--camposInput-error);
+}
+
+.purchaseProcess-forminputContTCTD-row {
+    flex: 1;
+}
+
+#purchaseProcess-Pagar {
+    font-size: calc(var(--font-size-step2) * 0.4);
+    width: 100%;
+    margin: 2.2ex 0;
+    padding: 1.2ex 0;
+    border-radius: 3px;
+}
+
+/* Mercado pago */
+
+#purchaseProcess-MercadoPago {
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+#purchaseProcess-MercadoPago-clickArea div img{
+    width: 55px;
+}
+
+#purchaseProcess-MercadoPago-dropdown {
+    padding: 2ex;
+}
+
+.purchaseProcess-paymentOptionhidden #purchaseProcess-MercadoPago-dropdown {
+    padding: 0;
+}
+
+#purchaseProcess-MercadoPago-dropdown div p {
+    font-size: calc(var(--font-size-step2) * 0.45);
+    margin: 0;
+    font-weight: 450;
+    color: var(--texto-colorPrincipal);
+}   
+
+#purchaseProcess-MercadoPago-dropdown p a {
+    color: var(--principal-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#purchaseProcess-MercadoPago-dropdown > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#purchaseProcess-MercadoPago-numOpCont .purchaseProcess-TCTDinputDescription {
+    font-size: calc(var(--font-size-step2) * 0.40);
+    margin-bottom: 0.8ex;
+}
+
+#purchaseProcess-MercadoPago-numOpCont .purchaseProcess-formTCTDinput{
+    font-size: calc(var(--font-size-step2) * 0.38);
+}
+
+#purchaseProcess-MercadoPago-dropdown .purchaseProcess-TCTDinputErrorDescription{
+    font-size: calc(var(--font-size-step2) * 0.35);
+    margin-top: 0.70ex;
+}
+        
+
+#purchaseProcess-Validar {
+    font-size: calc(var(--font-size-step2) * 0.36);
+    width: 20%;
+    margin: 1ex 0;
+    padding: 1ex 0;
+    border-radius: 3px;
+    max-width: 85px
+}
+/* redes de cobranza */
+#purchaseProcess-logoRedPagos {
+    width: 80px;
+    margin-left: 1%;
+    border-radius: 3px;
+}
+
+#purchaseProcess-logoAbitab {
+    width: 55px;
+}
+
+#purchaseProcess-RedCobranza{
+    width: 100%;
+    margin: 1.2ex 0;
+}
+
+.purchaseProcess-paymentOptionShow #purchaseProcess-RedCobranza-dropdown{
+    padding: 1.4ex 2ex;
+}
+
+#purchaseProcess-RedCobranza-dropdown p {
+    font-size: calc(var(--font-size-step2) * 0.47);
+    margin: 0.8ex 0 0.4ex;
+    color: var(--texto-colorPrincipal);
+}
+
+#purchaseProcess-Finalizar{
+    font-size: calc(var(--font-size-step2) * 0.36);
+    width: 20%;
+    margin: 1ex 0;
+    padding: 1ex 0;
+    border-radius: 3px;
+    max-width: 85px;
+}
+
+.purchaseProcess-imgFlecha {
+    transition: transform 0.2s linear;
+}
+
+.purchaseProcess-paymentOptionShow .purchaseProcess-imgFlecha {
+    transform: rotateX(180deg);
+}
+
+#purchaseProcess-RedCobranzaOrderId {
+    color: var(--principal-color);
+}
+
+/* proceso de compra - resumen de compra */
+#purchaseProcess-orderSummary {
+    --fontSize-orderSummary: clamp(1rem, 0.713rem + 1.432vw, 1.4rem);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    min-width: fit-content;
+    max-height: fit-content;
+    max-width: fit-content;
+    border: solid 2px var(--secundario-color);
+    border-top: none;
+    background-color: var(--fondo-cards);
+    transition: 
+        background-color var(--animacion-darkMode) ease,
+        box-shadow var(--animacion-darkMode) ease;
+    position: absolute;
+    align-self: center;
+    bottom: 100%;
+    transition: bottom 0.2s ease;
+}
+
+.purchaseProcess-orderSummary-productName{
+        max-width: 40%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+.purchaseProcess-orderSummary-contProductList {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: var(--texto-colorAtenuado);
+    font-weight: 450;
+    padding: 0px 3px;
+}
+
+.purchaseProcess-orderSummary-contProductList p {
+    font-size: var(--fontSize-orderSummary);
+    margin: 0;
+}
+
+#purchaseProcess-title {
+    color: var(--texto-colorEnfasis);
+    text-align: center;
+    margin-top: 2px;
+    font-size: calc(var(--fontSize-orderSummary) * 1.2);
+}
+
+.purchaseProcess-line {
+    height: 2px;
+    width: 100%;
+    margin: 6px 0px;
+    background-color: var(--texto-colorAtenuado);
+}
+
+#purchaseProcess-contSubtotal {
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--texto-colorAtenuado);
+    font-weight: 450;
+    padding: 0px 3px;
+    font-size: var(--fontSize-orderSummary);
+}
+
+    #purchaseProcess-contSubtotal :first-child{
+        margin: 0;
+    }
+
+    #purchaseProcess-contSubtotal :last-child{
+        margin: 0;
+        white-space: nowrap;
+    }
+
+#purchaseProcess-shippingCostCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 450;
+    padding: 0px 3px;
+    color: var(--texto-colorAtenuado);
+    font-size: var(--fontSize-orderSummary);
+}
+
+#purchaseProcess-shippingCostCont p{
+    margin: 0;
+}
+
+#purchaseProcess-orderSummary-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--texto-totalCart);
+    font-weight: 600;
+    font-size: var(--fontSize-orderSummary);
+}
+
+#purchaseProcess-orderSummary-total p{
+    margin: 4px 0 8px;
+}
+
+
+#pruchaseProcess-menu-mobile{
+    font-family: 'Inter', sans-serif;
+    --font-size-footerMobile: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fondo-cards);
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 0 1ex;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pruchaseProcess-p-footer {
+    color: var(--texto-colorPrincipal);
+    margin: 0.2ex 0 0.9ex;
+    font-size: var(--font-size-footerMobile);
+}
+
+#pruchaseProcess-menuMobile-totalCost {
+    font-size: calc(var(--font-size-footerMobile)*0.85);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#pruchaseProcess-menu-mobile div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+#pruchaseProcess-menu-mobile :last-child{
+    justify-content: space-between;
+    padding: 0 1ex;
+}
+
+/* popUp compra exitosa */
+#purchaseProcess-orderConfirmation {
+    /* display: flex; */
+    display: none;
+    transform: scale(1);
+    opacity: 0%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: var(--sombra-popUps);
+    box-sizing: border-box;
+    transition: 
+        opacity 0.2s linear;
+}
+
+#purchaseProcess-orderConfirmation-contmessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fondo-cards);
+    padding: 15px;
+    width: 80%;
+    max-width: 175px;
+    min-height: 245px;
+    border-radius: 7px;
+}
+
+#purchaseProcess-contmessage-loading {
+    display: flex;
+    transform: scale(1);
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    transition: 
+        transform 0.2s linear;
+}
+
+#purchaseProcess-contmessage-loading img{
+    width: 90%;
+    padding: 10% 5%;
+    box-sizing: border-box;
+}
+
+#purchaseProcess-contmessage-loading > div {
+    --duracion-animacion-loading: 1s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 45px;
+    gap: 10%;
+}
+
+#purchaseProcess-contmessage-loading .contmessage-loading-circle {
+    --circle-loading-widthHeight: 20px;
+    width: var(--circle-loading-widthHeight);
+    height: var(--circle-loading-widthHeight);
+    background-color: var(--principal-color);
+    border-radius: 50%;
+}
+
+#purchaseProcess-circle1 {
+    animation: cargandoMovCirc1 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite;    
+}
+
+#purchaseProcess-circle2 {
+    animation: cargandoMovCirc2 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite;  
+}
+
+#purchaseProcess-circle3 {
+    animation: cargandoMovCirc3 var(--duracion-animacion-loading) linear none; 
+    animation-iteration-count: infinite; 
+}
+
+@keyframes cargandoMovCirc1 {
+    0% {margin-bottom: 0%;}
+    16.5% {margin-bottom: 13%;}
+    33% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+@keyframes cargandoMovCirc2 {
+    0% {margin-bottom: 0%;}
+    24% {margin-bottom: 0%;}
+    49.5% {margin-bottom: 13%;}
+    66% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+@keyframes cargandoMovCirc3 {
+    0% {margin-bottom: 0%;}
+    57% {margin-bottom: 0%;}
+    82.5% {margin-bottom: 13%;}
+    99% {margin-bottom: 0%;}
+    100% {margin-bottom: 0%;}
+}
+
+#purchaseProcess-contmessage-success {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#purchaseProcess-contImgSuccess {
+    transform: scale(0);
+    transition: 
+        transform 0.2s linear;
+}
+
+#purchaseProcess-contmessage-success p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #51DF4C;
+    font-weight: 600;
+    margin: 5% 0 0;
+    opacity: 0%;
+    transition: opacity 0.3s ease;
+}
+
+#purchaseProcess-contImgSuccess {
+    position: relative;
+    width: 70%;
+}
+
+#purchaseProcess-contImgSuccess > div {
+    position: absolute;
+    background-color: #51df4c;
+    right: 22%;
+    height: 48%;
+    top: 28%;
+    transition:
+        transform 0.2s ease,
+        width 0.4s ease;
+}
+
+#purchaseProcess-contImgSuccess > div.imgSuccesHidden {
+    width: 55%;
+}
+
+#purchaseProcess-contImgSuccess > div.imgSuccesShow {
+    width: 0%;
+}
+
+#purchaseProcess-contImgSuccess img{
+    width: 100%;
+}
+
+#pruchaseProcess-arrowBtnImg {
+    transition: transform 0.2s ease;
+    transform: rotateX(0deg);
 }
 
 /* --------- Index --------- */

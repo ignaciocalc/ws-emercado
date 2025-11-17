@@ -72,17 +72,17 @@
           <div id="categoriasBoton" class="categoriasBotonContraido">
             <a class="link-menu" id="boton-categorias-menu">CATEGORÍAS </a> 
             <img id="flechaCategorias" class="flechaCategorias" src="img/flecha-derecha.svg">
-          </div>
+</div>
           <ul id="lista-menu" class="lista-menu-oculto">
-            <li><a href="products.html">Autos</a></li>
-            <li>Jueguetes</li>
-            <li>Muebles</li>
-            <li>Herramientas</li>
-            <li>Computadoras</li>
-            <li>Vestimenta</li>
-            <li>Electrodomésticos</li>
-            <li>Deporte</li>
-            <li>Celulares</li>
+            <li><a id="Autos" href="products.html">Autos</a></li>
+            <li><a id="Juguetes" href="products.html">Juguetes</a></li>
+            <li><a id="Muebles" href="products.html">Muebles</a></li>
+            <li><a id="Herramientas" href="products.html">Herramientas</a></li>
+            <li><a id="Computadoras" href="products.html">Computadoras</a></li>
+            <li><a id="Vestimenta" href="products.html">Vestimenta</a></li>
+            <li><a id="Electrodomésticos" href="products.html">Electrodomésticos</a></li>
+            <li><a id="Deporte" href="products.html">Deporte</a></li>
+            <li><a id="Celulares" href="products.html">Celulares</a></li>
           </ul>
         </div>
         <div id="irVenderMenu" class="boton-menu"> <a class="link-menu">VENDER</a> <img src="img/flecha-doble.svg" class="flecha-menu"></div>
@@ -112,11 +112,72 @@
       <section id="carrito-productos">
       </section>
 
-      <section id="carrito-totalComprar">
-        <div id="carrito-contTotal">
-          <p>Total:</p>
-          <p id="carrito-total"></p>
+      <section id="carrito-totalComprar" class="carrito-resumen-oculto">
+        <div id="carrito-flechaDespliegueResumen" >
+          <img src="img/flecha-derecha.svg">
         </div>
+        <p id="carrito-tituloResumen">Resumen de compra</p>
+
+        <article>
+          <div id="carrito-exSubtotalEnvio">
+            <div id="contResumen">
+            </div>
+
+            <div class="carrito-linea"></div>
+
+            <div id="carrito-contSubtotalGeneral">
+              <p>Subtotal</p>
+              <p id="carrito-subtotalGeneral"></p>
+            </div>
+            <div id="carrito-precioEnvioCont">
+              <p>Envío</p>
+              <p id="carrito-precioEnvioLista">UYU 500</p>
+            </div>
+
+            <div class="carrito-linea"></div>
+          </div>
+          <div id="carrito-totalCont">
+            <p>Total</p>
+            <p id="carrito-total"> UYU 50000</p>
+          </div>
+        </article>
+
+        <section id="carrito-tipoEnvioGeneral" class="carrito-eleccionEnvio-ocultar">
+          <section id="carrito-tipoEnvioContenedor">
+            <div id="carrito-duracionEnvioCont">
+              <p>Envio <span id="carrito-tipoEnvioMostrar"></span></p>
+              <P id="carrito-demoraEnvio">estandar</P>
+            </div>
+            <div>
+              <img src="img/flecha-derecha.svg">
+            </div>
+          </section>
+
+          <form id="carrito-opcionesEnvio">
+            <label id="carrito-contEnvioStandar" class="carrito-contOpcionEnvio">
+              <input id="carrito-envioStandard" type="radio" name="envio" value="Standard" checked>
+              <div>
+                <p>Standard (5%)</p>
+                <p>Llega de 12 a 15 días</p>
+              </div>
+            </label>
+            <label id="carrito-contEnvioExpress" class="carrito-contOpcionEnvio">
+              <input id="carrito-envioExpress" type="radio" name="envio" value="Express">
+              <div>
+                <p>Express (7%)</p>
+                <p>Llega de 5 a 8 días</p>
+              </div>
+            </label>
+            <label id="carrito-contEnvioPremium" class="carrito-contOpcionEnvio">
+            <input id="carrito-envioPremium" type="radio" name="envio" value="Premium">
+              <div>
+                <p>Premium (15%)</p>
+                <p>Llega de 2 a 5 días</p>
+              </div>
+            </label>
+          </form>
+        </section>
+
         <div id="carrito-alternadorMoneda" class="carrito-pesos">
           <p>Moneda:</p>
           <div id="carrito-tipoMoneda" moneda="UYU">
@@ -124,7 +185,7 @@
             <p>USD</p>
           </div>
         </div>
-        <button class="button">Continuar compra</button>
+        <button id="carrito-btnContinuar" class="button">Continuar compra</button>
       </section>
 
     </article>

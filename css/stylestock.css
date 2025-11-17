@@ -7,6 +7,7 @@
     --naranja-suave:#FF8849;
     --texto-colorEnfasis: black;
     --texto-colorPrincipal:#2a2a2a;
+    --texto-totalCart: #5d5a5a;
     --texto-colorAtenuado:#b4b3b3;
     --texto-colorSuavizado: #d8d8d8;
     --texto-resaltanteAzul:#3483fa;
@@ -79,6 +80,23 @@
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #e7e7e7;
 
+    --hoverMenuCarrito: #eeeeeedd;
+    --inputRadio-envio: #f76416;
+
+    /* Proceso de compra */
+    --border-circulos-noSelect: #adaaaa;
+    --border-circulos-Select: #595959;
+    --input-textDescription: #4B4B4B;
+    --fondo-inputsPurchaseProcess: #F9F9F9;
+    --border-inputsPurchaseProcess: #e2e2e2;
+    --hover-opcionSelect: #e0dfdf;
+
+    --inputBorde-procesoCompra: #dddd;
+    --inputFondoMedioPago: white;
+    --texto-colorH-procesoCompra: rgb(31, 31, 31);
+
+    --cardLogos-background: white;
+
     --brillo-logosindex: brightness(0) saturate(100%);
 
 }   
@@ -92,6 +110,7 @@ body.darkmode {
     --naranja-suave:#B84000;
     --texto-colorEnfasis: rgb(238, 238, 238); /* ?? */
     --texto-colorPrincipal:#D9D9D9;
+    --texto-totalCart: #bababa;
     --texto-colorAtenuado:#888888;
     --texto-colorSuavizado: #C0C0C0; /* ?? */
     --texto-resaltanteAzul:#295ba4;
@@ -162,6 +181,23 @@ body.darkmode {
     --colorBotonH-carritoVacio: #ff9954;
     --colorTextBtonoH-carritoVacio: #fddabc;
     --fondoImgPortada-carritoLleno: #272626;
+
+    --hoverMenuCarrito: #242424;
+    --inputRadio-envio: #bb3508;
+
+    /* Proceso de compra */
+    --border-circulos-noSelect: #adaaaa;
+    --border-circulos-Select: #c0c0c0;
+    --input-textDescription: #bababa;
+    --fondo-inputsPurchaseProcess: #282828;
+    --border-inputsPurchaseProcess: #727272dd;
+    --hover-opcionSelect: #313131;
+
+    --inputBorde-procesoCompra: #727272dd;
+    --inputFondoMedioPago: white;
+    --texto-colorH-procesoCompra: rgb(227, 227, 227);
+
+    --cardLogos-background: #242424;
 
     --brillo-logosindex: brightness(1) saturate(100%)
 }
