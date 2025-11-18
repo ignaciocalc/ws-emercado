@@ -607,5 +607,5 @@ function setMode() {
 // ----------- 
 // ----> Instrucciones
 // ----------- 
-setMode();
+setMode();  
 initPurchaseProcess();
