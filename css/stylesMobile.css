@@ -3830,18 +3830,18 @@ li a {
 }
 
 #index-carCard {
-    background-image: url("img/bg-carBanner.svg");
+    background-image: url("./img/bg-carBanner.svg");
     background-size: cover;
     /* object-fit: cover; */
 }
 
 #index-toyCard {
-    background-image: url("img/bg-toyBanner.svg");
+    background-image: url("./img/bg-toyBanner.svg");
     background-size: cover;
 }
 
 #index-furnitureCard {
-    background-image: url("img/bg-furnitureBanner.svg");
+    background-image: url("./img/bg-furnitureBanner.svg");
     background-size: cover;
 }
 

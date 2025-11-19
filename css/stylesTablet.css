@@ -4890,18 +4890,18 @@ li a {
 }
 
 #index-carCard {
-    background-image: url("img/bg-carBanner.svg");
+    background-image: url("./img/bg-carBanner.svg");
     background-size: cover;
     /* object-fit: cover; */
 }
 
 #index-toyCard {
-    background-image: url("img/bg-toyBanner.svg");
+    background-image: url("./img/bg-toyBanner.svg");
     background-size: cover;
 }
 
 #index-furnitureCard {
-    background-image: url("img/bg-furnitureBanner.svg");
+    background-image: url("./img/bg-furnitureBanner.svg");
     background-size: cover;
 }
 
@@ -4926,8 +4926,6 @@ li a {
     /* esto va a ser un problema para el responsive!! */
     width: 100%;
     height: 100%;
-
-    /* object-fit: contain; */
 }
 /* estoy alineando los contenedores padre con 
 position relative, para poder superponer imagenes,
