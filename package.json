@@ -1,0 +1,25 @@
+{
+  "name": "ws-emercado",
+  "version": "1.0.0",
+  "description": "backend eMercado",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignaciocalc/ws-emercado.git"
+  },
+  "author": "grupo 6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ignaciocalc/ws-emercado/issues"
+  },
+  "homepage": "https://github.com/ignaciocalc/ws-emercado#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mariadb": "^3.4.5",
+    "nodemon": "^3.1.11"
+  }
+}
