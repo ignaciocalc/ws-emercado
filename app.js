@@ -7,7 +7,7 @@ const puerto = 3000;
 const mariadb = require("mariadb");
 const pool = mariadb.createPool({host: "localhost", user: "root", password: "Ceibal", database: "emercado", conectionLimits: 5});
 
-app.get("/cats/cat.json", async (req, res) => {
+app.get("/cats/cat", async (req, res) => {
    let conn
    try {
       conn = await pool.getConnection();
@@ -21,6 +21,7 @@ app.get("/cats/cat.json", async (req, res) => {
          element.imgSrc = imgData[0].ruta;
       }
 
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(data)
 
    } catch(error) {
@@ -67,6 +68,7 @@ app.get("/products/:productId", async (req, res) => {
       productInfo[0].images = productImgRutas;
       productInfo[0].relatedProducts = productRelated;
       
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(productInfo[0])
 
    } catch(error) {
@@ -120,6 +122,7 @@ app.get("/cats_products/:productId", async (req, res) => {
       resObj.catName  = catName[0].name;
       resObj.products = products;
 
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(resObj);      
 
    } catch(error) {
@@ -165,6 +168,7 @@ app.get("/products_comments/:productId", async (req, res) => {
          item.product    = product;
       }
             
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(data)
    }
    catch(error) {

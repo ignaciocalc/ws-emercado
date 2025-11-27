@@ -3,7 +3,7 @@ import {btnComprarUnProducto} from "./utils.js";
 
 const
    idProductoLS = localStorage.getItem('idProducto'),
-   linkProducto = "https://japceibal.github.io/emercado-api/products/" + idProductoLS + ".json",
+   linkProducto = "http://localhost:3000/products/" + idProductoLS,
    imgPrincipal = document.getElementById("imgPrincipal"),
    galImg = document.getElementById("galImg"),
    nombreProd = document.getElementById("nombreProd"),
@@ -17,6 +17,8 @@ const
    barrasEstrellas = document.querySelectorAll(".barrEstrella"),
    califCant = document.getElementById("califCant"),
    porcentajeP = document.querySelectorAll(".porcentajeP");
+
+console.log(linkProducto)
 
 let 
    cantTipoEstrella = [0, 0, 0, 0, 0]; // cada item del arreglo representa la cantidad de votos
