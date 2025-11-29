@@ -25,6 +25,7 @@ export const DEPARTAMENTOSYLOCALIDADES = {
     Tacuarembo: ["Tacuarembó", "Paso de los Toros", "San Gregorio de Polanco", "Curtina", "Ansina"],
     TreintayTres: ["Treinta y Tres", "Vergara", "Santa Clara de Olimar", "Cerro Chato", "Valentines"]
 };
+export const URLkey = "http://localhost:3000/login"
 
 export const inicializaListenerCarrito = function (DOMvar, prod){
     

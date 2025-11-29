@@ -18,13 +18,11 @@ async function getUser(email){
 
         let user = await conn.query("SELECT * FROM users WHERE email=?", [email]);
         
-        console.log(user);
         return user[0];
 
-    }   
-    finally {
+    } finally {
         if (conn)
-            conn.release()
+          conn.release()
     }
 }
 

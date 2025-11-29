@@ -14,15 +14,18 @@ async function validUser(req, res){
 
     const userInfo = req.body
    
-    if (!userInfo)
+    if (!userInfo) {
       res.status(401).json({message: "No se recibió información del usuario, debe incluirla en el cuerpo de la peticion"})
-    else {   
+    } else {   
         const user     = await usersModel.getUser(userInfo.email);
         // chequea si el usuario es válido 
+
         if ((userInfo.email == user.email) && (userInfo.password == user.password)){
             const token = jwt.sign(userInfo.email, SECRET_KEY);
-            res.status(200).json({userToken: token})
-        }   
+            res.status(200).json({userToken: token, userId: user.id_user})
+        } else {
+            res.status(401).json({message: "Usuario y/o contraseña invalidos"})
+        }
     }
 }
 
