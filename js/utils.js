@@ -25,7 +25,32 @@ export const DEPARTAMENTOSYLOCALIDADES = {
     Tacuarembo: ["Tacuarembó", "Paso de los Toros", "San Gregorio de Polanco", "Curtina", "Ansina"],
     TreintayTres: ["Treinta y Tres", "Vergara", "Santa Clara de Olimar", "Cerro Chato", "Valentines"]
 };
-export const URLkey = "http://localhost:3000/login"
+export const URLkey = "http://localhost:3000/login";
+export const UPDATECART = "http://localhost:3000/cart";
+
+export async function actualizarCart(idUser, cart, token){
+    try {
+        const response = await fetch(UPDATECART + "/" + idUser, {
+            method: "PUT",
+            headers: {
+                        "Content-type" : "application/json",
+                        "authorization" : token
+                     },
+            body: JSON.stringify(cart)
+        })
+
+        if (!response.ok) {
+            const errorInfo = await respuesta.json();
+            throw new Error(errorInfo.message)
+        }
+
+        const resInfo = await response.json();
+        console.log(resInfo.message)
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const inicializaListenerCarrito = function (DOMvar, prod){
     
@@ -55,15 +80,21 @@ function agregarACarrito(prod){
         let pos = carrito.productos.findIndex(e => e.idProducto == prod.idProducto ); 
 
         if ((pos === -1) && (carrito.cantProductos < 99)){
+            const user = JSON.parse(localStorage.getItem("user"));
             carrito.productos.push(prod);
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
-            localStorage.setItem('cart', JSON.stringify(carrito));
+            localStorage.setItem('cart', JSON.stringify(carrito)); //Se tiene que borrar una vez que ya este todo implementado
+            console.log(user["user_id"],)
+
+            actualizarCart(user.user_id, carrito, user.token)
         } else if (carrito.cantProductos < 99 ){
+            const user = JSON.parse(localStorage.getItem("user"));
             carrito.productos[pos].cantidad ++;
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
-            localStorage.setItem('cart', JSON.stringify(carrito));
+            localStorage.setItem('cart', JSON.stringify(carrito)); //Se tiene que borrar una vez que ya este todo implementado
+            actualizarCart(user.user_id, carrito, user.token)
         } else {
             alerteMercado("No es posible agregar mas de 99 productos al carrito");
         }

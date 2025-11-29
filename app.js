@@ -1,15 +1,39 @@
 // importacion de express y definicion de puerto
 const express        = require("express");
+const jwt = require("jsonwebtoken");
 const app    = express();
 const puerto = 3000;
+const SECRET_KEY = "GRUPO6 SECRETKEY";
 
 // Middleware para leer JSON
 app.use(express.json());
-app.use("/", (req, res, next) => {
+
+// Middleware para setear headers
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
+});
+
+// Middleware para verificar clave al actualizar carrito
+app.use("/cart", (req, res, next) => {
+
+   if (req.method === 'OPTIONS') {
+    return res.sendStatus(200); // Responde 200 OK y termina aquí para el preflight
+  }
+
+  console.log(req.headers)
+   const token = req.headers["authorization"];
+   console.log("este")
+   console.log(token)
+   jwt.verify(token, SECRET_KEY, async (err) => {
+         if(err){
+            res.status(401).json({message: "No se puede validar el token del usuario"})
+         } else {
+            next();   
+         }
+      }) 
 });
 
 const catRouter     = require("./backend/routes/catRoutes.js");
@@ -23,7 +47,7 @@ app.use("/products", prodRouter)
 app.use("/cats_products", catRouter)
 app.use("/products_comments", commentRouter)
 app.use("", userRouter)
-app.use("", cartRouter)
+app.use("/cart", cartRouter)
 
 // listeneeer
 app.listen(puerto, function(error){

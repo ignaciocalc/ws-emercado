@@ -70,8 +70,8 @@ async function validarUsuario(mail, pass) {
       const respuesta = await fetch(URLkey, {
          method: "POST",
          headers: {
-            "Content-Type" : "application/json"
-         },
+                     "Content-Type" : "application/json"
+                  },
          body: JSON.stringify({email : mail, password: pass})
       });
 

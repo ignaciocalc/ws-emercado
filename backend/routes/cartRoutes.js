@@ -4,6 +4,6 @@ const cartControllers = require("../controllers/cartControllers.js");
 const cartRouter = express.Router();
 
 
-cartRouter.put("/cart", cartControllers.setCart);
+cartRouter.put("/:idUser", cartControllers.setCart);
 
 module.exports = cartRouter
