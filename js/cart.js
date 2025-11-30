@@ -1,8 +1,12 @@
 import {actualizarBadge} from "./utils.js";
 import {alerteMercado} from "./utils.js";
+import {actualizarCart} from "./utils.js";
+import {getCart} from "./utils.js";
+import {deleteCart} from "./utils.js";
 
 const
    cotizacionDolar = 43,
+   user = JSON.parse(localStorage.getItem("user")),
    descubrirProductos = document.getElementById("carrito-descubrirProductos"),
    contenedorProductos = document.getElementById("carrito-productos"),
    contPrincipal = document.getElementById("carrito-contPrincipal"),
@@ -25,12 +29,15 @@ const
    btnDesplegarMenu = document.getElementById("carrito-flechaDespliegueResumen"),
    contLateral = document.getElementById("carrito-totalComprar");
 
-function actualizarCantItem(id, cantidadItem){
+let
+   cartGen;
+
+async function actualizarCantItem(id, cantidadItem, persist = true){
 // si cantidadItem es 0 elimina el elemento por completo, actualizando el total si es necesario
 // si se puede llamar a esta funcion existe el item cart en el ls
 // si cantidadItem tiene un valor, ese valor se suma (o resta si es negativo) a la cantidad actual de productos
 const
-   carrito = JSON.parse(localStorage.getItem("cart")),
+   carrito = cartGen,
    posicion = carrito.productos.findIndex(elemento => elemento.idProducto == id);
 
    if (cantidadItem == 0){
@@ -40,33 +47,41 @@ const
       carrito.productos.splice(posicion, 1);
       if (carrito.productos.length == 0) {
          contPrincipal.className = "carrito-vacio"
-         localStorage.removeItem("cart");
+         // localStorage.removeItem("cart");
+         if (persist !== false) await deleteCart(user.user_id, user.token);
          actualizarBadge(0);
       } else {
          carrito.cantProductos = carrito.cantProductos - cantidadEliminados;
          actualizarBadge(carrito.cantProductos);
-         localStorage.setItem("cart", JSON.stringify(carrito));
-         sumarEnvioySubtotal()
+         // localStorage.setItem("cart", JSON.stringify(carrito));
+         cartGen = carrito;
+         if (persist !== false) await actualizarCart(user.user_id, user.token, carrito);
       }
    } else {
       carrito.productos[posicion].cantidad += cantidadItem;
       carrito.cantProductos += cantidadItem;
       actualizarBadge(carrito.cantProductos); 
-      localStorage.setItem("cart", JSON.stringify(carrito));
+      // localStorage.setItem("cart", JSON.stringify(carrito));
+      cartGen = carrito;
+      if (persist !== false) await actualizarCart(user.user_id, user.token, carrito);
    }
 }
 
-function actSubtotal(idProducto, inputCantidad, precioU, accion) {
+async function actSubtotal(idProducto, inputCantidad, precioU, accion) {
    const 
       valorInput = parseInt(inputCantidad.value),
       subtotalCont = document.getElementById(`subtotal-${idProducto}`),
       monedaSubTotal = subtotalCont.getAttribute("moneda"),
-      cantidadProdGeneral = JSON.parse(localStorage.getItem("cart")).cantProductos,
+      // carrito = await getCart(user.user_id, user.token),
+      // cantidadProdGeneral = JSON.parse(localStorage.getItem("cart")).cantProductos,
+      cantidadProdGeneral = cartGen.cantProductos,
+
+      // cantidadProdGeneral = carrito.cantProductos,
       monedaTotal = carritoTipoMoneda.getAttribute("moneda"),
       productListPrecio = document.getElementById(`productList-precio-${idProducto}`);
 
    let
-      subtotalGenActual = parseInt(valorSubtotalGen.getAttribute('valor')),
+      subtotalGenActual = parseFloat(valorSubtotalGen.getAttribute('valor')),
       valorSubtotalAct,
       aux;
 
@@ -75,7 +90,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       let subtotalProductoActual = inputCantidad.value * aux;
 
       if (subtotalProductoActual % 1 != 0)
-      subtotalProductoActual = subtotalProductoActual.toFixed(2); 
+      subtotalProductoActual = Number (subtotalProductoActual.toFixed(2)); 
 
       valorSubtotalAct = inputCantidad.value * precioU;
       subtotalCont.textContent = monedaSubTotal + " " + estiloMoneda.format(valorSubtotalAct);
@@ -88,7 +103,7 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       subtotalGenActual -= valorInput * aux;
       subtotalGenActual += subtotalProductoActual;
       if (subtotalGenActual % 1 != 0)
-      subtotalGenActual = subtotalGenActual.toFixed(2); 
+      subtotalGenActual = subtotalGenActual.toFixed(2);
       valorSubtotalGen.textContent = monedaTotal + " " + estiloMoneda.format(subtotalGenActual);
       valorSubtotalGen.setAttribute("valor", subtotalGenActual);
    }
@@ -109,13 +124,13 @@ function actSubtotal(idProducto, inputCantidad, precioU, accion) {
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, 1);
-      sumarEnvioySubtotal()
+      sumarEnvioySubtotal(false)
    } else if ((valorInput > 1) && (accion == "remover")) {
       inputCantidad.value = valorInput - 1;
       //Actualizar total, subtotal y localstorage
       actTotalySubtotal();
       actualizarCantItem(idProducto, -1);
-      sumarEnvioySubtotal()
+      sumarEnvioySubtotal(false)
    }  else if (valorInput != 1) {
       alerteMercado("No es posible agregar mas de 99 articulos al carrito");
    }
@@ -138,10 +153,7 @@ function removerItem(item, id) {
    for (let i = 1; i <= cantPasos; i++){
       setTimeout(()=> {item.style.height = `${(cantPasos - i) * pixeles}px`}, i*duracionMs)
    }
-   setTimeout(()=>{item.remove(); actualizarTotal();}, duracionMs*cantPasos);
-
-   // Elimina el producto del localStorage y actualiza la cantidad de items
-   actualizarCantItem(id, 0);
+   setTimeout(async ()=>{item.remove(); await actualizarCantItem(id, 0, false); actualizarTotal();}, duracionMs*cantPasos);
 }
 
 function mostrarProducto(producto) {
@@ -226,33 +238,34 @@ function mostrarProducto(producto) {
    contenedorProductos.appendChild(productoCard)
 }
 
-function alternarMoneda() {
+async function alternarMoneda() {
    const
       monedaActual = carritoTipoMoneda.getAttribute("moneda"),
-      carrito = JSON.parse(localStorage.getItem("cart"));
+      carrito = cartGen;
 
    if (monedaActual== "UYU"){
       carritoTipoMoneda.style.minWidth = `${dolaresText.offsetWidth}px`
       pesosText.style.left = `+${pesosText.offsetWidth + 2}px`;
       dolaresText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "USD");
+      carrito.moneda = "USD";
+      cartGen = carrito;
       actualizarTotal();
       actualizarSubtotales();
-      carrito.moneda = "USD";
-      localStorage.setItem("cart", JSON.stringify(carrito))
    } else {
       carritoTipoMoneda.style.minWidth = `${pesosText.offsetWidth}px`
       dolaresText.style.left = `+${dolaresText.offsetWidth + 2}px`;
       pesosText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "UYU");
+      
+      carrito.moneda = "UYU";
+      cartGen = carrito
       actualizarTotal()
       actualizarSubtotales()
-      carrito.moneda = "UYU";
-      localStorage.setItem("cart", JSON.stringify(carrito))
    }
 }
 
-function actualizarTotal(){
+function actualizarTotal(actualizarLocal){
    const
       subtotales = document.querySelectorAll(".carrito-subtotal"),
       moneda = carritoTipoMoneda.getAttribute("moneda");
@@ -282,7 +295,7 @@ function actualizarTotal(){
    valorSubtotalGen.setAttribute('valor', subtotalGen);  
 
    // Actualizar total segun envio
-   sumarEnvioySubtotal()
+   sumarEnvioySubtotal(actualizarLocal)
 }
 
 function actualizarSubtotales(){
@@ -311,14 +324,14 @@ function actualizarSubtotales(){
    }
 }
 
-function inicializarCarrito(){
-   const
-      carritoLs = localStorage.getItem("cart"),
-      user = localStorage.getItem("user");
+async function inicializarCarrito(){
    
-   if (carritoLs) {
+   const
+      carritoLs = await getCart(user.user_id, user.token);
+   
+   if (carritoLs != null) {
       contPrincipal.className = "carrito-lleno";
-      const carrito = JSON.parse(carritoLs);
+      const carrito = carritoLs;
    
       carrito.productos.forEach(producto => {
          mostrarProducto(producto);
@@ -348,8 +361,10 @@ function inicializarCarrito(){
          dolaresText.style.left = "0";
          carritoTipoMoneda.setAttribute("moneda", "USD");
       }
+
+      cartGen = carrito;
          
-      actualizarTotal();
+      actualizarTotal(false);
       actualizarSubtotales();
    } else {
       contPrincipal.className = "carrito-vacio";
@@ -383,9 +398,11 @@ function mostrarProductoSubtotal(producto){
    contListProduct.appendChild(contProducto)
 }
 
-function sumarEnvioySubtotal(){
+async function sumarEnvioySubtotal(actualizarLocal){
    const
-      carrito = JSON.parse(localStorage.getItem("cart")),
+      // carrito = JSON.parse(localStorage.getItem("cart")),
+      carrito = cartGen,
+      // carrito =  await getCart(user.user_id, user.token),
       tipoEnvio = formTipoEnvio.elements.envio.value,
       tipoEnvioCont = document.getElementById("carrito-tipoEnvioMostrar"),
       demoraEnvioCont = document.getElementById("carrito-demoraEnvio"),
@@ -425,7 +442,12 @@ function sumarEnvioySubtotal(){
 
    carritoTotalCont.textContent = moneda + " " + estiloMoneda.format(totalCarrito);
    precioEnvioCont.textContent = moneda + " " + estiloMoneda.format(precioEnvio);
-   localStorage.setItem("cart", JSON.stringify(carrito));
+   cartGen = carrito
+   // localStorage.setItem("cart", JSON.stringify(carrito));
+
+   if (actualizarLocal != false){
+      actualizarCart(user.user_id, user.token, carrito)
+   }
 }
 
 // Seleccionar tipo envio
@@ -457,10 +479,8 @@ document.getElementById("carrito-btnContinuar").addEventListener("click", functi
    window.location = "purchase-process.html"
 })
 
-document.getElementById("carrito-contEnvioStandar").addEventListener("click", sumarEnvioySubtotal);
-document.getElementById("carrito-contEnvioExpress").addEventListener("click", sumarEnvioySubtotal);
-document.getElementById("carrito-contEnvioPremium").addEventListener("click", sumarEnvioySubtotal);
 
+formTipoEnvio.addEventListener("change", () => sumarEnvioySubtotal());
 
 btnAlternarMoneda.addEventListener('click', alternarMoneda);
 descubrirProductos.addEventListener('click', ()=> window.location = "categories.html");

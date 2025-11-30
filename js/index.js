@@ -71,7 +71,6 @@ async function createIndexLS(){
         });
     }
 
-    // console.log(index);
     localStorage.setItem("index", JSON.stringify(index));
 
     initImages();

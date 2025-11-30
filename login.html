@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/stylesTablet.css">
     <link rel="shortcut icon" href="img/iconoWeb.ico" type="image/x-icon">
     <link rel="icon" href="img/iconoWeb.ico" type="image/x-icon">
-    <script src="js/login.js" defer></script>
+    <script src="js/login.js" type="module" defer></script>
 </head>
 <body>
     <div class="container">
@@ -24,12 +24,24 @@
             <div class="formulario">
                 <img src="img/Logo_eMercado.png" alt="Logo">
                 <h2>¡Bienvenido!</h2>
-                <div id="loginForm">
-                    <input class="camposInput" type="email" id="user" placeholder="Ingresar su mail" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$">
+                <div id="loginForm" class="login-logearse">
+                    <input class="camposInput" type="text" id="name" placeholder="Ingresar nombre">
+                    <p class="claseError">El campo no puede estar vacío </p>
+
+                    <input class="camposInput" type="text" id="lastName" placeholder="Ingresar apellido">
+                    <p class="claseError">El campo no puede estar vacío </p>
+
+                    <input class="camposInput" type="email" id="user" placeholder="Ingresar mail" pattern="^[^@]+@[^@]+\.[cC][oO][mM]$">
                     <p class="claseError"></p>
+
                     <input class="camposInput" type="password" id="password" placeholder="Ingresar contraseña">
                     <p class="claseError">El campo no puede estar vacío </p>
+
+                    <input class="camposInput" type="number" id="phone" placeholder="Ingresar celular">
+                    <p class="claseError">El campo no puede estar vacío </p>
+
                     <button class="button" id="ingresarLogin" type="submit">Ingresar</button>
+                    <button class="button" id="registrarteLogin" type="submit">Registrarte</button>
                 </div>
                 <div id="extra">
                     ¿No tiene cuenta? <a class="link">Registrarse</a>

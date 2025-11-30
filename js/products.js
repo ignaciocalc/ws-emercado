@@ -1,7 +1,7 @@
 import {inicializaListenerCarrito} from "./utils.js";
 
 const catID = localStorage.getItem("catID");
-const PRODUCTS_CAT = "https://japceibal.github.io/emercado-api/cats_products/" + catID + ".json";
+const PRODUCTS_CAT = "http://localhost:3000/cats_products/" + catID;
 let currentProductsArray = [];
 let originalProductsArray = [];
 
