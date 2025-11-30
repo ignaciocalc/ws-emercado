@@ -35,7 +35,6 @@ async function validUser(req, res){
 
 async function createUserAndCart(req, res){
     const userInfo = req.body;
-    console.log(userInfo);
 
     if(!userInfo){
       res.status(401).json({message: "No se recibió información del usuario, debe incluirla en el cuerpo de la petición"})

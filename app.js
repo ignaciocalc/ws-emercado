@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware para verificar clave al consultar o actualizar informacion carrito
+// Middleware para verificar clave al consultar o actualizar informacion del carrito
 app.use("/cart", (req, res, next) => {
 
    if (req.method === 'OPTIONS') {

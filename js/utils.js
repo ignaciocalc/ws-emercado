@@ -29,6 +29,7 @@ export const URLkey = "http://localhost:3000/login";
 export const URLCreateUser = "http://localhost:3000/register"
 export const UPDATECART = "http://localhost:3000/cart";
 
+// Realiza la actualizacion del carrito en la base de datos
 export async function actualizarCart(idUser, token, cart){
     try {
         const response = await fetch(UPDATECART + "/" + idUser, {
@@ -53,6 +54,7 @@ export async function actualizarCart(idUser, token, cart){
     }
 }
 
+// Elimina el carrito de la base de datos (setea sus columnas en null)
 export function deleteCart(idUser, token){
     const cart = {
                    moneda : null,
@@ -64,6 +66,7 @@ export function deleteCart(idUser, token){
     actualizarCart(idUser, token, cart)
 }
 
+// Obtiene el carrito de la base de datos en base al id del usuario
 export async function getCart(idUser, token){
     try {
         const response = await fetch(UPDATECART + "/" + idUser, {
