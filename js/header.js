@@ -1,4 +1,5 @@
 import {actualizarBadge} from "./utils.js";
+import {getCart} from "./utils.js";
 const 
    body = document.body,
    btnDarkMode = document.getElementById("modeBtn"),
@@ -318,12 +319,14 @@ setModo(localStorage.getItem("modo"));
 carritoBoton.addEventListener("click", () => window.location = "cart.html");
 
 // actualizacion del badge
-function inicializarBadge(){
+async function inicializarBadge(){
+
    const 
-   carrito = localStorage.getItem("cart");
+      user = JSON.parse(estaRegistrado),
+      carrito = await getCart(user.user_id, user.token);
 
    if (carrito != null)
-      actualizarBadge(JSON.parse(carrito).cantProductos);
+      actualizarBadge(carrito.cantProductos);
 }
 
 inicializarBadge()

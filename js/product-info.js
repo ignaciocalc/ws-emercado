@@ -18,8 +18,6 @@ const
    califCant = document.getElementById("califCant"),
    porcentajeP = document.querySelectorAll(".porcentajeP");
 
-console.log(linkProducto)
-
 let 
    cantTipoEstrella = [0, 0, 0, 0, 0]; // cada item del arreglo representa la cantidad de votos
                                        // que se hicieron con ese tipo de estrella, por ejemplo. cantTipoEstrella[0]
@@ -96,7 +94,7 @@ async function productInfo(link) {
       btnComprarUnProducto(prod);
    })
 
-
+   inicializaListenerCarrito(document.getElementById("agregarCarritoInfo"), prod);;
 }
 
 //Actualiza las valoraciones generales
@@ -350,6 +348,3 @@ async function obtenerComentarios() {
 
 productInfo(linkProducto);
 obtenerComentarios();
-
-
-// document.getElementById("agregarCarritoInfo").setAttribute("data-id", idProductoLS);

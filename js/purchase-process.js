@@ -1,12 +1,14 @@
 import {DEPARTAMENTOSYLOCALIDADES} from "./utils.js";
+import {getCart} from "./utils.js";
+import {deleteCart} from "./utils.js";
 
 const
-   cart = localStorage.getItem("cart"),
    mode = localStorage.getItem("modo"),
    buyOneProduct = localStorage.getItem("buyOneProduct"),
    cotizacionDolar = 43,
    coinStyle = new Intl.NumberFormat('es-UY',{minimumFractionDigits: 0, maximumFractionDigits: 2}),
-   body = document.body;
+   body = document.body,
+   user = JSON.parse(localStorage.getItem("user"));
 
 const
    contProducts = document.getElementById("purchaseProcess-contProducts"),
@@ -352,7 +354,7 @@ function finishPurchaseProcess() {
    if (buyOneProduct != null) {
       localStorage.removeItem("buyOneProduct");
    } else {
-      localStorage.removeItem("cart")
+      deleteCart(user.user_id, user.token);
    }
    window.location = "index.html"
 }
@@ -578,7 +580,7 @@ function calcSubtotal(itemLS) {
    shippingMethodselected(itemLS.tipoEnvio)
 }
 
-function initPurchaseProcess(){
+async function initPurchaseProcess(){
    if (buyOneProduct != null) {
       const buyOneProductObj = JSON.parse(buyOneProduct);
       purchaseProcessMain.classList.add("buyOneProduct");
@@ -587,7 +589,9 @@ function initPurchaseProcess(){
       shippingMethodForm.elements.tipoEnvio.value = buyOneProductObj.tipoEnvio
       calcSubtotal(buyOneProductObj);
    } else {
-      const cartOBJ = JSON.parse(cart)
+      console.log(user.user_id, user.token);
+      const cartOBJ = await getCart(user.user_id, user.token);
+      console.log(cartOBJ)
       console.log(cartOBJ.productos)
       cartOBJ.productos.forEach(element => {
          showProduct(element, cartOBJ.moneda);

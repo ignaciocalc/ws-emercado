@@ -24,6 +24,20 @@
             }    
     }
 
+    async function getCart (req, res) {
+        const cart = await cartModel.getCart(req.params.idUser);
+        // siempre va a existir un carrito ya que se crea al agregar un usuario
+        let cartOBJ = {
+                            cantProductos: cart.cantProduct,
+                            moneda: cart.currency,
+                            productos: cart.products,
+                            tipoEnvio: cart.shipmentType
+                        }
+
+        res.status(201).json(cartOBJ)
+    }
+
     module.exports = {
-        setCart
+        setCart,
+        getCart
     }

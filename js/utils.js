@@ -28,7 +28,7 @@ export const DEPARTAMENTOSYLOCALIDADES = {
 export const URLkey = "http://localhost:3000/login";
 export const UPDATECART = "http://localhost:3000/cart";
 
-export async function actualizarCart(idUser, cart, token){
+export async function actualizarCart(idUser, token, cart){
     try {
         const response = await fetch(UPDATECART + "/" + idUser, {
             method: "PUT",
@@ -52,18 +52,57 @@ export async function actualizarCart(idUser, cart, token){
     }
 }
 
+export function deleteCart(idUser, token){
+    const cart = {
+                   moneda : null,
+                   cantProductos : null,
+                   tipoEnvio : null,
+                   productos : null,
+                }
+
+    actualizarCart(idUser, token, cart)
+}
+
+export async function getCart(idUser, token){
+    try {
+        const response = await fetch(UPDATECART + "/" + idUser, {
+            method: "GET",
+            headers: {
+                        "Content-type" : "application/json",
+                        "authorization" : token
+                     },
+        })
+
+        if (!response.ok) {
+            const errorInfo = await respuesta.json();
+            throw new Error(errorInfo.message)
+        }
+
+        const cart = await response.json();
+
+        if (cart.productos == undefined)
+            return null
+
+        return cart
+        
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 export const inicializaListenerCarrito = function (DOMvar, prod){
     
     DOMvar.addEventListener("click", (evento)=>{
-        const
+        let
             user = localStorage.getItem('user');
         
         evento.preventDefault(); 
         evento.stopPropagation();
 
         if (user != null) {
-            crearCarrito();
-            agregarACarrito(prod);
+            user = JSON.parse(user)
+            agregarACarrito(prod, user.user_id, user.token);
         } else 
             alerteMercado("Debe estar registrado para poder realizar una compra");
     })
@@ -72,49 +111,30 @@ export const inicializaListenerCarrito = function (DOMvar, prod){
 
 // PRE: el carrito existe 
 // POST: carrito actualizado con prod agregado
-function agregarACarrito(prod){
-    
-    let carrito = JSON.parse(localStorage.getItem('cart'));
+async function agregarACarrito(prod, idUser, token){
+    const user = JSON.parse(localStorage.getItem("user"));
+    let carrito = await getCart(idUser, token);
 
     if(carrito !== null){          // busca la primera expresión que coincida en el array y devuelve el  índice
         let pos = carrito.productos.findIndex(e => e.idProducto == prod.idProducto ); 
 
         if ((pos === -1) && (carrito.cantProductos < 99)){
-            const user = JSON.parse(localStorage.getItem("user"));
             carrito.productos.push(prod);
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
-            localStorage.setItem('cart', JSON.stringify(carrito)); //Se tiene que borrar una vez que ya este todo implementado
-            console.log(user["user_id"],)
-
-            actualizarCart(user.user_id, carrito, user.token)
+            actualizarCart(user.user_id, user.token, carrito)
         } else if (carrito.cantProductos < 99 ){
-            const user = JSON.parse(localStorage.getItem("user"));
             carrito.productos[pos].cantidad ++;
             carrito.cantProductos += prod.cantidad;
             actualizarBadge(carrito.cantProductos);
-            localStorage.setItem('cart', JSON.stringify(carrito)); //Se tiene que borrar una vez que ya este todo implementado
-            actualizarCart(user.user_id, carrito, user.token)
+            actualizarCart(user.user_id, user.token, carrito)
         } else {
             alerteMercado("No es posible agregar mas de 99 productos al carrito");
         }
          
-    }
-}
-
-
-function crearCarrito(){
-    let carrito = localStorage.getItem('cart');
-
-    if(carrito == null){
-        let cart = {
-            productos: [],
-            cantProductos: 0,
-            tipoEnvio: "Standard",
-            moneda: "UYU"
-        };
-    
-        localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+        actualizarBadge(1);
+        actualizarCart(user.user_id, user.token, {cantProductos: 1, moneda: 'UYU', productos: [prod], tipoEnvio: 'Standard'})
     }
 }
 

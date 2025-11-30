@@ -33,8 +33,22 @@ async function setCart(cart, user_id){
     return false
 }
 
+async function getCart(user_id){
+    let conn;
+    try {
+        conn = await pool.getConnection();
 
+        let cart = await conn.query("SELECT currency, cantProduct, shipmentType, products FROM carts WHERE id_user=?", [user_id]);
+
+        return cart[0]
+    } finally {
+        if (conn)
+          conn.release()
+    }
+    return false
+}
 
 module.exports = {
     setCart,
+    getCart
 }

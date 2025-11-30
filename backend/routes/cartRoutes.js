@@ -5,5 +5,6 @@ const cartRouter = express.Router();
 
 
 cartRouter.put("/:idUser", cartControllers.setCart);
+cartRouter.get("/:idUser",cartControllers.getCart)
 
 module.exports = cartRouter
