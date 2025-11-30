@@ -95,6 +95,7 @@
     }
 
     #extra {
+        cursor: pointer;
         margin-top: 15px;
         font-size: clamp(10px, 7.7vw, 15px);
         color: var(--texto-colorPrincipal);

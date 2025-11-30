@@ -1,7 +1,7 @@
 
 const mariadb = require("mariadb");
-const pool = mariadb.createPool({host: "localhost", user: "root", password: "Ceibal", database: "emercado", conectionLimit: 5});
-
+const conectionParams = require("../conectionParams");
+const pool = mariadb.createPool({host: "localhost", user: conectionParams.user, password: conectionParams.password, database: conectionParams.database, connectionLimit: 5});
 
 async function getProduct(productId){
     let conn;
