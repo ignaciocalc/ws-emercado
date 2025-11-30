@@ -87,11 +87,56 @@
         font-size: 17px;
     }
 
+    #registrarteLogin {
+        margin-top: 10px;
+        width: 100%;
+        min-height: 36px;
+        font-size: 17px;
+    }
+
     #extra {
         margin-top: 15px;
         font-size: clamp(10px, 7.7vw, 15px);
         color: var(--texto-colorPrincipal);
     }
+
+    #loginForm.login-logearse #name {
+        display: none;
+    }
+
+    #loginForm.login-logearse #lastName {
+        display: none;
+    }
+
+    #loginForm.login-logearse #phone {
+        display: none;
+    }
+
+    #loginForm.login-logearse #registrarteLogin {
+        display: none;
+    } 
+
+    /*  */
+    #loginForm.login-registrarse #name {
+        display: block;
+    }
+
+    #loginForm.login-registrarse #lastName {
+        display: block;
+    }
+
+    #loginForm.login-registrarse #phone {
+        display: block;
+    }
+
+    #loginForm.login-registrarse #registrarteLogin {
+        display: block;
+    } 
+
+    #loginForm.login-registrarse #ingresarLogin {
+        display: none;
+    } 
+
 /*---------------Fin Login---------------*/
 
 /*---------------Hedear---------------*/
