@@ -26,6 +26,7 @@ export const DEPARTAMENTOSYLOCALIDADES = {
     TreintayTres: ["Treinta y Tres", "Vergara", "Santa Clara de Olimar", "Cerro Chato", "Valentines"]
 };
 export const URLkey = "http://localhost:3000/login";
+export const URLCreateUser = "http://localhost:3000/register"
 export const UPDATECART = "http://localhost:3000/cart";
 
 export async function actualizarCart(idUser, token, cart){

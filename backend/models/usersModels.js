@@ -26,6 +26,27 @@ async function getUser(email){
     }
 }
 
+// Crea el usuario en la base de datos
+async function createUser(user){
+    let conn;
+    try{
+        conn = await pool.getConnection();
+
+        // devuelve un array con la fila que se agrega
+        let res = await conn.query("INSERT INTO users (name, lastName, email, password, phoneNumber) VALUES (?, ?, ?, ?, ?)", [user.nombre, user.apellido, user.email, user.contrasena, user.tel]);
+        
+        // devuelve info del INSERT, entre  ellas el ID auto incremental
+        return res.insertId;
+
+    } finally {
+        if (conn)
+            conn.release()
+          
+    }
+}
+
+
 module.exports = {
     getUser,
+    createUser,
 }

@@ -14,6 +14,23 @@ const pool = mariadb.createPool({host: "localhost", user: "root", password: "Cei
         }
 */
 
+async function createCart(user_id){
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        const cart = await conn.query("INSERT INTO carts (id_user) VALUES (?)", [user_id]);    
+
+        return true;
+    }
+    finally {
+        if(conn)
+            conn.release()
+    }
+
+    return false;
+}
+
+
 async function setCart(cart, user_id){
     let conn;
     try {
@@ -50,5 +67,6 @@ async function getCart(user_id){
 
 module.exports = {
     setCart,
-    getCart
+    getCart,
+    createCart
 }

@@ -5,4 +5,6 @@ const usersRouter = express.Router();
 
 usersRouter.post("/login", usersControllers.validUser);
 
+usersRouter.post("/register", usersControllers.createUserAndCart); 
+
 module.exports = usersRouter;

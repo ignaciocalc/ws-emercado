@@ -37,10 +37,7 @@ async function actualizarCantItem(id, cantidadItem, persist = true){
 // si se puede llamar a esta funcion existe el item cart en el ls
 // si cantidadItem tiene un valor, ese valor se suma (o resta si es negativo) a la cantidad actual de productos
 const
-//  linea
-   // carrito = JSON.parse(localStorage.getItem("cart")),
    carrito = cartGen,
-   // carrito = await getCart(user.user_id, user.token),
    posicion = carrito.productos.findIndex(elemento => elemento.idProducto == id);
 
    if (cantidadItem == 0){
@@ -105,8 +102,8 @@ async function actSubtotal(idProducto, inputCantidad, precioU, accion) {
 
       subtotalGenActual -= valorInput * aux;
       subtotalGenActual += subtotalProductoActual;
-      // if (subtotalGenActual % 1 != 0)
-      // subtotalGenActual = subtotalGenActual.toFixed(2); //acapaso
+      if (subtotalGenActual % 1 != 0)
+      subtotalGenActual = subtotalGenActual.toFixed(2);
       valorSubtotalGen.textContent = monedaTotal + " " + estiloMoneda.format(subtotalGenActual);
       valorSubtotalGen.setAttribute("valor", subtotalGenActual);
    }
@@ -244,9 +241,6 @@ function mostrarProducto(producto) {
 async function alternarMoneda() {
    const
       monedaActual = carritoTipoMoneda.getAttribute("moneda"),
-      // carrito = await getCart(user.user_id, user.token);
-      // // linea
-      // carrito = JSON.parse(localStorage.getItem("cart"));
       carrito = cartGen;
 
    if (monedaActual== "UYU"){
@@ -255,11 +249,9 @@ async function alternarMoneda() {
       dolaresText.style.left = "0";
       carritoTipoMoneda.setAttribute("moneda", "USD");
       carrito.moneda = "USD";
-      // localStorage.setItem("cart", JSON.stringify(carrito));
       cartGen = carrito;
       actualizarTotal();
       actualizarSubtotales();
-      // actualizarCart(user.user_id, user.token, carrito)
    } else {
       carritoTipoMoneda.style.minWidth = `${pesosText.offsetWidth}px`
       dolaresText.style.left = `+${dolaresText.offsetWidth + 2}px`;
@@ -270,8 +262,6 @@ async function alternarMoneda() {
       cartGen = carrito
       actualizarTotal()
       actualizarSubtotales()
-      // localStorage.setItem("cart", JSON.stringify(carrito))
-      // actualizarCart(user.user_id, user.token, carrito)
    }
 }
 
@@ -337,10 +327,6 @@ function actualizarSubtotales(){
 async function inicializarCarrito(){
    
    const
-   // linea
-      // carritoLs = localStorage.getItem("cart");
-      // user = localStorage.getItem("user");
-      
       carritoLs = await getCart(user.user_id, user.token);
    
    if (carritoLs != null) {
