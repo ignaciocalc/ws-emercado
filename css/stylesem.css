@@ -120,6 +120,7 @@ body {
 }
 
 #extra {
+   cursor: pointer;
    margin-top: 15px;
    font-size: clamp(5px, 2vw, 16px);
    color: var(--texto-colorPrincipal);
