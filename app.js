@@ -32,7 +32,7 @@ app.use("/cart", (req, res, next) => {
 
    jwt.verify(token, SECRET_KEY, async (err) => {
          if(err){
-            res.status(401).json({message: "No se puede validar el token del usuario"})
+            return res.status(401).json({message: "No se puede validar el token del usuario"})
          } else {
             next();   
          }

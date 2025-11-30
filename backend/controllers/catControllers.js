@@ -8,7 +8,7 @@ async function getCategories(req, res) {
 }
 
 async function getCatProducts(req, res) {
-      const catProducts = await catModel.getCatProducts(req.params.productId)
+      const catProducts = await catModel.getCatProducts(req.params.categorieId)
       res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(catProducts);      
 };
