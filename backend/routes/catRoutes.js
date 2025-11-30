@@ -7,6 +7,6 @@ const catRouter = express.Router();
 //             v
 catRouter.get("/cat", catControllers.getCategories);
 
-catRouter.get("/:productId", catControllers.getCatProducts)
+catRouter.get("/:categorieId", catControllers.getCatProducts)
 
 module.exports = catRouter 
